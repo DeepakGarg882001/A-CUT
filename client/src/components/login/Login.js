@@ -1,7 +1,7 @@
 import React from "react";
 import {BiUserCircle} from "react-icons/bi"
 import {BsShieldLock} from "react-icons/bs";
-import "./login.css";
+import "../../styles/login.css";
 const Login = () => {
   return (
     <>
