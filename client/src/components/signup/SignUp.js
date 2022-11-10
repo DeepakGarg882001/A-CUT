@@ -1,5 +1,5 @@
 import React from "react";
-import {BiUserCircle} from "react-icons/bi"
+import {BiUserCircle} from "react-icons/bi";
 import {BsShieldLock} from "react-icons/bs";
 import "../../styles/signup.css";
 const SignUp = () => {
