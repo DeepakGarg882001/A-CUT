@@ -1,9 +1,9 @@
 import React from 'react'
-import "./css/NavBar.css";
+import "../../styles/navbar.css";
 const NavBar = () => {
 	return (
 		<>
-			{/* <nav>
+			<nav>
 				<ul className="menu">
 					<li className="logo" id ="pic"> <img src="./img.jpg" alt="loading" />  </li>
 				
@@ -16,7 +16,7 @@ const NavBar = () => {
 		
 					
 				</ul>
-			</nav> */}
+			</nav>
 		</>
 	)
 }
