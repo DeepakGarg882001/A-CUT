@@ -3,7 +3,7 @@ import "./css/NavBar.css";
 const NavBar = () => {
 	return (
 		<>
-			<nav>
+			{/* <nav>
 				<ul className="menu">
 					<li className="logo" id ="pic"> <img src="./img.jpg" alt="loading" />  </li>
 				
@@ -16,7 +16,7 @@ const NavBar = () => {
 		
 					
 				</ul>
-			</nav>
+			</nav> */}
 		</>
 	)
 }
