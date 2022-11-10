@@ -1,7 +1,8 @@
+
 import React from "react";
 import {BiUserCircle} from "react-icons/bi"
 import {BsShieldLock} from "react-icons/bs";
-import "./login.css";
+import "../../styles/login.css";
 const Login = () => {
   return (
     <>
@@ -30,12 +31,13 @@ const Login = () => {
             <button>Submit</button>
           </div>
           <div className="forgot">
-            <p><a href="#">Forgot Password ?</a></p>
+            {/* <p><a href="#">Forgot Password ?</a></p> */}
           </div>
         </form>
       </div>
     </>
   );
 };
+
 
 export default Login;
