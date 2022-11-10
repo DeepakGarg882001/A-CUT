@@ -1,0 +1,35 @@
+
+
+nav {
+
+background-color: black;}
+
+.menu {
+	list-style-type: none;
+	display: inline;
+	display: flex;
+	justify-content: center;
+	justify-content: space-between;
+	font-size: 3vh;
+	padding: 1.5vh;
+
+}
+
+.logo{
+	color: bisque;
+}
+.i{
+	margin-left: 1rem;
+}
+
+a{
+	text-decoration: none;
+	color: bisque;
+}
+
+a:hover {
+	box-shadow: inset 100px 0 0 0 #54b3d6;
+	color: rgb(72, 24, 194);
+	padding: 1vh;
+	border-radius: 1rem;
+}
