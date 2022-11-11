@@ -7,7 +7,6 @@ import Home from "./home/Home";
 import Login from "./login/Login";
 import SignUp from "./signup/SignUp";
 import ForgotPass from "./forgotPass/ForgotPass";
-import Navbar from "./navbar/NavBar";
 
 
 
@@ -15,7 +14,7 @@ const Router = ()=>{
 
     return(
         <>
-                <Navbar/>
+                
                 <Routes>
                     <Route path="/" element={ <Home />} />
                     <Route path="/about" element={ <AboutUs />} />
