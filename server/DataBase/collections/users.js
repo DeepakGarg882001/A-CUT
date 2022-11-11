@@ -15,6 +15,26 @@ const UserDoc = new mongoose.Schema({
     },
     token:{
         type:String
-    }
+    },
+    userAccPlay: {
+        accPlay: {
+          type: String,
+          default: "running",
+        },
+      },
+      userAccPlayChanges: [
+        {
+          accPlay: {
+            type: String,
+          },
+          adminId: {
+            type: String,
+          },
+        },
+      ],
 
 })
+
+const UserCol = mongoose.model("USER", UserDoc);
+
+export default UserCol;
