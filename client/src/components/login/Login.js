@@ -7,6 +7,7 @@ import {Formik, Form, ErrorMessage,Field} from "formik"
 
 const Login = () => {
 
+  const url = process.env.REACT_APP_SERVER_URL;
  
   const initialFormData = {
     email :"",
@@ -18,9 +19,20 @@ const Login = () => {
     password: yup.string().required("password is required"),
   });
 
+  const postDataToServer = async(values)=>{
 
-  const postDataToServer = (values)=>{
-    
+    const makeReq = await fetch(`${url}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    const response = await makeReq.json();
+
+    console.log(response);
+
   }
 
   return (

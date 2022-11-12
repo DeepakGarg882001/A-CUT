@@ -1,9 +1,8 @@
 import UserCol from "../DataBase/collections/users.js";
 import bcrypt from "bcryptjs";
 
-console.log("hhii");
 
-export const signup = async(request,response)=>{
+ const signup = async(request,response)=>{
     
     console.log(request);
 
@@ -47,3 +46,5 @@ export const signup = async(request,response)=>{
   }
 
 };
+
+export default signup;
