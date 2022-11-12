@@ -1,15 +1,15 @@
 import React from 'react'
-// import "aboutimg.png";
+import img1 from "../../Assets/about1.png";
+import "../../styles/about.css";
 
 const AboutUs = () => {
   return (
     <>
       <div className="about">
         <div className="box">
-          <img src="aboutimg" alt="loading
-          " />
+          <img src={img1} alt="loading" />
         </div>
-        <div className="par">
+        {/* <div className="par">
           <h1><h1>what:-</h1>
           It is a online services that provide the easy and without time waste services at near you saloon at your selected time</h1>
           <h3>The application is provide following service</h3>
@@ -27,10 +27,10 @@ const AboutUs = () => {
 
 
            </ul>
+ */}
 
-
-     
-        </div>
+{/*      
+        </div> */}
       </div>
     </>
   )
