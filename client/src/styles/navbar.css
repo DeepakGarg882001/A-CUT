@@ -1,32 +1,35 @@
 nav {
-  background-color: black;
+  background-color: #628E90;
 }
-
+nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .menu {
   list-style-type: none;
-  display: inline;
   display: flex;
   justify-content: center;
-  justify-content: space-between;
   font-size: 3vh;
   padding: 1.5vh;
+  margin-right: 5rem;
 }
-
-.logo {
-  color: bisque;
+li{
+  margin-right: 1.5rem;
 }
-.i {
-  margin-left: 1rem;
-}
-
 a {
   text-decoration: none;
   color: bisque;
 }
-
+.logo{
+  margin-left: 1rem;
+  color: #fff;
+}
+li a{
+  padding: .3rem;
+}
 li a:hover {
   box-shadow: inset 100px 0 0 0 #54b3d6;
   color: rgb(72, 24, 194);
-  padding: 1vh;
-  border-radius: 1rem;
+  border-radius: .2rem;
 }
