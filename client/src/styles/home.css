@@ -1,0 +1,59 @@
+video{
+    width: 400px;
+    height: 300px;
+}
+.Work-flow{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Work-flow h2{
+    color: aliceblue;
+}
+/* Shop start */
+.shops{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.shops h2{
+    color: aliceblue;
+}
+.individual{
+    display: flex;
+    justify-content: space-between;
+   margin-top: 1rem;
+}
+.individual-shop{
+    width: 300px;
+    height: 300px;
+    background-color: aquamarine;
+    margin-right: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+}
+.individual-shop img{
+    width: 100%;
+    height: 60%;
+}
+
+h3{
+    text-align: center;
+}
+.individual-shop .btn{
+    margin-top: .5rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    border: none;
+    transition: all 1s;
+    font-weight: bold;
+}
+.individual-shop .btn:hover{
+    background-color: #5F9DF7;
+}

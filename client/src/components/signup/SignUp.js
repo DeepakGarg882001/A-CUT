@@ -86,7 +86,7 @@ const SignUp = () => {
               <div className="icon">
                 <BsShieldLock/>
               </div>
-              <Field type="number" name="phone"  placeholder="Enter your phone number" />
+              <Field type="number" name="phone" placeholder="Enter your phone number" />
               <ErrorMessage name="phone" />
             </div>
           </div>
