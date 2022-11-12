@@ -1,7 +1,7 @@
 import express from "express";
 import dotENV from "dotenv";
 import mongoose from "mongoose";
-// import 
+import Router from "./routes/RootRouter";
 const app = express();
 
 //  Importing dotENV file
@@ -17,7 +17,7 @@ const URL = process.env.DB_URL;
          console.log(error);
   });
 
-
+// app.use(router);
 
 // Starting server at PORT No.
 const PORT = process.env.PORT;
