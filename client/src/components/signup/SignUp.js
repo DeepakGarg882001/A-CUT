@@ -7,13 +7,16 @@ import * as yup from "yup";
 import {Formik,Form,Field,ErrorMessage} from "formik";
 
 const SignUp = () => {
- 
+  
+  const url = process.env.REACT_APP_SERVER_URL;
 
+ console.log(url);
   const initialFormData = {
     name:"",
     email:"",
     phone:"",
-    password:""
+    password:"",
+    confirmPassword:""
   } 
  
   const formValidation = yup.object().shape({
@@ -27,7 +30,19 @@ const SignUp = () => {
   });
 
   
-  const postDataToServer = (values)=>{
+  const postDataToServer = async(values)=>{
+
+    const makeReq = await fetch(`${url}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    const response = await makeReq.json();
+
+    console.log(response);
 
   }
 
