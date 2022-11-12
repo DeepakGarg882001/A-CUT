@@ -4,9 +4,7 @@ import startServer from "./server.js";
 import router from "./routes/RootRouter.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-import https from "https";
-// import fs from "fs"
-// import path from "path"
+// import https from "https";
 
 //  Importing dotENV file
 dotENV.config({ 
@@ -21,7 +19,7 @@ dotENV.config({
  app.use(bodyParser.urlencoded({ extended: true }));
 //  app.use(https);
 
- app.use("/auth",router);
+ app.use("/api/v1",router);
 
  export default app;
 

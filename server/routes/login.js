@@ -1,16 +1,14 @@
-import router from "./RootRouter";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import UserCol from "../DataBase/collections/users";
+import UserCol from "../DataBase/collections/users.js";
 
 
 
-router.post("/login", async (request,response)=>{
+const login = async (request,response)=>{
        
     console.log(request.body);
 
     try {
-     
          const { email , password }= request.body;
 
          if( !email || !password ){
@@ -21,8 +19,9 @@ router.post("/login", async (request,response)=>{
          const isUserExists = await UserCol.findOne({email});
 
          if(isUserExists){
+     console.log(isUserExists);
               
-            const checkPassword = await bcrypt.compare(password,isUserExists.password);
+            const checkPassword =  bcrypt.compare(password,isUserExists.password);
             
 
             if(!checkPassword){
@@ -48,7 +47,9 @@ router.post("/login", async (request,response)=>{
             
 
             if(isUserExists.userRole.role === "customer"){
+
                token = jwt.sign(data,customer_Key);
+
             }else{
 
                 if(isUserExists.userRole.role === "owner"){
@@ -88,4 +89,6 @@ router.post("/login", async (request,response)=>{
     }
 
 
-});
+};
+
+export default login;
