@@ -1,0 +1,36 @@
+.footer {
+    height: auto;
+    width: 100%;
+    margin-top: 75vh;
+    background-color: #628E90;
+    display: flex;
+    justify-content: center;
+
+}
+
+#connect, #footer_bootom {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(72, 24, 194);
+}
+
+.icon {
+    display: inline;
+    margin: 5vh;
+    justify-content: space-between;
+}
+
+.facebook {
+    border-radius: 1rem;
+}
+
+#social {
+    font-size: 2rem;
+    margin-left: 15vh;
+}
