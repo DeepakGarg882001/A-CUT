@@ -20,7 +20,7 @@ const URL = process.env.DB_URL;
 // app.use(router);
 
 // Starting server at PORT No.
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 app.listen(PORT, () => {
   console.log(`Server is running at PORT NO. : ${PORT}`);
 });

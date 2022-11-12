@@ -69,8 +69,8 @@ const SignUp = () => {
                 <BiUserCircle/>
               </div>
               <Field type="text" name="name" placeholder="Username" />
-              <ErrorMessage name="name" />
-            </div>
+            </div> 
+            <ErrorMessage name="name" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -78,8 +78,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="email" name="email"  placeholder="abc@example.com" />
-              <ErrorMessage name="email" />
+              
             </div>
+            <ErrorMessage name="email" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -87,8 +88,8 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="number" name="phone" placeholder="Enter your phone number" />
-              <ErrorMessage name="phone" />
             </div>
+            <ErrorMessage name="phone" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -106,8 +107,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="text" name="confirmPassword"  placeholder="ConfirmPassword" />
-              <ErrorMessage name="confirmPassword" />
+              
             </div>
+            <ErrorMessage name="confirmPassword" />
           </div>
           <div className="inputWrapper">
             <button type="submit" >Submit</button>
