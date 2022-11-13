@@ -7,8 +7,17 @@ const UserDoc = new mongoose.Schema({
     age:{
         type:Number
     },
-    role:{
-        type:String
+    password:{
+      type:String,
+    },
+    phone:{
+      type:Number
+    },
+    userRole: {
+      role: {
+        type: String,
+        default: "customer",
+      },
     },
     email:{
         type:String

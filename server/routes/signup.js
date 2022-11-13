@@ -1,11 +1,10 @@
-import router from "./RootRouter";
-import UserCol from "../DataBase/collections/users";
+import UserCol from "../DataBase/collections/users.js";
 import bcrypt from "bcryptjs";
 
 
-router.post('/signup',async (request,response)=>{
+ const signup = async(request,response)=>{
     
-    console.log(request.body);
+    console.log(request);
 
   try {
    
@@ -46,4 +45,6 @@ router.post('/signup',async (request,response)=>{
     response.status(401).json({error});
   }
 
-});
+};
+
+export default signup;
