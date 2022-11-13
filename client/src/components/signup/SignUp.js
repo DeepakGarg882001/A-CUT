@@ -5,12 +5,15 @@ import "../../styles/signup.css";
 import * as yup from "yup";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
+import { Link ,Navigate} from "react-router-dom";
+
+
 
 const SignUp = () => {
   
   const url = process.env.REACT_APP_SERVER_URL;
+  const navigate = Navigate();
 
- console.log(url);
   const initialFormData = {
     name:"",
     email:"",
@@ -43,6 +46,9 @@ const SignUp = () => {
     const response = await makeReq.json();
 
     console.log(response);
+    if(response.message){
+      navigate("/login");
+    }
 
   }
 
@@ -69,7 +75,9 @@ const SignUp = () => {
                 <BiUserCircle/>
               </div>
               <Field type="text" name="name" placeholder="Username" />
-              <ErrorMessage name="name" />
+            </div>
+            <div>
+            <ErrorMessage name="name" />
             </div>
           </div>
           <div className="inputWrapper">
@@ -78,7 +86,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="email" name="email"  placeholder="abc@example.com" />
-              <ErrorMessage name="email" />
+            </div>
+            <div>
+            <ErrorMessage name="email" />
             </div>
           </div>
           <div className="inputWrapper">
@@ -87,7 +97,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="number" name="phone" placeholder="Enter your phone number" />
-              <ErrorMessage name="phone" />
+            </div>
+            <div>
+            <ErrorMessage name="phone" />
             </div>
           </div>
           <div className="inputWrapper">
@@ -98,7 +110,9 @@ const SignUp = () => {
               <Field type="password" name="password"  placeholder="Password" />
               
             </div>
-            <ErrorMessage name="password" />
+             <div>
+             <ErrorMessage name="password" />
+             </div>
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -106,6 +120,8 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="text" name="confirmPassword"  placeholder="ConfirmPassword" />
+            </div>
+            <div>
               <ErrorMessage name="confirmPassword" />
             </div>
           </div>
@@ -113,7 +129,7 @@ const SignUp = () => {
             <button type="submit" >Submit</button>
           </div>
           <div className="forgot">
-            <p><a href="#">If already registered ? login</a></p>
+            <p>If already registered ? <Link>login</Link></p>
           </div>
           </Form>
         </Formik>

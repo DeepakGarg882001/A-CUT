@@ -1,4 +1,4 @@
-import UserCol from "../DataBase/collections/users.js";
+import UserCol from "../DB_Collections/users.js";
 import bcrypt from "bcryptjs";
 
 
