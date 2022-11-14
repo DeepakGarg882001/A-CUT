@@ -4,7 +4,15 @@ import video from "../../Assets/video.mp4";
 import s1 from "../../Assets/home1.jpg";
 import s2 from "../../Assets/home2.jpg";
 import s3 from "../../Assets/home3.jpg";
+
+import Services from '../services/Services';
+import {Link} from "react-router-dom";
+
+
 const Home = () => {
+
+  const AllServices = [];
+
   return (
     <>
     <div>
@@ -36,6 +44,25 @@ const Home = () => {
           </div>
       </div>
     </div>
+     
+     <div>
+          <div>
+            <h2>Our Service</h2>
+          </div>
+          <div>
+            {AllServices.map((data,index)=>{
+              return(  
+                <React.Fragment key={index}>
+                  <Link>
+                     <Services data={data}/>
+                  </Link>
+                </React.Fragment>         
+              )
+            })}
+          </div>
+     </div>
+
+
     </>
   )
 }
