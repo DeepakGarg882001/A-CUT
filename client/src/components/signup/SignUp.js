@@ -5,6 +5,8 @@ import "../../styles/signup.css";
 import * as yup from "yup";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
+import Swal from "sweetalert2";
+
 
 const SignUp = () => {
   
@@ -43,6 +45,9 @@ const SignUp = () => {
     const response = await makeReq.json();
 
     console.log(response);
+    if(response.message){
+      Swal.fire("Congratulation ! , You have sussessfully Registered");
+    }
 
   }
 

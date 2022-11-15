@@ -4,7 +4,7 @@ import {BiUserCircle} from "react-icons/bi"
 import {BsShieldLock} from "react-icons/bs";
 import "../../styles/login.css";
 import {Formik, Form, ErrorMessage,Field} from "formik"
-
+import Swal from "sweetalert2";
 const Login = () => {
 
   const url = process.env.REACT_APP_SERVER_URL;
@@ -32,6 +32,9 @@ const Login = () => {
     const response = await makeReq.json();
 
     console.log(response);
+    if(response.message){
+      Swal.fire("Welcome to The A-CUT ");
+    }
 
   }
 

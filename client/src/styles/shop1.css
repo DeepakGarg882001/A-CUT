@@ -1,4 +1,4 @@
-header{
+#header{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@ header{
 .designer{
     margin-top: 3rem;
 }
-header h2,h3{
+#header h2,h3{
     color: aliceblue;
 }
 .designs{
@@ -35,21 +35,21 @@ header h2,h3{
 .designer h3{
     margin-top: 1rem;
 }
-form{
+#form-shop{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
 }
-form input,select{
+#form-shop input,select{
     outline: none;
     padding: .3rem;
     border: 3px solid #497174;
     border-radius: 1.5rem;
     width: 60%;
 }
-form .btn{
+#form-shop .btn{
     width: 60%;
     padding: .3rem;
     border: 3px solid #497174;
@@ -58,6 +58,6 @@ form .btn{
     font-size: 1rem;
     transition: all 1.5s;
 }
-form .btn:hover{
+#form-shop .btn:hover{
     background-color: #59C1BD;
 }
