@@ -10,7 +10,7 @@ const shopModel=new mongoose.Schema({
         type:String,
     },
     rating:{
-        type:Number,
+        type:Number, 
     },
     services:{
         type:[],

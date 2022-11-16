@@ -5,14 +5,15 @@ import "../../styles/signup.css";
 import * as yup from "yup";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
+import { Link ,useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const SignUp = () => {
   
   const url = process.env.REACT_APP_SERVER_URL;
+  const navigate = useNavigate();
 
- console.log(url);
   const initialFormData = {
     name:"",
     email:"",
@@ -44,9 +45,11 @@ const SignUp = () => {
 
     const response = await makeReq.json();
 
-    console.log(response);
+    console.log(response.data);
+    
     if(response.message){
-      Swal.fire("Congratulation ! , You have sussessfully Registered");
+      Swal.fire(`Congratulations ${response.data.name} ,you have successfully registered `)
+      navigate("/login");
     }
 
   }
@@ -74,8 +77,10 @@ const SignUp = () => {
                 <BiUserCircle/>
               </div>
               <Field type="text" name="name" placeholder="Username" />
-            </div> 
+            </div>
+            <div>
             <ErrorMessage name="name" />
+            </div>
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -83,7 +88,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="email" name="email"  placeholder="abc@example.com" />
-              
+            </div>
+            <div>
+            <ErrorMessage name="email" />
             </div>
             <ErrorMessage name="email" />
           </div>
@@ -93,6 +100,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="number" name="phone" placeholder="Enter your phone number" />
+            </div>
+            <div>
+            <ErrorMessage name="phone" />
             </div>
             <ErrorMessage name="phone" />
           </div>
@@ -104,7 +114,9 @@ const SignUp = () => {
               <Field type="password" name="password"  placeholder="Password" />
               
             </div>
-            <ErrorMessage name="password" />
+             <div>
+             <ErrorMessage name="password" />
+             </div>
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -112,7 +124,9 @@ const SignUp = () => {
                 <BsShieldLock/>
               </div>
               <Field type="text" name="confirmPassword"  placeholder="ConfirmPassword" />
-              
+            </div>
+            <div>
+              <ErrorMessage name="confirmPassword" />
             </div>
             <ErrorMessage name="confirmPassword" />
           </div>
@@ -120,7 +134,7 @@ const SignUp = () => {
             <button type="submit" >Submit</button>
           </div>
           <div className="forgot">
-            <p><a href="#">If already registered ? login</a></p>
+            <p>If already registered ? <Link>login</Link></p>
           </div>
           </Form>
         </Formik>
