@@ -33,7 +33,7 @@ const SignUp = () => {
   });
 
   
-  const postDataToServer = async(values)=>{
+  const postDataToServer = async (values)=>{
 
     const makeReq = await fetch(`${url}/signup`, {
       method: "POST",
@@ -45,10 +45,10 @@ const SignUp = () => {
 
     const response = await makeReq.json();
 
-    console.log(response.data);
+    console.log(response);
     
     if(response.message){
-      Swal.fire(`Congratulations ${response.data.name} ,you have successfully registered `)
+      Swal.fire(`Congratulations, you have successfully registered `)
       navigate("/login");
     }
 
