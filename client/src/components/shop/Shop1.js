@@ -6,7 +6,7 @@ import img3 from "../../Assets/shop3.jpg";
 const Shop1 = () => {
   return (
     <>
-      <header>
+      <header id="header" >
         <h2>Near Government School (Jant-Pali Mahendergarh)</h2>
         <div className="designer">
           <h3>Designs you can select here...</h3>
@@ -33,7 +33,7 @@ const Shop1 = () => {
             </div>
           </div>
           <h3>Enter the details for booking </h3>
-          <form id="form">
+          <form id="form-shop">
             <input type="text" id="name" placeholder="Enter your name" />
             <select name="service" id="hair-cut">
               <option value="hair-cut">Select services you want</option>

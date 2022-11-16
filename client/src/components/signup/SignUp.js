@@ -5,14 +5,14 @@ import "../../styles/signup.css";
 import * as yup from "yup";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
-import { Link ,Navigate} from "react-router-dom";
-
+import { Link ,useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
   
   const url = process.env.REACT_APP_SERVER_URL;
-  const navigate = Navigate();
+  const navigate = useNavigate();
 
   const initialFormData = {
     name:"",
@@ -33,7 +33,7 @@ const SignUp = () => {
   });
 
   
-  const postDataToServer = async(values)=>{
+  const postDataToServer = async (values)=>{
 
     const makeReq = await fetch(`${url}/signup`, {
       method: "POST",
@@ -46,7 +46,9 @@ const SignUp = () => {
     const response = await makeReq.json();
 
     console.log(response);
+    
     if(response.message){
+      Swal.fire(`Congratulations, you have successfully registered `)
       navigate("/login");
     }
 
@@ -90,6 +92,7 @@ const SignUp = () => {
             <div>
             <ErrorMessage name="email" />
             </div>
+            <ErrorMessage name="email" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -101,6 +104,7 @@ const SignUp = () => {
             <div>
             <ErrorMessage name="phone" />
             </div>
+            <ErrorMessage name="phone" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -124,6 +128,7 @@ const SignUp = () => {
             <div>
               <ErrorMessage name="confirmPassword" />
             </div>
+            <ErrorMessage name="confirmPassword" />
           </div>
           <div className="inputWrapper">
             <button type="submit" >Submit</button>
