@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 
  const signup = async(request,response)=>{
     
-    console.log(request);
+    console.log(request.body);
 
   try {
    

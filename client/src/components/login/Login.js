@@ -37,6 +37,7 @@ const Login = () => {
 
     const response = await makeRequest.json();
     if (response.error) {
+      console.log(response.error);
       if (response.error.name) {
         Swal.fire("Sorry", `${response.error.name}`, "error");
       } else {

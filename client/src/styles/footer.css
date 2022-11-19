@@ -1,13 +1,11 @@
 .footer {
-    height: auto;
     width: 100%;
-    margin-top: 75vh;
     background-color: #628E90;
     display: flex;
     justify-content: center;
-
+    align-items: center;
+    margin-top: 1rem;
 }
-
 #connect, #footer_bootom {
     text-align: center;
 }
