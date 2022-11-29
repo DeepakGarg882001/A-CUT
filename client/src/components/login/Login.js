@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import Get_Current_User from "../../redux/action/Current_User_Action";
+import {Get_Current_User} from "../../redux/action/Current_User_Action";
 import {useDispatch} from "react-redux";
 
 const Login = () => {

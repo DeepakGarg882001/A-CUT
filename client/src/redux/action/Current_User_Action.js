@@ -1,9 +1,15 @@
+import {GET_Current_User_Data,REMOVE_Current_User_Data} from "../reduxConstants";
 
-
-const Get_Current_User = ()=>{
+export const Get_Current_User = (data)=>{
     return{
-        type:""
+        type:GET_Current_User_Data,
+        data
     }
 }
 
-export default Get_Current_User;
+export const LogOut_User =()=>{
+    return{
+        type:REMOVE_Current_User_Data,
+    }
+
+}
