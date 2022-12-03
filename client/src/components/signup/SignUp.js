@@ -140,7 +140,7 @@ const SignUp = () => {
             <button type="submit" >Submit</button>
           </div>
           <div className="forgot">
-            <p>If already registered ? <Link>login</Link></p>
+            <p>If already registered ? <Link to="/login">login</Link></p>
           </div>
           </Form>
         </Formik>
