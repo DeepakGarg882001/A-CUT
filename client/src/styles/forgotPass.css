@@ -1,0 +1,119 @@
+.forgotPass-canvas{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 30px;
+    background-color: white;
+}
+.forgotPass-left-sec{
+    width: fit-content;
+    height: 70vh;
+
+}
+.forgotPass-img{
+    max-height: 100%;
+    max-width: 100%;
+    height: fit-content;
+    width: auto;
+}
+.forgotPass-right-sec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 20px;
+    padding: 0px 16px;
+}
+.forgotPass-right-top{
+   font-size: 4.5rem;
+   font-weight: bolder;
+   color: #ff418c;
+}
+.forgotPass-right-middle{
+    color: #8c839b;
+    font-size: 1.5rem;
+    
+}
+.forgotPass-form{
+    margin-top: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.forgotPass-field{
+    width: 80%;
+}
+.forgotPass-btn{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    width: fit-content;
+    background-color:#ff418c;
+    color: white;
+    border-radius: 5px;
+    margin-top: 25px;
+    border-color: aliceblue;
+}
+
+
+@media only screen and (max-width:1200px) {
+    .forgotPass-right-top {
+        font-size: 3.5rem;
+    }
+    .forgotPass-left-sec{
+        height: fit-content;
+    }
+    .forgotPass-img{
+        width: 70vw;
+    }
+}
+
+
+@media only screen and (max-width:950px) {
+    .forgotPass-right-top {
+        font-size: 2.8rem;
+    }
+    .forgotPass-img{
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    
+    .forgotPass-canvas{
+        flex-direction: column;
+        padding-bottom: 50px;
+        height: fit-content;
+        min-height: fit-content;
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+    
+    .forgotPass-right-sec{
+        gap:8px;
+    }
+    .forgotPass-form{
+        margin-top: 15px;
+    }
+    .forgotPass-img{
+        width: 90vw;
+    }
+}
+
+@media only screen and (max-width:410px) {
+    .forgotPass-right-top {
+        font-size: 2rem;
+    }
+   .forgotPass-right-middle{
+    font-size: 1.3rem;
+   }
+   
+}
