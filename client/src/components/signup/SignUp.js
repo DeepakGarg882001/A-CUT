@@ -3,6 +3,7 @@ import {BiUserCircle} from "react-icons/bi";
 import {BsShieldLock} from "react-icons/bs";
 import "../../styles/signup.css";
 import * as yup from "yup";
+import Swal from "sweetalert2";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
 import { Link ,useNavigate} from "react-router-dom";
