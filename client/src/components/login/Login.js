@@ -64,14 +64,14 @@ const Login = () => {
             resetForm();
           }}
         >
-          <Form>
+          <Form className="login_page">
             <div className="heading">
               <h2>LOGIN</h2>
             </div>
             <div className="inputWrapper">
               <div className="inputInner">
-                <div className="icon">
-                  <BiUserCircle />
+                <div >
+                  <BiUserCircle className="icon" />
                 </div>
                 <Field type="text" name="email" placeholder="Username" />
               </div>
@@ -81,8 +81,8 @@ const Login = () => {
             </div>
             <div className="inputWrapper">
               <div className="inputInner">
-                <div className="icon">
-                  <BsShieldLock />
+                <div >
+                  <BsShieldLock  className="icon"/>
                 </div>
                 <Field type="password" name="password" placeholder="Password" />
               </div>
@@ -102,7 +102,7 @@ const Login = () => {
             </div>
 
             <div>
-              <p>
+              <p className="no_account">
                 Don't have any Account?
                 <span>
                   <Link to="/signUp">SignUp</Link>

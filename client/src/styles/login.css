@@ -11,11 +11,11 @@ body{
 }
 .inputWrapper{
     width: 300px;
+   
 }
 .inputWrapper input,.inputWrapper button{
-    width: 100%;
+    width: 50%;
     height: 45px;
-    border:0;
     box-sizing: border-box;
 }
 .inputWrapper input{
@@ -76,4 +76,26 @@ body{
     text-align: center;
     width: 20px;
 }
+.no_account{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: .5rem;
+}
 
+@media only screen and (min-width:300px) and (max-width:400px) {
+    .login_page{
+        margin-left:35vw;
+        margin-right: 35vw;
+    }
+    
+    ::placeholder{
+        font-size: 1rem;
+    }
+    .inputWrapper .inputInner{
+        display: flex;
+        margin-bottom: 60px;    
+        border:1px solid #fff;
+        border-radius: 4px;
+    }
+
+}  
