@@ -35,15 +35,36 @@ const SignUp = () => {
 
   
   const postDataToServer = async(values)=>{
-
-    const makeReq = await fetch(`${url}/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    
+    let timerInterval;
+    const waitingAlert = Swal.fire({
+      title: " Please Wait ",
+      showConfirmButton: false,
+      html: "It may Take time upto  <b> </b> minutes .",
+      timer: 130000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {
+           let min = Math.floor((Swal.getTimerLeft() / 1000 / 60) << 0);
+           let sec = Math.floor((Swal.getTimerLeft() / 1000) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+          b.textContent = min+":"+sec;
+        }, 1000);
       },
-      body: JSON.stringify(values),
     });
 
+  const makeReq = await fetch(`${url}/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+  }).then(
+    waitingAlert
+  );
+
+   
     const response = await makeReq.json();
 
     if (response.error) {
@@ -56,7 +77,7 @@ const SignUp = () => {
    }
    if (response.message) {
      Swal.fire(
-       "Registered successfully !"
+       " Successfully Registered ! ","","success"
      );
      navigate("/");
    }
