@@ -1,8 +1,5 @@
-nav {
+.navbar {
   background-color: #628E90;
-}
-
-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,29 +12,20 @@ nav {
   font-size: 3vh;
   padding: 1.5vh;
   margin-right: 5rem;
-
-
 }
-
-li {
+.menu li {
   margin-right: 1.5rem;
 }
-
-a {
+.menu a {
   text-decoration: none;
   color: bisque;
+  padding: .3rem;
 }
-
 .logo {
   margin-left: 1rem;
   color: #fff;
 }
-
-li a {
-  padding: .3rem;
-}
-
-li a:hover {
+.menu li a:hover {
   box-shadow: inset 100px 0 0 0 #54b3d6;
   color: rgb(72, 24, 194);
   border-radius: .2rem;

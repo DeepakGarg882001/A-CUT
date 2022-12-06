@@ -1,26 +1,98 @@
-.about{
-    width: 100%;
+.about {
+    width: 100vw;
     height: 70vh;
-    margin: 0rem auto;
-    margin-top: 3rem;
+    margin: 0vw auto;
+    margin-top: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-
-.about .about-img{
-    width: 60%;
-    margin-left: 2rem;
+.about .about-img {
+    width: 50vw;
+    margin-left: 2vw;
+    justify-content: space-evenly;
 }
-.about-img img{
-    width: 50%;
+
+.about-img img {
+    width: 30vw;
     border-radius: 1rem;
 }
-.about .about-content{
-    width:40%;
-    margin-right:2rem;
-}
-.about-content p{
+
+.about .about-content {
+    width: 30vw;
+    margin-right: 2vw;
+    text-align: justify;
+    font-size: 1.2rem;
     color: aliceblue;
+}
+
+@media only screen and (max-width:930px) {
+    .about .about-img {
+        width: 50vw;
+        margin-right: 5vw;
+        margin-left: -.7vw;
+    }
+
+    .about-img img {
+        width: 43vw;
+        border-radius: 1rem;
+    }
+
+    .about .about-content {
+        width: 40vw;
+        margin-right: 3vw;
+    }
+}
+
+@media only screen and (max-width:830px) and (min-width:430px) {
+    .about {
+        margin-top: 130px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-img img {
+        border-radius: 1rem;
+        width: 60vw;
+        margin-left: 1vw;
+        margin-top: 8px;
+
+    }
+
+    .about .about-content {
+        width: auto;
+        margin-left: 20px;
+        padding: 20px;
+        margin-top: 8px;
+        color: aliceblue;
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width:429px) {
+    .about {
+        margin-top: 180px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .about-img img {
+        border-radius: 1rem;
+        width: 100vw;
+        margin-left: 1vw;
+        margin-top: 8px;
+
+    }
+
+    .about .about-content {
+        width: 100vw;
+        margin-left: 50vw;
+        margin-top: 30px;
+        color: aliceblue;
+        font-size: 1.4rem;
+    }
+
 }

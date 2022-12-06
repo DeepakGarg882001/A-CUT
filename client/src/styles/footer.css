@@ -15,8 +15,9 @@ a {
 }
 
 a:hover {
-    color: rgb(72, 24, 194);
+    color: rgb(194, 24, 72);
 }
+
 
 .icon {
     display: inline;
