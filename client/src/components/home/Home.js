@@ -4,7 +4,6 @@ import video from "../../Assets/video.mp4";
 import s1 from "../../Assets/home1.jpg";
 import s2 from "../../Assets/home2.jpg";
 import s3 from "../../Assets/home3.jpg";
-
 import Services from '../services/Services';
 import {Link} from "react-router-dom";
 
@@ -19,7 +18,7 @@ const Home = () => {
       <div className="Work-flow">
         <h2>Total work flow of this app by seing below video</h2>
         <video controls>
-        <source src={video} type="video/mp4"/>
+        <source src={video} type="video/mp4" id ="video"/>
         Your browser does not support the video tag.
         </video>
       </div>
@@ -27,6 +26,7 @@ const Home = () => {
         <h2>Available Shops</h2>
         <div className='individual'>
           <div className="individual-shop">
+            {/* shop start */}
             <h3>shop1</h3>
             <img src={s1} alt="img" />
             <button className='btn'>Book Now</button>

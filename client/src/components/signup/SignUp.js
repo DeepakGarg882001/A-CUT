@@ -3,10 +3,11 @@ import {BiUserCircle} from "react-icons/bi";
 import {BsShieldLock} from "react-icons/bs";
 import "../../styles/signup.css";
 import * as yup from "yup";
+import Swal from "sweetalert2";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
 import { Link ,useNavigate} from "react-router-dom";
-import Swal from "sweetalert2";
+
 
 
 const SignUp = () => {
@@ -33,7 +34,7 @@ const SignUp = () => {
   });
 
   
-  const postDataToServer = async (values)=>{
+  const postDataToServer = async(values)=>{
 
     const makeReq = await fetch(`${url}/signup`, {
       method: "POST",
@@ -45,12 +46,20 @@ const SignUp = () => {
 
     const response = await makeReq.json();
 
-    console.log(response);
-    
-    if(response.message){
-      Swal.fire(`Congratulations, you have successfully registered `)
-      navigate("/login");
-    }
+    if (response.error) {
+      if(response.error.name){
+       Swal.fire("Sorry", `${response.error.name}`, "error");
+      }
+      else{
+       Swal.fire("Sorry", `${response.error}`, "error");
+      }
+   }
+   if (response.message) {
+     Swal.fire(
+       "Registered successfully !"
+     );
+     navigate("/");
+   }
 
   }
 
@@ -92,7 +101,6 @@ const SignUp = () => {
             <div>
             <ErrorMessage name="email" />
             </div>
-            <ErrorMessage name="email" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -104,7 +112,6 @@ const SignUp = () => {
             <div>
             <ErrorMessage name="phone" />
             </div>
-            <ErrorMessage name="phone" />
           </div>
           <div className="inputWrapper">
             <div className="inputInner">
@@ -128,13 +135,12 @@ const SignUp = () => {
             <div>
               <ErrorMessage name="confirmPassword" />
             </div>
-            <ErrorMessage name="confirmPassword" />
           </div>
           <div className="inputWrapper">
             <button type="submit" >Submit</button>
           </div>
           <div className="forgot">
-            <p>If already registered ? <Link>login</Link></p>
+            <p>If already registered ? <Link to="/login">login</Link></p>
           </div>
           </Form>
         </Formik>

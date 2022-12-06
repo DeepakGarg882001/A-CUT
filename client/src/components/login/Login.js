@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import Get_Current_User from "../../redux/action/Current_User_Action";
+import {Get_Current_User} from "../../redux/action/Current_User_Action";
 import {useDispatch} from "react-redux";
 
 const Login = () => {
@@ -64,14 +64,14 @@ const Login = () => {
             resetForm();
           }}
         >
-          <Form>
+          <Form className="login_page">
             <div className="heading">
               <h2>LOGIN</h2>
             </div>
             <div className="inputWrapper">
               <div className="inputInner">
-                <div className="icon">
-                  <BiUserCircle />
+                <div >
+                  <BiUserCircle className="icon" />
                 </div>
                 <Field type="text" name="email" placeholder="Username" />
               </div>
@@ -81,8 +81,8 @@ const Login = () => {
             </div>
             <div className="inputWrapper">
               <div className="inputInner">
-                <div className="icon">
-                  <BsShieldLock />
+                <div >
+                  <BsShieldLock  className="icon"/>
                 </div>
                 <Field type="password" name="password" placeholder="Password" />
               </div>
@@ -93,7 +93,7 @@ const Login = () => {
 
             <div className="forgot">
               <p>
-                <Link>Forgot Password ?</Link>
+                <Link to="/forgotPass">Forgot Password ?</Link>
               </p>
             </div>
 
@@ -102,10 +102,10 @@ const Login = () => {
             </div>
 
             <div>
-              <p>
+              <p className="no_account">
                 Don't have any Account?
                 <span>
-                  <Link>SignUp</Link>
+                  <Link to="/signUp">SignUp</Link>
                 </span>
               </p>
             </div>
