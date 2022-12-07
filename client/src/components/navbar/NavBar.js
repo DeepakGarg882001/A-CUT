@@ -49,7 +49,7 @@ const NavBar = () => {
                   LogIn
                 </li>
               </Link>
-              <Link to="/signup">
+              <Link to="/selectAccount">
                 <li className="item button " id="sign">
                   SignUp
                 </li>

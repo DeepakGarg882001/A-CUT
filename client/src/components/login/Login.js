@@ -105,7 +105,7 @@ const Login = () => {
               <p className="no_account">
                 Don't have any Account?
                 <span>
-                  <Link to="/signUp">SignUp</Link>
+                  <Link to="/selectAccount">SignUp</Link>
                 </span>
               </p>
             </div>
