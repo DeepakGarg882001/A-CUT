@@ -18,7 +18,7 @@ const Footer = () => {
             <a href=""><AiFillTwitterCircle id ="social" /></a>
             <a href=""><SiGmail  id ="social"/></a>
           </div>
-          <h4 id ="footer_bootom">@CopyRight:www.haircut.com :Design By RedCoder </h4>
+          <h4 id ="footer_bootom">@CopyRight: www.haircut.com :Design By RedCoder </h4>
           <h4 id ="footer_bootom">All Rights Reserved</h4>
         </div>
 
