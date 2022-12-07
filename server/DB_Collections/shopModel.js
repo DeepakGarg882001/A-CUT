@@ -3,7 +3,7 @@ const shopModel=new mongoose.Schema({
     name:{
         type:String,
     },
-    Mobile:{
+    mobile:{
         type:Number,
     },
     address:{
@@ -15,7 +15,8 @@ const shopModel=new mongoose.Schema({
     services:{
         type:[],
     },
-    prices:{
+    prices:[
+        {
         hair_cut:{
             type:Number,
         },
@@ -29,5 +30,9 @@ const shopModel=new mongoose.Schema({
             type:Number,
         },
     },
+],
 
 })
+
+const shop=mongoose.model("shop",shopModel);
+export default shop;
