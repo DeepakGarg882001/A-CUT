@@ -6,7 +6,7 @@ import * as yup from "yup";
 import Swal from "sweetalert2";
 
 import {Formik,Form,Field,ErrorMessage} from "formik";
-import { Link ,useNavigate} from "react-router-dom";
+import { Link ,useNavigate,useParams} from "react-router-dom";
 
 
 
@@ -14,13 +14,16 @@ const SignUp = () => {
   
   const url = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
+  
+  let { role } = useParams();
 
   const initialFormData = {
     name:"",
     email:"",
     phone:"",
     password:"",
-    confirmPassword:""
+    confirmPassword:"",
+    role:role
   } 
  
   const formValidation = yup.object().shape({

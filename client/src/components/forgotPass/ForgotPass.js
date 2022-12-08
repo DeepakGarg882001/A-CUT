@@ -33,7 +33,7 @@ const ForgotPass = () => {
     <>
       <div className="forgotPass-canvas">
         <div className="forgotPass-left-sec">
-          <img src={forgotPassImg} className="forgotPass-img" />
+          <img src={forgotPassImg} className="forgotPass-img" alt="cover_image"/>
         </div>
 
         <div className="forgotPass-right-sec">
