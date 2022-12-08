@@ -6,7 +6,7 @@ import img3 from "../../Assets/shop3.jpg";
 const Shop1 = () => {
   return (
     <>
-      <header id="header" >
+      <header id="header">
         <h2>Near Government School (Jant-Pali Mahendergarh)</h2>
         <div className="designer">
           <h3>Designs you can select here...</h3>

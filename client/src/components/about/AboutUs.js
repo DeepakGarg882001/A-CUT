@@ -10,13 +10,14 @@ const AboutUs = () => {
           <img src={img1} alt="loading" />
         </div>
         <div className="about-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-            placeat est reprehenderit deleniti, ducimus provident aut alias odio
-            adipisci pariatur, tempore illo labore amet ut doloremque facere
-            odit ratione? Aspernatur ullam esse velit, pariatur dignissimos non
-            nesciunt doloribus excepturi beatae magnam soluta rem itaque ad
-            deserunt provident quo quidem obcaecati?
+          <p>Our motivation for making this app is to save the time.
+            Whenever we are going in a saloon for the hair_cut ,In most 
+            of the time the croud of 5 to 6 people are sitting there and
+            we have to wait for hours. So this kind of problem is solved 
+            by our app. With the help of this app we can see the waiting 
+            list from our home and according to our free time we can book 
+            our number and track the waiting list.There is an another 
+            feathure in this app like we choose the shop by their rating.
           </p>
         </div>
       </div>
