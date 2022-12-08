@@ -12,7 +12,7 @@
     margin-top: 3rem;
 }
 #header h2,h3{
-    color: aliceblue;
+    color: rgb(1, 8, 14);
 }
 .designs{
     display: flex;
@@ -24,7 +24,7 @@
     height: 250px;
     margin-left: 1.5rem;
     border-radius: 3rem;
-    background-color: blueviolet;
+    background-color: rgb(43, 226, 80);
     border-radius: 1rem;
 }
 .design img{

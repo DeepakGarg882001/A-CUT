@@ -1,6 +1,6 @@
 .about {
     width: 100vw;
-    height: 70vh;
+    height: auto;
     margin: 0vw auto;
     margin-top: 2vw;
     display: flex;
@@ -25,8 +25,39 @@
     margin-right: 2vw;
     text-align: justify;
     font-size: 1.2rem;
-    color: aliceblue;
+    color:black;
 }
+.team_main{
+    background-color: rgb(2, 4, 6);
+    width: 100vw;
+    height: auto;
+}
+    
+#team_heading{
+
+text-align: center;
+color: white;
+font-size: 2rem;
+}
+
+.team_inner{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+
+}
+.team_member{
+width: 30vw;
+height:40vh;
+background-color: rgb(25, 103, 152);
+color: white;
+margin-top: 2vh;
+margin: 2vw;
+font-weight: bold;
+
+
+}
+ 
 
 @media only screen and (max-width:930px) {
     .about .about-img {
@@ -43,6 +74,8 @@
     .about .about-content {
         width: 40vw;
         margin-right: 3vw;
+        float:left;
+
     }
 }
 
