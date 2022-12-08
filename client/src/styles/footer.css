@@ -1,6 +1,6 @@
 .footer {
     width: 100%;
-    background-color: #628E90;
+    background-color: #000505;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,6 +8,8 @@
 }
 #connect, #footer_bootom {
     text-align: center;
+    color: bisque;
+
 }
 
 a {
@@ -15,7 +17,7 @@ a {
 }
 
 a:hover {
-    color: rgb(194, 24, 72);
+    color: rgb(38, 24, 194);
 }
 
 
@@ -23,6 +25,8 @@ a:hover {
     display: inline;
     margin: 5vh;
     justify-content: space-between;
+    size: 200px;
+    
 }
 
 .facebook {

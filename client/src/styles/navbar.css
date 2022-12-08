@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #628E90;
+  background-color: #0a080a;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,9 +21,10 @@
   color: bisque;
   padding: .3rem;
 }
-.logo {
+.logo h3{
   margin-left: 1rem;
-  color: #fff;
+  color: bisque;
+  font-weight: bold;
 }
 .menu li a:hover {
   box-shadow: inset 100px 0 0 0 #54b3d6;
