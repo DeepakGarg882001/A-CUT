@@ -1,74 +1,127 @@
-import React from 'react'
-import { Formik,Form,Field,ErrorMessage } from 'formik';
-import * as yup from "yup";
-
+import React,{useState} from 'react'
+import userAvtar from "../../Assets/shop3.jpg";
+import {useDispatch} from "react-redux";
+// import { toast}  from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const CreateShop = () => {
+  const url = process.env.REACT_APP_SERVER_URL;
+  const dispatch = useDispatch();
+  const user =[];
+  const crrAvtar = user.image ? `${url}/${user.image.filePath}` : userAvtar;
 
-  const initialFormData = {
-    owner_name:"",
-    shop_name:"",
-    email:"",
-    phone:"",
-    shop_address:"",
-    password:"",
-    confirmPassword:""
-  } 
- 
-  const formValidation = yup.object().shape({
-    owner_name: yup.string().min(3, "Incorrect").required("Please Enter Your Name"),
-    shop_name: yup.string().min(3, "Incorrect").required("Please Enter Your Name"),
-    email: yup.string().email("Invalid email").required("Email is required !"),
-    phone: yup.string().min(10).max(10).required("Phone No. required !"),
-    password: yup.string().min(4).max(12).required("password is required"),
-    confirmPassword: yup
-      .string("Confirm your Password")
-      .oneOf([yup.ref("password")], "Password does not match"),
-  });
+  const [fileObj, setFileObj] = useState("");
+  const [fileArray, setFileArray] = useState("");
+  const [active, setActive] = useState(false);
 
+  const handleFile = (e) => {
+    setFileObj(e.target.files);
+
+    const files = Array.from(e.target.files);
+
+    Promise.all(
+      files.map((file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.addEventListener("load", (ev) => {
+            resolve(ev.target.result);
+          });
+
+          reader.addEventListener("error", reject);
+          reader.readAsDataURL(file);
+        });
+      })
+    ).then((images) => {
+      setFileArray(images);
+    });
+  };
+
+  const saveImage = async () => {
+    setActive(!active);
+
+    let data = new FormData();
+    if (fileObj.length === 0) {
+      setActive(!active);
+      // return toast.error(`Hi,${user.name}. Please Choose your Image`, {
+      //   position: toast.POSITION.TOP_CENTER,
+      // });
+    }
+
+    for (let i = 0; i < fileObj.length; i++) {
+      data.append("file", fileObj[i]);
+    }
+    data.append("userId", user._id);
+
+    const makeRequest = await fetch(`${url}/user/dashboard/image`, {
+      method: "POST",
+      body: data,
+    });
+    
+
+    const response = await makeRequest.json();
+    console.log(response);
+
+    // if(response.message){
+    //   toast.success(response.message, {
+    //     position: toast.POSITION.TOP_CENTER,
+    //   });
+    //   dispatch(GetCurrentUser(response.data));
+
+    // }else{
+    //   if(response.error.name){
+    //     toast.error(response.error.name, {
+    //       position: toast.POSITION.TOP_CENTER,
+    //     });
+
+    //   }else{
+    //     toast.error(response.error, {
+    //       position: toast.POSITION.TOP_CENTER,
+    //     });
+        
+    //   }
+    // }
+
+    setActive(false);
+  };
 
   return (
     <>
-        <div>
-           
-               <Formik
-               initialValues={initialFormData}
-               validationSchema={formValidation}
-               onSubmit={()=>{
-
-               }}
-               >
-                <Form>
-                    <div>
-                      <Field />
-                      <p><ErrorMessage /></p>
-                    </div>
-                    <div>
-                      <Field />
-                      <p><ErrorMessage /></p>
-                    </div>
-                    <div>
-                      <Field />
-                      <p><ErrorMessage /></p>
-                    </div>
-                    <div>
-                      <Field />
-                      <p><ErrorMessage /></p>
-                    </div>
-                    <div>
-                      <Field />
-                      <p><ErrorMessage /></p>
-                    </div>
-
-                    <div>
-                      <button type='submit'> Proceed </button>
-                    </div>
-                </Form>
-               </Formik>
-
+      <div className="change-profile-canvas">
+        <div className="change-profile-sec">
+          <div className="change-profile-sec-top">
+            {fileArray ? (
+              fileArray.map((url, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <img src={url} className="change-profile-top-img-size" />
+                  </React.Fragment>
+                );
+              })
+            ) : (
+              <img src={crrAvtar} className="change-profile-top-img-size" />
+            )}
+          </div>
+          <div className="change-profile-sec-middle">
+            <input
+              style={{ width: "100px" }}
+              type="file"
+              onChange={(e) => handleFile(e)}
+            />
+          </div>
+          <div className="change-profile-sec-bottom">
+          {fileArray ? <button
+              className="change-profile-btn"
+              disabled={active}
+              onClick={saveImage}
+            >
+              Save
+            </button> : null}
+            
+          </div>
         </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default CreateShop;

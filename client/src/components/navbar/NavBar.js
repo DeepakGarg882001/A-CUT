@@ -59,9 +59,11 @@ const NavBar = () => {
 
           {data.length !== 0 ? (
             <li className="user-Profile-sec" >
+              <Link to="/profile">
               <div className="user-Profile">
                 <img className="user-Profile-img" src = {tempimg} alt="user profile" />
               </div>
+              </Link>
             </li>
           ) : null}
         </ul>

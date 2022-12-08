@@ -48,7 +48,14 @@ const Login = () => {
       Swal.fire("Welcome Back ", `${response.data.name}`, "success");
       cookie.set("BHB_token", `${response.data.token}`);
       dispatch(Get_Current_User(response.data));
-      navigate("/");
+
+      if(response.data.userRole.role==="owner"){
+        navigate("/createShop");
+      }else if(response.data.userRole.role==="admin"){
+        navigate("/admin_dashboard");
+      }else{
+         navigate("/");
+      }
     }
   };
 
