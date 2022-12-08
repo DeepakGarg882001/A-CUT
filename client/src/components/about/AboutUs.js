@@ -20,6 +20,16 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
+      <div className="team_main">
+      <p id="team_heading">Team Member</p>
+
+        <div className="team_inner">
+          <div className="team_member">JITENDRA KUMAR </div>
+          <div className="team_member">DEEPAK GARG</div>
+          <div className="team_member">JOGINDER SHARMA</div>
+        </div>
+
+      </div>
     </>
   );
 };
