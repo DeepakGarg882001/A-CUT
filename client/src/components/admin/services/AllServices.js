@@ -8,7 +8,7 @@ const AllServices = () => {
     <>
       <div className="all-services-canvas">
 
-        <Link to="/add_service">
+        <Link to="/admin/add_service">
           <div className="all-service-add-service-sec">
             <button className="add-service-btn">
               <BsPlusLg />

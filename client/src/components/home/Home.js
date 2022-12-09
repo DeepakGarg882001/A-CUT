@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../../styles/home.css";
 import video from "../../Assets/video.mp4";
 import s1 from "../../Assets/home1.jpg";
@@ -8,8 +8,20 @@ import Services from "../services/Services";
 import { Link } from "react-router-dom";
 import ShopContainer from "../shop/ShopContainer";
 import {useDispatch,useSelector} from "react-redux";
+import ServiceList_Action from "../../redux/action/Get_Services_Action";
+
+
+
+
  const  Home=()=> {
-  const AllServices = [];
+
+  const dispatch = useDispatch();
+  const AllServices = useSelector( (state)=> state.Service_Reducer);
+
+  useEffect(()=>{
+    dispatch(ServiceList_Action());
+  },[]);
+
   return (
     <>
       <div>
