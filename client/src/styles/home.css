@@ -21,6 +21,9 @@ video{
 }
 .shops h2{
     color: rgb(1, 3, 5);
+    background-color: rgb(180, 138, 220);
+    width: 100%;
+    text-align: center;
 }
 .individual{
     display: flex;
@@ -50,7 +53,7 @@ video{
 .individual-shop .btn{
     margin-top: .5rem;
     padding: .5rem;
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
     border: none;
     transition: all 1s;
     font-weight: bold;
@@ -58,3 +61,125 @@ video{
 .individual-shop .btn:hover{
     background-color: #f7d65f;
 }
+
+@media only screen and (max-width:1240px) and (min-width:900px){
+
+    video{
+        width:75vw;
+        height: 80vh;
+        margin-top: -0.5vw;
+    }
+    .Work-flow{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .Work-flow h2{
+        color: rgb(2, 6, 9);
+    }
+   
+    .shops h2{
+        font-size: 3rem;
+        background-color: rgb(180, 138, 220);
+        width: 100%;
+        text-align: center;
+    }
+    .individual{
+        flex-direction: column;
+     }
+    .individual-shop{
+        width: 50vw;
+        height: 50vh;
+        margin-top: 10vw;
+        }
+   
+    
+    .individual-shop h3{
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .individual-shop .btn{
+        margin-top: 0.5rem;
+        padding: .3rem;
+        font-weight: bold;
+        font-size:  1.5rem;
+    }
+   
+}
+@media only screen and (max-width:899px) and (min-width:600px){
+
+    video{
+        width:65vw;
+        height: 55vh;
+        margin-top: -1.8vw;
+    }
+    .Work-flow{
+        margin-top: 1rem;
+       
+    }
+    .shops h2{
+        font-size: 2rem;
+        background-color: rgb(180, 138, 220);
+        width: 100%;
+        text-align: center;
+    }
+    .individual{
+        flex-direction: column;
+     }
+    .individual-shop{
+        width: 60vw;
+        height: 60vh;
+        margin-top: 7vw;
+        }
+    
+    
+    .individual-shop h3{
+        font-size: 1.5rem;
+    }
+    .individual-shop .btn{
+        margin-top: 1.5rem;
+        font-size:  1.5rem;
+    }
+   
+}
+
+@media only screen and (max-width:599px) and (min-width:360px){
+
+  
+    video{
+        width:80vw;
+        height: 50vh;
+        /* margin-top: -1.8vw; */
+        margin-left: 2rem;
+    }
+    .Work-flow{
+        margin-top: 1rem;
+       
+    }
+    .shops h2{
+        font-size: 2rem;
+        background-color: rgb(180, 138, 220);
+        width: 100%;
+        text-align: center;
+    }
+    .individual{
+        flex-direction: column;
+     }
+    .individual-shop{
+        width: 60vw;
+        height: 60vh;
+        margin-top: 7vw;
+        }
+    
+    
+    .individual-shop h3{
+        font-size: 1.5rem;
+    }
+    .individual-shop .btn{
+        margin-top: 1.5rem;
+        font-size:  1.5rem;
+    }
+}
+
