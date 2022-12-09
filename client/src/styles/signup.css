@@ -53,7 +53,7 @@ body{
 .inputWrapper .inputInner{
     display: flex;
     margin-bottom: 20px;    
-    border:1px solid #fff;
+    border:1px solid rgb(6, 1, 1);
     border-radius: 4px;
 }
 .inputWrapper .inputInner .icon{
@@ -70,7 +70,7 @@ body{
 }
 .forgot p a{
     text-decoration: none;
-    color: #fff;
+    color: rgb(157, 35, 141);
 }
 .icon{
     text-align: center;

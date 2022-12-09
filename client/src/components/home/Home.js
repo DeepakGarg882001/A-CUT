@@ -13,7 +13,7 @@ const Home = () => {
   const AllServices = [];
   return (
     <>
-    <div>
+    <div className="home_main">
       <div className="Work-flow">
         <h2>Total work flow of this app by seing below video</h2>
         <video controls>
@@ -26,17 +26,17 @@ const Home = () => {
         <div className='individual'>
           <div className="individual-shop">
             {/* shop start */}
-            <h3>shop1</h3>
+            <h3>Shop Name 1</h3>
             <img src={s1} alt="img" />
             <button className='btn'>Book Now</button>
           </div>
           <div className="individual-shop">
-            <h3>shop2</h3>
+            <h3>Shop Name 2</h3>
             <img src={s2} alt="img" />
             <button className='btn'>Book Now</button>
           </div>
           <div className="individual-shop">
-            <h3>shop3</h3>
+            <h3>Shop Name 3</h3>
             <img src={s3} alt="img" />
             <button className='btn'>Book Now</button>
           </div>
