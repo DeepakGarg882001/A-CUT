@@ -6,9 +6,9 @@ const signup = async (request, response) => {
   console.log(request.body);
 
   try {
-    const { name, email, phone, password } = request.body;
+    const { name, email, phone, password,role } = request.body;
 
-    if (!name || !email || !phone || !password) {
+    if (!name || !email || !phone || !password || !role) {
       return response
         .status(401)
         .json({ error: "Please fill the form completely !" });
@@ -25,7 +25,7 @@ const signup = async (request, response) => {
     const salt = bcrypt.genSaltSync();
     const secure = await bcrypt.hash(password, salt);
 
-    const userDetails = { name, email, phone, password: secure };
+    const userDetails = { name, email, phone, password: secure ,userRole:{role:role}};
 
     const addUser = await UserCol.create(userDetails);
 

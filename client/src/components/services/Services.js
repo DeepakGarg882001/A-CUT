@@ -5,7 +5,7 @@ const Services = ({data}) => {
     <>
       <div>
          <div>
-            <img src={`${data.imgPath}`}/>
+            <img src={`${data.imgPath}`} alt="serviceImg"/>
          </div>
          <div>
             <p>hair cut</p>
