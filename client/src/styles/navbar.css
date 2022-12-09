@@ -13,6 +13,9 @@
   padding: 1.5vh;
   margin-right: 5rem;
 }
+.item button{
+  color: bisque;
+}
 .menu li {
   margin-right: 1.5rem;
 }
