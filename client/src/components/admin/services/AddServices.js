@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 
 const AddServices = () => {
-  const url ="";
+  const url = process.env.REACT_APP_SERVER_URL;
    const navigate = useNavigate();
    const dispatch =useDispatch();
 
@@ -16,7 +16,7 @@ const AddServices = () => {
 
    const addToServices = async(values)=> {
       
-    const makeReq =await fetch(`${url}`,{
+    const makeReq =await fetch(`${url}/addService`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -27,6 +27,7 @@ const AddServices = () => {
     const response = await makeReq.json();
 
     if(response.message){
+      console.log(response.message);
        navigate("/");
     }
 

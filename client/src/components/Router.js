@@ -29,7 +29,7 @@ const Router = ()=>{
                 <Navbar/>
             
                 <Routes>
-                    <Route path="/f" element={ <Home />} />
+                    <Route path="/" element={ <Home />} />
 
                     <Route path="/about" element={ <AboutUs />} />
                     <Route path="/services" element={ <Shop1 />} />
@@ -43,12 +43,12 @@ const Router = ()=>{
 
                     <Route path="/createShop" element={ <CreateShop />} />
 
-                    <Route path="/" element={ <AdminDash />} >
-                     <Route path="/service_list" element={ <AllServices />} />
-                     <Route path="/report_marked" element={ <ReportPage />} />
-                     <Route path="/search_acc" element={ <Accounts />} />
-                     <Route path="/admin_home" element={ <AdminHome />} />
-                     <Route path="/add_service" element={ <AddServices />} />
+                    <Route path="/admin" element={ <AdminDash />} >
+                     <Route path="/admin/service_list" element={ <AllServices />} />
+                     <Route path="/admin/report_marked" element={ <ReportPage />} />
+                     <Route path="/admin/search_acc" element={ <Accounts />} />
+                     <Route path="/admin/admin_home" element={ <AdminHome />} />
+                     <Route path="/admin/add_service" element={ <AddServices />} />
                     </Route>
 
 

@@ -6,5 +6,5 @@ const Services_Doc = new mongoose.Schema({
     }
 })
 
-const Services_Col = mongoose.Model("SERVICE",Services_Doc);
+const Services_Col = mongoose.model("SERVICE",Services_Doc);
 export default Services_Col;

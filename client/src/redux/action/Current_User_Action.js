@@ -1,15 +1,15 @@
-import {GET_Current_User_Data,REMOVE_Current_User_Data} from "../reduxConstants";
+import {GET_CURRENT_USER_DATA,REMOVE_CURRENT_USER_DATA} from "../reduxConstants";
 
 export const Get_Current_User = (data)=>{
     return{
-        type:GET_Current_User_Data,
+        type:GET_CURRENT_USER_DATA,
         data
     }
 }
 
 export const LogOut_User =()=>{
     return{
-        type:REMOVE_Current_User_Data,
+        type:REMOVE_CURRENT_USER_DATA,
     }
 
 }
