@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import userAvtar from "../../Assets/shop3.jpg";
 import {useDispatch} from "react-redux";
-// import { toast}  from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import ShopDetails from './ShopDetails';
 
 const CreateShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -87,7 +86,7 @@ const CreateShop = () => {
   return (
     <>
       <div className="change-profile-canvas">
-        <div className="change-profile-sec">
+        {/* <div className="change-profile-sec">
           <div className="change-profile-sec-top">
             {fileArray ? (
               fileArray.map((url, index) => {
@@ -118,7 +117,11 @@ const CreateShop = () => {
             </button> : null}
             
           </div>
-        </div>
+        </div> */}
+
+
+       <ShopDetails />
+
       </div>
     </>
   );
