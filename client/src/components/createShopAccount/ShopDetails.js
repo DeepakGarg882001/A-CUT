@@ -40,9 +40,9 @@ const ShopDetails = () => {
       .required("Please Provide Your Shop Address"),
   });
 
-  const changeMyService =async ({ type, name }) => {
+  const changeMyService = ({ type, name }) => {
     if (type) {
-      setMyServices([{ service_name: name }]);
+      setMyServices(myServices=>[...myServices, {service_name: name  }]);
       console.log(myServices);
     } else if (!type) {
       setMyServices((data) =>
@@ -75,8 +75,9 @@ const ShopDetails = () => {
   };
 
   useEffect(() => {
-    console.log(myServices);
     dispatch(ServiceList_Action());
+    
+
   }, []);
 
   return (
@@ -119,7 +120,7 @@ const ShopDetails = () => {
                 <ErrorMessage name="shop_address" />
               </p>
             </div>
-            {myServices
+            {/* {myServices
               ? myServices.map((data, index) => {
                   return (
                     <React.Fragment key={index}>
@@ -127,7 +128,7 @@ const ShopDetails = () => {
                     </React.Fragment>
                   );
                 })
-              : null}
+              : null} */}
 
             {services
               ? services.map((data, index) => {
