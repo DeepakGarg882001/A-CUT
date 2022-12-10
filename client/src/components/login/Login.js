@@ -52,7 +52,7 @@ const Login = () => {
       if(response.data.userRole.role==="owner"){
         navigate("/createShop");
       }else if(response.data.userRole.role==="admin"){
-        navigate("/admin_dashboard");
+        navigate("/admin");
       }else{
          navigate("/");
       }
