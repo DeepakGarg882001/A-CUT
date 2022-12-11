@@ -16,6 +16,12 @@ import CreateShop from "./createShopAccount/CreateShop";
 import AdminDash from "./admin/AdminDash";
 import UserDashBoard from "./userDash/UserDashBoard";
 
+import AllServices from "./admin/services/AllServices";
+import AdminHome from "./admin/home/AdminHome";
+import ReportPage from "./admin/report/ReportPage";
+import Accounts from "./admin/account/Accounts";
+import AddServices from "./admin/services/AddServices";
+
 const Router = ()=>{
 
     return(<>
@@ -37,7 +43,13 @@ const Router = ()=>{
 
                     <Route path="/createShop" element={ <CreateShop />} />
 
-                    <Route path="/admin_dashboard" element={ <AdminDash />} />
+                    <Route path="/admin" element={ <AdminDash />} >
+                     <Route path="/admin/service_list" element={ <AllServices />} />
+                     <Route path="/admin/report_marked" element={ <ReportPage />} />
+                     <Route path="/admin/search_acc" element={ <Accounts />} />
+                     <Route path="/admin/admin_home" element={ <AdminHome />} />
+                     <Route path="/admin/add_service" element={ <AddServices />} />
+                    </Route>
 
 
 

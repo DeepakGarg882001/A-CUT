@@ -1,0 +1,38 @@
+.admin-canvas{
+  width: 100vw;
+  min-height: 90vh;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.admin-canvas-side-panel{
+    min-width: 200px;
+    max-width: 400px;
+    width: fit-content;
+    background-color: #060505db;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    /* padding-left: 0px; */
+    padding-top: 40px;
+}
+.admin-canvas-panel{
+    list-style-type: none;
+    gap: 5px;
+    min-width: 200px;
+
+}
+.admin-canvas-panel-sec{
+    /* border-bottom: 1px solid whitesmoke; */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 6px 20px;
+    color: white;
+    width: 100%;
+}
+.admin-canvas-right-panel{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}

@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
 import Current_User_Reducer from "./reducer/Current_User_Reducer";
-// import { shopData } from "./reducer/shopReducer";
-const shopData={
-    name:"cnk"
-}
+import ShopData_Reducer  from "./reducer/Shop_Reducer";
+import Service_Reducer from "./reducer/Get_Services_Reducer";
+
 const RootReducer = combineReducers({
     Current_User_Reducer,
-    shopData,
+    ShopData_Reducer,
+    Service_Reducer,
     
 })
 

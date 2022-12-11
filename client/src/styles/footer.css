@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    padding: 20px 10px;
 }
 #connect, #footer_bootom {
     text-align: center;

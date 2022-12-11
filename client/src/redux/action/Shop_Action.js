@@ -6,8 +6,10 @@ export const getShopData=(data)=>{
         data
     }
 }
+
 export const removeShopData=(data)=>{
     return {
         type:REMOVE_SHOP_DATA,
+        data
     }
 }
