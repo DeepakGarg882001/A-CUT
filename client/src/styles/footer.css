@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    padding: 20px 10px;
 }
 #connect, #footer_bootom {
     text-align: center;
@@ -17,15 +17,13 @@ a {
 }
 
 a:hover {
-    color: rgb(38, 24, 194);
+    color: rgb(38, 194, 24);
 }
 
 
 .icon {
     display: inline;
-    margin: 5vh;
     justify-content: space-between;
-    size: 200px;
     
 }
 
@@ -34,6 +32,38 @@ a:hover {
 }
 
 #social {
-    font-size: 2rem;
-    margin-left: 15vh;
+    font-size: 3rem;
+    margin-left: 12vh;
 }
+.footer_inner{
+    margin-left: -2rem;
+}
+@media only screen and (max-width:1240px) and (min-width:900px){
+    #footer_bootom {
+        font-size: 1.3rem;
+    
+    }
+    #connect{
+        font-size: 1.7rem;
+
+    }
+    #social {
+        font-size: 4rem;
+    }
+}
+@media only screen and (max-width:899px) and (min-width:600px){
+    #footer_bootom {
+        font-size: 1rem;
+       }
+       .icon{
+        padding: 5rem;margin-left: -2.5rem;
+    }
+    #connect{
+        font-size: 1.7rem;
+
+    }
+    #social {
+        font-size: 2rem;
+        margin-top: -10.4rem;
+    }
+  }

@@ -9,13 +9,14 @@ import {
     } from "../reduxConstants";
 // hair cut 
 export const addToHair = (data) => {
-  // console.log("action called", data);
+  console.log("action called", data);
   return {
     type: ADD_TO_HAIR,
     data,
   };
 };
 export const removeFromHair = (data) => {
+  console.log("action called", data);
   return {
     type: REMOVE_FROM_HAIR,
     data,
@@ -25,7 +26,7 @@ export const removeFromHair = (data) => {
 // beard 
 
 export const addToBeard = (data) => {
-    // console.log("action called", data);
+    console.log("action called", data);
     return {
       type: ADD_TO_BEARD,
       data,

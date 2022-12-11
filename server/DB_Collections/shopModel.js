@@ -1,36 +1,40 @@
 import mongoose from "mongoose";
+
 const shopModel = new mongoose.Schema({
-  name: {
+  owner_name: {
     type: String,
   },
-  // mobile: {
-  //   type: Number,
-  // },
-  // address: {
-  //   type: String,
-  // },
-  // rating: {
-  //   type: Number,
-  // },
-  services: {
-    hair_cut: {
-      type: String,
-    },
-    beard: {
-      type: String,
-    },
-    massag: {
-      type: String,
-    },
-    hair_color: {
-      type: String,
-    },
+  owner_id:{
+     type:String,
   },
-  totalPrice:{
-    type:Number,
-    default:0,
-  }
+  shop_name:{
+     type:String
+  },
+  shop_mobile: {
+    type: Number,
+  },
+  shop_address: {
+    type: String,
+  },
+  shop_rating: {
+    type: Number,
+    default:0
+  },
+  shop_services: [
+    {
+      service_name: {
+        type: String,
+      },
+      price: {
+        type: Number,
+      },
+      offer: {
+        type: Number,
+      },
+    },
+  ],
 });
+
 
 const shop = mongoose.model("shop", shopModel);
 export default shop;

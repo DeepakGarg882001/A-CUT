@@ -12,7 +12,7 @@ import {
   removeFromHeadMassag,
   addToHairColor,
   removeFromHairColor,
-} from "../../redux/action/shopAction";
+} from "../../redux/action/shopAction.js";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -22,7 +22,7 @@ const Shop1 = () => {
   const dispatch = useDispatch();
   const result = useSelector((state) => state.shopDataReducer);
   const userData = useSelector((state) => state.Current_User_Reducer);
-  console.log("use selector data0", result);
+  console.log("use selector data", result);
   const userName = userData.name;
 
   let waitingList = 0;

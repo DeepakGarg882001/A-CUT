@@ -10,11 +10,11 @@ import {
 } from "../reduxConstants";
 
 const shopData = (data = 0, action) => {
-  // console.log("reducer", action);
+  console.log("reducer", action);
   switch (action.type) {
     case ADD_TO_HAIR:
       data = action.data + data;
-      // console.log("shop reducer", action.data);
+      console.log("shop reducer", action.data);
       return data;
     case REMOVE_FROM_HAIR:
       data = data - action.data;

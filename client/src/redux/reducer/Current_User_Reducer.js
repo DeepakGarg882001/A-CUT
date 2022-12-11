@@ -1,13 +1,13 @@
-import { GET_Current_User_Data, REMOVE_Current_User_Data } from "../reduxConstants";
+import { GET_CURRENT_USER_DATA, REMOVE_CURRENT_USER_DATA } from "../reduxConstants";
 
 const Current_User_Reducer = ( data = [], action,) => {
 
     switch (action.type) {
 
-        case GET_Current_User_Data: data = action.data;
+        case GET_CURRENT_USER_DATA: data = action.data;
             return data;
 
-        case REMOVE_Current_User_Data: data = []
+        case REMOVE_CURRENT_USER_DATA: data = []
             return data;
 
         default: return data;
