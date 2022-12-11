@@ -8,9 +8,10 @@ import {
 
 const url = process.env.REACT_APP_SERVER_URL;
 
-// Call API to get the list of All services
 
+// Call API to get the list of All services
 function* fetchServiceList() {
+
   const makeRequest = yield fetch(`${url}/getServices`, {
     method: "GET",
     headers: {
@@ -22,7 +23,6 @@ function* fetchServiceList() {
   
   const response = yield makeRequest.json();
   let data ;
-
   if(response.data){
     data = response.data;
   }
