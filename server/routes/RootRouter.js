@@ -5,7 +5,7 @@ const router = express.Router();
 import signup from "./signup.js";
 import login from "./login.js";
 import {createShop,getAllShops,getShopById} from "./shop.js";
-import { add_services,get_services,update_service } from "./services.js";
+import { add_services,get_services,update_service } from "./plateformServices.js";
 
 //    ======= Authentication Routes =========  //
 

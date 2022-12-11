@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import {Get_Current_User} from "../../redux/action/Current_User_Action";
 import {useDispatch} from "react-redux";
+import { userDataAction } from "../../redux/action/userAction";
 
 const Login = () => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -47,7 +47,7 @@ const Login = () => {
     if (response.message) {
       Swal.fire("Welcome Back ", `${response.data.name}`, "success");
       cookie.set("BHB_token", `${response.data.token}`);
-      dispatch(Get_Current_User(response.data));
+      dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){
         navigate("/createShop");

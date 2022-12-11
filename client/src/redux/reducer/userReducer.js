@@ -1,6 +1,6 @@
 import { GET_CURRENT_USER_DATA, REMOVE_CURRENT_USER_DATA } from "../reduxConstants";
 
-const Current_User_Reducer = ( data = [], action,) => {
+const userReducer = ( data = [], action,) => {
 
     switch (action.type) {
 
@@ -16,4 +16,4 @@ const Current_User_Reducer = ( data = [], action,) => {
 
 }
 
-export default Current_User_Reducer;
+export default userReducer;

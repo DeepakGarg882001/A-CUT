@@ -1,10 +1,10 @@
 import { GET_SERVICES_LIST } from "../reduxConstants";
 
 
-const ServiceList_Action =() =>{
+const getPlateformServiceListAction =() =>{
     return({
         type:GET_SERVICES_LIST
     })
 }
 
-export default ServiceList_Action;
+export default getPlateformServiceListAction;

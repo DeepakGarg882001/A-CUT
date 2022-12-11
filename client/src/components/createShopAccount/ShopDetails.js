@@ -4,10 +4,10 @@ import * as yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import Chip from "@mui/material/Chip";
 import Swal from "sweetalert2";
-import ServiceList_Action from "../../redux/action/Get_Services_Action";
+import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
+
 
 const ShopDetails = () => {
-
   const user = useSelector((state) => state.Current_User_Reducer);
   const services = useSelector((state) => state.Service_Reducer);
   const url = process.env.REACT_APP_SERVER_URL;
@@ -42,12 +42,13 @@ const ShopDetails = () => {
 
   const changeMyService = ({ type, name }) => {
     if (type) {
-      setMyServices(myServices=>[...myServices, {service_name: name  }]);
+      setMyServices((myServices) => [...myServices, { service_name: name }]);
       console.log(myServices);
     } else if (!type) {
       setMyServices((data) =>
         data.filter((chips) => chips.service_name !== name)
       );
+      console.log(myServices);
     }
   };
 
@@ -75,9 +76,7 @@ const ShopDetails = () => {
   };
 
   useEffect(() => {
-    dispatch(ServiceList_Action());
-    
-
+    dispatch(getPlateformServiceListAction());
   }, []);
 
   return (

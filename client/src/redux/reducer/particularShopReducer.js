@@ -1,6 +1,6 @@
 import { GET_SHOP_DATA, REMOVE_SHOP_DATA } from "../reduxConstants";
 
-const ShopData_Reducer = (data = [], action) => {
+const particularShopReducer = (data = [], action) => {
   switch (action.type) {
     case GET_SHOP_DATA:
         data = action.data;
@@ -13,4 +13,4 @@ const ShopData_Reducer = (data = [], action) => {
   }
 };
 
-export default ShopData_Reducer;
+export default particularShopReducer;
