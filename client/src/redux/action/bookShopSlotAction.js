@@ -8,9 +8,6 @@ import {
     ADD_TO_HAIR_COLOR,REMOVE_FROM_HAIR_COLOR
     } from "../reduxConstants";
 
-
-
-    
 // hair cut 
 export const addToHair = (data) => {
   console.log("action called", data);
