@@ -3,16 +3,16 @@ import "../../styles/navbar.css";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { LogOut_User } from "../../redux/action/Current_User_Action";
 import tempimg from "../../Assets/shop3.jpg";
+import { logoutUserDataAction } from "../../redux/action/userAction";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const data = useSelector((state) => state.Current_User_Reducer);
+  const data = useSelector((state) => state.userReducer);
 
   const logoutUser = () => {
-    dispatch(LogOut_User());
+    dispatch(logoutUserDataAction());
     navigate("/");
   }
 

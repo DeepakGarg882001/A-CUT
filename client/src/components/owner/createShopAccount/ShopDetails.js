@@ -4,14 +4,17 @@ import * as yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import Chip from "@mui/material/Chip";
 import Swal from "sweetalert2";
-import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
+import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
 
 
 const ShopDetails = () => {
-  const user = useSelector((state) => state.Current_User_Reducer);
-  const services = useSelector((state) => state.Service_Reducer);
+
+  const user = useSelector((state) => state.userReducer);
+  const services = useSelector((state) => state.plateformServiceReducer);
+
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
+  
   const [myServices, setMyServices] = useState([]);
 
   const initialFormData = {

@@ -2,19 +2,23 @@ import React from "react";
 import {Route , Routes } from "react-router-dom";
 
 
-// import ContactUs from "./contact/ContactUs";
 import Navbar from "./navbar/NavBar";
 import Home from "./home/Home";
 import AboutUs from "./about/AboutUs";
-import Shop1 from './shop/Shop1';
+import ContactUs from "./contact/ContactUs";
+
 import Login from "./login/Login";
 import SignUp from "./signup/SignUp";
-import ForgotPass from "./forgotPass/ForgotPass";
+
+import ForgotPass from "./forgotPassword/ForgotPass";
 import Footer from './footer/Footer';
+
+
 import ChooseAccount from "./signup/ChooseAccount";
-import CreateShop from "./createShopAccount/CreateShop";
+import CreateShop from "./owner/createShopAccount/CreateShop";
 import AdminDash from "./admin/AdminDash";
-import UserDashBoard from "./userDash/UserDashBoard";
+import UserDashBoard from "./userDashBoard/UserDashBoard";
+import Shop1 from './shop/showParticularShop/Shop1';
 
 import AllServices from "./admin/services/AllServices";
 import AdminHome from "./admin/home/AdminHome";

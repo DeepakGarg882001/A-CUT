@@ -7,6 +7,7 @@ export const getParticularShopData=(data)=>{
     }
 }
 
+
 export const removeParticularShopData=(data)=>{
     return {
         type:REMOVE_SHOP_DATA,
