@@ -1,127 +1,174 @@
-import React,{useState} from 'react'
-// import userAvtar from "../../Assets/shop3.jpg";
-// import {useDispatch} from "react-redux";
-import ShopDetails from './ShopDetails';
+import React, {  useEffect, useReducer } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
+import { useSelector, useDispatch } from "react-redux";
+import Chip from "@mui/material/Chip";
+import Swal from "sweetalert2";
+import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
 
 const CreateShop = () => {
-  // const url = process.env.REACT_APP_SERVER_URL;
-  // const dispatch = useDispatch();
-  // const user =[];
-  // const crrAvtar = user.image ? `${url}/${user.image.filePath}` : userAvtar;
 
-  // const [fileObj, setFileObj] = useState("");
-  // const [fileArray, setFileArray] = useState("");
-  // const [active, setActive] = useState(false);
+  const user = useSelector((state) => state.userReducer);
+  const services = useSelector((state) => state.plateformServiceReducer);
 
-  // const handleFile = (e) => {
-  //   setFileObj(e.target.files);
+  const url = process.env.REACT_APP_SERVER_URL;
+  const dispatch = useDispatch();
 
-  //   const files = Array.from(e.target.files);
+  const reducer = (myServices, action) => {
+    switch (action.type) {
+      case true:
+        return [...myServices, { service_name: action.name }];
 
-  //   Promise.all(
-  //     files.map((file) => {
-  //       return new Promise((resolve, reject) => {
-  //         const reader = new FileReader();
-  //         reader.addEventListener("load", (ev) => {
-  //           resolve(ev.target.result);
-  //         });
+      case false:
+        return myServices.filter((data) => data.service_name !== action.name);
 
-  //         reader.addEventListener("error", reject);
-  //         reader.readAsDataURL(file);
-  //       });
-  //     })
-  //   ).then((images) => {
-  //     setFileArray(images);
-  //   });
-  // };
+      default:
+        return myServices;
+    }
+  };
 
-  // const saveImage = async () => {
-  //   setActive(!active);
+  const [myServices, makeDispatch] = useReducer(reducer, []);
 
-  //   let data = new FormData();
-  //   if (fileObj.length === 0) {
-  //     setActive(!active);
-  //     // return toast.error(`Hi,${user.name}. Please Choose your Image`, {
-  //     //   position: toast.POSITION.TOP_CENTER,
-  //     // });
-  //   }
+  const initialFormData = {
+    owner_name: user.name,
+    owner_id: user._id,
+    shop_name: "",
+    shop_mobile: "",
+    shop_address: "",
+    shop_services: myServices,
+  };
 
-  //   for (let i = 0; i < fileObj.length; i++) {
-  //     data.append("file", fileObj[i]);
-  //   }
-  //   data.append("userId", user._id);
+  const formValidation = yup.object().shape({
+    shop_name: yup
+      .string()
+      .min(2, "Incorrect")
+      .required(" Please Enter Your Shop Name "),
+    shop_mobile: yup
+      .string()
+      .min(10)
+      .max(10)
+      .required(" Please Provide Your Shop Contact Number "),
+    shop_address: yup
+      .string()
+      .min(20)
+      .max(200)
+      .required("Please Provide Your Shop Address"),
+  });
 
-  //   const makeRequest = await fetch(`${url}/user/dashboard/image`, {
-  //     method: "POST",
-  //     body: data,
-  //   });
-    
+  
 
-  //   const response = await makeRequest.json();
-  //   console.log(response);
+  const postDataToServer = async (values) => {
 
-    // if(response.message){
-    //   toast.success(response.message, {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    //   dispatch(GetCurrentUser(response.data));
+    const {owner_name, owner_id, shop_name,shop_mobile, shop_address } = values;
+    const makeReq = await fetch(`${url}/createShop`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        owner_name,
+        owner_id,
+        shop_name,
+        shop_mobile,
+        shop_address,
+        shop_services: myServices,
+      }),
+    });
 
-    // }else{
-    //   if(response.error.name){
-    //     toast.error(response.error.name, {
-    //       position: toast.POSITION.TOP_CENTER,
-    //     });
+    const response = await makeReq.json();
 
-    //   }else{
-    //     toast.error(response.error, {
-    //       position: toast.POSITION.TOP_CENTER,
-    //     });
-        
-    //   }
-    // }
+    if (response.error) {
+      if (response.error.name) {
+        Swal.fire("Sorry", `${response.error.name}`, "error");
+      } else {
+        Swal.fire("Sorry", `${response.error}`, "error");
+      }
+    }
+    if (response.message) {
+      Swal.fire(" Successfully Created ! ", "", "success");
+    }
+  };
 
-    // setActive(false);
-  // };
+  useEffect(() => {
+    dispatch(getPlateformServiceListAction());
+  }, []);
 
   return (
     <>
-      <div className="change-profile-canvas">
-        {/* <div className="change-profile-sec">
-          <div className="change-profile-sec-top">
-            {fileArray ? (
-              fileArray.map((url, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <img src={url} className="change-profile-top-img-size" />
-                  </React.Fragment>
-                );
-              })
-            ) : (
-              <img src={crrAvtar} className="change-profile-top-img-size" />
-            )}
-          </div>
-          <div className="change-profile-sec-middle">
-            <input
-              style={{ width: "100px" }}
-              type="file"
-              onChange={(e) => handleFile(e)}
-            />
-          </div>
-          <div className="change-profile-sec-bottom">
-          {fileArray ? <button
-              className="change-profile-btn"
-              disabled={active}
-              onClick={saveImage}
-            >
-              Save
-            </button> : null}
-            
-          </div>
-        </div> */}
+      <div>
+        <Formik
+          initialValues={initialFormData}
+          validationSchema={formValidation}
+          onSubmit={(values) => {
+            console.log(values)
+            postDataToServer(values);
+          }}
+        >
+          <Form>
+            <div>
+              <Field
+                name="shop_name"
+                type="text"
+                placeholder="Enter Shop Name"
+              />
+              <ErrorMessage name="shop_name" />
+            </div>
+            <div>
+              <Field
+                name="shop_mobile"
+                type="number"
+                placeholder="Enter Shop Contact number"
+              />
 
+              <p>
+                <ErrorMessage name="shop_mobile" />
+              </p>
+            </div>
+            <div>
+              <Field
+                name="shop_address"
+                type="text"
+                placeholder="Enter Shop Address"
+              />
+              <p>
+                <ErrorMessage name="shop_address" />
+              </p>
+            </div>
+            {myServices
+              ? myServices.map((data, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <Chip label={data.service_name} />
+                    </React.Fragment>
+                  );
+                })
+              : null}
 
-       <ShopDetails />
+            {services
+              ? services.map((data, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <input
+                        type="checkbox"
+                        value={data.service_name}
+                        onClick={(e) =>
+                          makeDispatch({
+                            type: e.target.checked,
+                            name: data.service_name,
+                          })
+                        }
+                      />
+                      <label>{data.service_name} </label>
+                    </React.Fragment>
+                  );
+                })
+              : null}
 
+            <div>
+              <button type="submit"> Proceed </button>
+            </div>
+          </Form>
+        </Formik>
       </div>
     </>
   );

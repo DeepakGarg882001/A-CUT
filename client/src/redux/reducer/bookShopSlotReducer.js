@@ -12,12 +12,11 @@ import {
 
 
 const bookShopSlotDataReducer = (data = 0, action) => {
-  console.log("reducer", action);
 
   switch (action.type) {
+
     case ADD_TO_HAIR:
       data = action.data + data;
-      console.log("shop reducer", action.data);
       return data;
 
     case REMOVE_FROM_HAIR:
@@ -26,7 +25,6 @@ const bookShopSlotDataReducer = (data = 0, action) => {
 
     case ADD_TO_BEARD:
       data = action.data + data;
-      // console.log("shop reducer", action.data);
       return data;
 
     case REMOVE_FROM_BEARD:
@@ -35,7 +33,6 @@ const bookShopSlotDataReducer = (data = 0, action) => {
 
     case ADD_TO_HEAD_MASSAG:
       data = action.data + data;
-      // console.log("shop reducer", action.data);
       return data;
 
     case REMOVE_FROM_HEAD_MASSAG:
@@ -44,7 +41,6 @@ const bookShopSlotDataReducer = (data = 0, action) => {
 
     case ADD_TO_HAIR_COLOR:
       data = action.data + data;
-      // console.log("shop reducer", action.data);
       return data;
 
     case REMOVE_FROM_HAIR_COLOR:
