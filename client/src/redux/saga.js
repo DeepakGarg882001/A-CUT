@@ -8,9 +8,8 @@ import {
 
 const url = process.env.REACT_APP_SERVER_URL;
 
-
-
 // Call API to get the list of All services
+
 function* fetchServiceList() {
   const makeRequest = yield fetch(`${url}/getServices`, {
     method: "GET",
@@ -44,4 +43,3 @@ function* Saga() {
   }
   
   export default Saga;
-  
