@@ -42,12 +42,17 @@
     align-items: center;
     margin-top: 2rem;
 }
-#form-shop input,select{
+#form-shop .service input{
     outline: none;
     padding: .3rem;
     border: 3px solid #497174;
     border-radius: 1.5rem;
-    width: 60%;
+    /* width: 60%; */
+}
+#form-shop .service{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 #form-shop .btn{
     width: 60%;
