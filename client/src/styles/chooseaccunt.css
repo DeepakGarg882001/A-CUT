@@ -1,4 +1,4 @@
-.choose_accunt{
+ .choose_accunt{
   margin: 5rem;
   
   }
@@ -6,11 +6,7 @@
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
   }
-  .item_choose{
-    font-size: 3rem;
-    border-radius: 10px;
-  }
-  
+
   .choose{
     margin-top: 4rem;
     text-align: center;
@@ -18,4 +14,90 @@
     display: flex;
     flex-direction:row;
     justify-content: space-around;
+  }
+  #signupimg{
+    width:35vw;
+    height: 45vh;
+    border-radius: 50%;
+  } 
+  .usesignup {
+    position: relative;
+    width: 55%;
+    padding: 5px;
+  }
+  .shopsignup{
+    position: relative;
+    width: 60%;
+    padding: 5px;
+
+  }
+  
+  #signupimg {
+    display: block;
+    width: 100%;
+    height: auto;
+  
+  }
+  .item_choose{
+    font-size: 3rem;
+
+  }
+  .customer {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    border-radius: 50%;
+
+  }
+   .shopowner {
+    position: absolute;
+    margin-top: -1rem;
+    bottom: 100%;
+    right: 0;
+    left: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    border-radius: 50%;
+
+  }  
+  
+  .usesignup:hover .customer {
+    bottom: 0;
+    height: 100%;
+  }
+  .shopsignup:hover .shopowner {
+    bottom: 0;
+    height: 100%;
+  }
+  
+  #as_customer{
+    white-space: nowrap; 
+    color: black;
+    border-radius: 50px;
+     position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  #shop_owner{
+    white-space: nowrap; 
+    color: black;
+    border-radius: 50px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
   }
