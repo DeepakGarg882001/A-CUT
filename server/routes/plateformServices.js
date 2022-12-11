@@ -1,4 +1,4 @@
-import Services_Col from "../DB_Collections/services.js";
+import plateformServices_Col from "../DB_Collections/plateformServices.js";
 
 
 const add_services = async(request,response)=>{
@@ -10,7 +10,7 @@ const add_services = async(request,response)=>{
         return response.status(400).json({error:"Please Enter the Service Name"});
       }
 
-      const addToDatabase = await Services_Col.create({service_name:service_name});
+      const addToDatabase = await plateformServices_Col.create({service_name:service_name});
 
       if(!addToDatabase){
         return response.status(400).json({error:" Process failed "});
@@ -23,7 +23,7 @@ const add_services = async(request,response)=>{
 
 const get_services = async(request,response)=>{
     
-       const getList = await Services_Col.find();
+       const getList = await plateformServices_Col.find();
        if(!getList){
         return response.status(400).json({error:"Process failed "}); 
        }

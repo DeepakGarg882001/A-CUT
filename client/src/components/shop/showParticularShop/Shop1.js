@@ -1,8 +1,8 @@
 import React from "react";
-import "../../styles/shop1.css";
-import img1 from "../../Assets/shop1.jpg";
-import img2 from "../../Assets/shop2.jpg";
-import img3 from "../../Assets/shop3.jpg";
+import "../../../styles/shop1.css";
+import img1 from "../../../Assets/shop1.jpg";
+import img2 from "../../../Assets/shop2.jpg";
+import img3 from "../../../Assets/shop3.jpg";
 import {
   addToHair,
   removeFromHair,
@@ -12,16 +12,22 @@ import {
   removeFromHeadMassag,
   addToHairColor,
   removeFromHairColor,
-} from "../../redux/action/shopAction.js";
+} from "../../../redux/action/bookShopSlotAction.js";
+
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+
 const Shop1 = () => {
+
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
-  const result = useSelector((state) => state.shopDataReducer);
-  const userData = useSelector((state) => state.Current_User_Reducer);
+
+  const result = useSelector((state) => state.bookShopSlotDataReducer);
+  const userData = useSelector((state) => state.userReducer);
+
   console.log("use selector data", result);
   const userName = userData.name;
 
@@ -36,6 +42,7 @@ const Shop1 = () => {
     },
     result,
   };
+
   const prices = {
     hair: 50,
     beard: 30,
@@ -90,7 +97,7 @@ const Shop1 = () => {
                   value="hair"
                   onChange={(e) => {
                     console.log("nit",e.target.checked);
-                    if (e.target.checked==true) {
+                    if (e.target.checked===true) {
                       dispatch(addToHair(prices.hair));
                     } else {
                       dispatch(removeFromHair(prices.hair));

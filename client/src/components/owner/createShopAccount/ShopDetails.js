@@ -4,14 +4,17 @@ import * as yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import Chip from "@mui/material/Chip";
 import Swal from "sweetalert2";
-import ServiceList_Action from "../../redux/action/Get_Services_Action";
+import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
+
 
 const ShopDetails = () => {
 
-  const user = useSelector((state) => state.Current_User_Reducer);
-  const services = useSelector((state) => state.Service_Reducer);
+  const user = useSelector((state) => state.userReducer);
+  const services = useSelector((state) => state.plateformServiceReducer);
+
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
+  
   const [myServices, setMyServices] = useState([]);
 
   const initialFormData = {
@@ -40,14 +43,15 @@ const ShopDetails = () => {
       .required("Please Provide Your Shop Address"),
   });
 
-  const changeMyService =async ({ type, name }) => {
+  const changeMyService = ({ type, name }) => {
     if (type) {
-      setMyServices([{ service_name: name }]);
+      setMyServices((myServices) => [...myServices, { service_name: name }]);
       console.log(myServices);
     } else if (!type) {
       setMyServices((data) =>
         data.filter((chips) => chips.service_name !== name)
       );
+      console.log(myServices);
     }
   };
 
@@ -75,8 +79,7 @@ const ShopDetails = () => {
   };
 
   useEffect(() => {
-    console.log(myServices);
-    dispatch(ServiceList_Action());
+    dispatch(getPlateformServiceListAction());
   }, []);
 
   return (
@@ -119,7 +122,7 @@ const ShopDetails = () => {
                 <ErrorMessage name="shop_address" />
               </p>
             </div>
-            {myServices
+            {/* {myServices
               ? myServices.map((data, index) => {
                   return (
                     <React.Fragment key={index}>
@@ -127,7 +130,7 @@ const ShopDetails = () => {
                     </React.Fragment>
                   );
                 })
-              : null}
+              : null} */}
 
             {services
               ? services.map((data, index) => {
