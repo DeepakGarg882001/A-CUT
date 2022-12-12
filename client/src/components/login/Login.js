@@ -99,8 +99,8 @@ const Login = () => {
             </div>
 
             <div className="forgot_login">
-              <p>
-                <Link to="/forgotPass">Forgot Password ?</Link>
+              <p >
+                <Link to="/forgotPass" className="forgpass">Forgot Password ?</Link>
               </p>
             </div>
 
