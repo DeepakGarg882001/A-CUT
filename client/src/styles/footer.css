@@ -8,36 +8,28 @@
     background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
 
 }
-.footer-canvas-top{
-    color: white;
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 30px 10%;
-    align-items: flex-end;
-    background-image:linear-gradient(167deg, #16101a , #614f6a);
-
-}
-.footer-top-name-sec{
-  font-size: 1.1rem;
-  color: #04ec04;
-}
-.footer-top-name{
-    font-size: 1.5rem;
-    font-weight: bolder;
-    margin-bottom: -5px;
-    color: white;
-}
 .footer-top-icon-sec{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 10px;
     font-size: 1.5rem;
     color: white;
+  
+}
+
+#footer_icon:hover{
+    color: hsl(147, 88%, 36%);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 20%;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+#footer_icon{
+    color: aquamarine;
+
 }
 .footer-canvas-middle{
     padding: 50px 20px;
@@ -66,16 +58,34 @@
     flex-direction: column;
     justify-content: baseline;
     align-items: center;
+
 }
 .footer-middle-info-name{
     font-weight: bold;
     color: white;
     font-size: 1.4rem;
+
 }
 .footer-middle-info-details{
     display: flex;
     flex-direction: column;
+
 }
+.info_items {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+
+.footer-middle-info-sec a:hover{
+    color: hsl(147, 88%, 36%);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 20%;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
 .footer-middle-basic-details{
     display: flex;
     flex-direction: column;
@@ -83,8 +93,9 @@
     justify-content: baseline;
     align-items: center;
     width: 300px;
+
 }
-.footer-middle-basic-text{
+.footer-middle-basic-text {
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
@@ -93,9 +104,22 @@
     word-wrap: break-word;
     justify-content: center;
     align-items: baseline;
+    color: aliceblue;
+    text-decoration: none;
+}
+.footer-middle-basic-text :hover{
+    color: hsl(147, 88%, 36%);
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 20%; 
+     
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
 .footer-basic-detail-text{
   width: 270px;
+
+
 }
 .footer-canvas-bottom{
     display: flex;
