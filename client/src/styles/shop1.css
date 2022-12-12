@@ -3,36 +3,106 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
+    margin: 2rem 5rem;
+    background-color: aquamarine;
 }
 ::placeholder{
     color: black;
 }
-.designer{
-    margin-top: 3rem;
+.shop-details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(145, 145, 152);
 }
-#header h2,h3{
-    color: rgb(1, 8, 14);
+.shop-details .owner-detail{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #59C1BD;
 }
-.designs{
+.shop-details .owner-detail .owner-name{
+    width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: rgb(167, 167, 47);
     margin-top: 1rem;
 }
-.design{
-    width: 250px;
-    height: 250px;
-    margin-left: 1.5rem;
-    border-radius: 3rem;
-    background-color: rgb(43, 226, 80);
-    border-radius: 1rem;
+.shop-details .owner-detail .rating{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(167, 167, 47);
+    margin-top: 1rem;
 }
-.design img{
+.owner-detail .shop-timing{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin-top: 1.2rem;
+}
+.booking-details{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
     width: 100%;
-    height: 100%;
-    border-radius: 1rem;
 }
-.designer h3{
+.booking-details .schudle-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-details .schdule-time{
+    width: 40%;
+    background-color: rgb(28, 65, 117);
+}
+.booking-details .shop-services{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+}
+
+.shop-services .select-services{
+    width: 100%;
+}
+.shop-services .my-details{
+    padding-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.my-details .user-details{
+    margin-bottom: 1rem;
+
+}
+.my-details .btn{
+    width: 60%;
+    padding: .3rem;
+    border: 3px solid #497174;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 1.5s;
+}
+.my-details .btn:hover{
+    background-color: #59C1BD;
+}
+
+.booking-details h3{
     margin-top: 1rem;
 }
 #form-shop{
@@ -53,16 +123,4 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-#form-shop .btn{
-    width: 60%;
-    padding: .3rem;
-    border: 3px solid #497174;
-    border-radius: 1.5rem;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: all 1.5s;
-}
-#form-shop .btn:hover{
-    background-color: #59C1BD;
 }

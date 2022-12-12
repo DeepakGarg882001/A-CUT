@@ -11,7 +11,7 @@ import {FaPhoneAlt} from "react-icons/fa";
 import {MdEmail} from "react-icons/md"
 
 import { Link } from "react-router-dom";
-import {INSTA_ACC,FB_ACC,LINKEDIN_ACC,CUH_LOC,Mob_NO,email_id,You_TUBE} from "../constants";
+import {INSTA_ACC,FB_ACC,LINKEDIN_ACC,CUH_LOC,Mob_NO,email_id,You_TUBE} from "../Constants";
 
 
 const Footer = () => {
