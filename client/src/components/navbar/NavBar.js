@@ -1,71 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/navbar.css";
+import Menu from "./Menu";
 
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import tempimg from "../../Assets/shop3.jpg";
-import { logoutUserDataAction } from "../../redux/action/userAction";
+import { MdOutlineMenu, MdClose } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import userAvtar from "../../Assets/shop3.jpg";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const data = useSelector((state) => state.userReducer);
-
-  const logoutUser = () => {
-    dispatch(logoutUserDataAction());
-    navigate("/");
-  }
+  const [activePanel, setActivePanel] = useState("none");
+  const user = useSelector((state) => state.userReducer);
+  const url = process.env.REACT_APP_SERVER_URL;
+  const location = useLocation().pathname;
 
   return (
     <>
-      <nav className="navbar">
-        <div className="logo">
-          <h3>Logo</h3>
+      <div className="canvas-navbar">
+        <div
+          className="canvas-navbar-side-panel"
+          style={{ display: activePanel }}
+        >
+          <div className="under-side-panel-navbar">
+            <div className="side-panel-close-sec">
+              <MdClose onClick={() => setActivePanel("none")} />
+            </div>
+
+            <div className="side-panel-menu">
+              <Menu setActivePanel={setActivePanel} />
+            </div>
+          </div>
         </div>
-        <ul className="menu">
-          <Link to="/">
-            <li className="item" id="home">
-              Home
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="item" id="about">
-              About
-            </li>
-          </Link>
-          <Link to="/services">
-            <li className="item" id="services">
-              Services
-            </li>
-          </Link>
-          {data.length !== 0 ? (
 
-            <li className="item button" onClick={logoutUser}> Logout </li>) : (
-            <>
-              <Link to="/login">
-                <li className="item button" id="log">
-                  LogIn
-                </li>
-              </Link>
-              <Link to="/selectAccount">
-                <li className="item button " id="sign">
-                  SignUp
-                </li>
-              </Link>
-            </>
-          )}
-
-          {data.length !== 0 ? (
-            <li className="user-Profile-sec" >
-              <Link to="/profile">
-              <div className="user-Profile">
-                <img className="user-Profile-img" src={tempimg} alt="user profile" />
+        <div
+          className="navbar-canvas-header"
+          style={{
+            backgroundImage:
+              location === "/contact"
+                ? "linear-gradient(19deg, #1c004f , #3e0026,#55000c)"
+                : "",
+          }}
+        >
+          <div className="navbar-header-left">
+            <div className="navbar-header-left-icon">
+              <MdOutlineMenu onClick={() => setActivePanel("block")} />
+            </div>
+            <Link style={{ textDecoration: "none" }} to="/">
+              <div className="canvs-navbar-cmp-sec">
+                <div className="under-navbar-cpm-sec">
+                  <img className="navbar-cpm-logo" />
+                </div>
+                <div className="under-navbar-cpm-sec">
+                  <h1 className="navbar-cpm-name"> A-CUT </h1>
+                </div>
               </div>
+            </Link>
+          </div>
+
+          <div className="navbar-header-right">
+            {user.token ? (
+              <Link to="/dashboard" style={{ textDecoration: "none" }}>
+                <div className="navbar-header-profile">
+                  <img
+                    className="navbar-header-profile-img"
+                    src={
+                      user.image ? `${url}/${user.image.filePath}` : userAvtar
+                    }
+                  />
+                </div>
               </Link>
-            </li>
-          ) : null}
-        </ul>
-      </nav>
+            ) : (
+              <div>
+                {location === "/join" || location === "/login" ? (
+                  <ul className="navbar-header-right-btn-sec">
+                    <Link to="/login" style={{ textDecoration: "none" }}>
+                      <li className="navbar-header-right-btn navbar-signup">
+                        Login
+                      </li>
+                    </Link>
+                    <Link
+                      to="/selectAccount"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <li className="navbar-header-right-btn "> Sign-Up</li>
+                    </Link>
+                  </ul>
+                ) : null}
+              </div>
+            )}
+            <div></div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

@@ -1,0 +1,78 @@
+.menu-canvas{
+    width:100%
+}
+.side-panel-profile{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+.side-panel-profile-name{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: black;
+}
+.side-panel-options{
+    margin: 0px auto;
+    width: fit-content;
+}
+.side-panel-profile-img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border:2px solid;
+   border-color: #ff0000 #d600d5 #ff0316 #ff0606;
+}
+
+.menu-list-desk{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    gap:20px;
+    list-style-type: none;
+}
+.menu-list-option{
+    color: gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 7px;
+    font-weight: bold;
+}
+.menu-Profile{
+    background-color: white;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    border-width: 2px;
+    border-color:  blueviolet;
+    overflow: auto;
+}
+.menu-profile-img{
+    width: auto;
+    height:auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+@media only screen and (max-height:737px) {
+    
+    .menu-canvas {
+         height: 100vh;
+    }
+    .side-panel-options {
+        overflow: auto;
+        height: 69%;
+    }
+}
