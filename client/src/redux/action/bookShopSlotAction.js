@@ -8,12 +8,8 @@ import {
     ADD_TO_HAIR_COLOR,REMOVE_FROM_HAIR_COLOR
     } from "../reduxConstants";
 
-
-
-    
 // hair cut 
 export const addToHair = (data) => {
-  console.log("action called", data);
   return {
     type: ADD_TO_HAIR,
     data,
@@ -22,7 +18,6 @@ export const addToHair = (data) => {
 
 
 export const removeFromHair = (data) => {
-  console.log("action called", data);
   return {
     type: REMOVE_FROM_HAIR,
     data,
@@ -32,7 +27,6 @@ export const removeFromHair = (data) => {
 
 // beard 
 export const addToBeard = (data) => {
-    console.log("action called", data);
     return {
       type: ADD_TO_BEARD,
       data,
@@ -51,7 +45,6 @@ export const removeFromBeard = (data) => {
 
 //   head massag
 export const addToHeadMassag = (data) => {
-    // console.log("action called", data);
     return {
       type: ADD_TO_HEAD_MASSAG,
       data,
@@ -69,7 +62,6 @@ export const removeFromHeadMassag = (data) => {
 
 //   hair color 
 export const addToHairColor = (data) => {
-    // console.log("action called", data);
     return {
       type: ADD_TO_HAIR_COLOR,
       data,

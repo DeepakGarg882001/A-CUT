@@ -28,7 +28,7 @@ const AddServices = () => {
 
     if(response.message){
       console.log(response.message);
-       navigate("/");
+       navigate("/admin/service_list");
     }
 
    }
