@@ -1,6 +1,7 @@
 import React from "react";
 import img1 from "../../Assets/about1.png";
 import "../../styles/about.css";
+import mem1img from "../../Assets/team_img1.jpg";
 
 const AboutUs = () => {
   return (
@@ -26,9 +27,13 @@ const AboutUs = () => {
       <p id="team_heading">Team Member</p>
 
         <div className="team_inner">
+            
           <div className="team_member" id="jitu_details">JITENDRA KUMAR </div>
+          {/* <img src={mem1img} alt="loading" id="team_img" /> */}
           <div className="team_member" id ="garg_details">DEEPAK GARG</div>
           <div className="team_member" id="sharma_details">JOGINDER SHARMA</div>
+
+        
         </div>
 
       </div>
