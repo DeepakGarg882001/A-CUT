@@ -5,13 +5,8 @@ const router = express.Router();
 import signup from "./signup.js";
 import login from "./login.js";
 import {createShop,getAllShops,getShopById} from "./shop.js";
-<<<<<<< HEAD
 import { add_services,get_services,update_service,delet_service } from "./plateformServices.js";
-=======
-import { add_services,get_services,update_service } from "./plateformServices.js";
-import {bookAppointment,getAllAppointments,getAppointmentById} from "./customerAppointmentRouter.js";
->>>>>>> main
-
+import {bookAppointment,getAllAppointments,getAppointmentById} from "./customerAppointmentRouter.js"
 //    ======= Authentication Routes =========  //
 
 router.route("/signup").post(signup);
