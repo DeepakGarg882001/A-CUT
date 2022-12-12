@@ -37,6 +37,9 @@ const createShop = async (request, response) => {
     response.status(400).json({ error });
   }
 };
+
+
+
 // get all shops
 const getAllShops = async (request, response) => {
   const shops = await shop.find({});
@@ -52,6 +55,8 @@ const getAllShops = async (request, response) => {
     });
   }
 };
+
+
 // get shop by ID
 const getShopById = async (request, response) => {
   const foundShop = await shop.findById(request.params.id);
@@ -67,4 +72,6 @@ const getShopById = async (request, response) => {
     });
   }
 };
+
+
 export { createShop, getAllShops, getShopById };
