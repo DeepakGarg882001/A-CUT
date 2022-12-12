@@ -70,7 +70,7 @@ const NavBar = () => {
               </Link>
             ) : (
               <div>
-                {location === "/join" || location === "/login" ? (
+                {location === "/" || location === "/login" ? (
                   <ul className="navbar-header-right-btn-sec">
                     <Link to="/login" style={{ textDecoration: "none" }}>
                       <li className="navbar-header-right-btn navbar-signup">

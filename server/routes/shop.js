@@ -1,4 +1,5 @@
 import shop from "../DB_Collections/shopModel.js";
+import UserCol from "../DB_Collections/users.js";
 
 const createShop = async (request, response) => {
   try {
@@ -25,7 +26,14 @@ const createShop = async (request, response) => {
 
     console.log(newShop);
     if (newShop) {
-      response.status(201).json({
+       
+      const addShopToUserCOl = await UserCol.findByIdAndUpdate({_id:owner_id},{shop_id:newShop._id});
+
+      if(!addShopToUserCOl){
+        return response.status(401).json({error:"Shop Created with some error"});
+      }
+
+      return response.status(201).json({
         success: true,
         data: newShop,
         message: "created sussessfully",

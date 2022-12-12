@@ -9,7 +9,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { userDataAction } from "../../redux/action/userAction";
-
+import { getOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 const Login = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
@@ -50,7 +50,12 @@ const Login = () => {
       dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){
-        navigate("/createShop");
+         if(response.data.shop_id){
+           navigate("/owner");
+           dispatch(getOwnerShopDataAction());
+         }else{
+           navigate("/owner/createShop");
+         }
       }else if(response.data.userRole.role==="admin"){
         navigate("/admin");
       }else{
@@ -66,7 +71,6 @@ const Login = () => {
           initialValues={initialFormData}
           validationSchema={formValidation}
           onSubmit={(values, { resetForm }) => {
-            console.log(values);
             postDataToServer(values);
             resetForm();
           }}

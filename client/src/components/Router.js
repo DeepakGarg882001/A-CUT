@@ -29,6 +29,9 @@ import AddServices from "./admin/services/AddServices";
 import OurServices from "./plateformServices/OurServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
 
+import OwnerDashBoard from "./owner/OwnerDashBoard";
+
+
 const Router = ()=>{
 
     return(<>
@@ -50,7 +53,11 @@ const Router = ()=>{
 
                     <Route path="/forgotPass" element={ <ForgotPass />} />
 
-                    <Route path="/createShop" element={ <CreateShop />} />
+                       
+                    <Route path="/owner" element={ <OwnerDashBoard />} >
+                        <Route path="/owner/createShop" element={ <CreateShop />} />
+                    </Route>
+
 
                     <Route path="/admin" element={ <AdminDash />} >
                      <Route path="/admin/service_list" element={ <AllServices />} />
