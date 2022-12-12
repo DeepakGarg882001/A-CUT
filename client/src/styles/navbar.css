@@ -1,6 +1,8 @@
+
 .canvas-navbar{
   width: 100vw;
   height: fit-content;
+
   display: flex;
   flex-direction: row;
   align-items: center;

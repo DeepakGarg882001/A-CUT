@@ -1,6 +1,13 @@
-body{
-    background-color: #d4e2e74d;
-}
+#grid{
+   
+   
+        /* height: 200px;
+        width: 200px; */
+        background-color: #d4e2e74d;
+        /* background-image: conic-gradient(red, yellow, green, blue, black); */
+        /* background-image: conic-gradient(blue, red, yellow, black, green); */
+    }
+
 .heading{
     text-align: center;
     margin-bottom: 30px;
@@ -31,7 +38,7 @@ body{
     box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
     border-radius: 4px;
     font-weight: bold;
-    color: #14800c;
+    color: #e6f2e5;
     font-size: 16px;
     cursor: pointer;
 }
@@ -62,18 +69,27 @@ body{
     align-items: center;
     margin: 0px 10px;
 }
-.forgot{
+.forgot_sign{
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
     font-weight: bold;
 }
-.forgot p a{
+.forgot_sign p a{
     text-decoration: none;
     color: rgb(157, 35, 141);
 }
 .icon{
     text-align: center;
     width: 20px;
+}
+#error_msg_sign{
+    margin-top: -1rem; 
+    font-size: .8rem;
+    color: red;
+}
+.forgot_sign{
+margin: 2rem;
+
 }
 

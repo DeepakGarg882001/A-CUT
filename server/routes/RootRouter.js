@@ -5,7 +5,12 @@ const router = express.Router();
 import signup from "./signup.js";
 import login from "./login.js";
 import {createShop,getAllShops,getShopById} from "./shop.js";
+<<<<<<< HEAD
 import { add_services,get_services,update_service,delet_service } from "./plateformServices.js";
+=======
+import { add_services,get_services,update_service } from "./plateformServices.js";
+import {bookAppointment,getAllAppointments,getAppointmentById} from "./customerAppointmentRouter.js";
+>>>>>>> main
 
 //    ======= Authentication Routes =========  //
 
@@ -21,7 +26,8 @@ router.route("/getServices").get(get_services);
 router.route("/updateService").post(update_service);
 router.route("/deletService").post(delet_service);
 
-    
-    
+router.route("/bookAppointment").post(bookAppointment);
+router.route("/getAllAppointments").get(getAllAppointments);
+router.route("/getAppointmentById/:id").get(getAppointmentById);
 
 export default router;

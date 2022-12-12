@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { userDataAction } from "../../redux/action/userAction";
 import { getOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cookie = new Cookies();
- 
+
   const initialFormData = {
     email: "",
     password: "",
@@ -58,8 +58,8 @@ const Login = () => {
          }
       }else if(response.data.userRole.role==="admin"){
         navigate("/admin");
-      }else{
-         navigate("/");
+      } else {
+        navigate("/");
       }
     }
   };
@@ -87,24 +87,24 @@ const Login = () => {
                 <Field type="text" name="email" placeholder="Username" />
               </div>
               <div>
-                <ErrorMessage name="email" />
+                <p id="error_msg"> <ErrorMessage name="email" /></p>
               </div>
             </div>
             <div className="inputWrapper">
               <div className="inputInner">
                 <div >
-                  <BsShieldLock  className="icon"/>
+                  <BsShieldLock className="icon" />
                 </div>
                 <Field type="password" name="password" placeholder="Password" />
               </div>
               <div>
-                <ErrorMessage name="password" />
-              </div>
+                <p id="error_msg"> <ErrorMessage name="password" /></p>
+               </div>
             </div>
 
-            <div className="forgot">
-              <p>
-                <Link to="/forgotPass">Forgot Password ?</Link>
+            <div className="forgot_login">
+              <p >
+                <Link to="/forgotPass" className="forgpass">Forgot Password ?</Link>
               </p>
             </div>
 
@@ -116,7 +116,7 @@ const Login = () => {
               <p className="no_account">
                 Don't have any Account?
                 <span>
-                  <Link to="/selectAccount">SignUp</Link>
+                  <Link to="/selectAccount" id="login_signup"> SignUp</Link>
                 </span>
               </p>
             </div>

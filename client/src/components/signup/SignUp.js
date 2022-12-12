@@ -30,10 +30,10 @@ const SignUp = () => {
     name: yup.string().min(3, "Incorrect").required("Please Enter Your Name"),
     email: yup.string().email("Invalid email").required("Email is required !"),
     phone: yup.string().min(10).max(10).required("Phone No. required !"),
-    password: yup.string().min(4).max(12).required("password is required"),
+    password: yup.string().min(4).max(12).required("Password is required"),
     confirmPassword: yup
       .string("Confirm your Password")
-      .oneOf([yup.ref("password")], "Password does not match"),
+      .oneOf([yup.ref("Password")], "Password does not match"),
   });
 
   
@@ -112,7 +112,8 @@ const SignUp = () => {
               <Field type="text" name="name" placeholder="Username" />
             </div>
             <div>
-            <ErrorMessage name="name" />
+              <p id="error_msg_sign"><ErrorMessage name="name" /></p>
+              
             </div>
           </div>
           <div className="inputWrapper">
@@ -123,7 +124,7 @@ const SignUp = () => {
               <Field type="email" name="email"  placeholder="abc@example.com" />
             </div>
             <div>
-            <ErrorMessage name="email" />
+            <p id="error_msg_sign"><ErrorMessage name="email" /></p>
             </div>
           </div>
           <div className="inputWrapper">
@@ -134,7 +135,7 @@ const SignUp = () => {
               <Field type="number" name="phone" placeholder="Enter your phone number" />
             </div>
             <div>
-            <ErrorMessage name="phone" />
+            <p id="error_msg_sign"><ErrorMessage name="phone" /></p>
             </div>
           </div>
           <div className="inputWrapper">
@@ -146,7 +147,7 @@ const SignUp = () => {
               
             </div>
              <div>
-             <ErrorMessage name="password" />
+             <p id="error_msg_sign"><ErrorMessage name="password" /></p>
              </div>
           </div>
           <div className="inputWrapper">
@@ -157,13 +158,14 @@ const SignUp = () => {
               <Field type="text" name="confirmPassword"  placeholder="ConfirmPassword" />
             </div>
             <div>
-              <ErrorMessage name="confirmPassword" />
+              <p id="error_msg_sign"><ErrorMessage name="confirmPassword" /></p>
+              
             </div>
           </div>
           <div className="inputWrapper">
             <button type="submit" >Submit</button>
           </div>
-          <div className="forgot">
+          <div className="forgot_sign">
             <p>If already registered ? <Link to="/login">login</Link></p>
           </div>
           </Form>
