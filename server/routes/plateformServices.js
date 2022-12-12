@@ -31,9 +31,43 @@ const get_services = async(request,response)=>{
 
 }
 
-const update_service = (request,response) =>{
-    console.log(request.body);
+const update_service = async(request,response) =>{
+     console.log(request.body);
+     const {_id,service_name}= request.body;
+
+     if(!_id | !service_name){
+      return response.status(400).json({error:"Please fill the Service Name Properly"});
+     }
+
+     const updatetoDataBase = await plateformServices_Col.findByIdAndUpdate(_id,{service_name});
+
+     if(!updatetoDataBase){
+      return response.status(402).json({error:"Process Failed"});
+     }
+
+     return response.status(200).json({message:"updated successfully"})
+
+
 }
 
-export {add_services,get_services,update_service}
+const delet_service = async(request,response) =>{
+  console.log(request.body);
+  const {_id}= request.body;
+
+  if(!_id ){
+   return response.status(400).json({error:"Please Choose Proper Service Name"});
+  }
+
+  const delettoDataBase = await plateformServices_Col.findByIdAndDelete(_id);
+
+  if(!delettoDataBase){
+   return response.status(402).json({error:"Process Failed"});
+  }
+
+  return response.status(200).json({message:"deleted successfully"})
+
+
+}
+
+export {add_services,get_services,update_service,delet_service}
 

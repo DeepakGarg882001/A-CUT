@@ -8,7 +8,7 @@ const bookModel = new mongoose.Schema({
   },
   selectServices: [
     {
-        selectServices: {
+        services: {
         type: String,
       },
       price: {
