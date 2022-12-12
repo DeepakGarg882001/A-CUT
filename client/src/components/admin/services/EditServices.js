@@ -5,18 +5,58 @@ import { CiEdit } from "react-icons/ci";
 import { TiTickOutline } from "react-icons/ti";
 import { MdKeyboardArrowDown,MdOutlineKeyboardArrowUp,MdOutlineDeleteOutline } from "react-icons/md";
 import SubServices from "./subServices/SubServices";
+import { useNavigate } from "react-router";
+import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
+import { useDispatch } from "react-redux";
+
 const EditServices = ({ data }) => {
 
   const [activeInput, setActiveInput] = useState(true);
   const [showAccordian, setShowAccordian] = useState(false);
-  
+  const url = process.env.REACT_APP_SERVER_URL;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const updateService = async (values)=>{
     console.log(values);
 
-  } 
+    const makeReq =await fetch(`${url}/updateService`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(values)
+    })
+     
+    const response = await makeReq.json();
+
+    if(response.message){
+      console.log(response.message);
+       dispatch(getPlateformServiceListAction());
+       navigate("/admin/service_list");
+    }
+
+   }
+
+  
 
   const deletService = async(id)=>{
     console.log(id);
+    const makeReq =await fetch(`${url}/deletService`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({_id:id})
+    })
+     
+    const response = await makeReq.json();
+
+    if(response.message){
+       console.log(response.message);
+       dispatch(getPlateformServiceListAction());
+       navigate("/admin/service_list");
+    }
 
   }
 
@@ -25,6 +65,7 @@ const EditServices = ({ data }) => {
       <div className="all-service-list-head">
         <Formik
           initialValues={{
+            _id:data._id,
             service_name: data.service_name,
           }}
           onSubmit={(values)=>{

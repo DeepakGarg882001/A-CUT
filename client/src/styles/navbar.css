@@ -1,127 +1,199 @@
-.navbar {
-  background-color: #0a080a;
+
+.canvas-navbar{
+  width: 100vw;
+  height: fit-content;
+
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  position: -webkit-sticky;
   justify-content: space-between;
+  z-index: 50;
+
+}
+.canvas-navbar-side-panel{
+  max-width: 400px;
+  min-width: 300px;
+  width: inherit;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 30;
+  padding-bottom: 30px;
+  height: fit-content;
+  min-height: 100vh;
+  
+}
+.under-side-panel-navbar{
+  display: flex;
+  flex-direction: column;
+}
+.side-panel-close-sec{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: gray;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.side-panel-menu{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+.navbar-canvas-header{
+  width: 100vw;
+  display: flex;
+  padding: 0px 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
+
+
+}
+.navbar-header-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: fit-content;
+  gap: 30px;
   align-items: center;
 }
-
-.menu {
-  list-style-type: none;
+.navbar-header-left-icon{
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.canvs-navbar-cmp-sec{
+  height: auto;
+  padding: 15px 10px;
   display: flex;
   justify-content: center;
-  font-size: 3vh;
-  padding: 1.5vh;
-  margin-right: 5rem;
+  align-items: center;
+  flex: 1;
+  flex-wrap: nowrap;
 }
-.item button{
-  color: bisque;
+.under-navbar-cpm-sec{
+  flex-shrink: 1;
+  flex-basis:fit-content;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
 }
-.menu li {
-  margin-right: 1.5rem;
+.navbar-cpm-logo{
+  width: auto;
+  height: 68px;
 }
-.menu a {
-  text-decoration: none;
-  color: bisque;
-  padding: .3rem;
-}
-.logo h3{
-  margin-left: 1rem;
-  color: bisque;
+.navbar-cpm-name{
+  font-size: 1.8rem;
+  color: white;
   font-weight: bold;
-}
-.menu li a:hover {
-  box-shadow: inset 100px 0 0 0 #54b3d6;
-  color: rgb(72, 24, 194);
-  border-radius: .2rem;
+  text-shadow: 0px 4px 0px #201323;
 }
 
-.user-Profile-sec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
+.navbar-cpm-status{
+  font-size: 1.0rem;
+  color: #04ec04;
+  font-weight: bold;
+  position: relative;
+  left: -18px;
+  text-shadow: 1px 1px 0px #000000;
+}
+.navbar-header-right-btn-sec{
+  display: flex;
+  flex-direction: row;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  color: white;
+  list-style-type: none;
+}
+.navbar-header-right-btn{
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.navbar-signup{
+  border-right: none;
 }
 
-.user-Profile {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  background-color: white;
+.navbar-header-profile{
+  width: 70px;
+  height: 70px;
   overflow: hidden;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.user-Profile-img{
-  width: 100%;
-  height: 100%;
-
+.navbar-header-profile-img{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
-@media only screen and (max-width:1240px) and (min-width:900px){
 
-  .menu {
-     padding: 1vh;
-    margin-right: 1rem;
+@media only screen and (max-width:650px) {
+  .navbar-header-left {
+      gap: 0px;
+  }
+  .navbar-header-right-btn {
+      padding: 2px 5px;
+  }
+  .navbar-signup{
+      display: none;
   }
 }
-@media only screen and (max-width:899px) and (min-width:600px){
-  
-  .menu {
-   
-    font-size: 1.2rem;
-    margin-left: 10vw;
+
+
+@media only screen and (max-width:520px) {
+  .navbar-header-left-icon {
+      font-size: 2rem;
+  }
+  .navbar-cpm-logo {
+      height: 46px;
+  }
+  .navbar-cpm-name {
+      font-size: 1.5rem;
+  }
+  .navbar-cpm-status {
+      font-size: 0.8rem;
+  }
+  .navbar-header-profile{
+      width: 50px;
+      height: 50px;
+  }
+}
+
+
+@media only screen and (max-width:420px) {
+  .navbar-canvas-header {
+      padding: 0px 10px;
+  }
+  .canvs-navbar-cmp-sec {
+      padding: 7px 6px;
+  }
+  .navbar-cpm-logo {
+      height: 46px;
+  }
+  .navbar-cpm-name {
+      font-size: 1.3rem;
+  }
+  .navbar-header-right-btn {
+      font-size: 0.7rem;
+  }
+  .navbar-cpm-status {
+      font-size: 0.7rem;
   }
  
-}
-@media only screen and (max-width:599px) and (min-width:360px){
-  .navbar {
-    width: 100%;
-    height: auto;
-  }
-  
-  .menu {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    font-size: 3vh;
-    padding: 1.5vh;
-    margin-right: 5rem;
-  }
-  .menu li {
-    margin-right: 1.5rem;
-  }
-  .menu a {
-    text-decoration: none;
-    color: bisque;
-    padding: .3rem;
-  }
-  .logo h3{
-    margin-left: 1rem;
-    color: bisque;
-    font-weight: bold;
-  }
-  .menu li a:hover {
-    box-shadow: inset 100px 0 0 0 #54b3d6;
-    color: rgb(72, 24, 194);
-    border-radius: .2rem;
-  }
-  
-  .user-Profile-sec {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px;
-  }
-  
-  .user-Profile {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    background-color: white;
-    overflow: hidden;
-  }
-  .user-Profile-img{
-    width: 100%;
-    height: 100%;
-  
-  }
-  
- 
+
 }

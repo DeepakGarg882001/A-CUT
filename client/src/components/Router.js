@@ -24,6 +24,12 @@ import ReportPage from "./admin/report/ReportPage";
 import Accounts from "./admin/account/Accounts";
 import AddServices from "./admin/services/AddServices";
 
+import OurServices from "./plateformServices/OurServices";
+import ShowShops from "./shop/showAllShops/ShowShops";
+
+import OwnerDashBoard from "./owner/OwnerDashBoard";
+
+
 const Router = ()=>{
 
     return(<>
@@ -34,7 +40,9 @@ const Router = ()=>{
                     <Route path="/" element={ <Home />} />
 
                     <Route path="/about" element={ <AboutUs />} />
-                    <Route path="/services" element={ <Shop1 />} />
+                    <Route path="/services" element={ <OurServices />} />
+                    <Route path="/contact" element={ <ContactUs />} />
+                    <Route path="/all_shops" element={ <ShowShops />} />
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />
@@ -43,7 +51,11 @@ const Router = ()=>{
 
                     <Route path="/forgotPass" element={ <ForgotPass />} />
 
-                    <Route path="/createShop" element={ <CreateShop />} />
+                       
+                    <Route path="/owner" element={ <OwnerDashBoard />} >
+                        <Route path="/owner/createShop" element={ <CreateShop />} />
+                    </Route>
+
 
                     <Route path="/admin" element={ <AdminDash />} >
                      <Route path="/admin/service_list" element={ <AllServices />} />

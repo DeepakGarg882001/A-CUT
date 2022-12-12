@@ -1,4 +1,3 @@
-import { request } from "https";
 import customerAppointment from "../DB_Collections/customerAppointmentModel.js";
 
 const bookAppointment = async (request, response) => {
