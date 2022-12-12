@@ -13,6 +13,9 @@ const UserDoc = new mongoose.Schema({
     phone:{
       type:Number
     },
+    shop_id:{
+       type:String
+    },
     userRole: {
       role: {
         type: String,
