@@ -62,24 +62,34 @@ body{
     align-items: center;
     margin: 0px 10px;
 }
-.forgot{
+.forgot_login{
     display: flex;
-    justify-content: flex-end;
+    justify-items: center;
     margin-top: 10px;
+    margin-left: 10vw;
     font-weight: bold;
+    font-size: 1.1rem;
+
 }
-.forgot p a{
+#login_signup{
+    margin-left: 0.8rem;
+}
+.forgot_login p Link{
     text-decoration: none;
-    color: #fff;
+    color: rgb(12, 12, 14);
 }
 .icon{
     text-align: center;
     width: 20px;
 }
 .no_account{
-    font-size: 20px;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-top: .5rem;
+}
+#error_msg{
+    margin: 1rem 0rem;
+    margin-top: -1rem;
 }
 
 @media only screen and (min-width:300px) and (max-width:400px) {
