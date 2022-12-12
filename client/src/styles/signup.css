@@ -1,6 +1,13 @@
-body{
-    background-color: #d4e2e74d;
-}
+#grid{
+   
+   
+        /* height: 200px;
+        width: 200px; */
+        background-color: #d4e2e74d;
+        /* background-image: conic-gradient(red, yellow, green, blue, black); */
+        /* background-image: conic-gradient(blue, red, yellow, black, green); */
+    }
+
 .heading{
     text-align: center;
     margin-bottom: 30px;
