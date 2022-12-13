@@ -32,7 +32,7 @@ import getPlateformServiceListAction from "../../redux/action/getPlateformServic
           </video>
         </div>
         <div className="shops">
-          <h2>Available Shops</h2>
+          <h2 id="labela-about">Available Shops</h2>
           <div className="individual">
             <ShopContainer
             name="hello"
@@ -51,10 +51,10 @@ import getPlateformServiceListAction from "../../redux/action/getPlateformServic
       </div>
 
       <div>
-        <div>
-          <h2>Our Service</h2>
+        <div >
+          <h2 id="labela-about">Our Service</h2>
         </div>
-        <div>
+        <div className="services_home">
           {AllServices.map((data, index) => {
             return (
               <React.Fragment key={index}>
