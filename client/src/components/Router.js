@@ -40,7 +40,7 @@ const Router = ()=>{
                     <Route path="/" element={ <Home />} />
 
                     <Route path="/about" element={ <AboutUs />} />
-                    <Route path="/services" element={ <OurServices />} />
+                    <Route path="/services" element={ <Shop1 />} />
                     <Route path="/contact" element={ <ContactUs />} />
                     <Route path="/all_shops" element={ <ShowShops />} />
 
