@@ -58,10 +58,13 @@ const Footer = () => {
               </div>
               <div className="footer-top-icon-sec">
                 <p className="footer-middle-info-name">Social Media </p>
-          <a href={LINKEDIN_ACC} target="_self" id="footer_icon">  <AiOutlineTwitter /> </a>
+                <div className="footer_social">
+                <a href={LINKEDIN_ACC} target="_self" id="footer_icon">  <AiOutlineTwitter /> </a>
            <a href={You_TUBE} target="_self" >  <AiOutlineYoutube  id="footer_icon"/> </a>
            <a href={FB_ACC} target="_self" >  <FaFacebookF  id="footer_icon"/> </a>
            <a href={INSTA_ACC} target="_self" >  <FaInstagram  id="footer_icon"/> </a>
+                </div>
+     
           </div>
         </div>
 
