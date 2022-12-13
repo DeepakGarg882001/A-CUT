@@ -27,6 +27,7 @@ const Login = () => {
   });
 
   const postDataToServer = async (values) => {
+    console.log(values);
     const makeRequest = await fetch(`${url}/login`, {
       method: "POST",
       headers: {
@@ -34,8 +35,9 @@ const Login = () => {
       },
       body: JSON.stringify(values),
     });
-
+    
     const response = await makeRequest.json();
+    console.log(response);
     if (response.error) {
       console.log(response.error);
       if (response.error.name) {
@@ -50,9 +52,9 @@ const Login = () => {
       dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){
-         if(response.data.shop_id){
-           navigate("/owner");
-           dispatch(getOwnerShopDataAction());
+         if(response.data.shop_id != "" && response.data.shop_id ){
+           dispatch(getOwnerShopDataAction(response.data.shop_id));
+           navigate("/owner/myShop");
          }else{
            navigate("/owner/createShop");
          }
