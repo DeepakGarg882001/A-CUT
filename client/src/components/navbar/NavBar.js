@@ -18,8 +18,7 @@ const NavBar = () => {
       <div className="canvas-navbar">
         <div
           className="canvas-navbar-side-panel"
-          style={{ display: activePanel }}
-        >
+          style={{ display: activePanel }}>
           <div className="under-side-panel-navbar">
             <div className="side-panel-close-sec">
               <MdClose onClick={() => setActivePanel("none")} />

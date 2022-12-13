@@ -34,15 +34,15 @@ import getPlateformServiceListAction from "../../redux/action/getPlateformServic
         <div className="shops">
           <h2 id="labela-about">Available Shops</h2>
           <div className="individual">
-            <ShopContainer
+            <ShopContainer 
             name="hello"
             img={s1}
             />
-            <ShopContainer
+            <ShopContainer 
             name="hi"
             img={s2}
             />
-            <ShopContainer
+            <ShopContainer 
             name="hello"
             img={s3}
             />
@@ -57,7 +57,7 @@ import getPlateformServiceListAction from "../../redux/action/getPlateformServic
         <div className="services_home">
           {AllServices.map((data, index) => {
             return (
-              <React.Fragment key={index}>
+              <React.Fragment key={index} className="servicesabc" >
                 <Link>
                   <Services data={data} />
                 </Link>
