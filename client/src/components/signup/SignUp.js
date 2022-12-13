@@ -33,7 +33,7 @@ const SignUp = () => {
     password: yup.string().min(4).max(12).required("Password is required"),
     confirmPassword: yup
       .string("Confirm your Password")
-      .oneOf([yup.ref("Password")], "Password does not match"),
+      .oneOf([yup.ref("password")], "Password does not match"),
   });
 
   
