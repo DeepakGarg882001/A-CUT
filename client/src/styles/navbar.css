@@ -2,8 +2,7 @@
 .canvas-navbar{
   width: 100vw;
   height: fit-content;
-
-  display: flex;
+   display: flex;
   flex-direction: row;
   align-items: center;
   position: sticky;
@@ -118,6 +117,10 @@
   border: 1px solid white;
   padding: 5px 10px;
   border-radius: 4px;
+  color: white;
+}
+.navbar-header-right-btn:hover{
+  color: cornflowerblue;
 }
 .navbar-signup{
   border-right: none;
