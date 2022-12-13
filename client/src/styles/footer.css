@@ -68,11 +68,14 @@
     align-items: center;
 
 }
-.footer-middle-info-name{
+.footer-middle-info-name {
     font-weight: bold;
     color: white;
     font-size: 1.4rem;
 
+}
+#location_items{
+    text-decoration: none;
 }
 .footer-middle-info-details{
     display: flex;
@@ -113,16 +116,15 @@
     justify-content: center;
     align-items: baseline;
     color: aliceblue;
-    text-decoration: none;
 }
-.footer-middle-basic-text :hover{
+#location_items :hover{
     color: hsl(147, 88%, 36%);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 20%; 
+    border-radius: 10%; 
      
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
 }
 .footer-basic-detail-text{
   width: 270px;
