@@ -28,6 +28,7 @@ import OurServices from "./plateformServices/OurServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
 
 import OwnerDashBoard from "./owner/OwnerDashBoard";
+import CustomerAppointment from "./owner/customerAppointment";
 
 
 const Router = ()=>{
@@ -54,6 +55,7 @@ const Router = ()=>{
                        
                     <Route path="/owner" element={ <OwnerDashBoard />} >
                         <Route path="/owner/createShop" element={ <CreateShop />} />
+                        <Route path="/owner/cus" element={<CustomerAppointment/>}/>
                     </Route>
 
 

@@ -10,7 +10,6 @@ const bookAppointment = async (request, response) => {
         .json({ error: "Please fill the details completely !" });
     }
     const newBooking = await customerAppointment.create({
-        userId,
         name,
         selectServices,
         totalPrice,
