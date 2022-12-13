@@ -1,7 +1,7 @@
 import React from "react";
 import * as yup from "yup";
-import { BiUserCircle } from "react-icons/bi";
-import { BsShieldLock } from "react-icons/bs";
+import { FaUserAlt } from "react-icons/fa";
+import { AiFillLock } from "react-icons/ai";
 import "../../styles/login.css";
 import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
@@ -84,7 +84,7 @@ const Login = () => {
             <div className="inputWrapper">
               <div className="inputInner">
                 <div >
-                  <BiUserCircle className="icon" />
+                  <FaUserAlt className="icon" />
                 </div>
                 <Field type="text" name="email" placeholder="Username" />
               </div>
@@ -95,7 +95,7 @@ const Login = () => {
             <div className="inputWrapper">
               <div className="inputInner">
                 <div >
-                  <BsShieldLock className="icon" />
+                  <AiFillLock className="icon" />
                 </div>
                 <Field type="password" name="password" placeholder="Password" />
               </div>

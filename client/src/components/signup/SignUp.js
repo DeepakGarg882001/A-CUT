@@ -1,6 +1,9 @@
 import React from "react";
-import {BiUserCircle} from "react-icons/bi";
-import {BsShieldLock} from "react-icons/bs";
+import {FaUserAlt} from "react-icons/fa";
+import {SiGmail} from "react-icons/si";
+import {BsFillTelephoneFill} from "react-icons/bs";
+import {AiFillLock} from "react-icons/ai";
+import {BsFillCheckCircleFill} from "react-icons/bs";
 import "../../styles/signup.css";
 import * as yup from "yup";
 import Swal from "sweetalert2";
@@ -107,7 +110,7 @@ const SignUp = () => {
           <div className="inputWrapper">
             <div className="inputInner">
               <div className="icon">
-                <BiUserCircle/>
+                <FaUserAlt/>
               </div>
               <Field type="text" name="name" placeholder="Username" />
             </div>
@@ -119,7 +122,7 @@ const SignUp = () => {
           <div className="inputWrapper">
             <div className="inputInner">
               <div className="icon">
-                <BsShieldLock/>
+                <SiGmail/>
               </div>
               <Field type="email" name="email"  placeholder="abc@example.com" />
             </div>
@@ -130,7 +133,7 @@ const SignUp = () => {
           <div className="inputWrapper">
             <div className="inputInner">
               <div className="icon">
-                <BsShieldLock/>
+                <BsFillTelephoneFill/>
               </div>
               <Field type="number" name="phone" placeholder="Enter your phone number" />
             </div>
@@ -141,7 +144,7 @@ const SignUp = () => {
           <div className="inputWrapper">
             <div className="inputInner">
               <div className="icon">
-                <BsShieldLock/>
+                <AiFillLock/>
               </div>
               <Field type="password" name="password"  placeholder="Password" />
               
@@ -153,7 +156,7 @@ const SignUp = () => {
           <div className="inputWrapper">
             <div className="inputInner">
               <div className="icon">
-                <BsShieldLock/>
+                <BsFillCheckCircleFill/>
               </div>
               <Field type="text" name="confirmPassword"  placeholder="ConfirmPassword" />
             </div>

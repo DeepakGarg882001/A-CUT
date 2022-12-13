@@ -18,6 +18,13 @@
     color: white;
   
 }
+.footer_social a{
+    display: felx;
+    flex-direction: column;
+    font-size: 3rem;
+    text-decoration: none;
+
+    }
 
 #footer_icon:hover{
     color: hsl(147, 88%, 36%);
@@ -27,8 +34,9 @@
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
-#footer_icon{
+#footer_icon {
     color: aquamarine;
+   margin-left: 15px;
 
 }
 .footer-canvas-middle{
@@ -152,7 +160,7 @@
    .footer-canvas-top{
     background-image: none;
    }
-    
+   
 }
 
 
@@ -184,4 +192,5 @@
     .footer-basic-detail-text {
         width: 230px;
     }
+    
 }
