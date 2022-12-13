@@ -11,7 +11,7 @@ const createShop = async (request, response) => {
       shop_address,
       shop_services,
     } = request.body;
-    
+
     if (
       !owner_name |
       !owner_id |
@@ -25,7 +25,7 @@ const createShop = async (request, response) => {
         .json({ error: "Please fill the form completely" });
     }
     const isShopAlreadyCreated = await shop.findOne({ owner_id });
-    if (isShopAlreadyCreated!=null) {
+    if (isShopAlreadyCreated != null) {
       return response
         .status(402)
         .json({ error: "You have Already Created a Shop" });
@@ -47,7 +47,7 @@ const createShop = async (request, response) => {
         { _id },
         { shop_id: newShop._id }
       );
-      console.log("user data is :")
+      console.log("user data is :");
       console.log(addShopToUserCOl);
       if (!addShopToUserCOl) {
         return response
@@ -67,7 +67,6 @@ const createShop = async (request, response) => {
     response.status(400).json({ error });
   }
 };
-
 
 // get all shops
 const getAllShops = async (request, response) => {
@@ -105,17 +104,33 @@ const getShopById = async (request, response) => {
   }
 };
 
+
 // update a Particular Shop details
-const updateShopDetails = async (request, response) => {};
+const updateShopDetails = async (request, response) => {
+    console.log(request.body);
+
+    const {owner_name,shop_name ,shop_mobile ,shop_address,_id } = request.body;
+    
+    if(!owner_name | !shop_name  | !shop_mobile  | !shop_address | !_id ){
+       return response.status(400).json({error:"Please Provide all the Details"});
+    }
+
+    const updateDetails = await shop.findByIdAndUpdate(_id,request.body);
+
+    if(!updateDetails){
+      return response.status(400).json({error:"Process Failed"});
+    }
+    return response.status(200).json({message:"successfully updated"});
+};
+    
+
 
 // update Particular Shop Image
-const uploadShopImage = async(request,response) => {
-
-};
+const uploadShopImage = async (request, response) => {};
 
 // delete a Particular Shop
 const deletShop = async (request, response) => {
-  console.log("delete a Particular Shop")
+  console.log("delete a Particular Shop");
   const { _id } = request.body;
   if (!_id) {
     return response
@@ -130,7 +145,7 @@ const deletShop = async (request, response) => {
 
   const editUser = await UserCol.findOneAndUpdate(
     { shop_id: _id },
-    {shop_id:"" }
+    { shop_id: "" }
   );
   if (!editUser) {
     return response.status(401).json({ error: "Shop Deleted with some Error" });
@@ -141,40 +156,35 @@ const deletShop = async (request, response) => {
     .json({ message: " Your Shop Deleted Successfully " });
 };
 
-
 // Add a Service To a Particular Shop
 const addShopService = async (request, response) => {
-  const { service_name, price, offer, _id } = request.body;
+  const { service_name,  shop_id } = request.body;
 
-  if (!service_name | !price | !offer | !_id) {
+  if (!service_name | !shop_id ) {
     return response
       .status(400)
       .status({ error: "Please Fill the form Correctly" });
   }
-
+   const _id = shop_id;
   const addService = await shop.findByIdAndUpdate(_id, {
     $push: {
       shop_services: {
-        service_name,
-        price,
-        offer,
+        service_name
       },
     },
   });
 
-  if(!addService){
-    return response.status(401).json({error:"Process Failed"});
+  if (!addService) {
+    return response.status(401).json({ error: "Process Failed" });
   }
-  
-  return response.status(200).json({message:"Service added"});
 
+  return response.status(200).json({ message: "Service added" });
 };
-
 
 // update a Particular Shop Services
 const updateShopService = async (request, response) => {
-     console.log("updating shop service")
-  const { service_name, price, offer, service_id,_id } = request.body;
+  console.log("updating shop service");
+  const { service_name, price, offer, service_id, _id } = request.body;
 
   if (!service_name | !price | !offer | !service_id | !_id) {
     return response
@@ -182,24 +192,27 @@ const updateShopService = async (request, response) => {
       .status({ error: "Please Fill the form Correctly" });
   }
 
-  const updateService = await shop.updateMany( {_id,"shop_services._id":service_id}, {$set:{
-      'shop_services.$.price':price,
-      'shop_services.$.offer':offer,      
-  }});
+  const updateService = await shop.updateMany(
+    { _id, "shop_services._id": service_id },
+    {
+      $set: {
+        "shop_services.$.price": price,
+        "shop_services.$.offer": offer,
+      },
+    }
+  );
   console.log(updateService);
 
-  if(!updateService){
-    return response.status(401).json({error:"Process Failed"});
+  if (!updateService) {
+    return response.status(401).json({ error: "Process Failed" });
   }
-  
-  return response.status(200).json({message:"Service Updated"});
 
-
+  return response.status(200).json({ message: "Service Updated" });
 };
 
 // delete a Particular Shop Service
 const deletShopService = async (request, response) => {
-  const { _id,service_id } = request.body;
+  const { _id, service_id } = request.body;
 
   if (!_id | !service_id) {
     return response
@@ -207,9 +220,9 @@ const deletShopService = async (request, response) => {
       .json({ error: "Please Provide Proper Details" });
   }
 
-  const removeService = await shop.findByIdAndUpdate( _id,
-    { $pull: { shop_services: { _id: service_id } } }
-  );
+  const removeService = await shop.findByIdAndUpdate(_id, {
+    $pull: { shop_services: { _id: service_id } },
+  });
   if (!removeService) {
     return response.status(401).json({ error: "Process Failed" });
   }

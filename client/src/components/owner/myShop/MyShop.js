@@ -4,48 +4,76 @@ import "../../../styles/myShop.css";
 import { useDispatch, useSelector } from "react-redux";
 import EditPhoto from "./EditPhoto";
 import EditServices from "./EditServices";
+import AddService from "./AddService";
+import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
+import {useNavigate} from "react-router-dom";
 
 const MyShop = () => {
-  
- const url = process.env.REACT_APP_SERVER_URL;
-
+  const url = process.env.REACT_APP_SERVER_URL;
 
   const dispatch = useDispatch();
   const ShopData = useSelector((state) => state.ownerShopReducer);
-  const shopServices = ShopData.length !=0 ? ShopData.shop_services :[];
+  const shopServices = ShopData.length != 0 ? ShopData.shop_services : [];
   const [activeForm, setActiveForm] = useState(true);
-
+ const navigate = useNavigate();
   const initialData = {
     owner_name: ShopData.owner_name,
     shop_name: ShopData.shop_name,
     shop_mobile: ShopData.shop_mobile,
     shop_address: ShopData.shop_address,
     shop_rating: ShopData.shop_rating,
+    shop_location: {
+      latitude: "",
+      longitude: "",
+    },
+    _id: ShopData._id,
   };
 
-  const removeShop = async()=>{
-    const makeReq =await fetch(`${url}/deletShop`,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+  const updateShopDetails = async (values) => {
+    const makeReq = await fetch(`${url}/updateShopDetails`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({_id:ShopData._id})
-    })
-     
+      body: JSON.stringify(values),
+    });
+
+    const response = await makeReq.json();
+    console.log(response);
+    if (response.message) {
+      console.log(response.message);
+      dispatch(getOwnerShopDataAction(ShopData._id));
+    }
+  };
+
+  const removeShop = async () => {
+    const makeReq = await fetch(`${url}/deletShop`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ _id: ShopData._id }),
+    });
+
     const response = await makeReq.json();
 
-    if(response.message){
-       console.log(response.message);
-       
+    if (response.message) {
+      console.log(response.message);
+      dispatch(getOwnerShopDataAction(ShopData._id));
+      navigate("/owner/createShop");
     }
-  }
+  };
 
   return (
     <>
       <div className="myShop-canvas">
-        <Formik initialValues={initialData}>
+        <Formik
+          initialValues={initialData}
+          onSubmit={(values) => {
+            updateShopDetails(values);
+          }}
+        >
           <Form className="myShop-canvas-form">
-
             <div className="myShop-canvas-form-top">
               <div className="myShop-img-sec">
                 <EditPhoto data={ShopData} />
@@ -64,7 +92,6 @@ const MyShop = () => {
             </div>
 
             <div className="myShop-canvas-form-middle">
-
               <div>
                 <div>
                   <label>Owner Name :</label>
@@ -134,26 +161,31 @@ const MyShop = () => {
                   <ErrorMessage name="shop_address" />
                 </p>
               </div>
-
             </div>
-
-            
-            
           </Form>
         </Formik>
+
         <div className="myShop-canvas-form-bottom">
-              {shopServices !=[] ? shopServices.map( (data,index)=>{
-                return(
-                  <React.Fragment key={index}>
-                    <EditServices data={data} id={ShopData._id}/>
-                  </React.Fragment>
-                )
-              }): (<div><h3>you does not provide any Service</h3></div>) }
-                 
-            </div>
+          {shopServices != [] ? (
+            shopServices.map((data, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <EditServices data={data} id={ShopData._id} />
+                </React.Fragment>
+              );
+            })
+          ) : (
             <div>
-               <button onClick={removeShop}> Delet Shop </button>
+              <h3>you does not provide any Service</h3>
             </div>
+          )}
+          <div>
+            <AddService data={ShopData} />
+          </div>
+        </div>
+        <div>
+          <button onClick={removeShop}> Delet Shop </button>
+        </div>
       </div>
     </>
   );

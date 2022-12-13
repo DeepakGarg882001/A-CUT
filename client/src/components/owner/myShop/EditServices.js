@@ -1,10 +1,11 @@
 import React from 'react'
 import { Formik,Form,Field,ErrorMessage } from 'formik';
-
+import { useDispatch } from 'react-redux';
+import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 
 const EditServices = ({data,id}) => {
   
- 
+ const dispatch = useDispatch();
  const url = process.env.REACT_APP_SERVER_URL;
 
   const initialData ={
@@ -31,6 +32,7 @@ const EditServices = ({data,id}) => {
     console.log(response);
     if(response.message){
       console.log(response.message);
+      dispatch(getOwnerShopDataAction(id));
     }
 
   }
@@ -49,6 +51,8 @@ const EditServices = ({data,id}) => {
 
     if(response.message){
        console.log(response.message);
+       dispatch(getOwnerShopDataAction(id));
+
        
     }
 
