@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Chip from "@mui/material/Chip";
 import Swal from "sweetalert2";
 import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
-
+import { useNavigate } from "react-router-dom";
+import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 const CreateShop = () => {
 
   const user = useSelector((state) => state.userReducer);
@@ -13,6 +14,7 @@ const CreateShop = () => {
 
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const reducer = (myServices, action) => {
     switch (action.type) {
@@ -85,7 +87,10 @@ const CreateShop = () => {
       }
     }
     if (response.message) {
+      dispatch(getOwnerShopDataAction(response.data._id));
       Swal.fire(" Successfully Created ! ", "", "success");
+      navigate("/owner/myShop");
+
     }
   };
 

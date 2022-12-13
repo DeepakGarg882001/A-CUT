@@ -14,7 +14,7 @@ const url = process.env.REACT_APP_SERVER_URL;
 
 function* getOwnerShopData(action) {
 
-  const makeRequest = yield fetch(`${url}/getShop?:id=${action.data}`, {
+  const makeRequest = yield fetch(`${url}/getShop?key=${action.data}`, {
     method: "GET",
     headers: {
       Accept:"application/json",
