@@ -67,7 +67,7 @@ body{
     display: flex;
     justify-items: center;
     margin-top: 10px;
-    margin-left: 11vw;
+    margin-left: 158px;
     font-weight: bold;
     font-size: 1rem;
     margin-top: 2.5rem;
@@ -120,3 +120,99 @@ body{
     }
 
 }  
+/* @media only screen and (min-width:270px) and (max-width:399pox){
+    
+   
+    .inputWrapper{
+        width: 300px;
+        margin-top: 1rem;
+       
+    }
+    .inputWrapper input,.inputWrapper button{
+        width: 50%;
+        height: 45px;
+        box-sizing: border-box;
+    }
+    .inputWrapper input{
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: transparent;
+        color: white;
+    }
+    
+    .inputWrapper button{
+      
+        background: #ffffff;
+        box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+        border-radius: 4px;
+        font-weight: bold;
+        color: #fafbf6;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .inputWrapper button:hover{
+        background-color: #3d0615;
+        box-shadow: 2px 4px 4px rgba(0,0,0,0.3);
+        
+    }
+    .loginInner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .inputWrapper input:focus-visible{
+        outline: 0px !important;
+    }
+    .inputWrapper .inputInner{
+        display: flex;
+        margin-bottom: 20px;    
+        border:1px solid #fff;
+        border-radius: 4px;
+    }
+    .inputWrapper .inputInner .icon{
+        display: flex;
+        height: 45px;
+        align-items: center;
+        margin: 0px 10px;
+    }
+    .forgot_login{
+        display: flex;
+        justify-items: center;
+        margin-top: 10px;
+        margin-left: 158px;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 2.5rem;
+    
+    
+    }
+    #login_signup{
+        margin-left: 1.3rem;
+        text-decoration: none;
+    }
+    .forgot_login p Link{
+        text-decoration: none;
+        color: rgb(12, 12, 14);
+    }
+    .icon{
+        text-align: center;
+        width: 20px;
+    }
+    .no_account{
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: .5rem;
+    }
+    #error_msg{
+        /* margin: 1rem 0rem;*/
+        margin-top: -1rem; 
+        font-size:0.8rem;
+        color: red;
+    }
+    .forgpass{
+        text-decoration: none;
+        color: red;
+    }
+} */
