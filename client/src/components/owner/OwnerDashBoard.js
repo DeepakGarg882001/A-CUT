@@ -2,32 +2,33 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 import { Outlet,Link } from "react-router-dom";
-
+import "../../styles/ownerDash.css";
 const OwnerDashBoard = () => {
   const dispatch = useDispatch();
+  
+  const ownerData = useSelector( (state)=> state.userReducer)
 
   useEffect(() => {
-    dispatch(getOwnerShopDataAction());
+    // dispatch(getOwnerShopDataAction(ownerData.shop_id));
   }, []);
 
   return (
     <>
-      <div>
+      <div className="owner-canvas">
 
         
-        {/* <div className='admin-canvas-side-panel'>
+        <div className='owner-canvas-side-panel'>
                     
                     <ul className='admin-canvas-panel'>
-                      <Link to="/admin/admin_home" ><li className='admin-canvas-panel-sec'>Home</li></Link>
-                      <Link to="/admin/service_list" ><li className='admin-canvas-panel-sec'>Services</li></Link>
-                      <Link to="/admin/search_acc" ><li className='admin-canvas-panel-sec'>Account</li></Link>
-                      <Link to="/admin/report_marked" ><li className='admin-canvas-panel-sec'>Report</li></Link>
+                      <Link to="/admin/admin_home" ><li className='admin-canvas-panel-sec'>MyShop</li></Link>
+                      <Link to="/admin/service_list" ><li className='admin-canvas-panel-sec'>Customer</li></Link>
+                      <Link to="/admin/search_acc" ><li className='admin-canvas-panel-sec'>My Services</li></Link>
                     </ul>
                     
              
-        </div> */}
+        </div>
 
-        <div>
+        <div className="ownercanvas-right-panel"> 
           <Outlet />
         </div>
 

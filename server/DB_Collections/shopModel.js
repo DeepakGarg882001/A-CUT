@@ -27,9 +27,11 @@ const shopModel = new mongoose.Schema({
       },
       price: {
         type: Number,
+        default:0
       },
       offer: {
         type: Number,
+        default:0
       },
     },
   ],
