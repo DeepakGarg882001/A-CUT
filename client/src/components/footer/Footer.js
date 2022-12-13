@@ -37,19 +37,19 @@ const Footer = () => {
               <div className="footer-middle-basic-details">
                <p className="footer-middle-info-name" >Location</p>
                 
-                <a  href={CUH_LOC} target="_self" >
+                <a  href={CUH_LOC} target="_self"  id="location_items">
                 <div className="footer-middle-basic-text">
                   <SiGooglemaps /> <span className="footer-basic-detail-text">Central University of Haryana </span>
                 </div>
                 </a>
 
-                <a href={`tel:${Mob_NO}`} target="_self" >
+                <a href={`tel:${Mob_NO}`} target="_self"  id="location_items">
                 <div className="footer-middle-basic-text">
                   <FaPhoneAlt /> <p className="footer-basic-detail-text"> (+91) {Mob_NO} </p>
                 </div>
                 </a>
 
-                <a  href={`mailto:${email_id}`} target="_self">
+                <a  href={`mailto:${email_id}`} target="_self" id="location_items">
                 <div className="footer-middle-basic-text">
                  <MdEmail /> <span className="footer-basic-detail-text"> {email_id} </span>
                 </div>
