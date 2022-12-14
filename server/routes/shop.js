@@ -127,7 +127,9 @@ const updateShopDetails = async (request, response) => {
 
 // update Particular Shop Image
 const uploadShopImage = async (request, response) => {
-
+ console.log(request);
+ console.log("uploadImage is here");
+ const {_id} =request.body;
   let FileObject={};
 
   request.files.forEach((element)=>{
@@ -144,6 +146,13 @@ const uploadShopImage = async (request, response) => {
  
    console.log(FileObject);
 
+   const addImgPaths = await shop.findByIdAndUpdate(_id,{image:FileObject});
+   
+   if(!addImgPaths){
+    return response.status(400).json({error:"Process Failed"});
+   }
+
+   return response.status(200).json({message:"updated successfully"});
 };
 
 

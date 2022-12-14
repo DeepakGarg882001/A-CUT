@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "../../../styles/myShop.css";
 import { useDispatch, useSelector } from "react-redux";
-import userAvtar from "../../../Assets/shop3.jpg";
 
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
-  const crrAvtar = data.image ? `${url}/${data.image.filePath}` : userAvtar;
+  const crrAvtar = data.image ? `${url}/${data.image.filePath}` : "";
   const [showBtn,setShowBtn] = useState(true);
   const [fileObj, setFileObj] = useState("");
   const [fileArray, setFileArray] = useState("");
@@ -46,9 +45,9 @@ function EditPhoto({ data }) {
     for (let i = 0; i < fileObj.length; i++) {
       shopImageData.append("file", fileObj[i]);
     }
-    shopImageData.append("userId", data._id);
+    shopImageData.append("_id", data._id);
 
-    const makeRequest = await fetch(`${url}/user/dashboard/image`, {
+    const makeRequest = await fetch(`${url}/uploadShopImage`, {
       method: "POST",
       body: shopImageData,
     });
@@ -78,7 +77,7 @@ function EditPhoto({ data }) {
               </React.Fragment>
             );
           })
-        ) : (
+        ) : (crrAvtar!=""? <img src={crrAvtar} className="change-profile-top-img-size" /> :
           <div  className="myshop-back-imgShadow" >Does not have any Images</div>
         )}
       </div>
