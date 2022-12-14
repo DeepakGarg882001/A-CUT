@@ -66,11 +66,40 @@ border-radius: 3rem;
 box-shadow: 2rem white;
 }
 #team_img{
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
+    width: 99%;
+    height: 190px;
+    border-radius: 3%;
 }
- 
+.about_social_media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 3.8rem;
+    color: white;
+    margin-right: 3rem;
+  
+}
+.about_social_links a{
+   
+    font-size: 3rem;
+    text-decoration: none;
+
+    }
+    #about_icon:hover{
+        color: hsl(147, 88%, 36%);
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 20%;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    #about_icon {
+        color: aquamarine;
+       margin-left: 15px;
+       text-decoration: none;
+    
+    }
 
 @media only screen and (max-width:930px) {
     .about .about-img {
