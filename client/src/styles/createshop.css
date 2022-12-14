@@ -1,0 +1,44 @@
+.createshop_container{
+    height: 30vh;
+    width: 300px;
+    margin-top:50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#input_deails{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+
+}
+#input_deails h1{
+    text-align: center;
+}
+.input_area{
+    height: 35px;
+    width: 100%;
+    box-shadow: 20px;
+
+}
+#select_services{
+    margin-top: 15px;
+}
+.proceed_btn{
+margin-top:15px ;
+ text-align: center;
+}
+.proced_btn button{
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+
+}
+.proced_btn  :hover{
+    color:blue;
+    background-color: chartreuse;
+}
+#error_msg{
+    margin-top: .2rem; 
+    font-size: .8rem;
+    color: red;
+}
