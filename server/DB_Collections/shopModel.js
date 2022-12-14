@@ -7,6 +7,20 @@ const shopModel = new mongoose.Schema({
   owner_id:{
      type:String,
   },
+  image: {
+    fileName: {
+      type: String,
+    },
+    filePath: {
+      type: String,
+    },
+    fileType: {
+      type: String,
+    },
+    fileSize: {
+      type: String,
+    },
+  },
   shop_name:{
      type:String
   },

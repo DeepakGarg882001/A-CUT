@@ -92,9 +92,9 @@ const MyShop = () => {
             </div>
 
             <div className="myShop-canvas-form-middle">
-              <div>
-                <div>
-                  <label>Owner Name :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Owner Name : </p>
                   <Field
                     name="owner_name"
                     type="text"
@@ -106,9 +106,9 @@ const MyShop = () => {
                 </p>
               </div>
 
-              <div>
-                <div>
-                  <label>Contact No :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Contact : </p>
                   <Field
                     name="shop_mobile"
                     type="text"
@@ -116,41 +116,39 @@ const MyShop = () => {
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_mobile" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
 
-              <div>
-                <div>
-                  <label>Location :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Location Latitude : </p>
                   <Field
-                    name="shop_name"
+                    name="shop_location.latitude"
                     type="text"
                     className="myShop-form-input-field"
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_name" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
-
-              <div>
-                <div>
-                  <label>Rating :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Location Longitude : </p>
                   <Field
-                    name="shop_name"
+                    name="shop_location.longitude"
                     type="text"
                     className="myShop-form-input-field"
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_name" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
-
-              <div>
-                <div>
-                  <label>Address :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Address : </p>
                   <Field
                     name="shop_address"
                     type="text"
@@ -158,7 +156,7 @@ const MyShop = () => {
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_address" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
             </div>

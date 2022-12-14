@@ -1,6 +1,6 @@
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
-
+import uploadImages from "../middleware/uploadImages.js";
 const createShop = async (request, response) => {
   try {
     const {
@@ -126,7 +126,27 @@ const updateShopDetails = async (request, response) => {
 
 
 // update Particular Shop Image
-const uploadShopImage = async (request, response) => {};
+const uploadShopImage = async (request, response) => {
+
+  let FileObject={};
+
+  request.files.forEach((element)=>{
+       
+      const file ={
+          fileName: element.originalname,
+          filePath:element.path,
+          fileType:element.mimetype,
+          fileSize:element.size
+      }
+
+      FileObject= file;
+  })
+ 
+   console.log(FileObject);
+
+};
+
+
 
 // delete a Particular Shop
 const deletShop = async (request, response) => {
