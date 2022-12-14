@@ -59,7 +59,7 @@ const Login = () => {
            navigate("/owner/createShop");
          }
       }else if(response.data.userRole.role==="admin"){
-        navigate("/admin");
+        navigate("/admin/service_list");
       } else {
         navigate("/");
       }

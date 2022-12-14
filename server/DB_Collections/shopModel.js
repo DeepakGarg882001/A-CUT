@@ -36,10 +36,12 @@ const shopModel = new mongoose.Schema({
   },
   shop_location:{
     latitude:{
-      type:Number
+      type:Number,
+      default:0
     },
     longitude:{
-      type:Number
+      type:Number,
+      default:0
     }
   },
   shop_services: [
