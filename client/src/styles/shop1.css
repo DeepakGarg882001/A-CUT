@@ -70,7 +70,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-color: chartreuse;
 }
 
@@ -102,7 +102,7 @@
     background-color: #59C1BD;
 }
 
-.booking-details h3{
+.booking-details .schdule-time h3{
     margin-top: 1rem;
 }
 #form-shop{
@@ -124,3 +124,39 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* media queries */
+@media screen and (max-width: 400px){
+    #header{
+        margin: 0;
+        padding: 2rem 0;
+    }
+    .shop-details .owner-detail{
+        width: 100%;
+    }
+
+    .shop-details .owner-detail .owner-name{
+        width: 94%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .shop-details .owner-detail .rating{
+        width: 94%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .booking-details{
+        flex-direction: column;
+        align-items: center;
+    }
+    .booking-details .schdule-time{
+        width: 94%;
+    }
+    .booking-details .shop-services{
+        width: 94%;
+    }
+    .schdule-time h2{
+        text-align: center;
+    }
+}
+

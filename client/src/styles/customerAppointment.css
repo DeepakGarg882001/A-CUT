@@ -1,0 +1,25 @@
+.cus-appointment{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 3rem;
+}
+.cus-appointment h2{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.cus-appointment .cust-table table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+ .cus-appointment .cust-table table tr .td, .th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .cus-appointment .cust-table table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
