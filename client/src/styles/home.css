@@ -81,8 +81,61 @@ video{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 1rem;
+        align-items: center;
+        margin: 1.4rem 2rem;
     }
+    .services_home a{
+        text-decoration: none;
+    }
+    
+    @media only screen and (max-width:599px) and (min-width:360px){
+        .Work-flow h2{
+            text-align: center;
+        }
+  
+        video{
+            width:94vw;
+            height: 57vh;
+            margin-top: -3.8rem;
+        }
+        .Work-flow{
+            margin-top: 1rem;
+           
+        }
+        .shops h2{
+            font-size: 2rem;
+            background-color: rgb(180, 138, 220);
+            width: 100%;
+            text-align: center;
+        }
+        .individual{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            animation: none;
+         }
+        .individual-shop{
+            width: 80%;
+            height: 50vh;
+            margin: 1rem 0;
+            
+        }
+        
+        
+        .individual-shop h3{
+            font-size: 1.5rem;
+        }
+        .individual-shop .btn{
+            margin-top: 1.5rem;
+            font-size:  1.2rem;
+            border-radius: 2rem;
+        }
+        .services_home{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
     
    
 
@@ -170,43 +223,5 @@ video{
         font-size:  1.5rem;
     }
    
-}
-
-@media only screen and (max-width:599px) and (min-width:360px){
-
-  
-    video{
-        width:80vw;
-        height: 50vh;
-        margin-top: -7.8rem;
-        margin-left: 2rem;
-    }
-    .Work-flow{
-        margin-top: 1rem;
-       
-    }
-    .shops h2{
-        font-size: 2rem;
-        background-color: rgb(180, 138, 220);
-        width: 100%;
-        text-align: center;
-    }
-    .individual{
-        flex-direction: column;
-     }
-    .individual-shop{
-        width: 60vw;
-        height: 60vh;
-        margin-top: 7vw;
-        }
-    
-    
-    .individual-shop h3{
-        font-size: 1.5rem;
-    }
-    .individual-shop .btn{
-        margin-top: 1.5rem;
-        font-size:  1.5rem;
-    }
 }
 
