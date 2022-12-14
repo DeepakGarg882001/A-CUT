@@ -75,7 +75,7 @@
     margin-top: 10px;
     font-weight: bold;
 }
-.forgot_sign p a{
+#signup_login{
     text-decoration: none;
     color: rgb(157, 35, 141);
 }

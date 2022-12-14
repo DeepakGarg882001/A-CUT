@@ -5,7 +5,9 @@
     align-items: center;
     /* margin-top: 2rem; */
     margin: 2rem 5rem;
-    background-color: aquamarine;
+    background-color: rgb(171, 111, 156);
+    /* background-image: linear-gradient(yellow, white, green); */
+
 }
 ::placeholder{
     color: black;
@@ -24,7 +26,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #59C1BD;
 }
 .shop-details .owner-detail .owner-name{
     width: 90%;
