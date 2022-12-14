@@ -6,12 +6,42 @@ import {
 
   GET_OWNER_SHOP_DATA,
   SET_OWNER_SHOP_DATA,
+
+  GET_ALL_SHOPS_DATA,
+  SET_ALL_SHOPS_DATA,
   
 } from "./reduxConstants";
 
 const url = process.env.REACT_APP_SERVER_URL;
 
 
+// Call API to get the List of Whole Shops
+function* getAllShopsList(action) {
+
+  const makeRequest = yield fetch(`${url}/getAllShops?key=${action.data}`, {
+    method: "GET",
+    headers: {
+      Accept:"application/json",
+    "Content-Type": "application/json",
+  },
+  credentials:"include",
+  });
+  
+  const response = yield makeRequest.json();
+  let data ;
+  if(response.data){
+    data = response.data;
+  }
+  if(response.error){
+    data = response;
+  }
+  yield put({ type: SET_ALL_SHOPS_DATA, data: data });
+ 
+}
+
+
+
+// Call API to get the whole data of a Shop of a Particular Owner
 function* getOwnerShopData(action) {
 
   const makeRequest = yield fetch(`${url}/getShop?key=${action.data}`, {
@@ -66,6 +96,7 @@ function* Saga() {
 
   yield takeEvery(GET_SERVICES_LIST,fetchServiceList);
   yield takeEvery(GET_OWNER_SHOP_DATA,getOwnerShopData);
+  yield takeEvery(GET_ALL_SHOPS_DATA,getAllShopsList);
    
     
   }

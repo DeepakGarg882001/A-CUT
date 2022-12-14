@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import ShopContainer from "../shop/showParticularShop/ShopContainer";
 import {useDispatch,useSelector} from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
-
+import getAllShopAction from "../../redux/action/allShopsAction";
 
 
  const  Home=()=> {
@@ -57,8 +57,8 @@ import getPlateformServiceListAction from "../../redux/action/getPlateformServic
         <div className="services_home">
           {AllServices.map((data, index) => {
             return (
-              <React.Fragment key={index} className="servicesabc" >
-                <Link>
+              <React.Fragment key={index}  >
+                <Link className="servicesabc" to="/all_shops" onClick={dispatch(getAllShopAction(data.service_name))}>
                   <Services data={data} />
                 </Link>
               </React.Fragment>
