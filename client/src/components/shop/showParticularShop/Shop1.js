@@ -58,8 +58,9 @@ const Shop1 = () => {
       },
       body: JSON.stringify(initialFormData),
     }).then((res) => {
-      console.warn("res", res);
+      console.warn("res", res); 
     });
+    
   };
   const changeList = (serviceName, price, checked) => {
     console.log(initialFormData);
@@ -202,15 +203,15 @@ const Shop1 = () => {
               </form>
             </div>
             <div className="my-details">
-              <h3>See your booking :- </h3>
+              {/* <h3>See your booking :- </h3> */}
               <div className="user-details">
                 <h3>
-                  <span>Time Slot :-</span>
+                  <span>Time Slot :- </span>
                 </h3>
                 <h3>
                   <span>Time Duration :-</span>
                 </h3>
-                <h3>Total amount you have to pay :-<span>Total Price : {result}</span></h3>
+                <h3><span>Total Payment : {result}</span></h3>
               </div>
               <button onClick={sub} className="btn" type="button">
                 Submit
@@ -224,3 +225,55 @@ const Shop1 = () => {
 };
 
 export default Shop1;
+
+
+
+
+// import React, { useState } from 'react'
+// import moment from 'moment';
+// // import './App.css'
+
+// const Shop1 = () => {
+//   let intime = "12:00 Pm"
+//   let outtime = "08:00 Pm"
+//   const [result, setResult] = useState([])
+//   console.log("Array", result)
+
+//   function intervals(startString, endString) {
+//     var start = moment(startString, 'hh:mm a');
+//     var end = moment(endString, 'hh:mm a');
+//     start.minutes(Math.ceil(start.minutes() / 30) * 30);
+
+//     var current = moment(start);
+
+//     while (current <= end) {
+//       if (result.includes(current.format('hh:mm a'))) {
+//         return null
+//       }
+//       else {
+//         result.push(current.format('hh:mm a'));
+//         current.add(30, 'minutes');
+//       }
+//     }
+
+
+//     return result;
+//   }
+
+//   intervals(intime, outtime);
+//   return (
+//     <div className='slots'>
+//       {
+//         result && result.length > 0 ? result.map((time, index) => {
+//           return (
+//             <div key={index}>
+//               <p>{time}</p>
+//             </div>
+//           )
+//         }) : null
+//       }
+//     </div>
+//   )
+// }
+
+// export default Shop1

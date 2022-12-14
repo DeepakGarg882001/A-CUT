@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
 const bookModel = new mongoose.Schema({
-  userId: {
-    type: String,
-  },
   name: {
     type: String,
   },
