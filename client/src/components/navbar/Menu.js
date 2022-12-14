@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/menu.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
 import userImg from "../../Assets/shop3.jpg";
-
+import getAllShopAction from "../../redux/action/allShopsAction";
 import {
   MdHome,
   MdOutlineLogin,
@@ -14,7 +14,6 @@ import {
 } from "react-icons/md";
 import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
 
-import { useDispatch } from "react-redux";
 import { logoutUserDataAction } from "../../redux/action/userAction";
 
 
@@ -72,7 +71,10 @@ const Menu = ({ setActivePanel }) => {
             <Link
               style={{ textDecoration: "none" }}
               to="/all_shops"
-              onClick={() => setActivePanel("none")}
+              onClick={() =>{ 
+                dispatch(getAllShopAction());
+                setActivePanel("none");
+                }}
             >
               <li className="menu-list-option">
                 <BsShopWindow /> All Shops
