@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../../../styles/myShop.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ const MyShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
 
   const dispatch = useDispatch();
+  // const owner = useSelector( (state)=> state.userReducer);
   const ShopData = useSelector((state) => state.ownerShopReducer);
   const shopServices = ShopData.length != 0 ? ShopData.shop_services : [];
   const [activeForm, setActiveForm] = useState(true);
@@ -23,8 +24,8 @@ const MyShop = () => {
     shop_address: ShopData.shop_address,
     shop_rating: ShopData.shop_rating,
     shop_location: {
-      latitude: "",
-      longitude: "",
+      latitude: ShopData.shop_location.latitude,
+      longitude: ShopData.shop_location.longitude,
     },
     _id: ShopData._id,
   };
@@ -63,7 +64,11 @@ const MyShop = () => {
       navigate("/owner/createShop");
     }
   };
-
+ 
+  // useEffect(()=>{
+  //   ShopData.length!=0 ? null:
+  //   dispatch(getOwnerShopDataAction(owner.shop_id));
+  // },[])
   return (
     <>
       <div className="myShop-canvas">
@@ -92,9 +97,9 @@ const MyShop = () => {
             </div>
 
             <div className="myShop-canvas-form-middle">
-              <div>
-                <div>
-                  <label>Owner Name :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Owner Name : </p>
                   <Field
                     name="owner_name"
                     type="text"
@@ -106,9 +111,9 @@ const MyShop = () => {
                 </p>
               </div>
 
-              <div>
-                <div>
-                  <label>Contact No :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Contact : </p>
                   <Field
                     name="shop_mobile"
                     type="text"
@@ -116,41 +121,39 @@ const MyShop = () => {
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_mobile" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
 
-              <div>
-                <div>
-                  <label>Location :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Location Latitude : </p>
                   <Field
-                    name="shop_name"
+                    name="shop_location.latitude"
                     type="text"
                     className="myShop-form-input-field"
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_name" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
-
-              <div>
-                <div>
-                  <label>Rating :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Location Longitude : </p>
                   <Field
-                    name="shop_name"
+                    name="shop_location.longitude"
                     type="text"
                     className="myShop-form-input-field"
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_name" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
-
-              <div>
-                <div>
-                  <label>Address :</label>
+              <div className="myShop-details-sec">
+                <div className="myShop-details-sec-name">
+                  <p className="myShop-details-sec-label">Address : </p>
                   <Field
                     name="shop_address"
                     type="text"
@@ -158,9 +161,12 @@ const MyShop = () => {
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="shop_address" />
+                  <ErrorMessage name="owner_name" />
                 </p>
               </div>
+            </div>
+            <div>
+              <button type="submit">Save Details</button>
             </div>
           </Form>
         </Formik>
