@@ -26,12 +26,13 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    box-shadow: 10px 10px 5px 12px lightblue;
   } 
   
  #signupimg{
     width:15vw;
     height: 10vh;
-    border-radius: 50%;
+    border-radius: 10%;
     margin-left: 2rem;
 
   }   

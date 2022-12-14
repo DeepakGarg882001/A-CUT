@@ -1,10 +1,16 @@
+
 .createshop_container{
     height: 30vh;
     width: 300px;
     margin-top:50px;
     font-family: 'Times New Roman', Times, serif;
-}
+  background-image: linear-gradient(blue ,black);
+  box-shadow:  5px 5px 5px 5px #302830;
 
+}
+::placeholder{
+    font-weight: bold;
+}
 #input_deails{
     width: 100%;
     height: auto;
@@ -13,6 +19,7 @@
 }
 #input_deails h1{
     text-align: center;
+    color: white;
 }
 .input_area{
     height: 35px;
@@ -21,11 +28,12 @@
 
 }
 #select_services{
-    margin-top: 15px;
+    margin-top:3rem;
 }
 .proceed_btn{
 margin-top:15px ;
  text-align: center;
+ background-color: blueviolet;
 }
 .proced_btn button{
     width: 100%;

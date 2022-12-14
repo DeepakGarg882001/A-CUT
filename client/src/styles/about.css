@@ -79,8 +79,6 @@
   color: blue;
  
 }
-
-
 @media only screen and (max-width: 600px) {
   .about {
     margin-top: 30px;

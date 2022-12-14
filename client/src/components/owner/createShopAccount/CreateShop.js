@@ -144,12 +144,13 @@ const CreateShop = () => {
                 </p>
               </div>
               <p id="select_services">Select Services</p>
+
               {myServices
                 ? myServices.map((data, index) => {
                   return (
                     <React.Fragment key={index}>
                       <Chip label={data.service_name} />
-                    </React.Fragment>
+                    </React.Fragment >
                   );
                 })
                 : null}
