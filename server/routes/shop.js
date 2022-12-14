@@ -1,6 +1,6 @@
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
-
+import uploadImages from "../middleware/uploadImages.js";
 const createShop = async (request, response) => {
   try {
     const {
@@ -126,7 +126,36 @@ const updateShopDetails = async (request, response) => {
 
 
 // update Particular Shop Image
-const uploadShopImage = async (request, response) => {};
+const uploadShopImage = async (request, response) => {
+ console.log(request);
+ console.log("uploadImage is here");
+ const {_id} =request.body;
+  let FileObject={};
+
+  request.files.forEach((element)=>{
+       
+      const file ={
+          fileName: element.originalname,
+          filePath:element.path,
+          fileType:element.mimetype,
+          fileSize:element.size
+      }
+
+      FileObject= file;
+  })
+ 
+   console.log(FileObject);
+
+   const addImgPaths = await shop.findByIdAndUpdate(_id,{image:FileObject});
+   
+   if(!addImgPaths){
+    return response.status(400).json({error:"Process Failed"});
+   }
+
+   return response.status(200).json({message:"updated successfully"});
+};
+
+
 
 // delete a Particular Shop
 const deletShop = async (request, response) => {

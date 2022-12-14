@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-
+import uploadImages from "../middleware/uploadImages.js";
 import signup from "./signup.js";
 import login from "./login.js";
 import {
@@ -41,7 +41,7 @@ router.route("/addShopService").post(addShopService);
 router.route("/deletShop").post(deletShop);
 router.route("/updateShopService").post(updateShopService);
 router.route("/deletShopService").post(deletShopService);
-router.route("/uploadShopImage").post(uploadShopImage);
+router.route("/uploadShopImage").post(uploadImages,uploadShopImage);
 
 
 router.route("/addService").post(add_services);
