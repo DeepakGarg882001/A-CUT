@@ -7,7 +7,11 @@ import { Link } from "react-router-dom";
 import img1 from "../../Assets/about1.png";
 import "../../styles/about.css";
 import mem1img from "../../Assets/team_img1.jpg";
-import { INSTA_ACC, GITHUB_ACC, FB_ACC, LINKEDIN_ACC, You_TUBE } from "../Constants";
+import mem2img from "../../Assets/team_img2.jpg";
+import mem3img from "../../Assets/team_img3.jpg";
+
+
+
 
 
 const AboutUs = () => {
@@ -59,7 +63,7 @@ const AboutUs = () => {
             <div className="team_member" id="jitu_details">
               Joginder Gautam
               <div className="imgabout">
-                <img src={mem1img} alt="loading" id="team_img" />
+                <img src={mem2img} alt="loading" id="team_img" />
                 <div className="about_social_media">
                   <div className="about_social_links">
                     <a href="" target="_self" id="about_icon">  <FaLinkedinIn /> </a>
@@ -77,7 +81,7 @@ const AboutUs = () => {
             <div className="team_member" id="jitu_details">
               Jitendra Kumar
               <div className="imgabout">
-                <img src={mem1img} alt="loading" id="team_img" />
+                <img src={mem3img} alt="loading" id="team_img" />
                 <div className="about_social_media">
                   <div className="about_social_links">
                     <a href="https://www.linkedin.com/in/jitendra-kumar-5214261a9/" target="_self" id="about_icon">  <FaLinkedinIn /> </a>
