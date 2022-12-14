@@ -22,13 +22,13 @@ const AboutUs = () => {
           <div className="about-content">
             <p className="about_main">ABOUT OUR APP</p>
             <p>Our motivation for making this app is to save the time.
-              Whenever we are going in a saloon for the hair_cut ,In most
-              of the time the croud of 5 to 6 people are sitting there and
+              Whenever we are going in a saloon for the Hair Cut ,In most
+              of the time the crowd of peoples are sitting there and
               we have to wait for hours. So this kind of problem is solved
               by our app. With the help of this app we can see the waiting
               list from our home and according to our free time we can book
-              our number and track the waiting list.There is an another
-              feathure in this app like we choose the shop by their rating.
+              our slot and track the waiting list.There is an another
+              feature in this app like we choose the shop by their rating.
             </p>
           </div>
         </div>
@@ -39,34 +39,34 @@ const AboutUs = () => {
           <div className="team_inner">
 
             <div className="team_member" id="jitu_details">
-              DEEPAK GARG
+              Deepak Garg
               <div className="imgabout">
                 <img src={mem1img} alt="loading" id="team_img" />
                 <div className="about_social_media">
                   <div className="about_social_links">
                     <a href="" target="_self" id="about_icon">  <FaLinkedinIn /> </a>
-                    <a href=""target="_self"  id="about_icon">  <AiFillGithub  /> </a>
-                    <a href=""target="_self"  id="about_icon">  <AiOutlineYoutube  /> </a>
-                    <a href=""target="_self" id="about_icon">  <FaFacebookF  /> </a>
-                    <a href=""target="_self" id="about_icon">  <FaInstagram  /> </a>
+                    <a href="" target="_self" id="about_icon">  <AiFillGithub /> </a>
+                    <a href="" target="_self" id="about_icon">  <AiOutlineYoutube /> </a>
+                    <a href="" target="_self" id="about_icon">  <FaFacebookF /> </a>
+                    <a href="" target="_self" id="about_icon">  <FaInstagram /> </a>
                   </div>
 
                 </div>
 
               </div>
             </div>
-           
+
             <div className="team_member" id="jitu_details">
-              Jogender Sharma
+              Joginder Gautam
               <div className="imgabout">
                 <img src={mem1img} alt="loading" id="team_img" />
                 <div className="about_social_media">
                   <div className="about_social_links">
                     <a href="" target="_self" id="about_icon">  <FaLinkedinIn /> </a>
-                    <a href=""target="_self"  id="about_icon">  <AiFillGithub  /> </a>
-                    <a href=""target="_self"  id="about_icon">  <AiOutlineYoutube  /> </a>
-                    <a href=""target="_self" id="about_icon">  <FaFacebookF  /> </a>
-                    <a href=""target="_self" id="about_icon">  <FaInstagram  /> </a>
+                    <a href="" target="_self" id="about_icon">  <AiFillGithub /> </a>
+                    <a href="" target="_self" id="about_icon">  <AiOutlineYoutube /> </a>
+                    <a href="" target="_self" id="about_icon">  <FaFacebookF /> </a>
+                    <a href="" target="_self" id="about_icon">  <FaInstagram /> </a>
                   </div>
 
                 </div>
@@ -81,10 +81,10 @@ const AboutUs = () => {
                 <div className="about_social_media">
                   <div className="about_social_links">
                     <a href="https://www.linkedin.com/in/jitendra-kumar-5214261a9/" target="_self" id="about_icon">  <FaLinkedinIn /> </a>
-                    <a href="https://github.com/jitendra-191906"target="_self"  id="about_icon">  <AiFillGithub  /> </a>
-                    <a href="https://www.youtube.com/channel/UCc0UvKHN38t7Z0R-yOTIRBQ"target="_self"  id="about_icon">  <AiOutlineYoutube  /> </a>
-                    <a href="https://www.facebook.com/profile.php?id=100012428051222"target="_self" id="about_icon">  <FaFacebookF  /> </a>
-                    <a href="https://www.instagram.com/jitendra_jaat_123/"target="_self" id="about_icon">  <FaInstagram  /> </a>
+                    <a href="https://github.com/jitendra-191906" target="_self" id="about_icon">  <AiFillGithub /> </a>
+                    <a href="https://www.youtube.com/channel/UCc0UvKHN38t7Z0R-yOTIRBQ" target="_self" id="about_icon">  <AiOutlineYoutube /> </a>
+                    <a href="https://www.facebook.com/profile.php?id=100012428051222" target="_self" id="about_icon">  <FaFacebookF /> </a>
+                    <a href="https://www.instagram.com/jitendra_jaat_123/" target="_self" id="about_icon">  <FaInstagram /> </a>
                   </div>
 
                 </div>
