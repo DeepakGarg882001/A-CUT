@@ -29,6 +29,7 @@ import ShowShops from "./shop/showAllShops/ShowShops";
 
 import OwnerDashBoard from "./owner/OwnerDashBoard";
 import CustomerAppointment from "./owner/customerAppointment";
+import MyShop from "./owner/myShop/MyShop"
 
 
 const Router = ()=>{
@@ -56,6 +57,7 @@ const Router = ()=>{
                     <Route path="/owner" element={ <OwnerDashBoard />} >
                         <Route path="/owner/createShop" element={ <CreateShop />} />
                         <Route path="/owner/cus" element={<CustomerAppointment/>}/>
+                        <Route path="/owner/myShop" element={ <MyShop />} />
                     </Route>
 
 

@@ -18,8 +18,10 @@ video{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
-.shops h2{
+
+#labela-about{
     color: rgb(1, 3, 5);
     background-color: rgb(180, 138, 220);
     width: 100%;
@@ -29,19 +31,31 @@ video{
     display: flex;
     justify-content: space-between;
     margin: 1rem;
-
-}
+    position: relative;
+    animation: mymove 5s infinite;
+    animation-timing-function: linear;
+   }
+   @keyframes mymove {
+    from{left: -20rem;}
+    to{left: 20rem;}
+  }
+  .individual:hover{
+    animation-play-state: paused;
+  }
 .individual-shop{
     width: 300px;
     height: 300px;
-    background-color: rgb(140, 255, 127);
-    margin-right: 2rem;
     display: flex;
+    background-image: linear-gradient(#ea66d6, rgb(244, 244, 231), green);
+   
     flex-direction: column;
     justify-content: center;
     border-radius: 2rem;
     margin-left: 5rem;
+   
 }
+
+
 .individual-shop img{
     width: 100%;
     height: 60%;
@@ -61,6 +75,69 @@ video{
 .individual-shop .btn:hover{
     background-color: #f7d65f;
 }
+
+.services_home{
+  
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.4rem 2rem;
+    }
+    .services_home a{
+        text-decoration: none;
+    }
+    
+    @media only screen and (max-width:599px) and (min-width:360px){
+        .Work-flow h2{
+            text-align: center;
+        }
+  
+        video{
+            width:94vw;
+            height: 57vh;
+            margin-top: -3.8rem;
+        }
+        .Work-flow{
+            margin-top: 1rem;
+           
+        }
+        .shops h2{
+            font-size: 2rem;
+            background-color: rgb(180, 138, 220);
+            width: 100%;
+            text-align: center;
+        }
+        .individual{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            animation: none;
+         }
+        .individual-shop{
+            width: 80%;
+            height: 50vh;
+            margin: 1rem 0;
+            
+        }
+        
+        
+        .individual-shop h3{
+            font-size: 1.5rem;
+        }
+        .individual-shop .btn{
+            margin-top: 1.5rem;
+            font-size:  1.2rem;
+            border-radius: 2rem;
+        }
+        .services_home{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
+    
+   
 
 @media only screen and (max-width:1240px) and (min-width:900px){
 
@@ -106,6 +183,7 @@ video{
         font-weight: bold;
         font-size:  1.5rem;
     }
+
    
 }
 @media only screen and (max-width:899px) and (min-width:600px){
@@ -119,6 +197,8 @@ video{
         margin-top: 1rem;
        
     }
+   
+   
     .shops h2{
         font-size: 2rem;
         background-color: rgb(180, 138, 220);
@@ -143,43 +223,5 @@ video{
         font-size:  1.5rem;
     }
    
-}
-
-@media only screen and (max-width:599px) and (min-width:360px){
-
-  
-    video{
-        width:80vw;
-        height: 50vh;
-        margin-top: -7.8rem;
-        margin-left: 2rem;
-    }
-    .Work-flow{
-        margin-top: 1rem;
-       
-    }
-    .shops h2{
-        font-size: 2rem;
-        background-color: rgb(180, 138, 220);
-        width: 100%;
-        text-align: center;
-    }
-    .individual{
-        flex-direction: column;
-     }
-    .individual-shop{
-        width: 60vw;
-        height: 60vh;
-        margin-top: 7vw;
-        }
-    
-    
-    .individual-shop h3{
-        font-size: 1.5rem;
-    }
-    .individual-shop .btn{
-        margin-top: 1.5rem;
-        font-size:  1.5rem;
-    }
 }
 

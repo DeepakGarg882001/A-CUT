@@ -60,6 +60,7 @@ const Shop1 = () => {
     }).then((res) => {
       console.warn("res", res); 
     });
+    
   };
   const changeList = (serviceName, price, checked) => {
     console.log(initialFormData);
@@ -205,12 +206,12 @@ const Shop1 = () => {
               {/* <h3>See your booking :- </h3> */}
               <div className="user-details">
                 <h3>
-                  <span>Time Slot :-</span>
+                  <span>Time Slot :- </span>
                 </h3>
                 <h3>
                   <span>Time Duration :-</span>
                 </h3>
-                <h3>Total amount you have to pay :-<span>Total Price : {result}</span></h3>
+                <h3><span>Total Payment : {result}</span></h3>
               </div>
               <button onClick={sub} className="btn" type="button">
                 Submit

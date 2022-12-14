@@ -1,0 +1,56 @@
+.myShop-canvas{
+    width: 100%;
+    height: auto;
+    display: flex;
+    min-height: 90vh;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 10px;
+}
+.myShop-canvas-form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.myShop-canvas-form-top{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.myShop-img-sec{
+    width: 100%;
+}
+.myShop-name-sec{
+    width: fit-content;
+    margin-top: -24px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.myshop-name{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: #000dff;
+    text-shadow: 1px 1px 1px  gray;
+}
+.myshop-back-img-sec{
+    width: 100%;
+    height: 200px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+.myshop-img-btn-sec{
+    display: flex;
+    flex-direction: row;
+}
+.myShop-form-input-field{
+    border: none;
+    outline: none;
+}

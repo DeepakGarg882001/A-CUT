@@ -1,7 +1,7 @@
 import React from "react";
 import * as yup from "yup";
-import { BiUserCircle } from "react-icons/bi";
-import { BsShieldLock } from "react-icons/bs";
+import { FaUserAlt } from "react-icons/fa";
+import { AiFillLock } from "react-icons/ai";
 import "../../styles/login.css";
 import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
@@ -27,6 +27,7 @@ const Login = () => {
   });
 
   const postDataToServer = async (values) => {
+    console.log(values);
     const makeRequest = await fetch(`${url}/login`, {
       method: "POST",
       headers: {
@@ -34,8 +35,9 @@ const Login = () => {
       },
       body: JSON.stringify(values),
     });
-
+    
     const response = await makeRequest.json();
+    console.log(response);
     if (response.error) {
       console.log(response.error);
       if (response.error.name) {
@@ -50,9 +52,9 @@ const Login = () => {
       dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){
-         if(response.data.shop_id){
-           navigate("/owner");
-           dispatch(getOwnerShopDataAction());
+         if(response.data.shop_id != "" && response.data.shop_id ){
+           dispatch(getOwnerShopDataAction(response.data.shop_id));
+           navigate("/owner/myShop");
          }else{
            navigate("/owner/createShop");
          }
@@ -82,7 +84,7 @@ const Login = () => {
             <div className="inputWrapper">
               <div className="inputInner">
                 <div >
-                  <BiUserCircle className="icon" />
+                  <FaUserAlt className="icon" />
                 </div>
                 <Field type="text" name="email" placeholder="Username" />
               </div>
@@ -93,7 +95,7 @@ const Login = () => {
             <div className="inputWrapper">
               <div className="inputInner">
                 <div >
-                  <BsShieldLock className="icon" />
+                  <AiFillLock className="icon" />
                 </div>
                 <Field type="password" name="password" placeholder="Password" />
               </div>
