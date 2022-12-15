@@ -1,21 +1,31 @@
 import mongoose from "mongoose";
+let a = new Array(18);
 const bookModel = new mongoose.Schema({
-  name: {
-    type: String,
+  date: {
+    type:Date,
+    default:new Date().toJSON().slice(0, 10),
   },
-  selectServices: [
+  slots: a.fill(0),
+  customerDetails: [
     {
-        services: {
+      name: {
         type: String,
       },
-      price: {
+      selectServices: {
+        type: String,
+      },
+      slot: {
         type: Number,
+      },
+      totalPrice: {
+        type: Number,
+      },
+      status: {
+        type: Boolean,
+        default: false,
       },
     },
   ],
-  totalPrice: {
-    type: Number,
-  },
 });
 
 const bookAppointment = mongoose.model("bookAppointment", bookModel);
