@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "../../../styles/shop1.css";
-import img1 from "../../../Assets/shop1.jpg";
-import img2 from "../../../Assets/shop2.jpg";
-import img3 from "../../../Assets/shop3.jpg";
 import {
   addToHair,
   removeFromHair,

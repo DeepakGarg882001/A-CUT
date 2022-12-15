@@ -1,6 +1,9 @@
 import React from "react";
 import "../../styles/customerAppointment.css";
+
 const customerAppointment = () => {
+  const url = process.env.REACT_APP_SERVER_URL;
+  const respose=fetch(`${url}/`)
   const data=[];
   return (
     <>
