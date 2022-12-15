@@ -9,7 +9,7 @@ const add_services = async(request,response)=>{
       if(!service_name){
         return response.status(400).json({error:"Please Enter the Service Name"});
       }
-
+      
       const addToDatabase = await plateformServices_Col.create({service_name:service_name});
 
       if(!addToDatabase){
