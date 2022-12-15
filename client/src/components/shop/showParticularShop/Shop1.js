@@ -38,7 +38,7 @@ const Shop1 = () => {
       service: "",
       price: 0,
       status: false,
-      slot: -1,
+      slot: 0,
     },
   });
 

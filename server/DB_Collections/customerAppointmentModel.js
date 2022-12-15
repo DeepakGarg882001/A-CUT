@@ -3,7 +3,7 @@ let a = new Array(18);
 const bookModel = new mongoose.Schema({
   date: {
     type:Date,
-    default:Date.now(),
+    default:new Date().toJSON().slice(0, 10),
   },
   slots: a.fill(0),
   customerDetails: [
