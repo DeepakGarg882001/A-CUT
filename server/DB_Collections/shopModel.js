@@ -7,6 +7,20 @@ const shopModel = new mongoose.Schema({
   owner_id:{
      type:String,
   },
+  image: {
+    fileName: {
+      type: String,
+    },
+    filePath: {
+      type: String,
+    },
+    fileType: {
+      type: String,
+    },
+    fileSize: {
+      type: String,
+    },
+  },
   shop_name:{
      type:String
   },
@@ -22,10 +36,12 @@ const shopModel = new mongoose.Schema({
   },
   shop_location:{
     latitude:{
-      type:Number
+      type:Number,
+      default:0
     },
     longitude:{
-      type:Number
+      type:Number,
+      default:0
     }
   },
   shop_services: [

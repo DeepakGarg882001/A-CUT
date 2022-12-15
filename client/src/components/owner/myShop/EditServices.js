@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik,Form,Field,ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
-
+import "../../../styles/myShop.css"
 const EditServices = ({data,id}) => {
   
  const dispatch = useDispatch();
@@ -61,7 +61,8 @@ const EditServices = ({data,id}) => {
 
 
   return (
-    <>
+         
+    <><div className="myshop-service-sec" >
         <Formik
          initialValues={initialData}
          onSubmit={(values)=>{
@@ -72,7 +73,7 @@ const EditServices = ({data,id}) => {
                 
                 <div>
                 <div>
-                        <label> Service Name : </label>
+                        {/* <label> Service Name : </label> */}
                         <h2>{data.service_name}</h2>
                 </div>
                 <div>
@@ -97,6 +98,7 @@ const EditServices = ({data,id}) => {
                 </div>
             </Form>
         </Formik>
+        </div>
     </>
   )
 }

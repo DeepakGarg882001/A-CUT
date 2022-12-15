@@ -1,4 +1,4 @@
-import React, {  useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import getPlateformServiceListAction from "../../../redux/action/getPlateformServicesAction";
 import { useNavigate } from "react-router-dom";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
+import "../../../styles/createshop.css";
 const CreateShop = () => {
 
   const user = useSelector((state) => state.userReducer);
@@ -57,11 +58,11 @@ const CreateShop = () => {
       .required("Please Provide Your Shop Address"),
   });
 
-  
+
 
   const postDataToServer = async (values) => {
 
-    const {owner_name, owner_id, shop_name,shop_mobile, shop_address } = values;
+    const { owner_name, owner_id, shop_name, shop_mobile, shop_address } = values;
     const makeReq = await fetch(`${url}/createShop`, {
       method: "POST",
       headers: {
@@ -100,7 +101,7 @@ const CreateShop = () => {
 
   return (
     <>
-      <div>
+      <div className="createshop_container_main"  >
         <Formik
           initialValues={initialFormData}
           validationSchema={formValidation}
@@ -109,48 +110,53 @@ const CreateShop = () => {
             postDataToServer(values);
           }}
         >
-          <Form>
-            <div>
-              <Field
-                name="shop_name"
-                type="text"
-                placeholder="Enter Shop Name"
-              />
-              <ErrorMessage name="shop_name" />
-            </div>
-            <div>
-              <Field
-                name="shop_mobile"
-                type="number"
-                placeholder="Enter Shop Contact number"
-              />
+          <div className="createshop_container">
+            <Form >
+              <div id="input_deails" >
+                <h1>Create Shop</h1>
 
-              <p>
-                <ErrorMessage name="shop_mobile" />
-              </p>
-            </div>
-            <div>
-              <Field
-                name="shop_address"
-                type="text"
-                placeholder="Enter Shop Address"
-              />
-              <p>
-                <ErrorMessage name="shop_address" />
-              </p>
-            </div>
-            {myServices
-              ? myServices.map((data, index) => {
+                <Field className="input_area"
+                  name="shop_name"
+                  type="text"
+                  placeholder="Enter Shop Name" />
+               </div>
+              <p id ="error_msg"><ErrorMessage name="shop_name" />
+                </p>
+              <div id="input_deails">
+                <Field className="input_area"
+                  name="shop_mobile"
+                  type="number"
+                  placeholder="Enter Shop Contact number"
+                />
+
+                <p id ="error_msg">
+                  <ErrorMessage name="shop_mobile" />
+                </p>
+              </div>
+              <div id="input_deails">
+                <Field className="input_area"
+                  name="shop_address"
+                  type="text"
+                  placeholder="Enter Shop Address"
+                />
+                <p id ="error_msg">
+                  <ErrorMessage name="shop_address" />
+                </p>
+              </div>
+              <p id="select_services">Select Services</p>
+
+              {myServices
+                ? myServices.map((data, index) => {
                   return (
                     <React.Fragment key={index}>
                       <Chip label={data.service_name} />
-                    </React.Fragment>
+                    </React.Fragment >
                   );
                 })
-              : null}
+                : null}
 
-            {services
-              ? services.map((data, index) => {
+              {services
+                ? services.map((data, index) => {
                   return (
                     <React.Fragment key={index}>
                       <input
@@ -167,12 +173,13 @@ const CreateShop = () => {
                     </React.Fragment>
                   );
                 })
-              : null}
+                : null}
 
-            <div>
-              <button type="submit"> Proceed </button>
-            </div>
-          </Form>
+              <div className="proced_btn">
+                <button type="submit"> Proceed </button>
+              </div>
+            </Form>
+          </div>
         </Formik>
       </div>
     </>

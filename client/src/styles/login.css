@@ -1,69 +1,80 @@
-body{
+body {
     background-color: #cfe1e7;
 }
-.heading{
+
+.heading {
     text-align: center;
     margin-bottom: 30px;
 }
-::placeholder{
+
+::placeholder {
     color: #fff;
     opacity: 1;
 }
-.inputWrapper{
+
+.inputWrapper {
     width: 300px;
     margin-top: 2rem;
-   
+
 }
-.inputWrapper input,.inputWrapper button{
+
+.inputWrapper input, .inputWrapper button {
     width: 50%;
     height: 45px;
     box-sizing: border-box;
 }
-.inputWrapper input{
+
+.inputWrapper input {
     box-sizing: border-box;
     padding: 10px;
     background-color: transparent;
     color: white;
 }
 
-.inputWrapper button{
+.inputWrapper button {
     /* margin-top: -12px; */
     background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     font-weight: bold;
     color: #fafbf6;
     font-size: 16px;
     cursor: pointer;
 }
-.inputWrapper button:hover{
+
+.inputWrapper button:hover {
     background-color: #3d0615;
-    box-shadow: 2px 4px 4px rgba(0,0,0,0.3);
-    
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+
 }
-.loginInner{
+
+.loginInner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.inputWrapper input:focus-visible{
+
+.inputWrapper input:focus-visible {
     outline: 0px !important;
 }
-.inputWrapper .inputInner{
+
+.inputWrapper .inputInner {
     display: flex;
-    margin-bottom: 20px;    
-    border:1px solid #fff;
+    margin-bottom: 20px;
+    border: 1px solid #fff;
     border-radius: 4px;
 }
-.inputWrapper .inputInner .icon{
+
+.inputWrapper .inputInner .icon {
     display: flex;
     height: 45px;
     align-items: center;
     margin: 0px 10px;
 }
-.forgot_login{
+
+.forgot_login {
     display: flex;
     justify-items: center;
     margin-top: 10px;
@@ -74,52 +85,63 @@ body{
 
 
 }
-#login_signup{
+
+#login_signup {
     margin-left: 1.3rem;
     text-decoration: none;
+    text-decoration: none;
+    color: rgb(157, 35, 141);
+
 }
-.forgot_login p Link{
+
+.forgot_login p Link {
     text-decoration: none;
     color: rgb(12, 12, 14);
 }
-.icon{
+
+.icon {
     text-align: center;
     width: 20px;
 }
-.no_account{
+
+.no_account {
     font-size: 1rem;
     font-weight: bold;
     margin-top: .5rem;
 }
-#error_msg{
+
+#error_msg {
     /* margin: 1rem 0rem;*/
-    margin-top: -1rem; 
-    font-size:0.8rem;
+    margin-top: -1rem;
+    font-size: 0.8rem;
     color: red;
 }
-.forgpass{
+
+.forgpass {
     text-decoration: none;
     color: red;
 }
 
 
 @media only screen and (min-width:300px) and (max-width:400px) {
-    .login_page{
-        margin-left:35vw;
+    .login_page {
+        margin-left: 35vw;
         margin-right: 35vw;
     }
-    
-    ::placeholder{
+
+    ::placeholder {
         font-size: 1rem;
     }
-    .inputWrapper .inputInner{
+
+    .inputWrapper .inputInner {
         display: flex;
-        margin-bottom: 60px;    
-        border:1px solid #fff;
+        margin-bottom: 60px;
+        border: 1px solid #fff;
         border-radius: 4px;
     }
 
-}  
+}
+
 /* @media only screen and (min-width:270px) and (max-width:399pox){
     
    

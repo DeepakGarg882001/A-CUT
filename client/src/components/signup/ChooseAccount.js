@@ -5,6 +5,7 @@ import customerimg from "../../Assets/userchoose.png";
 import shopimg from "../../Assets/shopchoose.png";
 
 
+
 const ChooseAccount = () => {
   return (
     <>
@@ -14,12 +15,9 @@ const ChooseAccount = () => {
         <h1 className="create">Create Account As A</h1>
 
         <div className="choose">
-          <div className="usesignup">
+          <div className="usersignup" >
             <img src={customerimg} alt="as a customer" id="signupimg" />
-
-            <div className="customer">
-              <Link to="/signUpcustomer" ><button id="as_customer" className="item_choose">Customer</button></Link>
-            </div>
+            <Link to="/signUp:role" id="do_regis">Customer</Link>
           </div>
 
 
@@ -27,11 +25,12 @@ const ChooseAccount = () => {
           <div className="shopsignup">
             <img src={shopimg} alt="as a shopkeeper" id="signupimg" />
 
-            <div className="shopowner">
-              <Link to="/signUpowner" ><button id="shop_owner" className="item_choose">Shop Owner</button></Link>
-            </div>
+            <Link to="/signUp:role"  id="do_regis">Shop Owner</Link>
           </div>
+
         </div>
+
+
       </div>
     </>
   )

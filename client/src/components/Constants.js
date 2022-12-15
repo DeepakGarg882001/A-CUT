@@ -5,3 +5,4 @@ export const CUH_LOC="";
 export const Mob_NO="8708724458";
 export const email_id="officialacut@gmail.com";
 export const You_TUBE="";
+export const GITHUB_ACC="";

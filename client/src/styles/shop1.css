@@ -1,59 +1,59 @@
-#header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* margin-top: 2rem; */
-  margin: 2rem 5rem;
-  background-color: aquamarine;
+#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 2rem; */
+    margin: 2rem 5rem;
+    background-color: rgb(171, 111, 156);
+    /* background-image: linear-gradient(yellow, white, green); */
 }
-::placeholder {
-  color: black;
+::placeholder{
+    color: black;
 }
-.shop-details {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(145, 145, 152);
+.shop-details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(145, 145, 152);
 }
-.shop-details .owner-detail {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #59c1bd;
+.shop-details .owner-detail{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.shop-details .owner-detail .owner-name {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(167, 167, 47);
-  margin-top: 1rem;
+.shop-details .owner-detail .owner-name{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(167, 167, 47);
+    margin-top: 1rem;
 }
-.shop-details .owner-detail .rating {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(167, 167, 47);
-  margin-top: 1rem;
+.shop-details .owner-detail .rating{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(167, 167, 47);
+    margin-top: 1rem;
 }
-.owner-detail .shop-timing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.2rem;
+.owner-detail .shop-timing{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin-top: 1.2rem;
 }
-.booking-details {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  width: 100%;
+.booking-details{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%;
 }
 .booking-details .schudle-time {
   display: flex;

@@ -61,6 +61,7 @@ const Shop1 = () => {
     }).then((res) => {
       console.warn("res", res);
     });
+    Swal.fire("Successfully booking the details");
     }else{
       Swal.fire("Please login for booking the details");
     }

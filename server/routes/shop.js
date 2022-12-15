@@ -1,6 +1,6 @@
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
-
+import uploadImages from "../middleware/uploadImages.js";
 const createShop = async (request, response) => {
   try {
     const {
@@ -70,25 +70,38 @@ const createShop = async (request, response) => {
 
 // get all shops
 const getAllShops = async (request, response) => {
-  const shops = await shop.find({});
-  if (shops.length > 0) {
-    response.status(200).json({
-      success: true,
-      data: shops,
-    });
+  const query = request.query.key;
+  console.log(query);
+  console.log("geting all shops");
+  let shops;
+  if (query != "undefined") {
+    console.log("all shops");
+    shops = await shop.find({
+      shop_services:{$elemMatch:{service_name:{ $regex: query, $options: "i" }}}}
+    );
   } else {
-    response.status(400).json({
+    console.log("service based shops");
+    shops = await shop.find({});
+  }
+  console.log(shops);
+  if (!shops) {
+    return response.status(400).json({
       success: false,
-      data: "no shop found",
+      error: "Process Failed",
     });
   }
+  return response.status(200).json({
+    success: true,
+    data: shops,
+    message: "Got The Shops",
+  });
 };
-
 
 // get a Particular Shop by ID
 const getShopById = async (request, response) => {
   const _id = request.query.key;
   console.log(_id);
+
   const foundShop = await shop.findById(_id);
   console.log(foundShop);
   if (foundShop) {
@@ -104,29 +117,55 @@ const getShopById = async (request, response) => {
   }
 };
 
-
 // update a Particular Shop details
 const updateShopDetails = async (request, response) => {
-    console.log(request.body);
+  console.log(request.body);
 
-    const {owner_name,shop_name ,shop_mobile ,shop_address,_id } = request.body;
-    
-    if(!owner_name | !shop_name  | !shop_mobile  | !shop_address | !_id ){
-       return response.status(400).json({error:"Please Provide all the Details"});
-    }
+  const { owner_name, shop_name, shop_mobile, shop_address, _id } =
+    request.body;
 
-    const updateDetails = await shop.findByIdAndUpdate(_id,request.body);
+  if (!owner_name | !shop_name | !shop_mobile | !shop_address | !_id) {
+    return response
+      .status(400)
+      .json({ error: "Please Provide all the Details" });
+  }
 
-    if(!updateDetails){
-      return response.status(400).json({error:"Process Failed"});
-    }
-    return response.status(200).json({message:"successfully updated"});
+  const updateDetails = await shop.findByIdAndUpdate(_id, request.body);
+
+  if (!updateDetails) {
+    return response.status(400).json({ error: "Process Failed" });
+  }
+  return response.status(200).json({ message: "successfully updated" });
 };
-    
-
 
 // update Particular Shop Image
-const uploadShopImage = async (request, response) => {};
+const uploadShopImage = async (request, response) => {
+  console.log(request);
+  console.log("uploadImage is here");
+  const { _id } = request.body;
+  let FileObject = {};
+
+  request.files.forEach((element) => {
+    const file = {
+      fileName: element.originalname,
+      filePath: element.path,
+      fileType: element.mimetype,
+      fileSize: element.size,
+    };
+
+    FileObject = file;
+  });
+
+  console.log(FileObject);
+
+  const addImgPaths = await shop.findByIdAndUpdate(_id, { image: FileObject });
+
+  if (!addImgPaths) {
+    return response.status(400).json({ error: "Process Failed" });
+  }
+
+  return response.status(200).json({ message: "updated successfully" });
+};
 
 // delete a Particular Shop
 const deletShop = async (request, response) => {
@@ -158,18 +197,18 @@ const deletShop = async (request, response) => {
 
 // Add a Service To a Particular Shop
 const addShopService = async (request, response) => {
-  const { service_name,  shop_id } = request.body;
+  const { service_name, shop_id } = request.body;
 
-  if (!service_name | !shop_id ) {
+  if (!service_name | !shop_id) {
     return response
       .status(400)
       .status({ error: "Please Fill the form Correctly" });
   }
-   const _id = shop_id;
+  const _id = shop_id;
   const addService = await shop.findByIdAndUpdate(_id, {
     $push: {
       shop_services: {
-        service_name
+        service_name,
       },
     },
   });
