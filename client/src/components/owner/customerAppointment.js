@@ -8,6 +8,7 @@ const customerAppointment = () => {
       <h2>Customer Application</h2>
         <div className="cust-table">
           <table>
+          <thead>
             <tr>
               <th className="th">S. No</th>
               <th className="th">Name</th>
@@ -17,6 +18,8 @@ const customerAppointment = () => {
               <th className="th">Total payment</th>
               <th className="th">Status</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
               <td className="td">1</td>
               <td className="td">Joginder</td>
@@ -26,6 +29,7 @@ const customerAppointment = () => {
               <td className="td">80</td>
               <td className="td">incomplete</td>
             </tr>
+            </tbody>
           </table>
         </div>
       </div>

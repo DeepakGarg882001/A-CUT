@@ -17,7 +17,7 @@ const ChooseAccount = () => {
         <div className="choose">
           <div className="usersignup" >
             <img src={customerimg} alt="as a customer" id="signupimg" />
-            <Link to="/signUp:role" id="do_regis">Customer</Link>
+            <Link to="/signUpcustomer" id="do_regis">Customer</Link>
           </div>
 
 
@@ -25,7 +25,7 @@ const ChooseAccount = () => {
           <div className="shopsignup">
             <img src={shopimg} alt="as a shopkeeper" id="signupimg" />
 
-            <Link to="/signUp:role"  id="do_regis">Shop Owner</Link>
+            <Link to="/signUpowner"  id="do_regis">Shop Owner</Link>
           </div>
 
         </div>
