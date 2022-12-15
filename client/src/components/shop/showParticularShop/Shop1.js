@@ -31,13 +31,15 @@ const Shop1 = () => {
   const userName = userData.name;
 
   const [initialFormData, setInitialFormData] = useState({
-    userId: 1,
-    name: userName,
-    selectServices: {
-      services: new Set([]),
-      price: new Set([]),
+    date: new Date().toJSON().slice(0, 10),
+    slots: [],
+    customerDetails: {
+      name: userName,
+      service: "",
+      price: 0,
+      status: false,
+      slot: 0,
     },
-    result: result,
   });
 
   const prices = {
@@ -47,10 +49,9 @@ const Shop1 = () => {
     hairColor: 100,
   };
   const sub = () => {
-    // console.log("use state",{userName,hair,beard,result});
-    console.log("Yes");
+    if(userName){
+      console.log("Yes");
     console.log(initialFormData);
-    // initialFormData.selectServices.services = Array.from(initialFormData.selectServices.services);
     fetch(`${url}/bookAppointment`, {
       method: "POST",
       headers: {
@@ -58,28 +59,33 @@ const Shop1 = () => {
       },
       body: JSON.stringify(initialFormData),
     }).then((res) => {
-      console.warn("res", res); 
+      console.warn("res", res);
     });
-    
+    Swal.fire("Successfully booking the details");
+    }else{
+      Swal.fire("Please login for booking the details");
+    }
   };
   const changeList = (serviceName, price, checked) => {
-    console.log(initialFormData);
+    // console.log(initialFormData);
     console.log("working");
     if (checked === true) {
-      initialFormData.selectServices.services.add(serviceName);
-      initialFormData.selectServices.price.add(price);
       dispatch(addToHair(prices.hair));
-      initialFormData.result = result;
+      initialFormData.customerDetails.price = price;
+      initialFormData.customerDetails.service = serviceName;
     } else {
-      initialFormData.selectServices.services.delete(serviceName);
-      initialFormData.selectServices.price.delete(price);
       dispatch(removeFromHair(prices.hair));
-      initialFormData.result = result;
+      initialFormData.customerDetails.price = price;
     }
     setInitialFormData((prevData) => {
       return { ...initialFormData };
     });
     console.log(initialFormData);
+  };
+  const handle = (e) => {
+    console.log("handle", e.target.value);
+    initialFormData.customerDetails.slot = e.target.value;
+    initialFormData.slots.push(e.target.value);
   };
 
   return (
@@ -116,16 +122,208 @@ const Shop1 = () => {
         <div className="booking-details">
           <div className="schdule-time">
             <h2 className="h2">Schedule</h2>
-            <h3>9 AM to 10AM</h3>
-            <h3>10 AM to 11AM</h3>
-            <h3>11 AM to 12AM</h3>
-            <h3>12 PM to 01PM</h3>
-            <h3>01 PM to 02PM</h3>
-            <h3>02 PM to 03PM</h3>
-            <h3>03 PM to 04PM</h3>
-            <h3>04 PM to 05PM</h3>
-            <h3>05 PM to 06PM</h3>
-            <h3>06 PM to 07PM</h3>
+            <div className="schdule">
+              <form className="schdule-form">
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="1"
+                    onChange={handle}
+                  />
+                    <label for="html">9:00-9:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="2"
+                    onChange={handle}
+                  />
+                    <label for="html">9:30-10:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="3"
+                    onChange={handle}
+                  />
+                    <label for="html">10:00-10:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="4"
+                    onChange={handle}
+                  />
+                    <label for="html">10:30-11:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="5"
+                    onChange={handle}
+                  />
+                    <label for="html">11:00-11:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="6"
+                    onChange={handle}
+                  />
+                    <label for="html">11:30-12:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="7"
+                    onChange={handle}
+                  />
+                    <label for="html">12:00-12:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="8"
+                    onChange={handle}
+                  />
+                    <label for="html">12:30-13:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="9"
+                    onChange={handle}
+                  />
+                    <label for="html">13:00-13:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="10"
+                    onChange={handle}
+                  />
+                    <label for="html">13:30-14:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="11"
+                    onChange={handle}
+                  />
+                    <label for="html">14:00-14:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="12"
+                    onChange={handle}
+                  />
+                    <label for="html">14:30-15:00</label>
+                </div>
+                 
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="13"
+                    onChange={handle}
+                  />
+                    <label for="html">15:00-15:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="14"
+                    onChange={handle}
+                  />
+                    <label for="html">15:30-16:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="15"
+                    onChange={handle}
+                  />
+                    <label for="html">16:00-16:30</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="16"
+                    onChange={handle}
+                  />
+                    <label for="html">16:30-17:00</label>
+                </div>
+                 {" "}
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="17"
+                    onChange={handle}
+                  />
+                    <label for="html">17:00-17:30</label>
+                </div>
+                 
+                <div className="check">
+                  <input
+                    type="radio"
+                    id="html"
+                    name="slot"
+                    value="18"
+                    onChange={handle}
+                  />
+                    <label for="html">17:30-18:00</label>
+                </div>
+              </form>
+            </div>
           </div>
           <div className="shop-services">
             <div className="select-services">
@@ -155,7 +353,13 @@ const Shop1 = () => {
                     name="beard"
                     // value={beard}
                     onChange={(e) => {
-                      changeList("Beard", prices.hair, e.target.checked);
+                      if (e.target.checked) {
+                        dispatch(addToBeard(prices.beard));
+                        initialFormData.customerDetails.price = prices.beard;
+                        initialFormData.customerDetails.service = "beard";
+                      } else {
+                        dispatch(removeFromBeard(prices.beard));
+                      }
                     }}
                   />
                   <div>
@@ -171,7 +375,13 @@ const Shop1 = () => {
                     name="head_massag"
                     value="head_massag"
                     onChange={(e) => {
-                      changeList("Head", prices.head, e.target.checked);
+                      if (e.target.checked) {
+                        dispatch(addToHeadMassag(prices.headMassag));
+                        initialFormData.customerDetails.price = prices.headMassag;
+                        initialFormData.customerDetails.service = "head_massag";
+                      } else {
+                        dispatch(removeFromHeadMassag(prices.headMassag));
+                      }
                     }}
                   />
                   <div>
@@ -186,11 +396,13 @@ const Shop1 = () => {
                     name="hair_color"
                     value="hair_color"
                     onChange={(e) => {
-                      changeList(
-                        "Hair color",
-                        prices.hairColor,
-                        e.target.checked
-                      );
+                      if (e.target.checked) {
+                        dispatch(addToHairColor(prices.hairColor));
+                        initialFormData.customerDetails.price = prices.hairColor;
+                        initialFormData.customerDetails.service = "head_color";
+                      } else {
+                        dispatch(removeFromHairColor(prices.hairColor));
+                      }
                     }}
                   />
 
@@ -203,15 +415,13 @@ const Shop1 = () => {
               </form>
             </div>
             <div className="my-details">
-              {/* <h3>See your booking :- </h3> */}
               <div className="user-details">
                 <h3>
-                  <span>Time Slot :- </span>
+                  <span>Time Slot : {initialFormData.customerDetails.slot} </span>
                 </h3>
                 <h3>
-                  <span>Time Duration :-</span>
+                  <span>Total Payment : {result}</span>
                 </h3>
-                <h3><span>Total Payment : {result}</span></h3>
               </div>
               <button onClick={sub} className="btn" type="button">
                 Submit
@@ -225,9 +435,6 @@ const Shop1 = () => {
 };
 
 export default Shop1;
-
-
-
 
 // import React, { useState } from 'react'
 // import moment from 'moment';
@@ -255,7 +462,6 @@ export default Shop1;
 //         current.add(30, 'minutes');
 //       }
 //     }
-
 
 //     return result;
 //   }

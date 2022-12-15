@@ -16,35 +16,35 @@ const bookShopSlotDataReducer = (data = 0, action) => {
   switch (action.type) {
 
     case ADD_TO_HAIR:
-      data = action.data + data;
+      data = action.data;
       return data;
 
     case REMOVE_FROM_HAIR:
-      data = data - action.data;
+      data = data-action.data;
       return data;
 
     case ADD_TO_BEARD:
-      data = action.data + data;
+      data = action.data;
       return data;
 
     case REMOVE_FROM_BEARD:
-      data = data - action.data;
+      data = data-action.data;
       return data;
 
     case ADD_TO_HEAD_MASSAG:
-      data = action.data + data;
+      data = action.data;
       return data;
 
     case REMOVE_FROM_HEAD_MASSAG:
-      data = data - action.data;
+      data = data-action.data;
       return data;
 
     case ADD_TO_HAIR_COLOR:
-      data = action.data + data;
+      data = action.data;
       return data;
 
     case REMOVE_FROM_HAIR_COLOR:
-      data = data - action.data;
+      data = data-action.data;
       return data;
 
     default:
