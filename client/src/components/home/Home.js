@@ -11,14 +11,15 @@ import {useDispatch,useSelector} from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
 import getAllShopAction from "../../redux/action/allShopsAction";
 
-
  const  Home=()=> {
 
   const dispatch = useDispatch();
   const AllServices = useSelector( (state)=> state.plateformServiceReducer);
+  const AllShops = useSelector( (state)=> state.allShopDataReducer);
 
   useEffect(()=>{
     dispatch(getPlateformServiceListAction());
+    dispatch(getAllShopAction());
   },[]);
 
   return (
@@ -34,18 +35,17 @@ import getAllShopAction from "../../redux/action/allShopsAction";
         <div className="shops">
           <h2 id="labela-about">Available Shops</h2>
           <div className="individual">
-            <ShopContainer 
-            name="hello"
-            img={s1}
-            />
-            <ShopContainer 
-            name="hi"
-            img={s2}
-            />
-            <ShopContainer 
-            name="hello"
-            img={s3}
-            />
+          {AllShops.length !=0? AllShops.map((data,index)=>{
+            return(
+              <React.Fragment key={index}>
+              <ShopContainer 
+              data={data}
+            /> 
+              </React.Fragment>
+            )
+          }):(<div><h3>No Shop is Available</h3></div>)}
+           
+            
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ import getAllShopAction from "../../redux/action/allShopsAction";
           {AllServices.map((data, index) => {
             return (
               <React.Fragment key={index}  >
-                <Link className="servicesabc" to="/all_shops" onClick={dispatch(getAllShopAction(data.service_name))}>
+                <Link className="servicesabc" to="/all_shops" onClick={()=>dispatch(getAllShopAction(data.service_name))}>
                   <Services data={data} />
                 </Link>
               </React.Fragment>

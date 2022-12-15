@@ -1,10 +1,11 @@
 import React from "react";
-const ShopContainer = (props) => {
+import shopimage from "../../../Assets/home1.jpg";
+const ShopContainer = ({data}) => {
   return (
     <>
     <div className="individual-shop">
-        <h3>{props.name}</h3>
-        <img src={props.img} alt="img" />
+        <h3>{data.shop_name}</h3>
+        <img src={shopimage} alt="img" />
         <button className="btn">Book Now</button>
       </div>
      
