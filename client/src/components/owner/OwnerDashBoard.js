@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 import { Outlet,Link } from "react-router-dom";
 import "../../styles/ownerDash.css";
+import ownerCustomerAction from "../../redux/action/ownerCustomerAction";
+
 const OwnerDashBoard = () => {
   const dispatch = useDispatch();
   
@@ -20,9 +22,9 @@ const OwnerDashBoard = () => {
         <div className='owner-canvas-side-panel'>
                     
                     <ul className='admin-canvas-panel'>
-                      <Link to="/admin/admin_home" ><li className='admin-canvas-panel-sec'>MyShop</li></Link>
-                      <Link to="/admin/service_list" ><li className='admin-canvas-panel-sec'>Customer</li></Link>
-                      <Link to="/admin/search_acc" ><li className='admin-canvas-panel-sec'>My Services</li></Link>
+                      <Link to="/owner/myShop" ><li className='admin-canvas-panel-sec'>MyShop</li></Link>
+                      <Link to="/owner/customers" onClick={()=>dispatch(ownerCustomerAction(ownerData.shop_id))}><li className='admin-canvas-panel-sec'>Customer</li></Link>
+                      <Link to="/owner/services" ><li className='admin-canvas-panel-sec'>My Services</li></Link>
                     </ul>
                     
              

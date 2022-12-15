@@ -45,6 +45,7 @@ const Router = ()=>{
                     <Route path="/services" element={ <Shop1 />} />
                     <Route path="/contact" element={ <ContactUs />} />
                     <Route path="/all_shops" element={ <ShowShops />} />
+                    <Route path="/showShopDetails" element={ <Shop1 />} />
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />
@@ -56,7 +57,7 @@ const Router = ()=>{
                        
                     <Route path="/owner" element={ <OwnerDashBoard />} >
                         <Route path="/owner/createShop" element={ <CreateShop />} />
-                        <Route path="/owner/cus" element={<CustomerAppointment/>}/>
+                        <Route path="/owner/customers" element={<CustomerAppointment/>}/>
                         <Route path="/owner/myShop" element={ <MyShop />} />
                     </Route>
 

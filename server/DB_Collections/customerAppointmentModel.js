@@ -5,19 +5,23 @@ const bookModel = new mongoose.Schema({
     type:Date,
     default:new Date().toJSON().slice(0, 10),
   },
+  shop_id:{
+     type:String
+  },
+  
   slots: a.fill(0),
   customerDetails: [
     {
       name: {
         type: String,
       },
-      selectServices: {
+      service: {
         type: String,
       },
       slot: {
         type: Number,
       },
-      totalPrice: {
+      price: {
         type: Number,
       },
       status: {
