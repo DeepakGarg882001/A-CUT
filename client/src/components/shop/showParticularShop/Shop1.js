@@ -1,9 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React,{useState,useEffect} from "react";
 import "../../../styles/shop1.css";
-import img1 from "../../../Assets/shop1.jpg";
-import img2 from "../../../Assets/shop2.jpg";
-import img3 from "../../../Assets/shop3.jpg";
+import * as geolib from 'geolib';
+
 import {
   addToHair,
   removeFromHair,
@@ -23,10 +21,29 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const Shop1 = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
-
+   
   const result = useSelector((state) => state.bookShopSlotDataReducer);
   const userData = useSelector((state) => state.userReducer);
   const ShopData = useSelector( (state)=> state.particularShopReducer);
+  const userLocation  = useSelector( (state)=> state.userLocationReducer);
+
+  const distance =  geolib.getPreciseDistance(userLocation,ShopData.shop_location);
+  const [distanceFromUser,setDistanceFromUser] = useState(distance);
+
+  const convertDistance =()=>{
+  if(distanceFromUser>499){
+    setDistanceFromUser(`${geolib.convertDistance(distanceFromUser,'km').toFixed(1)} km`);
+  }else{
+    setDistanceFromUser(`${geolib.convertDistance(distanceFromUser,'m')} meter`);
+  }
+  
+
+   }
+  useEffect( ()=>{
+    convertDistance();
+
+  },[]);
+
 
   console.log("use selector data", result);
   const userName = userData.name;
@@ -115,7 +132,7 @@ const Shop1 = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <tr /> ➤ <tr /> 9:00 AM TO 7:00 PM
+                  Shop Timing <span /> ➤ <span /> 9:00 AM TO 7:00 PM
                 </span>
               </h3>
             </div>
@@ -126,7 +143,6 @@ const Shop1 = () => {
             <h2 className="h2">Schedule</h2>
             <div className="schdule">
               <form className="schdule-form">
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -135,9 +151,8 @@ const Shop1 = () => {
                     value="1"
                     onChange={handle}
                   />
-                    <label for="html">9:00-9:30</label>
+                  <label for="html">9:00-9:30</label>
                 </div>
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -146,9 +161,8 @@ const Shop1 = () => {
                     value="2"
                     onChange={handle}
                   />
-                    <label for="html">9:30-10:00</label>
+                   <label for="html">9:30-10:00</label>
                 </div>
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -157,9 +171,8 @@ const Shop1 = () => {
                     value="3"
                     onChange={handle}
                   />
-                    <label for="html">10:00-10:30</label>
+                   <label for="html">10:00-10:30</label>
                 </div>
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -168,9 +181,8 @@ const Shop1 = () => {
                     value="4"
                     onChange={handle}
                   />
-                    <label for="html">10:30-11:00</label>
+                   <label for="html">10:30-11:00</label>
                 </div>
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -179,9 +191,8 @@ const Shop1 = () => {
                     value="5"
                     onChange={handle}
                   />
-                    <label for="html">11:00-11:30</label>
+                   <label for="html">11:00-11:30</label>
                 </div>
-                 {" "}
                 <div className="check">
                   <input
                     type="radio"
@@ -190,9 +201,9 @@ const Shop1 = () => {
                     value="6"
                     onChange={handle}
                   />
-                    <label for="html">11:30-12:00</label>
+                  <label for="html">11:30-12:00</label>
                 </div>
-                 {" "}
+                
                 <div className="check">
                   <input
                     type="radio"
@@ -201,9 +212,9 @@ const Shop1 = () => {
                     value="7"
                     onChange={handle}
                   />
-                    <label for="html">12:00-12:30</label>
+                   <label for="html">12:00-12:30</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -212,9 +223,9 @@ const Shop1 = () => {
                     value="8"
                     onChange={handle}
                   />
-                    <label for="html">12:30-13:00</label>
+                   <label for="html">12:30-13:00</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -223,9 +234,9 @@ const Shop1 = () => {
                     value="9"
                     onChange={handle}
                   />
-                    <label for="html">13:00-13:30</label>
+                   <label for="html">13:00-13:30</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -234,9 +245,9 @@ const Shop1 = () => {
                     value="10"
                     onChange={handle}
                   />
-                    <label for="html">13:30-14:00</label>
+                   <label for="html">13:30-14:00</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -245,9 +256,9 @@ const Shop1 = () => {
                     value="11"
                     onChange={handle}
                   />
-                    <label for="html">14:00-14:30</label>
+                   <label for="html">14:00-14:30</label>
                 </div>
-                 {" "}
+        
                 <div className="check">
                   <input
                     type="radio"
@@ -256,9 +267,9 @@ const Shop1 = () => {
                     value="12"
                     onChange={handle}
                   />
-                    <label for="html">14:30-15:00</label>
+                 <label for="html">14:30-15:00</label>
                 </div>
-                 
+                
                 <div className="check">
                   <input
                     type="radio"
@@ -267,9 +278,9 @@ const Shop1 = () => {
                     value="13"
                     onChange={handle}
                   />
-                    <label for="html">15:00-15:30</label>
+                   <label for="html">15:00-15:30</label>
                 </div>
-                 {" "}
+               
                 <div className="check">
                   <input
                     type="radio"
@@ -278,9 +289,9 @@ const Shop1 = () => {
                     value="14"
                     onChange={handle}
                   />
-                    <label for="html">15:30-16:00</label>
+                   <label for="html">15:30-16:00</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -289,9 +300,9 @@ const Shop1 = () => {
                     value="15"
                     onChange={handle}
                   />
-                    <label for="html">16:00-16:30</label>
+                   <label for="html">16:00-16:30</label>
                 </div>
-                 {" "}
+              
                 <div className="check">
                   <input
                     type="radio"
@@ -300,9 +311,9 @@ const Shop1 = () => {
                     value="16"
                     onChange={handle}
                   />
-                    <label for="html">16:30-17:00</label>
+                   <label for="html">16:30-17:00</label>
                 </div>
-                 {" "}
+               
                 <div className="check">
                   <input
                     type="radio"
@@ -311,9 +322,9 @@ const Shop1 = () => {
                     value="17"
                     onChange={handle}
                   />
-                    <label for="html">17:00-17:30</label>
+                   <label for="html">17:00-17:30</label>
                 </div>
-                 
+               
                 <div className="check">
                   <input
                     type="radio"
@@ -322,7 +333,7 @@ const Shop1 = () => {
                     value="18"
                     onChange={handle}
                   />
-                    <label for="html">17:30-18:00</label>
+                   <label for="html">17:30-18:00</label>
                 </div>
               </form>
             </div>

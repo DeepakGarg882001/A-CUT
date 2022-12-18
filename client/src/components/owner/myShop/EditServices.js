@@ -1,12 +1,16 @@
-import React from 'react'
+import React ,{useState }from 'react'
 import { Formik,Form,Field,ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import "../../../styles/myShop.css"
+import {AiOutlineEdit} from "react-icons/ai";
+import {MdOutlineDelete,MdOutlineFileDownloadDone} from "react-icons/md";
+
 const EditServices = ({data,id}) => {
   
  const dispatch = useDispatch();
  const url = process.env.REACT_APP_SERVER_URL;
+ const [activeService,setActiveService] = useState(true);
 
   const initialData ={
     service_name:data.service_name,
@@ -79,22 +83,24 @@ const EditServices = ({data,id}) => {
                 <div>
                     <div>
                         <label> Price : </label>
-                        <Field name="price" type="number"/>
+                        <Field name="price" type="number" disabled={activeService} className="myshop-service-sec-field"/>
+                        <span>Rs</span>
                     </div>
                     <p><ErrorMessage name="price"/></p>
                 </div>
                 <div>
                     <div>
                         <label> Offer : </label>
-                        <Field name="offer" type="number"/>
+                        <Field name="offer" type="number" disabled={activeService} className="myshop-service-sec-field"/>
+                        <span>%</span>
                     </div>
                     <p><ErrorMessage name="offer"/></p>
                 </div>
                 </div>
-                <div>
-                    <div>edit</div>
-                    <button type="submit">Save</button>
-                    <div onClick={deletService}>delet</div>
+                <div className='myshop-service-btn-sec'>
+                    <div style={{display: activeService===true? "flex":"none"}} onClick={()=>setActiveService(false)}><AiOutlineEdit /></div>
+                    <button type="submit"  style={{display: activeService===true? "none":"flex"}} onClick={()=>setActiveService(true)}><MdOutlineFileDownloadDone /></button>
+                    <div onClick={deletService}><MdOutlineDelete /></div>
                 </div>
             </Form>
         </Formik>

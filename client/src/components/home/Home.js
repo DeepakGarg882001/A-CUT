@@ -30,7 +30,7 @@ import userLocationAction from "../../redux/action/userLocationAction";
   useEffect(()=>{
     dispatch(getPlateformServiceListAction());
     dispatch(getAllShopAction());
-    getUserLocation
+    getUserLocation()
     
 
   },[]);
