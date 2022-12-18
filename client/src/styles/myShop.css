@@ -7,6 +7,41 @@
     align-items: center;
     padding: 20px 10px;
 }
+.myShop-canvas-fn-btn{
+    position: absolute;
+    top: 336px;
+    left: 90%;
+}
+.myShop-fn-btn-edit{
+    background-color: #d65a04;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.myShop-fn-btn-edit-icon{
+    font-size: 1.1rem;
+}
+.myShop-fn-btn-save{
+    background-color: #000083;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: none;
+    outline: none;
+    position: relative;
+    left: -20px;
+}
+
 .myShop-canvas-form{
     width: 90%;
     display: flex;
@@ -90,9 +125,42 @@
 .myShop-canvas-form-middle{
     width: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+.myShop-middle-top{
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   flex: 1;
+   flex-wrap: wrap;
+}
+.myShop-middle-left{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    flex-shrink: 1;
+    gap: 5px;
+}
+.myShop-middle-right{
+    display: flex;
     flex-direction: row;
-    flex:1;
-    flex-wrap: wrap;
+    width: fit-content;
+    flex-shrink: 1;
+}
+.myShop-middle-bottom{
+    display: flex;
+    align-items: center;
+}
+.myShop-address{
+    width: 100%;
+    min-width: 70vw
+}
+.myShop-rating-icon{
+    color: gold;
+    font-size: 2rem;
 }
 .myShop-details-sec{
     display: flex;
@@ -124,24 +192,63 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-   
+    background-color: white;
     font-weight: bold;
 }
-
+.myShop-map-sec{
+    width: 90%;
+    height: 450px;
+    margin: 20px 0px;
+}
+.myShop-map-loc-btn{
+    padding: 4px 7px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background-color: white;
+    color: #1a77e9;
+    font-weight: 600;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: -37px;
+    z-index: 2;
+    position: relative;
+    left: 81%;
+    cursor: pointer;
+}
 .myShop-canvas-form-bottom{
-    width: 100%;
+    width: 90%;
     height: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0px;
 
 }
+
 .myshop-service-sec{
     display: flex;
+    flex-shrink: 1;
     width: fit-content;
     border-radius: 6px;
     padding: 10px;
-    color: white;
-    background-image: linear-gradient(171deg,#020971,#0f02dd ,#9805cbeb);
-    
+    color: black;
+   box-shadow: 0px 0px 3px 0px gray;    
+}
+.myshop-service-sec-field{
+    max-width: 45px;
+    width: fit-content;
+    min-width: 10px;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+.myshop-service-btn-sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 5px;
 }

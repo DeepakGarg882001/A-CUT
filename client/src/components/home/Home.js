@@ -10,16 +10,29 @@ import ShopContainer from "../shop/showParticularShop/ShopContainer";
 import {useDispatch,useSelector} from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
 import getAllShopAction from "../../redux/action/allShopsAction";
+import userLocationAction from "../../redux/action/userLocationAction";
 
  const  Home=()=> {
 
   const dispatch = useDispatch();
   const AllServices = useSelector( (state)=> state.plateformServiceReducer);
   const AllShops = useSelector( (state)=> state.allShopDataReducer);
+  
+  const getUserLocation =()=>{
+
+    navigator.geolocation.getCurrentPosition( (position)=>{
+      dispatch(userLocationAction({latitude:position.coords.latitude,longitude:position.coords.longitude}))
+    })
+
+  }
+
 
   useEffect(()=>{
     dispatch(getPlateformServiceListAction());
     dispatch(getAllShopAction());
+    getUserLocation()
+    
+
   },[]);
 
   return (

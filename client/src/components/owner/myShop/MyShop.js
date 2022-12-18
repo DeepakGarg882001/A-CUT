@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../../../styles/myShop.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,37 +6,65 @@ import EditPhoto from "./EditPhoto";
 import EditServices from "./EditServices";
 import AddService from "./AddService";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineUser } from "react-icons/ai";
+import { IoCallOutline } from "react-icons/io5";
+import { SiGooglemaps } from "react-icons/si";
+import {
+  MdOutlineDelete,
+  MdOutlineEditNote,
+  MdOutlineStarPurple500,
+  MdOutlineStarHalf,
+  MdOutlineStarOutline,
+} from "react-icons/md";
 
 const MyShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
-
   const dispatch = useDispatch();
-  // const owner = useSelector( (state)=> state.userReducer);
+
   const ShopData = useSelector((state) => state.ownerShopReducer);
   const shopServices = ShopData.length != 0 ? ShopData.shop_services : [];
+
   const [activeForm, setActiveForm] = useState(true);
- const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const userLocation = useSelector((state) => state.userLocationReducer);
+
+  const reducer = (shopLocation) => {
+    return (shopLocation = userLocation);
+  };
+
+  const [shopLocation, changeLocation] = useReducer(
+    reducer,
+    ShopData.shop_location
+  );
+  console.log(shopLocation);
+  console.log(userLocation);
+
+  // initial Shop Data from server
   const initialData = {
     owner_name: ShopData.owner_name,
     shop_name: ShopData.shop_name,
     shop_mobile: ShopData.shop_mobile,
     shop_address: ShopData.shop_address,
-    shop_rating: ShopData.shop_rating,
-    shop_location: {
-      latitude: ShopData.shop_location.latitude,
-      longitude: ShopData.shop_location.longitude,
-    },
     _id: ShopData._id,
   };
 
+  // call a fn to update Shop Details
   const updateShopDetails = async (values) => {
+    const { owner_name, shop_name, shop_mobile, shop_address } = values;
     const makeReq = await fetch(`${url}/updateShopDetails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify({
+        owner_name,
+        shop_name,
+        shop_mobile,
+        shop_address,
+        shop_location: shopLocation,
+      }),
     });
 
     const response = await makeReq.json();
@@ -47,7 +75,9 @@ const MyShop = () => {
     }
   };
 
+  // call a fn to Delete the Shop Account Permanently
   const removeShop = async () => {
+    
     const makeReq = await fetch(`${url}/deletShop`, {
       method: "POST",
       headers: {
@@ -64,11 +94,8 @@ const MyShop = () => {
       navigate("/owner/createShop");
     }
   };
- 
-  // useEffect(()=>{
-  //   ShopData.length!=0 ? null:
-  //   dispatch(getOwnerShopDataAction(owner.shop_id));
-  // },[])
+
+  // return the Body of Page
   return (
     <>
       <div className="myShop-canvas">
@@ -79,6 +106,23 @@ const MyShop = () => {
           }}
         >
           <Form className="myShop-canvas-form">
+            <div className="myShop-canvas-fn-btn">
+              <div
+                style={{ display: activeForm === true ? "flex" : "none" }}
+                onClick={() => setActiveForm(false)}
+                className="myShop-fn-btn-edit"
+              >
+                <MdOutlineEditNote className="myShop-fn-btn-edit-icon" /> Edit
+              </div>
+              <div
+                style={{ display: activeForm === true ? "none" : "flex" }}
+                onClick={() => setActiveForm(true)}
+              >
+                <button type="submit" className="myShop-fn-btn-save">
+                  Save Details
+                </button>
+              </div>
+            </div>
             <div className="myShop-canvas-form-top">
               <div className="myShop-img-sec">
                 <EditPhoto data={ShopData} />
@@ -88,6 +132,7 @@ const MyShop = () => {
                 <Field
                   name="shop_name"
                   type="text"
+                  disabled={activeForm}
                   className="myShop-form-input-field myshop-name"
                 />
                 <p>
@@ -97,80 +142,92 @@ const MyShop = () => {
             </div>
 
             <div className="myShop-canvas-form-middle">
-              <div className="myShop-details-sec">
-                <div className="myShop-details-sec-name">
-                  <p className="myShop-details-sec-label">Owner Name : </p>
-                  <Field
-                    name="owner_name"
-                    type="text"
-                    className="myShop-form-input-field"
-                  />
-                </div>
-                <p>
-                  <ErrorMessage name="owner_name" />
-                </p>
-              </div>
+              <div className="myShop-middle-top">
+                <div>
+                  <div className="myShop-details-sec">
+                    <div className="myShop-details-sec-name">
+                      <AiOutlineUser
+                        className="myShop-details-sec-label"
+                        title="owner name"
+                      />
+                      <Field
+                        name="owner_name"
+                        type="text"
+                        className="myShop-form-input-field"
+                        disabled={activeForm}
+                      />
+                    </div>
+                    <p>
+                      <ErrorMessage name="owner_name" />
+                    </p>
+                  </div>
 
-              <div className="myShop-details-sec">
-                <div className="myShop-details-sec-name">
-                  <p className="myShop-details-sec-label">Contact : </p>
-                  <Field
-                    name="shop_mobile"
-                    type="text"
-                    className="myShop-form-input-field"
-                  />
+                  <div className="myShop-details-sec">
+                    <div className="myShop-details-sec-name">
+                      <a href={`tel:${ShopData.shop_mobile}`} target="_self">
+                        <IoCallOutline
+                          className="myShop-details-sec-label"
+                          title="contact number"
+                        />
+                      </a>
+                      <Field
+                        name="shop_mobile"
+                        type="text"
+                        disabled={activeForm}
+                        className="myShop-form-input-field"
+                      />
+                    </div>
+                    <p>
+                      <ErrorMessage name="owner_name" />
+                    </p>
+                  </div>
                 </div>
-                <p>
-                  <ErrorMessage name="owner_name" />
-                </p>
-              </div>
-
-              <div className="myShop-details-sec">
-                <div className="myShop-details-sec-name">
-                  <p className="myShop-details-sec-label">Location Latitude : </p>
-                  <Field
-                    name="shop_location.latitude"
-                    type="text"
-                    className="myShop-form-input-field"
-                  />
+                <div>
+                  <div className="myShop-middle-bottom">
+                    <MdOutlineStarPurple500 className="myShop-rating-icon" />
+                    <MdOutlineStarPurple500 className="myShop-rating-icon" />
+                    <MdOutlineStarPurple500 className="myShop-rating-icon" />
+                    <MdOutlineStarHalf className="myShop-rating-icon" />
+                    <MdOutlineStarOutline className="myShop-rating-icon" />
+                  </div>
                 </div>
-                <p>
-                  <ErrorMessage name="owner_name" />
-                </p>
               </div>
-              <div className="myShop-details-sec">
+              <div className="myShop-middle-bottom">
                 <div className="myShop-details-sec-name">
-                  <p className="myShop-details-sec-label">Location Longitude : </p>
-                  <Field
-                    name="shop_location.longitude"
-                    type="text"
-                    className="myShop-form-input-field"
-                  />
-                </div>
-                <p>
-                  <ErrorMessage name="owner_name" />
-                </p>
-              </div>
-              <div className="myShop-details-sec">
-                <div className="myShop-details-sec-name">
-                  <p className="myShop-details-sec-label">Address : </p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}`}
+                  >
+                    <SiGooglemaps
+                      className="myShop-details-sec-label"
+                      title="Address"
+                    />
+                  </a>
                   <Field
                     name="shop_address"
                     type="text"
-                    className="myShop-form-input-field"
+                    disabled={activeForm}
+                    className="myShop-form-input-field myShop-address"
                   />
                 </div>
                 <p>
-                  <ErrorMessage name="owner_name" />
+                  <ErrorMessage name="shop_address" />
                 </p>
               </div>
             </div>
-            <div>
-              <button type="submit">Save Details</button>
-            </div>
           </Form>
         </Formik>
+        <div className="myShop-map-sec">
+          <div className="myShop-map-loc-btn" onClick={() => changeLocation()}>
+            Choose Current Location
+          </div>
 
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://maps.google.com/maps?q=${shopLocation.latitude},${shopLocation.longitude}&z=14&output=embed`}
+          ></iframe>
+        </div>
+            <h2>Services</h2>
         <div className="myShop-canvas-form-bottom">
           {shopServices != [] ? (
             shopServices.map((data, index) => {
@@ -185,12 +242,15 @@ const MyShop = () => {
               <h3>you does not provide any Service</h3>
             </div>
           )}
-          <div>
-            <AddService data={ShopData} />
-          </div>
+          
         </div>
         <div>
-          <button onClick={removeShop}> Delet Shop </button>
+            <AddService data={ShopData} />
+          </div>
+        <div>
+          <button onClick={removeShop}>
+            <MdOutlineDelete /> Delet Shop{" "}
+          </button>
         </div>
       </div>
     </>
