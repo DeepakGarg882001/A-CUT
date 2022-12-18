@@ -6,6 +6,8 @@ import plateformServiceReducer from "./reducer/getPlateformServicesReducer";
 import bookShopSlotDataReducer from "./reducer/bookShopSlotReducer";
 import ownerShopReducer from "./reducer/ownerShopReducer";
 import allShopDataReducer from "./reducer/allShopsReducer";
+import ownerCustomerReducer from "./reducer/ownerCustomerReducer";
+
 
 const RootReducer = combineReducers({
     userReducer,
@@ -14,6 +16,7 @@ const RootReducer = combineReducers({
     bookShopSlotDataReducer,
     ownerShopReducer,
     allShopDataReducer,
+    ownerCustomerReducer,
     
 })
 

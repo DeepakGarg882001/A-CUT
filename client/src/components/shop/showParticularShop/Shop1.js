@@ -23,6 +23,7 @@ const Shop1 = () => {
 
   const result = useSelector((state) => state.bookShopSlotDataReducer);
   const userData = useSelector((state) => state.userReducer);
+  const ShopData = useSelector( (state)=> state.particularShopReducer);
 
   console.log("use selector data", result);
   const userName = userData.name;
@@ -30,6 +31,7 @@ const Shop1 = () => {
   const [initialFormData, setInitialFormData] = useState({
     date: new Date().toJSON().slice(0, 10),
     slots: [],
+    shop_id:ShopData._id,
     customerDetails: {
       name: userName,
       service: "",
@@ -89,19 +91,19 @@ const Shop1 = () => {
     <>
       <header id="header">
         <div className="shop-details">
-          <h2>Shop Name</h2>
+          <h2>{ShopData.shop_name}</h2>
           <div className="owner-detail">
             <div className="owner-name">
               <h3>
-                <span>Owner name</span>
+                <span>{ShopData.owner_name}</span>
               </h3>
               <h3>
-                <span>Address</span>
+                <span>{ShopData.shop_address}</span>
               </h3>
             </div>
             <div className="rating">
               <h3>
-                <span>Mobile Number</span>
+                <span>{ShopData.shop_mobile}</span>
               </h3>
               <h3>
                 <span>Rating</span>

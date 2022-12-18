@@ -66,6 +66,7 @@ video{
 }
 .individual-shop .btn{
     margin-top: .5rem;
+    width: 100%;
     padding: .5rem;
     /* border-radius: 2rem; */
     border: none;
