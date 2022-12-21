@@ -54,11 +54,11 @@
 }
 .team_member {
   width: 25vw;
-  height: 40vh;
+  height: 42vh;
   background-color: rgb(25, 103, 152);
   color: white;
   margin-top: 2rem;
-  margin-left: 6rem;
+  margin-left: 5rem;
   font-weight: bold;
   border-radius: 3rem;
   box-shadow: 10px 10px 5px lightblue inset;
@@ -68,6 +68,14 @@
   width: 20vw;
   height: 25vh;
 }
+#team_img:hover{
+  rotate: 45deg 45deg;
+  transform: scale(2);
+  border-radius: 50%;
+  width: 10vw;
+  color-scheme: calc();
+}
+
 
 #about_icon{
   margin-left: 1rem;
@@ -75,10 +83,27 @@
   font-size: 2.5rem;
   color: white;
 }
-#about_icon:hover{
-  color: blue;
- 
+
+
+#about_icon:after {
+	display: none;
 }
+
+#about_icon:hover {
+	background: rgba(255,255,255,1);
+	color: #25d033;
+	box-shadow: 0 0 0 8px rgba(182, 58, 58, 0.3);
+  border-radius: 10rem;
+ 
+  /* font-size: 2rem; */
+}
+
+#about_icon:hover:before {
+	-webkit-animation: toRightFromLeft 0.3s forwards;
+	-moz-animation: toRightFromLeft .3s forwards;
+	animation: toRightFromLeft .3s forwards;
+}
+
 
 
 
