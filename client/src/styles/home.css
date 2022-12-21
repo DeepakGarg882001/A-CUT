@@ -42,6 +42,8 @@ video{
   .individual:hover{
     animation-play-state: paused;
   }
+ 
+  
 .individual-shop{
     width: 300px;
     height: 300px;
@@ -85,9 +87,16 @@ video{
         align-items: center;
         margin: 1.4rem 2rem;
     }
+ 
+     .servicesabc:hover{
+     transform: rotateY(20deg) scale(1.2);
+  z-index: 1;
+  box-shadow: 0 25px 40px rgba(177, 91, 91, 0.5);
+    } 
     .services_home a{
         text-decoration: none;
     }
+       
     
     @media only screen and (max-width:599px) and (min-width:360px){
         .Work-flow h2{
@@ -136,6 +145,55 @@ video{
             align-items: center;
         }
     }
+    @media only screen and (max-height:599px) and (min-height:360px){
+        .Work-flow h2{
+            text-align: center;
+            font-size: 1rem;
+        }
+  
+        video{
+            width:94vw;
+            height: 57vh;
+            /* margin-top: -1.8rem; */
+        }
+        .Work-flow{
+            margin-top: 1rem;
+           
+        }
+        .shops h2{
+            font-size: 2rem;
+            background-color: rgb(180, 138, 220);
+            width: 100%;
+            text-align: center;
+        }
+        .individual{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            animation: none;
+         }
+        .individual-shop{
+            width: 80%;
+            height: 50vh;
+            margin: 1rem 0;
+            
+        }
+        
+        
+        .individual-shop h3{
+            font-size: 1.5rem;
+        }
+        .individual-shop .btn{
+            margin-top: 1.5rem;
+            font-size:  1.2rem;
+            border-radius: 2rem;
+        }
+        .services_home{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
     
     
    
