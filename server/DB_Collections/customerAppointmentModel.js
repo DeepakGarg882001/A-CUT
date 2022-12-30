@@ -1,35 +1,51 @@
 import mongoose from "mongoose";
 let a = new Array(18);
 const bookModel = new mongoose.Schema({
-  date: {
-    type:Date,
-    default:new Date().toJSON().slice(0, 10),
+  customer_id:{
+    type:String
+  },
+  customer_name:{
+    type:String
+  },
+  services:[
+    {
+      name:{
+        type:String
+      },
+      price:{
+        type:Number
+      }
+    }
+  ],
+  total_price:{
+    type:Number
+  },
+  total_duration:{
+    type:Number
+  },
+  shop_name:{
+    type:String
   },
   shop_id:{
      type:String
   },
-  
-  slots: a.fill(0),
-  customerDetails: [
-    {
-      name: {
-        type: String,
-      },
-      service: {
-        type: String,
-      },
-      slot: {
-        type: Number,
-      },
-      price: {
-        type: Number,
-      },
-      status: {
-        type: Boolean,
-        default: false,
-      },
+  time_slot:{
+    type:Number
+  },
+  time:{
+    start:{
+      type:String
     },
-  ],
+    end:{
+      type:String
+    }
+  },
+  date: {
+    type:Date.now(),
+    default:new Date(),
+  },
+  
+ 
 });
 
 const bookAppointment = mongoose.model("bookAppointment", bookModel);
