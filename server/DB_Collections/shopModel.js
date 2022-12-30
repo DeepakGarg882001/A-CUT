@@ -4,8 +4,8 @@ const shopModel = new mongoose.Schema({
   owner_name: {
     type: String,
   },
-  owner_id:{
-     type:String,
+  owner_id: {
+    type: String,
   },
   image: {
     fileName: {
@@ -21,8 +21,8 @@ const shopModel = new mongoose.Schema({
       type: String,
     },
   },
-  shop_name:{
-     type:String
+  shop_name: {
+    type: String,
   },
   shop_mobile: {
     type: Number,
@@ -32,17 +32,89 @@ const shopModel = new mongoose.Schema({
   },
   shop_rating: {
     type: Number,
-    default:0
+    default: 0,
   },
-  shop_location:{
-    latitude:{
-      type:Number,
-      default:0
+  shop_location: {
+    latitude: {
+      type: Number,
+      default: 0,
     },
-    longitude:{
-      type:Number,
-      default:0
-    }
+    longitude: {
+      type: Number,
+      default: 0,
+    },
+  },
+  shop_time: {
+    Mon: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Tue: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Wed: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Thu: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Fri: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Sat: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
+    Sun: {
+      open: {
+        type: Number,
+        default:8
+      },
+      close: {
+        type: Number,
+        default:20
+      },
+    },
   },
   shop_services: [
     {
@@ -51,16 +123,15 @@ const shopModel = new mongoose.Schema({
       },
       price: {
         type: Number,
-        default:0
+        default: 0,
       },
       offer: {
         type: Number,
-        default:0
+        default: 0,
       },
     },
   ],
 });
-
 
 const shop = mongoose.model("shop", shopModel);
 export default shop;

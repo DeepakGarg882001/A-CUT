@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 2rem; */
-    margin: 2rem 5rem;
+    
     background-color: rgb(165, 97, 148);
     /* background-image: linear-gradient(yellow, white, green); */
 }
@@ -51,20 +51,19 @@
 .booking-details{
     margin-top: 1.5rem;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
     width: 100%;
+    background-color: white;
 }
 .booking-details .schudle-time {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* width: ; */
+  flex-shrink: 1;
+  
 }
 
-.booking-details .schdule-time {
-  width: 40%;
-  background-color: rgb(28, 65, 117);
-}
+
 .schdule-form .check {
   display: flex;
   /* flex-direction: column; */
@@ -72,12 +71,16 @@
   align-items: center;
 }
 .booking-details .shop-services {
-  width: 60%;
+  flex-shrink: 1;
+  width: 500px;
+  justify-content: center;
+  margin: auto;
+  /* width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  background-color: chartreuse;
+  align-items: center;
+  background-color: chartreuse; */
 }
 
 .shop-services .select-services {
@@ -129,6 +132,52 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.schedule-show-sec{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: white;
+  height: auto;
+  width: auto;
+  max-width: 700px;
+  padding: 10px;
+  gap: 8px;
+}
+.schedule-sec-element{
+  flex-shrink: 1;
+  width: 160px;
+  display: flex;
+  margin: auto;
+  border: 0.8px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 5px;
+  color: #00000085;
+
+}
+.schedule-sec-element-booked{
+  opacity: 0.5;
+  flex-shrink: 1;
+  width: 160px;
+  display: flex;
+  margin: auto;
+  border: 0.8px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 5px;
+  color: red;
+}
+.schedule-element-text{
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
 
 /* media queries */
 @media screen and (max-width: 400px) {

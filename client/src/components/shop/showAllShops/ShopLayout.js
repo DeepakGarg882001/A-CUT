@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getParticularShopData } from "../../../redux/action/particularShopAction";
 import * as geolib from "geolib";
 import "../../../styles/showShops.css";
-
+import { getDistance } from 'geolib';
 const ShopLayout = ({ data }) => {
   const userLocation = useSelector((state) => state.userLocationReducer);
   const dispatch = useDispatch();
-  const distance = geolib.getPreciseDistance(userLocation, data.shop_location);
+  const distance = getDistance({latitude:userLocation.latitude,longitude:userLocation.longitude}, {latitude:data.shop_location.latitude,longitude:data.shop_location.longitude});
   const [distanceFromUser, setDistanceFromUser] = useState(distance);
 
   const convertDistance = () => {
