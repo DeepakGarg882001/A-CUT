@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import "../../styles/home.css";
 import video from "../../Assets/video.mp4";
 import s1 from "../../Assets/home1.jpg";
@@ -7,33 +7,33 @@ import s3 from "../../Assets/home3.jpg";
 import Services from "../plateformServices/PlateformServices";
 import { Link } from "react-router-dom";
 import ShopContainer from "../shop/showParticularShop/ShopContainer";
-import {useDispatch,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
 import getAllShopAction from "../../redux/action/allShopsAction";
 import userLocationAction from "../../redux/action/userLocationAction";
 
- const  Home=()=> {
+const Home = () => {
 
   const dispatch = useDispatch();
-  const AllServices = useSelector( (state)=> state.plateformServiceReducer);
-  const AllShops = useSelector( (state)=> state.allShopDataReducer);
-  
-  const getUserLocation =()=>{
+  const AllServices = useSelector((state) => state.plateformServiceReducer);
+  const AllShops = useSelector((state) => state.allShopDataReducer);
 
-    navigator.geolocation.getCurrentPosition( (position)=>{
-      dispatch(userLocationAction({latitude:position.coords.latitude,longitude:position.coords.longitude}))
+  const getUserLocation = () => {
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      dispatch(userLocationAction({ latitude: position.coords.latitude, longitude: position.coords.longitude }))
     })
 
   }
 
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getPlateformServiceListAction());
     dispatch(getAllShopAction());
     getUserLocation()
-    
 
-  },[]);
+
+  }, []);
 
   return (
     <>
@@ -48,17 +48,17 @@ import userLocationAction from "../../redux/action/userLocationAction";
         <div className="shops">
           <h2 id="labela-about">Available Shops</h2>
           <div className="individual">
-          {AllShops.length !=0? AllShops.map((data,index)=>{
-            return(
-              <React.Fragment key={index}>
-              <ShopContainer 
-              data={data}
-            /> 
-              </React.Fragment>
-            )
-          }):(<div><h3>No Shop is Available</h3></div>)}
-           
-            
+            {AllShops.length != 0 ? AllShops.map((data, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <ShopContainer
+                    data={data}
+                  />
+                </React.Fragment>
+              )
+            }) : (<div><h3>No Shop is Available</h3></div>)}
+
+
           </div>
         </div>
       </div>
@@ -67,17 +67,20 @@ import userLocationAction from "../../redux/action/userLocationAction";
         <div >
           <h2 id="labela-about">Our Service</h2>
         </div>
-        <div className="services_home">
-          {AllServices.map((data, index) => {
-            return (
-              <React.Fragment key={index}  >
-                <Link className="servicesabc" to="/all_shops" onClick={()=>dispatch(getAllShopAction(data.service_name))}>
-                  <Services data={data} />
-                </Link>
-              </React.Fragment>
-            );
-          })}
-        </div>
+        
+          <div className="services_home">
+            {AllServices.map((data, index) => {
+              return (
+                <React.Fragment key={index}  >
+                  <Link className="servicesabc" to="/all_shops" onClick={() => dispatch(getAllShopAction(data.service_name))}>
+                    <Services data={data} />
+                  </Link>
+                </React.Fragment>
+              );
+            })}
+          </div>
+      
+
       </div>
     </>
   );

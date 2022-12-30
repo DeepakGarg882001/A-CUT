@@ -54,11 +54,11 @@
 }
 .team_member {
   width: 25vw;
-  height: 40vh;
+  height: 42vh;
   background-color: rgb(25, 103, 152);
   color: white;
   margin-top: 2rem;
-  margin-left: 6rem;
+  margin-left: 5rem;
   font-weight: bold;
   border-radius: 3rem;
   box-shadow: 10px 10px 5px lightblue inset;
@@ -68,6 +68,14 @@
   width: 20vw;
   height: 25vh;
 }
+#team_img:hover{
+  rotate: 45deg 45deg;
+  transform: scale(2);
+  border-radius: 50%;
+  width: 10vw;
+  color-scheme: calc();
+}
+
 
 #about_icon{
   margin-left: 1rem;
@@ -75,10 +83,30 @@
   font-size: 2.5rem;
   color: white;
 }
-#about_icon:hover{
-  color: blue;
- 
+
+
+#about_icon:after {
+	display: none;
 }
+
+#about_icon:hover {
+	background: rgba(255,255,255,1);
+	color: #25d033;
+	box-shadow: 0 0 0 8px rgba(182, 58, 58, 0.3);
+  border-radius: 10rem;
+ 
+  /* font-size: 2rem; */
+}
+
+#about_icon:hover:before {
+	-webkit-animation: toRightFromLeft 0.3s forwards;
+	-moz-animation: toRightFromLeft .3s forwards;
+	animation: toRightFromLeft .3s forwards;
+}
+
+
+
+
 @media only screen and (max-width: 600px) {
   .about {
     margin-top: 30px;
@@ -105,6 +133,8 @@
   .about_main{
     font-size: 1.5rem;
   }
+  
+ 
   .team_main{
     margin-top: 1rem;
   }
@@ -147,4 +177,73 @@
 
   
 }
+@media only screen and (max-height: 600px) {
+  .about {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-img img {
+    width: 70vw;
+  }
+
+  .about .about-content {
+    width: 90%;
+    margin-top: 20px;
+    padding: 1rem .2rem;
+  }
+  .about-content p{
+    font-size: 1rem;
+    font-size: 1rem;
+    margin: -6px -4.5rem;
+    width: 100%;
+  }
+  .about_main{
+    font-size: 1.5rem;
+  }
+  .team_main{
+    margin-top: 1rem;
+  }
+   #team_heading{
+    font-size: 1.3rem;
+  }
+  .team_inner{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+    width: 80%;
+  
+  }
+  .team_member{
+    width: 90%;
+    height: auto;
+    font-size: 1.5rem;
+      box-shadow: 5px 5px 2.5px lightblue inset;
+
+  }
+ 
+  #team_img {
+    border-radius: .5rem;
+    width: 50vw;
+    height: 50vh;
+  }
+  
+  #about_icon{
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: white;
+    padding: 1px;
+  }
+  #about_icon:hover{
+    color: blue;
+   
+  }
+
+  
+}
+
 
