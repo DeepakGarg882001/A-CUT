@@ -41,8 +41,8 @@ const bookModel = new mongoose.Schema({
     }
   },
   date: {
-    type:Date.now(),
-    default:new Date(),
+    type:Date,
+    default:Date.now(),
   },
   
  

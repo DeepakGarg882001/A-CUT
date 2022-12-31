@@ -14,7 +14,10 @@ import {
   SET_SHOP_DATA,
 
   GET_OWNER_CUSTOMER_DATA,
-  SET_OWNER_CUSTOMER_DATA
+  SET_OWNER_CUSTOMER_DATA,
+
+  GET_BOOKED_SLOTS,
+  SET_BOOKED_SLOTS,
   
 } from "./reduxConstants";
 
@@ -44,6 +47,31 @@ function* getOwnerCustomerData(action) {
  
 }
 
+
+
+// Call API to get the List of Whole Shops
+function* getBookedSlots(action) {
+
+  const makeRequest = yield fetch(`${url}//getAllAppointments?key=${action.data}`, {
+    method: "GET",
+    headers: {
+      Accept:"application/json",
+    "Content-Type": "application/json",
+  },
+  credentials:"include",
+  });
+  
+  const response = yield makeRequest.json();
+  let data ;
+  if(response.data){
+    data = response.data;
+  }
+  if(response.error){
+    data = response;
+  }
+  yield put({ type: SET_BOOKED_SLOTS, data: data });
+ 
+}
 
 
 
@@ -157,6 +185,7 @@ function* Saga() {
   yield takeEvery(GET_ALL_SHOPS_DATA,getAllShopsList);
   yield takeEvery(GET_SHOP_DATA,getUniqueShopData);
   yield takeEvery(GET_OWNER_CUSTOMER_DATA,getOwnerCustomerData);
+  yield takeEvery(GET_BOOKED_SLOTS,getBookedSlots);
    
   
   }

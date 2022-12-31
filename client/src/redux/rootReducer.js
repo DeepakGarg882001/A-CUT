@@ -8,6 +8,8 @@ import ownerShopReducer from "./reducer/ownerShopReducer";
 import allShopDataReducer from "./reducer/allShopsReducer";
 import ownerCustomerReducer from "./reducer/ownerCustomerReducer";
 import userLocationReducer from "./reducer/userLocationReducer";
+import bookedSlotsReducer from "./reducer/bookedSlotsReducer";
+
 
 const RootReducer = combineReducers({
     userReducer,
@@ -18,6 +20,7 @@ const RootReducer = combineReducers({
     allShopDataReducer,
     ownerCustomerReducer,
     userLocationReducer,
+    bookedSlotsReducer,
     
 })
 
