@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 export const connectDB = async()=>{
   
     const connection = await mongoose.connect(`${URL}`).then(()=>{
-        console.log(" MongoDb Connected to Server Successfully !");
+        console.log("MongoDb Connected to Server Successfully !");
       }
       ).catch((error)=>{
              console.log(error);

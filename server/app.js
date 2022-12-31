@@ -4,7 +4,6 @@ import startServer from "./server.js";
 import router from "./routes/RootRouter.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-// import https from "https";
 
 //  Importing dotENV file
 dotENV.config({ 

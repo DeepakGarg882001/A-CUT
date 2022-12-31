@@ -1,6 +1,10 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../../styles/shop1.css";
+import * as geolib from "geolib";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import {
   addToHair,
   removeFromHair,
@@ -16,14 +20,52 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
-
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 const Shop1 = () => {
+  const [open, setOpen] = React.useState(false);
+  const [opens, setOpens] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOpen1 = () => setOpens(true);
+  const handleClose1 = () => setOpens(false);
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
 
   const result = useSelector((state) => state.bookShopSlotDataReducer);
   const userData = useSelector((state) => state.userReducer);
-  const ShopData = useSelector( (state)=> state.particularShopReducer);
+  const ShopData = useSelector((state) => state.particularShopReducer);
+  const userLocation = useSelector((state) => state.userLocationReducer);
+
+  const distance = geolib.getPreciseDistance(
+    userLocation,
+    ShopData.shop_location
+  );
+  const [distanceFromUser, setDistanceFromUser] = useState(distance);
+
+  const convertDistance = () => {
+    if (distanceFromUser > 499) {
+      setDistanceFromUser(
+        `${geolib.convertDistance(distanceFromUser, "km").toFixed(1)} km`
+      );
+    } else {
+      setDistanceFromUser(
+        `${geolib.convertDistance(distanceFromUser, "m")} meter`
+      );
+    }
+  };
+  useEffect(() => {
+    convertDistance();
+  }, []);
 
   console.log("use selector data", result);
   const userName = userData.name;
@@ -31,7 +73,7 @@ const Shop1 = () => {
   const [initialFormData, setInitialFormData] = useState({
     date: new Date().toJSON().slice(0, 10),
     slots: [],
-    shop_id:ShopData._id,
+    shop_id: ShopData._id,
     customerDetails: {
       name: userName,
       service: "",
@@ -48,20 +90,23 @@ const Shop1 = () => {
     hairColor: 100,
   };
   const sub = () => {
-    if(userName){
+    if (userName ) {
+      if(initialFormData.customerDetails.slot==0 ||initialFormData.customerDetails.price==0){
+        return Swal.fire("Please fill the details properlly");
+      }
       console.log("Yes");
-    console.log(initialFormData);
-    fetch(`${url}/bookAppointment`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(initialFormData),
-    }).then((res) => {
-      console.warn("res", res);
-    });
-    Swal.fire("Successfully booking the details");
-    }else{
+      console.log(initialFormData);
+      fetch(`${url}/bookAppointment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(initialFormData),
+      }).then((res) => {
+        console.warn("res", res);
+      });
+      Swal.fire("Successfully booking the details");
+    } else {
       Swal.fire("Please login for booking the details");
     }
   };
@@ -112,7 +157,7 @@ const Shop1 = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <tr /> ➤ <tr /> 9:00 AM TO 7:00 PM
+                  Shop Timing <span /> ➤ <span /> 9:00 AM TO 7:00 PM
                 </span>
               </h3>
             </div>
@@ -120,306 +165,131 @@ const Shop1 = () => {
         </div>
         <div className="booking-details">
           <div className="schdule-time">
-            <h2 className="h2">Schedule</h2>
-            <div className="schdule">
-              <form className="schdule-form">
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="1"
-                    onChange={handle}
-                  />
-                    <label for="html">9:00-9:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="2"
-                    onChange={handle}
-                  />
-                    <label for="html">9:30-10:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="3"
-                    onChange={handle}
-                  />
-                    <label for="html">10:00-10:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="4"
-                    onChange={handle}
-                  />
-                    <label for="html">10:30-11:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="5"
-                    onChange={handle}
-                  />
-                    <label for="html">11:00-11:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="6"
-                    onChange={handle}
-                  />
-                    <label for="html">11:30-12:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="7"
-                    onChange={handle}
-                  />
-                    <label for="html">12:00-12:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="8"
-                    onChange={handle}
-                  />
-                    <label for="html">12:30-13:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="9"
-                    onChange={handle}
-                  />
-                    <label for="html">13:00-13:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="10"
-                    onChange={handle}
-                  />
-                    <label for="html">13:30-14:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="11"
-                    onChange={handle}
-                  />
-                    <label for="html">14:00-14:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="12"
-                    onChange={handle}
-                  />
-                    <label for="html">14:30-15:00</label>
-                </div>
-                 
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="13"
-                    onChange={handle}
-                  />
-                    <label for="html">15:00-15:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="14"
-                    onChange={handle}
-                  />
-                    <label for="html">15:30-16:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="15"
-                    onChange={handle}
-                  />
-                    <label for="html">16:00-16:30</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="16"
-                    onChange={handle}
-                  />
-                    <label for="html">16:30-17:00</label>
-                </div>
-                 {" "}
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="17"
-                    onChange={handle}
-                  />
-                    <label for="html">17:00-17:30</label>
-                </div>
-                 
-                <div className="check">
-                  <input
-                    type="radio"
-                    id="html"
-                    name="slot"
-                    value="18"
-                    onChange={handle}
-                  />
-                    <label for="html">17:30-18:00</label>
-                </div>
-              </form>
-            </div>
+            
           </div>
           <div className="shop-services">
             <div className="select-services">
-              <form id="form-shop">
-                <h3>Select the services you want</h3>
-                <div className="service">
-                  <input
-                    type="checkbox"
-                    id="hair"
-                    name="hair"
-                    value="hair"
-                    // value={hair}
-                    onChange={(e) => {
-                      changeList("Hair", prices.hair, e.target.checked);
-                    }}
-                  />
-                  <div>
-                    <label for="service1"> Hair_cut</label>
-                    <span>Price :{prices.hair}</span>
-                  </div>
-                </div>
+              <Button className="mui-bttn" variant="outlined" onClick={handleOpen1}>
+                Click to select the services
+                
+              </Button>
+              <Modal
+                open={opens}
+                onClose={handleClose1}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Select Service
+                  </Typography>
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    <form id="form-shop">
+                      <div className="service">
+                        <input
+                          type="radio"
+                          id="hair"
+                          name="hair"
+                          value="hair"
+                          onChange={(e) => {
+                            changeList("Hair", prices.hair, e.target.checked);
+                          }}
+                        />
+                        <div>
+                          <label for="service1"> Hair_cut</label>
+                          <span>Price :{prices.hair}</span>
+                        </div>
+                      </div>
 
-                <div className="service">
-                  <input
-                    type="checkbox"
-                    id="beard"
-                    name="beard"
-                    // value={beard}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        dispatch(addToBeard(prices.beard));
-                        initialFormData.customerDetails.price = prices.beard;
-                        initialFormData.customerDetails.service = "beard";
-                      } else {
-                        dispatch(removeFromBeard(prices.beard));
-                      }
-                    }}
-                  />
-                  <div>
-                    <label for="service2"> Beard</label>
-                    <span>Price :{prices.beard}</span>
-                  </div>
-                </div>
-                {/* <br /> */}
-                <div className="service">
-                  <input
-                    type="checkbox"
-                    id="head_massag"
-                    name="head_massag"
-                    value="head_massag"
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        dispatch(addToHeadMassag(prices.headMassag));
-                        initialFormData.customerDetails.price = prices.headMassag;
-                        initialFormData.customerDetails.service = "head_massag";
-                      } else {
-                        dispatch(removeFromHeadMassag(prices.headMassag));
-                      }
-                    }}
-                  />
-                  <div>
-                    <label for="service3"> head_massag</label>
-                    <span>Price :{prices.headMassag}</span>
-                  </div>
-                </div>
-                <div className="service">
-                  <input
-                    type="checkbox"
-                    id="hair_color"
-                    name="hair_color"
-                    value="hair_color"
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        dispatch(addToHairColor(prices.hairColor));
-                        initialFormData.customerDetails.price = prices.hairColor;
-                        initialFormData.customerDetails.service = "head_color";
-                      } else {
-                        dispatch(removeFromHairColor(prices.hairColor));
-                      }
-                    }}
-                  />
+                      <div className="service">
+                        <input
+                          type="radio"
+                          id="beard"
+                          name="hair"
+                          // value={beard}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              dispatch(addToBeard(prices.beard));
+                              initialFormData.customerDetails.price =
+                                prices.beard;
+                              initialFormData.customerDetails.service = "beard";
+                            } else {
+                              dispatch(removeFromBeard(prices.beard));
+                            }
+                          }}
+                        />
+                        <div>
+                          <label for="service2"> Beard</label>
+                          <span>Price :{prices.beard}</span>
+                        </div>
+                      </div>
+                      {/* <br /> */}
+                      <div className="service">
+                        <input
+                          type="radio"
+                          id="head_massag"
+                          name="hair"
+                          value="head_massag"
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              dispatch(addToHeadMassag(prices.headMassag));
+                              initialFormData.customerDetails.price =
+                                prices.headMassag;
+                              initialFormData.customerDetails.service =
+                                "head_massag";
+                            } else {
+                              dispatch(removeFromHeadMassag(prices.headMassag));
+                            }
+                          }}
+                        />
+                        <div>
+                          <label for="service3"> head_massag</label>
+                          <span>Price :{prices.headMassag}</span>
+                        </div>
+                      </div>
+                      <div className="service">
+                        <input
+                          type="radio"
+                          id="hair_color"
+                          name="hair"
+                          value="hair_color"
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              dispatch(addToHairColor(prices.hairColor));
+                              initialFormData.customerDetails.price =
+                                prices.hairColor;
+                              initialFormData.customerDetails.service =
+                                "head_color";
+                            } else {
+                              dispatch(removeFromHairColor(prices.hairColor));
+                            }
+                          }}
+                        />
 
-                  <div>
-                    <label for="service4"> Hair_color</label>
-                    <span>Price :{prices.hairColor}</span>
-                  </div>
-                </div>
-                <br></br>
-              </form>
+                        <div>
+                          <label for="service4"> Hair_color</label>
+                          <span>Price :{prices.hairColor}</span>
+                        </div>
+                      </div>
+                      <br></br>
+                    </form>
+                  </Typography>
+                </Box>
+              </Modal>
             </div>
             <div className="my-details">
               <div className="user-details">
                 <h3>
-                  <span>Time Slot : {initialFormData.customerDetails.slot} </span>
+                  <span>
+                    Time Slot : {initialFormData.customerDetails.slot}{" "}
+                  </span>
                 </h3>
                 <h3>
-                  <span>Total Payment : {result}</span>
+                  <span>Total Payment : {initialFormData.customerDetails.price}</span>
                 </h3>
               </div>
               <button onClick={sub} className="btn" type="button">

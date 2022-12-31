@@ -12,7 +12,7 @@ const bookAppointment = async (request, response) => {
         .status(401)
         .json({ error: "Please fill the details completely !" });
     }
-    // if(date in DB)
+    // if(date in DB) 
     // {
     // update previous entry by updating slot index to True and cusomterDetails in customerDetails array
     // prevEntry = fetch from DB

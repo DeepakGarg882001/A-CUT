@@ -1,0 +1,28 @@
+.allShops-canvas{
+    width: 100vw;
+    height: auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+}
+
+.allShops-list-sec{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 5px;
+    gap: 10px;
+
+}
+.allShop-one-list{
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px #000000d1;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    
+}

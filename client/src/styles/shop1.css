@@ -3,10 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 2rem; */
     margin: 2rem 5rem;
-    background-color: rgb(165, 97, 148);
-    /* background-image: linear-gradient(yellow, white, green); */
+    
 }
 ::placeholder{
     color: black;
@@ -17,7 +15,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(145, 145, 152);
+    padding: 1rem;
+    box-shadow: 0 0 20px #ccc;
 }
 .shop-details .owner-detail{
     width: 90%;
@@ -31,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(167, 167, 47);
+    /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
 .shop-details .owner-detail .rating{
@@ -39,7 +38,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(167, 167, 47);
+    /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
 .owner-detail .shop-timing{
@@ -51,33 +50,29 @@
 .booking-details{
     margin-top: 1.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     width: 100%;
+    padding: 1rem;
+    box-shadow: 0 0 20px #ccc;
 }
 .booking-details .schudle-time {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.booking-details .schdule-time {
-  width: 40%;
-  background-color: rgb(28, 65, 117);
-}
 .schdule-form .check {
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .booking-details .shop-services {
-  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  background-color: chartreuse;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .shop-services .select-services {
@@ -111,10 +106,6 @@
   margin-top: 1rem;
 }
 #form-shop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 2rem;
 }
 #form-shop .service input {
@@ -128,6 +119,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.mui-bttn{
+  width: 100% !important;
 }
 
 /* media queries */

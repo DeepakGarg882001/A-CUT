@@ -3,19 +3,21 @@ import { useDispatch,useSelector } from 'react-redux';
 import SearchBar from './SearchBar';
 import ShopLayout from './ShopLayout';
 import getAllShopAction from '../../../redux/action/allShopsAction';
+import "../../../styles/showShops.css";
+
 const ShowShops = () => {
       const dispatch = useDispatch();
     const AllShops = useSelector( (state)=> state.allShopDataReducer);
 
     return(
     <>
-        <div className='all-shops-canvas'>
+        <div className='allShops-canvas'>
             <SearchBar />
             <div>
                  {/* filters */}
             </div>
 
-            <div>
+            <div className='allShops-list-sec'>
             {AllShops.length !=0? AllShops.map((data,index)=>{
                 return(
                     <React.Fragment key={index}>

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
-
+import {MdOutlinePlaylistAddCheck} from "react-icons/md";
 
 const AddService = ({ data }) => {
 
@@ -12,7 +12,6 @@ const AddService = ({ data }) => {
     (state) => state.plateformServiceReducer
   );
   const shopServices = data ? data.shop_services : [];
-
   const filterByReference = (plateformServices, shopServices) => {
     let res = [];
     res = plateformServices.filter((el) => {
@@ -76,7 +75,7 @@ const AddService = ({ data }) => {
               <ErrorMessage name="service_name" />
             </p>
             <div>
-              <button type="submit"> Add </button>
+              <button type="submit"><MdOutlinePlaylistAddCheck /> Add </button>
             </div>
           </div>
         </Form>
