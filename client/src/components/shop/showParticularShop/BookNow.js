@@ -5,18 +5,19 @@ import { useSelector } from 'react-redux';
 const BookNow = () => {
  
     const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
-    console.log(bookingData);
+    console.log("booking data is",bookingData);
+    // const selectedServices = bookingData.services.length!==0? bookingData.services : [];
     
-    useEffect(()=>{
-        console.log(bookingData);
-    },[bookingData]);
+    // useEffect(()=>{
+    //     console.log(bookingData);
+    // },[]);
   return (
     <>
        <div>
 
           <div>
             <p> Services : </p>
-             <div>
+             {/* <div>
                 {bookingData.services.length!==0? bookingData.services.map((data,index)=>{
                     return(
                         <React.Fragment key={index}>
@@ -24,7 +25,10 @@ const BookNow = () => {
                         </React.Fragment>
                     )
                 }) : null}
-             </div>
+             </div> */}
+          </div>
+          <div>
+            <p> Total Price : <span>{bookingData.total_price}</span></p>
           </div>
 
        </div>
