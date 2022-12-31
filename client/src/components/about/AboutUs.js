@@ -25,7 +25,7 @@ const AboutUs = () => {
           </div>
           <div className="about-content">
             <p className="about_main">ABOUT OUR APP</p>
-            <p>Our motivation for making this app is to save the time.
+            <p >Our motivation for making this app is to save the time.
               Whenever we are going in a saloon for the Hair Cut ,In most
               of the time the crowd of peoples are sitting there and
               we have to wait for hours. So this kind of problem is solved
@@ -34,7 +34,9 @@ const AboutUs = () => {
               our slot and track the waiting list.There is an another
               feature in this app like we choose the shop by their rating.
             </p>
+           
           </div>
+
         </div>
 
         <div className="team_main">

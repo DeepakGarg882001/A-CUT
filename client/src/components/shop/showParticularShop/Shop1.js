@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../../../styles/shop1.css";
-import * as geolib from "geolib";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import * as geolib from 'geolib';
+import DaySchedule from "./DaySchedule";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import {
   addToHair,
   removeFromHair,
@@ -163,9 +164,11 @@ const Shop1 = () => {
             </div>
           </div>
         </div>
+        
         <div className="booking-details">
           <div className="schdule-time">
             
+          <DaySchedule />
           </div>
           <div className="shop-services">
             <div className="select-services">
