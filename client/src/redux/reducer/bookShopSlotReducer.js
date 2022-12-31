@@ -1,55 +1,35 @@
 import {
-  ADD_TO_HAIR,
-  REMOVE_FROM_HAIR,
-  ADD_TO_BEARD,
-  REMOVE_FROM_BEARD,
-  ADD_TO_HEAD_MASSAG,
-  REMOVE_FROM_HEAD_MASSAG,
-  ADD_TO_HAIR_COLOR,
-  REMOVE_FROM_HAIR_COLOR,
+  SERVICE_IS_CLICKED,
 } from "../reduxConstants";
 
-
-
-const bookShopSlotDataReducer = (data = 0, action) => {
-
+const bookShopSlotDataReducer = (
+  data = {
+    counter_number: 1,
+    date: "",
+    services: {},
+    total_duration: 0,
+    time_slot: [],
+    total_price:0,
+  },
+  action
+) => {
+  
   switch (action.type) {
+     
+    case SERVICE_IS_CLICKED : 
+     if(action.data.active===true){
+          data.services = [...data.services,{service_name:action.data.service_name}];
+          data.total_price = data.total_price + action.data.price;
 
-    case ADD_TO_HAIR:
-      data = action.data;
-      return data;
+      }else{
+          data.services = data.services.filter( (e) => e.service_name !== action.data.service_name);
+          data.total_price = data.total_price - action.data.price;
 
-    case REMOVE_FROM_HAIR:
-      data = data-action.data;
-      return data;
-
-    case ADD_TO_BEARD:
-      data = action.data;
-      return data;
-
-    case REMOVE_FROM_BEARD:
-      data = data-action.data;
-      return data;
-
-    case ADD_TO_HEAD_MASSAG:
-      data = action.data;
-      return data;
-
-    case REMOVE_FROM_HEAD_MASSAG:
-      data = data-action.data;
-      return data;
-
-    case ADD_TO_HAIR_COLOR:
-      data = action.data;
-      return data;
-
-    case REMOVE_FROM_HAIR_COLOR:
-      data = data-action.data;
+      }
       return data;
 
     default:
       return data;
-
   }
 };
 

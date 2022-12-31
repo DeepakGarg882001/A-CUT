@@ -44,6 +44,17 @@ const shopModel = new mongoose.Schema({
       default: 0,
     },
   },
+  shop_counters:[
+     {
+      counter_number:{
+        type:Number,
+        default:1
+      },
+      counter_head:{
+        type:String
+      }
+     }
+  ],
   shop_time: {
     Mon: {
       open: {
