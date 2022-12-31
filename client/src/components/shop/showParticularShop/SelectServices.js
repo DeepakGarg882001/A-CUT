@@ -1,11 +1,12 @@
 import React from 'react'
 import {BiRupee} from "react-icons/bi";
 import { selectServiceAction } from '../../../redux/action/bookShopSlotAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 const SelectServices = ({data}) => {
      
     const dispatch = useDispatch();
-
+    const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
+   console.log(bookingData);
     const services = data.length !==0? data.shop_services : [];
     const currentPrice = (data)=>{
       return (data.price)-((data.price)/100)*data.offer;

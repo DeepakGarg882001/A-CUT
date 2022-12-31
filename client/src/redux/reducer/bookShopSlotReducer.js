@@ -3,14 +3,14 @@ import {
 } from "../reduxConstants";
 
 const bookShopSlotDataReducer = (
-  data = {
+  data = [{
     counter_number: 1,
     date: "",
     services: {},
     total_duration: 0,
     time_slot: [],
     total_price:0,
-  },
+  }],
   action
 ) => {
   
@@ -26,7 +26,9 @@ const bookShopSlotDataReducer = (
           data.total_price = data.total_price - action.data.price;
 
       }
-      return data;
+      console.log("data from reducer is :",data);
+      let updatedData = {...data}
+      return updatedData;
 
     default:
       return data;
