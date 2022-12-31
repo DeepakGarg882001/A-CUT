@@ -6,7 +6,6 @@ const BookNow = () => {
  
     const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
     console.log(bookingData);
-    // const selectedServices = bookingData.services.length!==0? bookingData.services : [];
     
     useEffect(()=>{
         console.log(bookingData);
