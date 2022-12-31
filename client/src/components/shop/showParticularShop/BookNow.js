@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 const BookNow = () => {
  
     const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
-    console.log(bookingData);
+    console.log("booking data is",bookingData);
     // const selectedServices = bookingData.services.length!==0? bookingData.services : [];
     
-    useEffect(()=>{
-        console.log(bookingData);
-    },[bookingData]);
+    // useEffect(()=>{
+    //     console.log(bookingData);
+    // },[]);
   return (
     <>
        <div>
@@ -26,6 +26,9 @@ const BookNow = () => {
                     )
                 }) : null}
              </div>
+          </div>
+          <div>
+            <p> Total Price : <span>{bookingData.total_price}</span></p>
           </div>
 
        </div>
