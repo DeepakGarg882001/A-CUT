@@ -16,7 +16,7 @@ import ChooseAccount from "./signup/ChooseAccount";
 import CreateShop from "./owner/createShopAccount/CreateShop";
 import AdminDash from "./admin/AdminDash";
 import UserDashBoard from "./userDashBoard/UserDashBoard";
-import Shop1 from './shop/showParticularShop/Shop1';
+import Shop from './shop/showParticularShop/Shop';
 
 import AllServices from "./admin/services/AllServices";
 import AdminHome from "./admin/home/AdminHome";
@@ -42,10 +42,10 @@ const Router = ()=>{
                     <Route path="/" element={ <Home />} />
 
                     <Route path="/about" element={ <AboutUs />} />
-                    <Route path="/services" element={ <Shop1 />} />
+                    <Route path="/services" element={ <Shop />} />
                     <Route path="/contact" element={ <ContactUs />} />
                     <Route path="/all_shops" element={ <ShowShops />} />
-                    <Route path="/showShopDetails" element={ <Shop1 />} />
+                    <Route path="/showShopDetails" element={ <Shop />} />
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />

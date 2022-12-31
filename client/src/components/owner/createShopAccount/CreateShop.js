@@ -149,9 +149,9 @@ const CreateShop = () => {
               {myServices
                 ? myServices.map((data, index) => {
                   return (
-                    <React.Fragment key={index}>
+                    <React.Fragment key={index} >
                       <Chip label={data.service_name} />
-                    </React.Fragment >
+                    </React.Fragment>
                   );
                 })
                 : null}
