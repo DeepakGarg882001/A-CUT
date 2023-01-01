@@ -1,16 +1,14 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
+import {BiRupee} from "react-icons/bi";
 
 
 const BookNow = () => {
  
     const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
     console.log("booking data is",bookingData);
-    // const selectedServices = bookingData.services.length!==0? bookingData.services : [];
     
-    // useEffect(()=>{
-    //     console.log(bookingData);
-    // },[]);
+    
   return (
     <>
        <div>
@@ -18,7 +16,7 @@ const BookNow = () => {
           <div>
             <p> Services : </p>
              <div>
-                {bookingData.services.length!==0? bookingData.services.map((data,index)=>{
+                {bookingData.services!==[]? bookingData.services.map((data,index)=>{
                     return(
                         <React.Fragment key={index}>
                          <p>{data.service_name}</p>
@@ -28,7 +26,10 @@ const BookNow = () => {
              </div>
           </div>
           <div>
-            <p> Total Price : <span>{bookingData.total_price}</span></p>
+            <p> Total Price : <span><BiRupee />{bookingData.total_price}</span></p>
+          </div>
+          <div>
+            <p> Total Duration : <span>{bookingData.total_duration} mint </span></p>
           </div>
 
        </div>

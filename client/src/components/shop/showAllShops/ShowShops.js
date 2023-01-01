@@ -4,11 +4,16 @@ import SearchBar from './SearchBar';
 import ShopLayout from './ShopLayout';
 import getAllShopAction from '../../../redux/action/allShopsAction';
 import "../../../styles/showShops.css";
+import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 
 const ShowShops = () => {
-      const dispatch = useDispatch();
-    const AllShops = useSelector( (state)=> state.allShopDataReducer);
 
+      const dispatch = useDispatch();
+      const AllShops = useSelector( (state)=> state.allShopDataReducer);
+      
+      useEffect(()=>{
+        dispatch(clearBookingData());
+      },[]);
     return(
     <>
         <div className='allShops-canvas'>
@@ -18,7 +23,7 @@ const ShowShops = () => {
             </div>
 
             <div className='allShops-list-sec'>
-            {AllShops.length !=0? AllShops.map((data,index)=>{
+            {AllShops.length !==0? AllShops.map((data,index)=>{
                 return(
                     <React.Fragment key={index}>
                        <ShopLayout data={data}/>
