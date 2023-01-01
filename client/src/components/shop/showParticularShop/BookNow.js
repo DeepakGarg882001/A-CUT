@@ -6,11 +6,8 @@ const BookNow = () => {
  
     const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
     console.log("booking data is",bookingData);
-    // const selectedServices = bookingData.services.length!==0? bookingData.services : [];
-    
-    // useEffect(()=>{
-    //     console.log(bookingData);
-    // },[]);
+    const selectedServices = bookingData.length!==0? bookingData.services : [];
+    console.log("selectedServices",selectedServices);
   return (
     <>
        <div>
@@ -18,7 +15,7 @@ const BookNow = () => {
           <div>
             <p> Services : </p>
              {/* <div>
-                {bookingData.services.length!==0? bookingData.services.map((data,index)=>{
+                {selectedServices.length!==0? selectedServices.map((data,index)=>{
                     return(
                         <React.Fragment key={index}>
                          <p>{data.service_name}</p>
