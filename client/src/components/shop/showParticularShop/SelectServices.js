@@ -2,11 +2,11 @@ import React from 'react'
 import {BiRupee} from "react-icons/bi";
 import { selectServiceAction } from '../../../redux/action/bookShopSlotAction';
 import { useDispatch,useSelector } from 'react-redux';
-const SelectServices = ({data}) => {
+const SelectServices = ({data,time}) => {
      
     const dispatch = useDispatch();
-    const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
-   console.log(bookingData);
+    const bookedSlots = useSelector( (state)=> state.bookedSlotsReducer);
+    const {openTime,closeTime} = time;
     const services = data.length !==0? data.shop_services : [];
     const currentPrice = (data)=>{
       return (data.price)-((data.price)/100)*data.offer;
@@ -27,6 +27,9 @@ const SelectServices = ({data}) => {
                                     active:e.target.checked,
                                     service_name:data.service_name,
                                     price:currentPrice(data),
+                                    duration:data.duration,
+                                    bookedSlots,
+                                    closeTime,
 
                                  })) }
 

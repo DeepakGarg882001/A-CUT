@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React,{useEffect} from "react";
 import "../../../styles/shop1.css";
-import * as geolib from "geolib";
+// import * as geolib from "geolib";
 import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
+import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
-import { Link, useNavigate, useParams } from "react-router-dom";
+// import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Shop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -18,28 +19,65 @@ const Shop = () => {
   const userData = useSelector((state) => state.userReducer);
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
-  // const distance = geolib.getPreciseDistance(
-  //   userLocation,
-  //   ShopData.shop_location
-  // );
-  // const [distanceFromUser, setDistanceFromUser] = useState(distance);
+    
+  const date = new Date();
+  const day = date.toString().substring(0, 3);
 
-  // const convertDistance = () => {
-  //   if (distanceFromUser > 499) {
-  //     setDistanceFromUser(
-  //       `${geolib.convertDistance(distanceFromUser, "km").toFixed(1)} km`
-  //     );
-  //   } else {
-  //     setDistanceFromUser(
-  //       `${geolib.convertDistance(distanceFromUser, "m")} meter`
-  //     );
-  //   }
-  // };
-  // useEffect(() => {
-  //   convertDistance();
-  // }, []);
+  const allDays = ShopData.length !== 0 ? ShopData.shop_time : [];
 
-  const userName = userData.name;
+  let openTime;
+  let closeTime;
+  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays;
+
+  // Getting the Shop Opentime and CloseTime of Today
+  switch (day) {
+    case "Mon":
+      openTime = Mon.open;
+      closeTime = Mon.close;
+      break;
+
+    case "Tue":
+      openTime = Tue.open;
+      closeTime = Tue.close;
+      break;
+
+    case "Wed":
+      openTime = Wed.open;
+      closeTime = Wed.close;
+      break;
+
+    case "Thu":
+      openTime = Thu.open;
+      closeTime = Thu.close;
+      break;
+
+    case "Fri":
+      openTime = Fri.open;
+      closeTime = Fri.close;
+      break;
+
+    case "Sat":
+      openTime = Sat.open;
+      closeTime = Sat.close;
+      break;
+
+    case "Sun":
+      openTime = Sun.open;
+      closeTime = Sun.close;
+      break;
+    default:
+      break;
+  }
+
+
+
+
+
+
+  useEffect(() => {
+    dispatch(clearBookingData());
+  }, []);
+
 
 
   return (
@@ -90,10 +128,10 @@ const Shop = () => {
 
         <div className="booking-details">
           <div className="schdule-time">
-            <DaySchedule data={ShopData} />
+            <DaySchedule data={ShopData} time={{openTime,closeTime}} />
           </div>
           <div className="shop-services">
-            <SelectServices data={ShopData}/>
+            <SelectServices data={ShopData} time={{openTime,closeTime}} />
             
             <BookNow data={ShopData}/>
           </div>

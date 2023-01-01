@@ -1,4 +1,4 @@
-import {GET_SHOP_DATA,REMOVE_SHOP_DATA,UPDATE_SHOP_DATA} from "../reduxConstants";
+import {GET_SHOP_DATA,REMOVE_SHOP_DATA} from "../reduxConstants";
 
 export const getParticularShopData=(data)=>{
     return {

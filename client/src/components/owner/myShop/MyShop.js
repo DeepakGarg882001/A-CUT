@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../../../styles/myShop.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,7 +23,7 @@ const MyShop = () => {
   const dispatch = useDispatch();
 
   const ShopData = useSelector((state) => state.ownerShopReducer);
-  const shopServices = ShopData.length != 0 ? ShopData.shop_services : [];
+  const shopServices = ShopData.length !== 0 ? ShopData.shop_services : [];
 
   const [activeForm, setActiveForm] = useState(true);
   const navigate = useNavigate();
@@ -224,12 +224,13 @@ const MyShop = () => {
           <iframe
             width="100%"
             height="100%"
+            title="shop_location"
             src={`https://maps.google.com/maps?q=${shopLocation.latitude},${shopLocation.longitude}&z=14&output=embed`}
           ></iframe>
         </div>
             <h2>Services</h2>
         <div className="myShop-canvas-form-bottom">
-          {shopServices != [] ? (
+          {shopServices !== [] ? (
             shopServices.map((data, index) => {
               return (
                 <React.Fragment key={index}>

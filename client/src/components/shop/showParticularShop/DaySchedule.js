@@ -1,62 +1,18 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 import "../../../styles/shop1.css";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { addTimeSlot } from "../../../redux/action/bookShopSlotAction";
 
-const DaySchedule = ({ data }) => {
-  
+const DaySchedule = ({ data ,time}) => {
+   
+  const dispatch = useDispatch();
+
   const bookedSlots = useSelector( (state)=> state.bookedSlotsReducer);
-
+  const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
+  const {openTime,closeTime} = time;
   const slots = [];
 
-  const date = new Date();
-  const day = date.toString().substring(0, 3);
-
-  const allDays = data.length !== 0 ? data.shop_time : [];
-
-  let openTime;
-  let closeTime;
-  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays;
-
-  // Getting the Shop Opentime and CloseTime of Today
-  switch (day) {
-    case "Mon":
-      openTime = Mon.open;
-      closeTime = Mon.close;
-      break;
-
-    case "Tue":
-      openTime = Tue.open;
-      closeTime = Tue.close;
-      break;
-
-    case "Wed":
-      openTime = Wed.open;
-      closeTime = Wed.close;
-      break;
-
-    case "Thu":
-      openTime = Thu.open;
-      closeTime = Thu.close;
-      break;
-
-    case "Fri":
-      openTime = Fri.open;
-      closeTime = Fri.close;
-      break;
-
-    case "Sat":
-      openTime = Sat.open;
-      closeTime = Sat.close;
-      break;
-
-    case "Sun":
-      openTime = Sun.open;
-      closeTime = Sun.close;
-      break;
-    default:
-      break;
-  }
-
+ 
   // making the number of slots of Shop
   for (let i = openTime; i < closeTime; i = i + 0.25) {
     slots.push(i);
@@ -140,6 +96,8 @@ const DaySchedule = ({ data }) => {
         return;
     }
   };
+   
+ 
 
   // returning the Body of Component
   return (
@@ -147,21 +105,50 @@ const DaySchedule = ({ data }) => {
       <div className="schedule-show-sec">
         {slots.length !== 0
           ? slots.map((data, index) => {
+             
               for (let i = 0; i < bookedSlots.length; i++) {
                 if (data === bookedSlots[i].time_slot) {
                   return (
                     <React.Fragment key={index}>
-                      <div className="schedule-sec-element-booked">
+                      <div className="schedule-sec-element element-booked">
                         {convertToTime(data)}
                       </div>
                     </React.Fragment>
                   );
                 }
               }
+              
+              for(let z =0;z<bookingData.time_slot.length;z++){
+                if(data === bookingData.time_slot[z].slot){
+                  return (
+                <React.Fragment key={index}>
+                  <div className="schedule-sec-element element-selected" onClick={()=> dispatch(addTimeSlot(
+                    {
+                     slot:data,
+                     bookedSlots,
+                     closeTime,
+                  }
+                  ))}>
+                    {convertToTime(data)}
+                    
+                  </div>
+                </React.Fragment>
+              );
+                }
+
+              }
+
               return (
                 <React.Fragment key={index}>
-                  <div className="schedule-sec-element">
+                  <div className="schedule-sec-element" onClick={()=> dispatch(addTimeSlot(
+                    {
+                     slot:data,
+                     bookedSlots,
+                     closeTime,
+                  }
+                  ))}>
                     {convertToTime(data)}
+                    
                   </div>
                 </React.Fragment>
               );

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 import { Outlet,Link } from "react-router-dom";
 import "../../styles/ownerDash.css";
 import ownerCustomerAction from "../../redux/action/ownerCustomerAction";
