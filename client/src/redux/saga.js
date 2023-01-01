@@ -52,12 +52,13 @@ function* getOwnerCustomerData(action) {
 // Call API to get the List of Whole Shops
 function* getBookedSlots(action) {
 
-  const makeRequest = yield fetch(`${url}//getAllAppointments?key=${action.data}`, {
-    method: "GET",
+  const makeRequest = yield fetch(`${url}/getAllAppointments`, {
+    method: "POST",
     headers: {
       Accept:"application/json",
     "Content-Type": "application/json",
   },
+  body:JSON.stringify(action.data),
   credentials:"include",
   });
   

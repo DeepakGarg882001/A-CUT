@@ -172,7 +172,12 @@
   font-size: 0.88rem;
   font-weight: 600;
 }
-
+.shop-canvas-choose-date{
+  width: 17px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
 
 /* media queries */
 @media screen and (max-width: 400px) {

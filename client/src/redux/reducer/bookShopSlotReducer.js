@@ -2,11 +2,12 @@ import {
   SERVICE_IS_CLICKED,
   CLEAR_BOOKING_DATA,
   ADD_TIME_SLOT,
+  UPDATE_DATE,
 } from "../reduxConstants";
 
 const initialData = {
   counter_number: 1,
-  date: "",
+  date: new Date().toDateString(),
   services: [],
   total_duration: 0,
   time_slot: [],
@@ -144,6 +145,9 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
       }
 
       return { ...data };
+     
+    case UPDATE_DATE :  data.date= action.data;
+                        return {...data};
 
     default:
       return data;
