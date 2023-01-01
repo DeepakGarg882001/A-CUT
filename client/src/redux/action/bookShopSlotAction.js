@@ -2,6 +2,7 @@ import {
     SERVICE_IS_CLICKED,
     CLEAR_BOOKING_DATA,
     ADD_TIME_SLOT,
+    UPDATE_DATE,
     } from "../reduxConstants";
 
 
@@ -23,4 +24,12 @@ export const addTimeSlot =(data)=>{
       type:ADD_TIME_SLOT,
       data
    }
+}
+
+export const updateDate = (data)=>{
+   return({
+      type:UPDATE_DATE,
+      data
+   })
+
 }

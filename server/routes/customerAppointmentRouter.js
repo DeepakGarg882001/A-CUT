@@ -54,9 +54,13 @@ const bookAppointment = async (request, response) => {
 
 const getAllAppointments = async (request, response) => {
   try {
-    const shop_id  = request.query.key;
+    
+    console.log("get data of booked slots")
+    console.log(request.body);
 
-    const appointments = await customerAppointment.find({ shop_id });
+    const {shop_id,counter_number,date} = request.body;
+
+    const appointments = await customerAppointment.find({ shop_id,date,counter_number });
     console.log(appointments);
     if (appointments.length > 0) {
       response.status(200).json({
@@ -64,7 +68,7 @@ const getAllAppointments = async (request, response) => {
         data: appointments,
       });
     } else {
-      response.status(400).json({
+      response.status(201).json({
         success: false,
         data: "no appointment found",
       });

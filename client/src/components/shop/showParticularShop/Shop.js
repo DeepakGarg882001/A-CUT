@@ -1,12 +1,13 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/shop1.css";
 // import * as geolib from "geolib";
 import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
-
+import { updateDate } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
+import bookedSlotsAction from "../../../redux/action/bookedSlotsAction";
 // import Swal from "sweetalert2";
 
 // import { Link, useNavigate, useParams } from "react-router-dom";
@@ -15,13 +16,29 @@ const Shop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
 
-  const result = useSelector((state) => state.bookShopSlotDataReducer);
-  const userData = useSelector((state) => state.userReducer);
+  
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
-    
-  const date = new Date();
-  const day = date.toString().substring(0, 3);
+  const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
+
+  // working with Date
+  const todayDate = new Date();
+  const minDate = todayDate.toJSON().substring(0, 10);
+  const [date, setDate] = useState(todayDate);
+  const generateDate = new Date(date);
+  const day = generateDate.toString().substring(0, 3);
+  const showingDate = generateDate.toDateString();
+  const defaultDateValue = generateDate.toJSON().substring(0, 10);
+  
+  // changing Date value
+  const changeDate = (value) => {
+    let changedValue = new Date(value);
+    if (changedValue > todayDate) {
+      setDate(value);
+    } else if (changedValue <= todayDate) {
+      setDate(todayDate);
+    }
+  };
 
   const allDays = ShopData.length !== 0 ? ShopData.shop_time : [];
 
@@ -69,16 +86,18 @@ const Shop = () => {
       break;
   }
 
-
-
-
-
+  useEffect(() => {
+    dispatch(updateDate(showingDate));
+    dispatch(bookedSlotsAction({
+      shop_id:ShopData._id,
+      date:showingDate,
+      counter_number:bookingData.counter_number
+    }))
+  }, [showingDate]);
 
   useEffect(() => {
     dispatch(clearBookingData());
   }, []);
-
-
 
   return (
     <>
@@ -110,30 +129,44 @@ const Shop = () => {
               </h3>
             </div>
           </div>
-         </div>
+        </div>
 
         <div>
-           
-           {ShopData.shop_counters.length !==0? ShopData.shop_counters.map( (data,index)=> {
-            return(
-              <React.Fragment key={index}>
-                <div>
-                  <p>Counter : {data.counter_number}</p>
-                </div>
-              </React.Fragment>
-            )
-           }) : null }
+          <div>
+            <p>
+              Date : <span>{showingDate}</span>{" "}
+              <input
+                type="date"
+                className="shop-canvas-choose-date"
+                required
+                min={minDate}
+                defaultValue={defaultDateValue}
+                onChange={(e) => changeDate(e.target.value)}
+              />
+            </p>
+          </div>
 
+          {ShopData.shop_counters.length !== 0
+            ? ShopData.shop_counters.map((data, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <div>
+                      <p>Counter : {data.counter_number}</p>
+                    </div>
+                  </React.Fragment>
+                );
+              })
+            : null}
         </div>
 
         <div className="booking-details">
           <div className="schdule-time">
-            <DaySchedule data={ShopData} time={{openTime,closeTime}} />
+            <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
           </div>
           <div className="shop-services">
-            <SelectServices data={ShopData} time={{openTime,closeTime}} />
-            
-            <BookNow data={ShopData}/>
+            <SelectServices data={ShopData} time={{ openTime, closeTime }} />
+
+            <BookNow shopData={ShopData} />
           </div>
         </div>
       </header>
@@ -142,4 +175,3 @@ const Shop = () => {
 };
 
 export default Shop;
-

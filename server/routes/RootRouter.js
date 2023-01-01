@@ -50,7 +50,7 @@ router.route("/updateService").post(update_service);
 router.route("/deletService").post(delet_service);
 
 router.route("/bookAppointment").post(bookAppointment);
-router.route("/getAllAppointments").get(getAllAppointments);
+router.route("/getAllAppointments").post(getAllAppointments);
 router.route("/getAppointmentById/:id").get(getAppointmentById);
 
 export default router;
