@@ -24,7 +24,7 @@ import {
   bookAppointment,
   getAllAppointments,
   getAppointmentById,
-} from "./customerAppointmentRouter.js";
+} from "./customerAppointment.js";
 
 
 //    ======= Authentication Routes =========  //

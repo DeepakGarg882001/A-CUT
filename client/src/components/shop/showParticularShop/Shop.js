@@ -7,10 +7,9 @@ import BookNow from "./BookNow";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 import { updateDate } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
-import bookedSlotsAction from "../../../redux/action/bookedSlotsAction";
-// import Swal from "sweetalert2";
-
-// import { Link, useNavigate, useParams } from "react-router-dom";
+import {bookedSlotsAction} from "../../../redux/action/bookedSlotsAction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Shop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -20,6 +19,7 @@ const Shop = () => {
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
+   
 
   // working with Date
   const todayDate = new Date();
@@ -41,10 +41,14 @@ const Shop = () => {
   };
 
   const allDays = ShopData.length !== 0 ? ShopData.shop_time : [];
-
+ 
   let openTime;
   let closeTime;
-  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays;
+  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays!=[]? allDays:[];
+
+  
+ 
+  if(allDays.length!=0){
 
   // Getting the Shop Opentime and CloseTime of Today
   switch (day) {
@@ -84,24 +88,33 @@ const Shop = () => {
       break;
     default:
       break;
+   }
   }
+
+  const shopCounters = ShopData.length===0? []:ShopData.shop_counters ;
 
   useEffect(() => {
     dispatch(updateDate(showingDate));
+
+    if(ShopData.length!==0){
     dispatch(bookedSlotsAction({
+      shop_name:ShopData.shop_name,
       shop_id:ShopData._id,
       date:showingDate,
       counter_number:bookingData.counter_number
     }))
+  }
   }, [showingDate]);
 
   useEffect(() => {
     dispatch(clearBookingData());
+   
   }, []);
 
   return (
     <>
       <header id="header">
+       {/* <ToastContainer /> */}
         <div className="shop-details">
           <h2>{ShopData.shop_name}</h2>
           <div className="owner-detail">
@@ -146,8 +159,8 @@ const Shop = () => {
             </p>
           </div>
 
-          {ShopData.shop_counters.length !== 0
-            ? ShopData.shop_counters.map((data, index) => {
+          {shopCounters!==[]
+            ? shopCounters.map((data, index) => {
                 return (
                   <React.Fragment key={index}>
                     <div>
