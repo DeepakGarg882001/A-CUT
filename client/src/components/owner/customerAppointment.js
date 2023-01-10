@@ -2,9 +2,9 @@ import React from "react";
 import "../../styles/customerAppointment.css";
 import { useSelector } from "react-redux";
 
-const customerAppointment = () => {
+const CustomerAppointment = () => {
 
-  const Customers = useSelector( (state)=> state.ownerCustomerReducer);
+  const Customers = useSelector((state)=> state.ownerCustomerReducer);
   console.log(Customers);
   const appointments = Customers[0]? Customers[0]:[];
   console.log(appointments);
@@ -50,4 +50,4 @@ const customerAppointment = () => {
   );
 };
 
-export default customerAppointment;
+export default CustomerAppointment;

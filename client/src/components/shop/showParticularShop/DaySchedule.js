@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../../../styles/shop1.css";
 import { useSelector,useDispatch } from "react-redux";
 import { addTimeSlot } from "../../../redux/action/bookShopSlotAction";
+import { toast } from "react-toastify";
 
 const DaySchedule = ({ data ,time}) => {
    
@@ -97,7 +98,12 @@ const DaySchedule = ({ data ,time}) => {
     }
   };
    
- 
+ useEffect(()=>{
+    if(bookingData.error!=""){
+      toast.error(bookingData.error);
+    }
+
+ },[bookingData]);
 
   // returning the Body of Component
   return (

@@ -28,16 +28,18 @@ import OurServices from "./plateformServices/OurServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
 
 import OwnerDashBoard from "./owner/OwnerDashBoard";
-import CustomerAppointment from "./owner/customerAppointment";
+import CustomerAppointment from "./owner/CustomerAppointment";
 import MyShop from "./owner/myShop/MyShop"
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Router = ()=>{
 
     return(<>
-           
+                <ToastContainer position="bottom-left" />
                 <Navbar/>
-            
+                
                 <Routes>
                     <Route path="/" element={ <Home />} />
 

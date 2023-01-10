@@ -77,7 +77,7 @@ function EditPhoto({ data }) {
               </React.Fragment>
             );
           })
-        ) : (crrAvtar!=""? <img src={crrAvtar} className="change-profile-top-img-size" /> :
+        ) : (crrAvtar!==""? <img src={crrAvtar} className="change-profile-top-img-size" /> :
           <div  className="myshop-back-imgShadow" >Does not have any Images</div>
         )}
       </div>
