@@ -158,25 +158,25 @@
   color: #00000085;
 
 }
-.schedule-sec-element-booked{
+.element-booked{
   opacity: 0.5;
-  flex-shrink: 1;
-  width: 160px;
-  display: flex;
-  margin: auto;
   border: 0.8px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-  gap: 5px;
   color: red;
+}
+.element-selected{
+  color: green;
+  border: 0.8px solid green;
 }
 .schedule-element-text{
   font-size: 0.88rem;
   font-weight: 600;
 }
-
+.shop-canvas-choose-date{
+  width: 17px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
 
 /* media queries */
 @media screen and (max-width: 400px) {

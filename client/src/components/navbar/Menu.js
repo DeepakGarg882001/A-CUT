@@ -39,6 +39,7 @@ const Menu = ({ setActivePanel }) => {
                 <img
                   src={user.image ? `${url}/${user.image.filePath}` : userImg}
                   className="menu-profile-img"
+                  alt="user_profile"
                 />
               </div>
             </Link>

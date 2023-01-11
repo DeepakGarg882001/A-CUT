@@ -29,6 +29,10 @@ const bookModel = new mongoose.Schema({
   shop_id:{
      type:String
   },
+  counter_number:{
+    type:Number,
+    default:1
+  },
   time_slot:{
     type:Number
   },

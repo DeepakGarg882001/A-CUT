@@ -26,7 +26,7 @@ const customerAppointment = () => {
             </tr>
             </thead>
             <tbody>
-            {appointments.customerDetails.length !=0
+            {appointments.customerDetails.length !==0
              ? appointments.customerDetails.map((data,index)=>{
                   return(
                     <React.Fragment key={index}>
