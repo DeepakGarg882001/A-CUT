@@ -1,13 +1,12 @@
 import React from 'react'
 import {BiRupee} from "react-icons/bi";
-import { useDispatch,useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import CheckedInput from './CheckedInput';
 
 const SelectServices = ({data,time}) => {
      
-    const dispatch = useDispatch();
     const bookedSlots = useSelector( (state)=> state.bookedSlotsReducer);
-    const {openTime,closeTime} = time;
+    const {closeTime} = time;
 
     const services = data.length !==0? data.shop_services : [];
     const currentPrice = (data)=>{

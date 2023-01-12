@@ -14,7 +14,7 @@ const Shop = () => {
 
   
   const ShopData = useSelector((state) => state.particularShopReducer);
-  const userLocation = useSelector((state) => state.userLocationReducer);
+  // const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector( (state) => state.bookShopSlotDataReducer);
    
 

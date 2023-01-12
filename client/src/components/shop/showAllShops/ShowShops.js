@@ -2,7 +2,6 @@ import React ,{useEffect}from 'react'
 import { useDispatch,useSelector } from 'react-redux';
 import SearchBar from './SearchBar';
 import ShopLayout from './ShopLayout';
-import getAllShopAction from '../../../redux/action/allShopsAction';
 import "../../../styles/showShops.css";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 

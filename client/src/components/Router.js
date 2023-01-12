@@ -24,7 +24,7 @@ import ReportPage from "./admin/report/ReportPage";
 import Accounts from "./admin/account/Accounts";
 import AddServices from "./admin/services/AddServices";
 
-import OurServices from "./plateformServices/OurServices";
+// import OurServices from "./plateformServices/OurServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
 
 import OwnerDashBoard from "./owner/OwnerDashBoard";

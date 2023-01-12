@@ -46,7 +46,7 @@ const Home = () => {
         <div className="shops">
           <h2 id="labela-about">Available Shops</h2>
           <div className="individual">
-            {AllShops.length != 0 ? AllShops.map((data, index) => {
+            {AllShops.length !== 0 ? AllShops.map((data, index) => {
               return (
                 <React.Fragment key={index}>
                   <ShopContainer

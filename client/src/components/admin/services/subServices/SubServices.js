@@ -32,7 +32,7 @@ const SubServices = ({ data }) => {
                 >
                   <Form>
                     <div>
-                      <img />
+                      <img alt="service_image"/>
                     </div>
 
                     <div>

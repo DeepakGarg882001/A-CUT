@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "../../../styles/myShop.css";
-import { useDispatch, useSelector } from "react-redux";
 
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
-  const dispatch = useDispatch();
   const crrAvtar = data.image ? `${url}/${data.image.filePath}` : "";
   const [showBtn,setShowBtn] = useState(true);
   const [fileObj, setFileObj] = useState("");
@@ -73,11 +71,11 @@ function EditPhoto({ data }) {
           fileArray.map((url, index) => {
             return (
               <React.Fragment key={index}>
-                <img src={url} className="myshop-back-img-size" />
+                <img src={url} className="myshop-back-img-size" alt="shop_img" />
               </React.Fragment>
             );
           })
-        ) : (crrAvtar!==""? <img src={crrAvtar} className="change-profile-top-img-size" /> :
+        ) : (crrAvtar!==""? <img src={crrAvtar} className="change-profile-top-img-size" alt="shop_img" /> :
           <div  className="myshop-back-imgShadow" >Does not have any Images</div>
         )}
       </div>
