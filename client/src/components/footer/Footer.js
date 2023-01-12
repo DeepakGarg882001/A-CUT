@@ -16,12 +16,7 @@ const Footer = () => {
     <>
 
       <div className="footer-canvas">
-      <div className="waves">
-  <div className="wave" id="wave1"></div>
-  <div  className="wave"id="wave2"></div>
-  <div className="wave" id="wave3"></div>
-  <div className="wave" id="wave4"></div>
-</div>
+    
         <div className="footer-canvas-middle">
           <div className="footer-middle-ngo">
             <h1 className="footer-middle-ngo-name">A CUT</h1>
