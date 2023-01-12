@@ -46,7 +46,7 @@ const NavBar = () => {
             <Link style={{ textDecoration: "none" }} to="/">
               <div className="canvs-navbar-cmp-sec">
                 <div className="under-navbar-cpm-sec">
-                  <img className="navbar-cpm-logo" />
+                  <img className="navbar-cpm-logo" alt="company_logo"/>
                 </div>
                 <div className="under-navbar-cpm-sec">
                   <h1 className="navbar-cpm-name"> A-CUT </h1>
@@ -64,6 +64,7 @@ const NavBar = () => {
                     src={
                       user.image ? `${url}/${user.image.filePath}` : userAvtar
                     }
+                    alt="user_img"
                   />
                 </div>
               </Link>

@@ -26,7 +26,7 @@ const CustomerAppointment = () => {
             </tr>
           </thead>
             <tbody>
-            {appointments.customerDetails.length !==0
+            {/* {appointments.customerDetails.length !==0
              ? appointments.customerDetails.map((data,index)=>{
                   return(
                     <React.Fragment key={index}>
@@ -40,7 +40,7 @@ const CustomerAppointment = () => {
             </tr>
                     </React.Fragment>
                   )
-            }): (<div><h2>No Customer Booked Yet</h2></div>)}
+            }): (<div><h2>No Customer Booked Yet</h2></div>)} */}
             
             </tbody>
           </table>

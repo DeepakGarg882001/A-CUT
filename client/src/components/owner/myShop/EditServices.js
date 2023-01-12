@@ -96,6 +96,25 @@ const EditServices = ({data,id}) => {
                     </div>
                     <p><ErrorMessage name="offer"/></p>
                 </div>
+                <div>
+                    <div>
+                        <label> Duration : </label>
+                        <Field name="duration" as="select" disabled={activeService} className="myshop-service-sec-field">
+                          <option value={15} > 15 </option>
+                          <option value={30} > 30 </option>
+                          <option value={45} > 45 </option>
+                          <option value={60} > 60 </option>
+                          <option value={75} > 75 </option>
+                          <option value={90} > 90 </option>
+                          <option value={105} > 105 </option>
+                          <option value={120} > 120 </option>
+                          <option value={135} > 135 </option>
+
+                        </Field>
+                        <span>mint</span>
+                    </div>
+                    <p><ErrorMessage name="duration"/></p>
+                </div>
                 </div>
                 <div className='myshop-service-btn-sec'>
                     <div style={{display: activeService===true? "flex":"none"}} onClick={()=>setActiveService(false)}><AiOutlineEdit /></div>
