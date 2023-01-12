@@ -1,13 +1,13 @@
 .footer-canvas{
     width: 100vw;
-    height: fit-content;
+    height: auto;
     padding: 0px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a); */
+    background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
     /* background-image:linear-gradient(345deg, #67a3e3 , #c495dc,#940eee); */
-    background-image:linear-gradient(-100deg, #ac8427,  #8c3fb3,#0a0f14);
+    /* background-image:linear-gradient(-100deg, #ac8427,  #8c3fb3,#0a0f14); */
 
 
 }
@@ -55,7 +55,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 30px;
-    margin-top: 3rem;
+    margin-top: -3rem;
 }
 
 .footer-middle-ngo{
@@ -153,7 +153,8 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding:30px 10%;
+    margin-top: -2rem;
+    padding:0px 10%;
     justify-content: space-between;
     align-items: center;
     color: #ffffffc7;

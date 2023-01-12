@@ -16,10 +16,8 @@
   max-width: 400px;
   min-width: 300px;
   width: inherit;
-  /* background-color: whitesmoke; */
-    background-image:linear-gradient(rgb(36, 33, 33),rgb(13, 13, 2),rgb(186, 18, 105));
-
-  position: absolute;
+  background-color: whitesmoke;
+   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 30;
@@ -55,8 +53,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a); */
-  background-image:linear-gradient(350deg, #0a0f14 , #8c3fb3,#ac8427);
+  background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
+  /* background-image:linear-gradient(350deg, #0a0f14 , #8c3fb3,#ac8427); */
 
 
 }

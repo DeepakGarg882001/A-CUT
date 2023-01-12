@@ -24,7 +24,7 @@ const CustomerAppointment = () => {
               <th className="th">Total payment</th>
               <th className="th">Status</th>
             </tr>
-            </thead>
+          </thead>
             <tbody>
             {appointments.customerDetails.length !==0
              ? appointments.customerDetails.map((data,index)=>{
