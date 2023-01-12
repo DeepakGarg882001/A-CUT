@@ -33,9 +33,13 @@ const bookModel = new mongoose.Schema({
     type:Number,
     default:1
   },
-  time_slot:{
-    type:Number
-  },
+  time_slot:[
+    {
+      slot:{
+        type:Number
+      }
+    }
+  ],
   time:{
     start:{
       type:String
@@ -45,12 +49,12 @@ const bookModel = new mongoose.Schema({
     }
   },
   date: {
-    type:Date,
-    default:Date.now(),
+    type:String,
+   
   },
   
  
-});
+},{timestamps:true});
 
 const bookAppointment = mongoose.model("bookAppointment", bookModel);
 export default bookAppointment;

@@ -6,8 +6,8 @@ import * as geolib from "geolib";
 import "../../../styles/showShops.css";
 import { getDistance } from "geolib";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
-
-
+import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
+import { removeParticularShopData } from "../../../redux/action/particularShopAction";
 const ShopLayout = ({ data }) => {
   const userLocation = useSelector((state) => state.userLocationReducer);
   const dispatch = useDispatch();
@@ -41,9 +41,18 @@ const ShopLayout = ({ data }) => {
         <Link
           to="/showShopDetails"
           onClick={() => {
-            dispatch(getParticularShopData(data._id));
+            dispatch(removeParticularShopData());
             dispatch(clearBookingData());
-            }}
+            dispatch(
+              bookedSlotsAction({
+                shop_name: data.shop_name,
+                shop_id: data._id,
+                date: new Date().toDateString(),
+                counter_number: 1,
+              })
+            );
+            dispatch(getParticularShopData(data._id));
+          }}
           style={{ textDecoration: "none" }}
         >
           <div>

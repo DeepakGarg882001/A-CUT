@@ -57,7 +57,6 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
             }
 
             slotValue = slotValue - 0.5;
-            console.log(slotValue, closeTime);
 
             if (slotValue >= closeTime) {
               data.error = "Slots are not available in sequence";
@@ -95,6 +94,7 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
         );
         data.total_price = data.total_price - action.data.price;
         data.total_duration = data.total_duration - action.data.duration;
+        data.error="";
       }
       let updatedData = { ...data };
       return updatedData;
@@ -103,9 +103,9 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
       return { ...initialData };
 
     case ADD_TIME_SLOT:
-      console.log("add a free slot");
 
       if (data.total_duration <= 15) {
+        data.error="";
         data.time_slot = [{ slot: action.data.slot }];
       } else {
         let booked = action.data.bookedSlots;

@@ -8,9 +8,9 @@ export const getParticularShopData=(data)=>{
 }
 
 
-export const removeParticularShopData=(data)=>{
+export const removeParticularShopData=()=>{
     return {
         type:REMOVE_SHOP_DATA,
-        data
+        
     }
 }

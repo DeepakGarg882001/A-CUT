@@ -1,11 +1,15 @@
-import { GET_BOOKED_SLOTS } from "../reduxConstants";
+import { GET_BOOKED_SLOTS ,CLEAR_BOOKED_SLOTS} from "../reduxConstants";
 
 
-const bookedSlotsAction =(data)=>{
+ export const bookedSlotsAction =(data)=>{
     return({
         type:GET_BOOKED_SLOTS,
         data
     })
 }
 
-export default bookedSlotsAction;
+export const clearBookedSlotAction = ()=>{
+    return({
+        type:CLEAR_BOOKED_SLOTS
+    })
+}
