@@ -1,98 +1,18 @@
 .footer-canvas{
     width: 100vw;
-    height: fit-content;
+    height: auto;
     padding: 0px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a); */
+    background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
     /* background-image:linear-gradient(345deg, #67a3e3 , #c495dc,#940eee); */
-    background-image:linear-gradient(-100deg, #ac8427,  #8c3fb3,#0a0f14);
+    /* background-image:linear-gradient(-100deg, #ac8427,  #8c3fb3,#0a0f14); */
 
 
 }
-.footer .waves {
-    position: absolute;
-    top: -80px;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    background: url(.././Assets/wave1.jpg);
-    filter: hue-rotate(280deg);
-    background-size: 1000px 100px;
-    animation: waveMotion 4s linear infinite;
-  }
-  .waves #wave1 {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    opacity: 0.6;
-    background: url(.././Assets/wave2.jpg);
-    background-size: 1000px 100px;
-    z-index: 99;
-    animation: waveMotion1 4s linear infinite;
-  }
-  .waves #wave2 {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    opacity: 0.5;
-    background: url(.././Assets/wave3.jpg);
-    background-size: 1000px 100px;
-    z-index: 98;
-    animation: waveMotion2 3s linear infinite;
-  }
-  .waves #wave3 {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    opacity: 0.2;
-    background: url(.././Assets/wave4.jpg);
-    background-size: 1000px 100px;
-    z-index: 97;
-    animation: waveMotion3 4s linear infinite;
-  }
-  .waves #wave4 {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    opacity: 0.7;
-    background: url(.././Assets/wave5.jpg);
-    background-size: 1000px 100px;
-    z-index: 96;
-    animation: waveMotion 5s linear infinite;
-  }
-  /*    Animation for Waves    */
-  @keyframes waveMotion {
-    0% {
-      background-position-x: 1000px;
-    }
-  }
-  @keyframes waveMotion1 {
-    0% {
-      background-position-x: 0px;
-    }
-    100% {
-     background-position-x: 1000px;
-    }
-  }
-  @keyframes waveMotion2 {
-    0% {
-      background-position-x: 1000px;
-    }
-  }
-  @keyframes waveMotion3 {
-    0% {
-      background-position-x: 0px;
-    }
-    100% {
-      background-position-x: 1000px;
-    }
-  }
+
+
   
 .footer-top-icon-sec{
     display: flex;
@@ -135,7 +55,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 30px;
-    margin-top: 3rem;
+    margin-top: -3rem;
 }
 
 .footer-middle-ngo{
@@ -233,7 +153,8 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding:30px 10%;
+    margin-top: -2rem;
+    padding:0px 10%;
     justify-content: space-between;
     align-items: center;
     color: #ffffffc7;

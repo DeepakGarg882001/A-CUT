@@ -68,13 +68,7 @@
   width: 20vw;
   height: 25vh;
 }
-#team_img:hover{
-  rotate: 45deg 45deg;
-  transform: scale(2);
-  border-radius: 50%;
-  width: 10vw;
-  color-scheme: calc();
-}
+
 
 
 #about_icon{
