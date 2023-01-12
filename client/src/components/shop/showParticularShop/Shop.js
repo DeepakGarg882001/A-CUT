@@ -8,11 +8,8 @@ import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 import { updateDate } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import {bookedSlotsAction} from "../../../redux/action/bookedSlotsAction";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Shop = () => {
-  const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
 
   
@@ -44,11 +41,11 @@ const Shop = () => {
  
   let openTime;
   let closeTime;
-  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays!=[]? allDays:[];
+  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays!==[]? allDays:[];
 
   
  
-  if(allDays.length!=0){
+  if(allDays.length!==0){
 
   // Getting the Shop Opentime and CloseTime of Today
   switch (day) {

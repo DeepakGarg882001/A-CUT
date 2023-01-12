@@ -23,7 +23,8 @@ import {
 import {
   bookAppointment,
   getAllAppointments,
-  getAppointmentById,
+  getMyAppointments,
+  getAllCustomerAppointments,
 } from "./customerAppointment.js";
 
 
@@ -51,6 +52,8 @@ router.route("/deletService").post(delet_service);
 
 router.route("/bookAppointment").post(bookAppointment);
 router.route("/getAllAppointments").post(getAllAppointments);
-router.route("/getAppointmentById/:id").get(getAppointmentById);
+router.route("/getMyAppointments").get(getMyAppointments);
+router.route("/getAllCustomerAppointments").post(getAllCustomerAppointments);
+
 
 export default router;

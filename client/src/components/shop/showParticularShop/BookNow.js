@@ -14,8 +14,8 @@ const BookNow = ({ shopData }) => {
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
   const url = process.env.REACT_APP_SERVER_URL;
 
-  const postDataToServer = async () => {
-
+  const sendDataToServer = async()=>{
+     console.log("button is clicked")
     if (!userData.token || userData.userRole.role !== "customer"  ) {
       Swal.fire("","Please Login First","info");
       navigate("/login");
@@ -41,6 +41,7 @@ const BookNow = ({ shopData }) => {
       };
 
       console.log(values);
+
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",
         headers: {
@@ -103,8 +104,8 @@ const BookNow = ({ shopData }) => {
           </p>
         </div>
 
-        <div>
-          <p onClick={() => postDataToServer()}>Confirm</p>
+        <div >
+          <button onClick={()=>{sendDataToServer();}} style={{cursor:"pointer"}}>Confirm</button>
         </div>
       </div>
     </>

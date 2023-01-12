@@ -1,39 +1,29 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import AppointmentLayout from './AppointmentLayout';
 
 const MyAppointments = () => {
+
+   const appointmentList = useSelector( (state)=> state.myAppointmentReducer);
+
+   console.log(appointmentList);
+
   return (
    <>
        <div>
                
+               {appointmentList!==[]? appointmentList.map((data,index)=>{
+                  return(
+                     <React.Fragment key={index}>
+                      <AppointmentLayout data={data} />
 
-               <div>
-                     <div>
-                        <h5>Shop Name : </h5>
-                        <p>A3 Style Maker</p>
-                     </div>
-                     <div>
-                        <h5>Date : </h5>
-                        <p>A3 Style Maker</p>
-                     </div>
-                     <div>
-                        <h5>Services : </h5>
-                        <p>A3 Style Maker</p>
-                     </div>
-                     <div>
-                        <h5>Total Price : </h5>
-                        <p>A3 Style Maker</p>
-                     </div>
-                     <div>
-                        <h5>Timing : </h5>
-                        <p>A3 Style Maker</p>
-                     </div>
-                     
-                     <div>
-                          <div> Cancel </div>
-                          <div> Location </div>
-                     </div>
+                     </React.Fragment>
+                  )
+               }):(<div>
+                  <p>Does Not Booked Any Services Yet</p>
+               </div>)}
 
-               </div>
+               
 
 
        </div>

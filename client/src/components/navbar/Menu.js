@@ -15,9 +15,9 @@ import {
 } from "react-icons/md";
 
 import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
-
+import {GrSchedules} from "react-icons/gr";
 import { logoutUserDataAction } from "../../redux/action/userAction";
-
+import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
 
 const Menu = ({ setActivePanel }) => {
 
@@ -108,10 +108,11 @@ const Menu = ({ setActivePanel }) => {
                 to="/myAppointment"
                 onClick={() => {
                   setActivePanel("none");
+                  dispatch(getMyAppointmentAction(user._id));
                 }}
               >
                 <li className="menu-list-option">
-                  <MdOutlineLogout /> MyAppointments
+                  <GrSchedules style={{opacity:0.5}}/> Appointments
                 </li>
               </Link>): null }
 

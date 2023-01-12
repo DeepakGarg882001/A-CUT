@@ -13,14 +13,17 @@ import {
   SET_OWNER_CUSTOMER_DATA,
   GET_BOOKED_SLOTS,
   SET_BOOKED_SLOTS,
+  GET_MY_APPOINTMENTS,
+  SET_MY_APPOINTMENTS,
 } from "./reduxConstants";
 
 const url = process.env.REACT_APP_SERVER_URL;
 
-// Call API to get the List of Whole Shops
-function* getOwnerCustomerData(action) {
+
+// Call API to get the List of all booked Appointments with respect to Unique User
+function* findMyAppointments(action) {
   const makeRequest = yield fetch(
-    `${url}/getAllAppointments?key=${action.data}`,
+    `${url}/getMyAppointments?key=${action.data}`,
     {
       method: "GET",
       headers: {
@@ -39,10 +42,36 @@ function* getOwnerCustomerData(action) {
   if (response.error) {
     data = response;
   }
+  yield put({ type: SET_MY_APPOINTMENTS, data: data });
+}
+
+// Call API to get the List of all Customers who booked the Slot for your Shop
+function* getOwnerCustomerData(action) {
+  const makeRequest = yield fetch(
+    `${url}/getAllCustomerAppointments`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(action.data),
+      credentials: "include",
+    }
+  );
+
+  const response = yield makeRequest.json();
+  let data;
+  if (response.data) {
+    data = response.data;
+  }
+  if (response.error) {
+    data = response;
+  }
   yield put({ type: SET_OWNER_CUSTOMER_DATA, data: data });
 }
 
-// Call API to get the List of Whole Shops
+// Call API to get the List of all booked slots with respect to a partcular Shop
 function* getBookedSlots(action) {
   const makeRequest = yield fetch(`${url}/getAllAppointments`, {
     method: "POST",
@@ -57,7 +86,7 @@ function* getBookedSlots(action) {
   const response = yield makeRequest.json();
   let data = [];
   if (response.data) {
-    if (response.data != "No Appointment Found") {
+    if (response.data !== "No Appointment Found") {
       let bookedSlots = response.data;
       let slotsLength = bookedSlots.length;
 
@@ -75,7 +104,7 @@ function* getBookedSlots(action) {
   yield put({ type: SET_BOOKED_SLOTS, data: data });
 }
 
-// Call API to get the List of Whole Shops
+// Call API to get the List of Whole Details of a particular Shop
 function* getUniqueShopData(action) {
   const makeRequest = yield fetch(`${url}/getShop?key=${action.data}`, {
     method: "GET",
@@ -97,7 +126,7 @@ function* getUniqueShopData(action) {
   yield put({ type: SET_SHOP_DATA, data: data });
 }
 
-// Call API to get the List of Whole Shops
+// Call API to get the List of All Shops
 function* getAllShopsList(action) {
   const makeRequest = yield fetch(`${url}/getAllShops?key=${action.data}`, {
     method: "GET",
@@ -171,6 +200,7 @@ function* Saga() {
   yield takeEvery(GET_SHOP_DATA, getUniqueShopData);
   yield takeEvery(GET_OWNER_CUSTOMER_DATA, getOwnerCustomerData);
   yield takeEvery(GET_BOOKED_SLOTS, getBookedSlots);
+  yield takeEvery(GET_MY_APPOINTMENTS, findMyAppointments);
 }
 
 export default Saga;

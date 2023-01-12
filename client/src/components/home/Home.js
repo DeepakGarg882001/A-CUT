@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import "../../styles/home.css";
 import video from "../../Assets/video.mp4";
-import s1 from "../../Assets/home1.jpg";
-import s2 from "../../Assets/home2.jpg";
-import s3 from "../../Assets/home3.jpg";
+
 import Services from "../plateformServices/PlateformServices";
 import { Link } from "react-router-dom";
 import ShopContainer from "../shop/showParticularShop/ShopContainer";
@@ -30,7 +28,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(getPlateformServiceListAction());
     dispatch(getAllShopAction());
-    getUserLocation()
+    getUserLocation();
 
 
   }, []);
