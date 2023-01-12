@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
 import userImg from "../../Assets/shop3.jpg";
 import getAllShopAction from "../../redux/action/allShopsAction";
+
 import {
   MdHome,
   MdOutlineLogin,
@@ -12,6 +13,7 @@ import {
   MdMiscellaneousServices,
   MdOutlineLogout,
 } from "react-icons/md";
+
 import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
 
 import { logoutUserDataAction } from "../../redux/action/userAction";
@@ -23,6 +25,7 @@ const Menu = ({ setActivePanel }) => {
   const url = process.env.REACT_APP_SERVER_URL;
 
   const user = useSelector((state) => state.userReducer);
+  const userRole = user.token? user.userRole.role : "";
 
   return (
     <>
@@ -100,6 +103,17 @@ const Menu = ({ setActivePanel }) => {
                 Contact Us
               </li>
             </Link>
+            {userRole === "customer"? ( 
+              <Link
+                to="/myAppointment"
+                onClick={() => {
+                  setActivePanel("none");
+                }}
+              >
+                <li className="menu-list-option">
+                  <MdOutlineLogout /> MyAppointments
+                </li>
+              </Link>): null }
 
             {user.token ? (
               <Link

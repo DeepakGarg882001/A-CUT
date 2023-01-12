@@ -30,6 +30,7 @@ import ShowShops from "./shop/showAllShops/ShowShops";
 import OwnerDashBoard from "./owner/OwnerDashBoard";
 import CustomerAppointment from "./owner/CustomerAppointment";
 import MyShop from "./owner/myShop/MyShop"
+import MyAppointments from "./customer/MyAppointments";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -71,7 +72,8 @@ const Router = ()=>{
                      <Route path="/admin/admin_home" element={ <AdminHome />} />
                      <Route path="/admin/add_service" element={ <AddServices />} />
                     </Route>
-
+                   
+                   <Route path="/myAppointment" element={<MyAppointments/>} />
 
 
                 </Routes>
