@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { BiRupee } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import {bookedSlotsAction} from "../../../redux/action/bookedSlotsAction";
-import {  toast } from 'react-toastify';
-
+import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
+import { toast } from "react-toastify";
 
 const BookNow = ({ shopData }) => {
   const dispatch = useDispatch();
@@ -13,18 +12,34 @@ const BookNow = ({ shopData }) => {
   const userData = useSelector((state) => state.userReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
   const url = process.env.REACT_APP_SERVER_URL;
-
+  const none="none";
   const postDataToServer = async () => {
-
-    if (!userData.token || userData.userRole.role !== "customer"  ) {
-      Swal.fire("","Please Login First","info");
+    if (!userData.token || userData.userRole.role !== "customer") {
+      Swal.fire("", "Please Login First", "info");
       navigate("/login");
     } else {
-        
-      const {services,total_price,total_duration,counter_number,time_slot,date} = bookingData;
-      
-      if( !date || total_duration===0 || !counter_number || total_price===0 || time_slot.length===0 || services.length===0 ){
-        return Swal.fire("","Please Chooose The Slot and Services Properly","warning")
+      const {
+        services,
+        total_price,
+        total_duration,
+        counter_number,
+        time_slot,
+        date,
+      } = bookingData;
+
+      if (
+        !date ||
+        total_duration === 0 ||
+        !counter_number ||
+        total_price === 0 ||
+        time_slot.length === 0 ||
+        services.length === 0
+      ) {
+        return Swal.fire(
+          "",
+          "Please Chooose The Slot and Services Properly",
+          "warning"
+        );
       }
 
       const values = {
@@ -52,12 +67,14 @@ const BookNow = ({ shopData }) => {
       const response = await makeRequest.json();
       console.log(response);
 
-      if(response.message){
-        dispatch(bookedSlotsAction({
-          shop_id:shopData._id,
-          date:bookingData.date,
-          counter_number:bookingData.counter_number
-        }));
+      if (response.message) {
+        dispatch(
+          bookedSlotsAction({
+            shop_id: shopData._id,
+            date: bookingData.date,
+            counter_number: bookingData.counter_number,
+          })
+        );
         toast.success(response.message);
       }
     }
@@ -65,46 +82,45 @@ const BookNow = ({ shopData }) => {
 
   return (
     <>
-    
       <div>
         <div>
-          <p> Services : </p>
-          <div>
-            {bookingData.services !== []
-              ? bookingData.services.map((data, index) => {
-                  return (
-                    <React.Fragment key={index}>
-                      <p>{data.service_name}</p>
-                    </React.Fragment>
-                  );
-                })
-              : null}
+          <div className="service-table">
+            <h3 className="service-table-head">Selected Services</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th className="th">Services</th>
+                  <th className="th">Time Duration</th>
+                  <th className="th">Total Price</th>
+                  <th className="th">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="td">
+                    {bookingData.services !== []
+                      ? bookingData.services.map((data, index) => {
+                          return (
+                            <>
+                              <React.Fragment key={index}>
+                                <p>{data.service_name} {","}</p>
+                              </React.Fragment>
+                            </>
+                          );
+                        })
+                      : {none}}
+                  </td>
+                  <td className="td">{bookingData.total_duration}</td>
+                  <td className="td">{bookingData.total_price} Rs</td>
+                  <td className="td">{bookingData.date}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div>
-          <p>
-            {" "}
-            Total Price :{" "}
-            <span>
-              <BiRupee />
-              {bookingData.total_price}
-            </span>
-          </p>
-        </div>
-        <div>
-          <p>
-            {" "}
-            Total Duration : <span>{bookingData.total_duration} mint </span>
-          </p>
-        </div>
-        <div>
-          <p>
-            Date : <span>{bookingData.date}</span>
-          </p>
-        </div>
 
-        <div>
-          <p onClick={() => postDataToServer()}>Confirm</p>
+        <div className="service-btn">
+          <p onClick={() => postDataToServer()}>Submit</p>
         </div>
       </div>
     </>
