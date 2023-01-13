@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/footer.css";
 
-import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+import {  FaFacebookF, FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { SiGooglemaps } from "react-icons/si";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -101,9 +101,7 @@ const Footer = () => {
           <div> Copyright © 2022 | All rights reserved </div>
           <div className="footer-bottom-org">
             <p>Made with 🤍 by Red Coders </p>
-            <span>
-              <img className="footer-life-img" />
-            </span>
+            
           </div>
         </div>
       </div>
