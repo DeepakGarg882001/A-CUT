@@ -11,8 +11,6 @@ import Swal from "sweetalert2";
 import {Formik,Form,Field,ErrorMessage} from "formik";
 import { Link ,useNavigate,useParams} from "react-router-dom";
 
-
-
 const SignUp = () => {
   
   const url = process.env.REACT_APP_SERVER_URL;

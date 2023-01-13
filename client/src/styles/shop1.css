@@ -17,7 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(145, 145, 152);
+    padding: 1rem;
+    /* box-shadow: 0 0 20px #ccc; */
 }
 .shop-details .owner-detail{
     width: 90%;
@@ -31,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(167, 167, 47);
+    /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
 .shop-details .owner-detail .rating{
@@ -39,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(167, 167, 47);
+    /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
 .owner-detail .shop-timing{
@@ -66,8 +67,7 @@
 
 .schdule-form .check {
   display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .booking-details .shop-services {
@@ -75,12 +75,6 @@
   width: 500px;
   justify-content: center;
   margin: auto;
-  /* width: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: chartreuse; */
 }
 
 .shop-services .select-services {
@@ -114,10 +108,6 @@
   margin-top: 1rem;
 }
 #form-shop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 2rem;
 }
 #form-shop .service input {
@@ -125,12 +115,14 @@
   padding: 0.3rem;
   border: 3px solid #497174;
   border-radius: 1.5rem;
-  /* width: 60%; */
 }
 #form-shop .service {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.mui-bttn{
+  width: 100% !important;
 }
 
 .schedule-show-sec{
@@ -177,6 +169,56 @@
   border: none;
   background-color: transparent;
   outline: none;
+}
+
+/* service */
+.service-table{
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+.service-table-head{
+  margin-bottom: 1rem;
+}
+.service-headline h2{
+  text-align: center;
+}
+.service-selected{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.service-selected .service-selected-shop{
+  display: flex;
+  align-items: center;
+}
+.service-selected .service-selected-price{
+  display: flex;
+  align-items: center;
+}
+.service-table h3{
+  text-align: center;
+}
+.service-table table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.service-table table tr .td, .th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.service-table table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.service-btn{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  background-color: #497174;
 }
 
 /* media queries */

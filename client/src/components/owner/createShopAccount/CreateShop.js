@@ -8,6 +8,7 @@ import getPlateformServiceListAction from "../../../redux/action/getPlateformSer
 import { useNavigate } from "react-router-dom";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import "../../../styles/createshop.css";
+
 const CreateShop = () => {
 
   const user = useSelector((state) => state.userReducer);
