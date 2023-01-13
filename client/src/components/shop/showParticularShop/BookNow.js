@@ -56,6 +56,7 @@ const BookNow = ({ shopData }) => {
       };
 
       console.log(values);
+
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",
         headers: {

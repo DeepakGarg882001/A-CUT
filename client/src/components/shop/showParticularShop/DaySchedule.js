@@ -99,7 +99,7 @@ const DaySchedule = ({ data ,time}) => {
   };
    
  useEffect(()=>{
-    if(bookingData.error!=""){
+    if(bookingData.error!==""){
       toast.error(bookingData.error);
     }
 

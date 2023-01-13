@@ -9,7 +9,7 @@ const bookModel = new mongoose.Schema({
   },
   services:[
     {
-      name:{
+      service_name:{
         type:String
       },
       price:{

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
 import userImg from "../../Assets/shop3.jpg";
 import getAllShopAction from "../../redux/action/allShopsAction";
+
 import {
   MdHome,
   MdOutlineLogin,
@@ -12,10 +13,11 @@ import {
   MdMiscellaneousServices,
   MdOutlineLogout,
 } from "react-icons/md";
+
 import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
-
+import {GrSchedules} from "react-icons/gr";
 import { logoutUserDataAction } from "../../redux/action/userAction";
-
+import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
 
 const Menu = ({ setActivePanel }) => {
 
@@ -23,6 +25,7 @@ const Menu = ({ setActivePanel }) => {
   const url = process.env.REACT_APP_SERVER_URL;
 
   const user = useSelector((state) => state.userReducer);
+  const userRole = user.token? user.userRole.role : "";
 
   return (
     <>
@@ -100,6 +103,18 @@ const Menu = ({ setActivePanel }) => {
                 Contact Us
               </li>
             </Link>
+            {userRole === "customer"? ( 
+              <Link
+                to="/myAppointment"
+                onClick={() => {
+                  setActivePanel("none");
+                  dispatch(getMyAppointmentAction(user._id));
+                }}
+              >
+                <li className="menu-list-option">
+                  <GrSchedules style={{opacity:0.5}}/> Appointments
+                </li>
+              </Link>): null }
 
             {user.token ? (
               <Link

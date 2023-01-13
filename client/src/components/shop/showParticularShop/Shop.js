@@ -12,7 +12,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
-  const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
 
   const ShopData = useSelector((state) => state.particularShopReducer);
