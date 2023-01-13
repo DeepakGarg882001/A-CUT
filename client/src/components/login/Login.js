@@ -52,7 +52,7 @@ const Login = () => {
       dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){
-         if(response.data.shop_id != "" && response.data.shop_id ){
+         if(response.data.shop_id !== "" && response.data.shop_id ){
            dispatch(getOwnerShopDataAction(response.data.shop_id));
            navigate("/owner/myShop");
          }else{

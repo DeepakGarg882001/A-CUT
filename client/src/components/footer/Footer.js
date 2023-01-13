@@ -101,7 +101,7 @@ const Footer = () => {
           <div> Copyright © 2022 | All rights reserved </div>
           <div className="footer-bottom-org">
             <p>Made with 🤍 by Red Coders </p>
-            
+           
           </div>
         </div>
       </div>
