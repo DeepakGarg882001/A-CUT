@@ -15,6 +15,7 @@ const bookAppointment = async (request, response) => {
       counter_number,
       time_slot,
       date,
+      shop_address,
     } = request.body;
 
     if (
@@ -27,7 +28,9 @@ const bookAppointment = async (request, response) => {
       !shop_id |
       !counter_number |
       !time_slot |
-      !date
+      !date |
+      !shop_address
+
     ) {
       return response
         .status(401)
@@ -108,9 +111,9 @@ const getMyAppointments = async (request, response) => {
 
   const customer_id = request.query.key;
 
-  const findAppointment = await customerAppointment.find({customer_id});
+  const findAppointment = await customerAppointment.find({ customer_id });
 
-  if (findAppointment.length!==0) {
+  if (findAppointment.length !== 0) {
     response.status(200).json({
       success: true,
       data: findAppointment,
@@ -125,19 +128,36 @@ const getMyAppointments = async (request, response) => {
 
 
 // Get the Appointment of all customers with respect to shop id;
-const getAllCustomerAppointments = async(request,response)=>{
-   
-  const {shop_id,date,counter_number} = request.body;
+const getAllCustomerAppointments = async (request, response) => {
 
-  const getList = await customerAppointment.find({shop_id,date,counter_number}).sort({time_slot:-1});
+  const { shop_id, date, counter_number } = request.body;
 
-  
-  return response.status(200).json({data:getList});
+  const getList = await customerAppointment.find({ shop_id, date, counter_number }).sort({ time_slot: -1 });
+
+
+  return response.status(200).json({ data: getList });
 
 
 
 }
+const deleteCustomerAppointment = async (request, response) => {
+  const _id = request.body;
+
+  try {
+    const del = await customerAppointment.findOneAndDelete(_id);
+    if (!del) {
+      return response.status(401).json({ error: "process faild" });
+
+    }
+    return response.status(201).json({message:"delete successfully"});
+  }
+
+catch(error){
+  return response.status(401).json({error:"process faild"});
+
+}
 
 
+};
 
-export { bookAppointment, getAllAppointments, getMyAppointments,getAllCustomerAppointments };
+  export { bookAppointment, getAllAppointments, getMyAppointments, getAllCustomerAppointments, deleteCustomerAppointment};

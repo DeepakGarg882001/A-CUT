@@ -11,6 +11,10 @@ const BookNow = ({ shopData }) => {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
+  console.log("booking data",bookingData);
+  const ShopData = useSelector((state) => state.particularShopReducer);
+
+
   const url = process.env.REACT_APP_SERVER_URL;
   const none="none";
 
@@ -54,9 +58,11 @@ const BookNow = ({ shopData }) => {
         counter_number: bookingData.counter_number,
         time_slot: bookingData.time_slot,
         date: bookingData.date,
+        shop_address:ShopData.shop_address,
+
       };
 
-      console.log(values);
+      console.log("values",values);
 
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",

@@ -6,15 +6,17 @@ const MyAppointments = () => {
 
    const appointmentList = useSelector( (state)=> state.myAppointmentReducer);
 
-   console.log(appointmentList);
+   console.log("appointmentList",appointmentList);
 
   return (
    <>
        <div>
-               
+       <h3>appointmeent details</h3>
+
                {appointmentList!==[]? appointmentList.map((data,index)=>{
                   return(
                      <React.Fragment key={index}>
+
                       <AppointmentLayout data={data} />
 
                      </React.Fragment>
