@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 const CustomerAppointment = () => {
   const Customers = useSelector((state) => state.ownerCustomerReducer);
   console.log(Customers);
-  const appointments = Customers[0] ? Customers[0] : [];
-  console.log(appointments);
-
+ 
   return (
     <>
       <div className="cus-appointment">
@@ -25,26 +23,26 @@ const CustomerAppointment = () => {
               </tr>
             </thead>
             <tbody>
-              {appointments.customerDetails.length !== 0 ? (
-                appointments.customerDetails.map((data, index) => {
-                  return (
-                    <React.Fragment key={index}>
-                      <tr>
-                        <td className="td">{index + 1}</td>
-                        <td className="td">{data.name}</td>
-                        <td className="td">{data.service}</td>
-                        <td className="td">{data.slot} </td>
-                        <td className="td">{data.price} Rs</td>
-                        <td className="td">Incomplete</td>
-                      </tr>
-                    </React.Fragment>
-                  );
-                })
-              ) : (
-                <div>
-                  <h2>No Customer Booked Yet</h2>
-                </div>
-              )}
+                {Customers.length !== 0 ? (
+                  Customers.map((data, index) => {
+                    return (
+                      <React.Fragment key={index}>
+                        <tr>
+                          <td className="td">{index + 1}</td>
+                          <td className="td">{data.customer_name}</td>
+                          <td className="td">{data.service}</td>
+                          <td className="td">{data.slot} </td>
+                          <td className="td">Rs {data.total_price} </td>
+                          <td className="td">Incomplete</td>
+                        </tr>
+                      </React.Fragment>
+                    );
+                  })
+                ) : (
+                  <div>
+                    <h2>No Customer Booked Yet</h2>
+                  </div>
+                )}
             </tbody>
           </table>
         </div>

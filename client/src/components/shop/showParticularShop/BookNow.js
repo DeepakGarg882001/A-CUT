@@ -13,6 +13,7 @@ const BookNow = ({ shopData }) => {
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
   const url = process.env.REACT_APP_SERVER_URL;
   const none="none";
+
   const postDataToServer = async () => {
     if (!userData.token || userData.userRole.role !== "customer") {
       Swal.fire("", "Please Login First", "info");
@@ -102,11 +103,11 @@ const BookNow = ({ shopData }) => {
                     {bookingData.services !== []
                       ? bookingData.services.map((data, index) => {
                           return (
-                            <>
+                            
                               <React.Fragment key={index}>
                                 <p>{data.service_name} {","}</p>
                               </React.Fragment>
-                            </>
+                            
                           );
                         })
                       : {none}}
@@ -121,7 +122,7 @@ const BookNow = ({ shopData }) => {
         </div>
 
         <div className="service-btn">
-          <p onClick={() => postDataToServer()}>Submit</p>
+          <p onClick = {  ()=> postDataToServer()} >Submit</p>
         </div>
       </div>
     </>
