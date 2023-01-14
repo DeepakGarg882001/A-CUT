@@ -1,19 +1,25 @@
 import React from "react";
+import "../../styles/appointmentlayout.css";
+import { useSelector } from "react-redux";
 
-const AppointmentLayout = ({data}) => {
- 
-    const Services = ({services})=>{
-        return(
-            <p>
-              {services.service_name}
-            </p>
-        )
-    }
 
+const AppointmentLayout = ({ data }) => {
+
+
+  const Services = ({ services }) => {
+    return (
+      <p>
+        {services.service_name}
+      </p>
+    )
+  }
+
+  console.log("cust data", data);
 
   return (
     <>
-      <div>
+      <hr />
+      <div className="appoint_main">
         <div>
           <h5>Shop Name : </h5>
           <p>{data.shop_name}</p>
@@ -25,10 +31,10 @@ const AppointmentLayout = ({data}) => {
         <div>
           <h5>Services : </h5>
           {
-            data.services.map((data,index)=>{
-              return(
+            data.services.map((data, index) => {
+              return (
                 <React.Fragment key={index}>
-                 <Services services={data}/>
+                  <Services services={data} />
                 </React.Fragment>
               )
             })
@@ -40,14 +46,18 @@ const AppointmentLayout = ({data}) => {
         </div>
         <div>
           <h5>Timing : </h5>
-          <p>A3 Style Maker</p>
+          <p>{Date}</p>
         </div>
 
         <div>
-          <div> Cancel </div>
           <div> Location </div>
+          <p>{data.shop_address}</p>
+        </div>
+        <div>
+          <div><button>delete</button></div>
         </div>
       </div>
+
     </>
   );
 };

@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 2rem; */
-    
-    background-color: rgb(165, 97, 148);
+    background-color: F2E5E5;
+    /* background-color: rgb(165, 97, 148); */
     /* background-image: linear-gradient(yellow, white, green); */
 }
 ::placeholder{
