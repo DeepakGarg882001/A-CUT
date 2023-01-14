@@ -6,7 +6,7 @@ const MyAppointments = () => {
 
    const appointmentList = useSelector( (state)=> state.myAppointmentReducer);
 
-   console.log(appointmentList);
+   console.log("appointment",appointmentList);
 
   return (
    <>
