@@ -52,7 +52,7 @@ const MyShop = () => {
 
   // call a fn to update Shop Details
   const updateShopDetails = async (values) => {
-    const { owner_name, shop_name, shop_mobile, shop_address } = values;
+    const { owner_name, shop_name, shop_mobile, shop_address,_id } = values;
     const makeReq = await fetch(`${url}/updateShopDetails`, {
       method: "POST",
       headers: {
@@ -64,6 +64,7 @@ const MyShop = () => {
         shop_mobile,
         shop_address,
         shop_location: shopLocation,
+        _id
       }),
     });
 
