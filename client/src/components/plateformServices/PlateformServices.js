@@ -1,6 +1,6 @@
 import React from 'react'
 import hair_cut from "../../Assets/hair_cut.png";
-import './platformServices.css';
+import '../../styles/platformServices.css';
 
 const Services = ({data}) => {
 
