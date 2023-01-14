@@ -77,7 +77,7 @@ const Home = () => {
 
       <div>
         <div >
-          <h2 id="labela-about">Our Service</h2>
+          <h2 id="labela-about">Our Services</h2>
         </div>
 
         <div className="services_home">
