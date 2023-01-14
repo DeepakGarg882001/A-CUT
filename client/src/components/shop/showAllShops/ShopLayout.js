@@ -8,6 +8,7 @@ import { getDistance } from "geolib";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { removeParticularShopData } from "../../../redux/action/particularShopAction";
+import "../../../styles/shoplayout.css"
 const ShopLayout = ({ data }) => {
   const userLocation = useSelector((state) => state.userLocationReducer);
   const dispatch = useDispatch();
@@ -55,10 +56,19 @@ const ShopLayout = ({ data }) => {
           }}
           style={{ textDecoration: "none" }}
         >
+          <div className="shoplayout">
           <div>
-            <h2>{data.shop_name}</h2>
+            <h2> Shop Name:-{data.shop_name}</h2>
           </div>
-          <div>{distanceFromUser}</div>
+          <div>
+            <h2> Shop Address:-{data.shop_address}</h2>
+          </div>
+          <div>
+            <h2>Shop Mobile:-{data.shop_mobile}</h2>
+          </div>
+           <div>Distance:-{distanceFromUser}</div>
+          </div>
+          
         </Link>
       </div>
     </>
