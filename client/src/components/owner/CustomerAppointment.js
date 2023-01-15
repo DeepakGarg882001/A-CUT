@@ -38,11 +38,7 @@ const CustomerAppointment = () => {
                       </React.Fragment>
                     );
                   })
-                ) : (
-                  <div>
-                    <h2>No Customer Booked Yet</h2>
-                  </div>
-                )}
+                ) : null}
             </tbody>
           </table>
         </div>
