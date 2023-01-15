@@ -4,7 +4,7 @@ import startServer from "./server.js";
 import router from "./routes/RootRouter.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-
+import cookieParser from "cookie-parser";
 //  Importing dotENV file
 dotENV.config({ 
      path: "./config/config.env" 
@@ -13,6 +13,7 @@ dotENV.config({
  const frontUrl = process.env.FRONT_END_URL;
 
  const app = express();
+ app.use(cookieParser());
  app.use(cors({credentials: true, origin: frontUrl,allowedHeaders:['Content-Type', 'Authorization']}));
  app.use(bodyParser.json({ extended: true }));
  app.use(bodyParser.urlencoded({ extended: true }));
