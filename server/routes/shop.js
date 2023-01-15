@@ -1,7 +1,9 @@
+import { response } from "express";
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
 import uploadImages from "../middleware/uploadImages.js";
-const createShop = async (request, response) => {
+
+export const createShop = async (request, response) => {
   try {
     const {
       owner_name,
@@ -69,7 +71,7 @@ const createShop = async (request, response) => {
 };
 
 // get all shops
-const getAllShops = async (request, response) => {
+export const getAllShops = async (request, response) => {
   const query = request.query.key;
   console.log(query);
   console.log("geting all shops");
@@ -98,7 +100,7 @@ const getAllShops = async (request, response) => {
 };
 
 // get a Particular Shop by ID
-const getShopById = async (request, response) => {
+export const getShopById = async (request, response) => {
   const _id = request.query.key;
   console.log(_id);
 
@@ -118,7 +120,7 @@ const getShopById = async (request, response) => {
 };
 
 // update a Particular Shop details
-const updateShopDetails = async (request, response) => {
+export const updateShopDetails = async (request, response) => {
   console.log(request.body);
 
   const { owner_name, shop_name, shop_mobile, shop_address, _id } =
@@ -139,7 +141,7 @@ const updateShopDetails = async (request, response) => {
 };
 
 // update Particular Shop Image
-const uploadShopImage = async (request, response) => {
+export const uploadShopImage = async (request, response) => {
   console.log(request);
   console.log("uploadImage is here");
   const { _id } = request.body;
@@ -168,7 +170,7 @@ const uploadShopImage = async (request, response) => {
 };
 
 // delete a Particular Shop
-const deletShop = async (request, response) => {
+export const deletShop = async (request, response) => {
   console.log("delete a Particular Shop");
   const { _id } = request.body;
   if (!_id) {
@@ -196,7 +198,7 @@ const deletShop = async (request, response) => {
 };
 
 // Add a Service To a Particular Shop
-const addShopService = async (request, response) => {
+export const addShopService = async (request, response) => {
   const { service_name, shop_id } = request.body;
 
   if (!service_name | !shop_id) {
@@ -221,7 +223,7 @@ const addShopService = async (request, response) => {
 };
 
 // update a Particular Shop Services
-const updateShopService = async (request, response) => {
+export const updateShopService = async (request, response) => {
   console.log("updating shop service");
   const { service_name, price, offer, service_id, _id, duration } = request.body;
 
@@ -251,7 +253,7 @@ const updateShopService = async (request, response) => {
 };
 
 // delete a Particular Shop Service
-const deletShopService = async (request, response) => {
+export const deletShopService = async (request, response) => {
   const { _id, service_id } = request.body;
 
   if (!_id | !service_id) {
@@ -270,14 +272,26 @@ const deletShopService = async (request, response) => {
   return response.status(200).json({ message: "Service Deleted" });
 };
 
-export {
-  createShop,
-  getAllShops,
-  getShopById,
-  updateShopDetails,
-  deletShop,
-  addShopService,
-  updateShopService,
-  deletShopService,
-  uploadShopImage,
-};
+
+
+// Add a New Counter to Particular Shop
+export const addNewCounter = async(request,response)=>{
+
+}
+
+
+
+// Edit the Counter of a Particular Shop
+export const editShopCounter = async(request,response)=>{
+   
+}
+
+
+// Edit Shop Timing of a Particular Shop
+export const editShopTiming = async(request,response)=>{
+
+}
+
+
+
+

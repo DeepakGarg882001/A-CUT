@@ -55,6 +55,14 @@ const bookModel = new mongoose.Schema({
   shop_address:{
     type:String,
   },
+  payment_status:{
+    type:String,
+    default: "Not Paid"
+  },
+  checkIn_status:{
+    type:String,
+    default:"none"
+  }
   
  
 },{timestamps:true});
