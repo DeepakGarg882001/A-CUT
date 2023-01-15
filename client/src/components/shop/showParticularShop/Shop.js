@@ -17,7 +17,7 @@ const Shop = () => {
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
-
+  console.log("shopdata:j---",ShopData.shop_time.Mon);
   // working with Date
   const todayDate = new Date();
   const minDate = todayDate.toJSON().substring(0, 10);
@@ -132,7 +132,7 @@ const Shop = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <span /> ➤ <span /> 9:00 AM TO 7:00 PM
+                  Shop Timing <span /> ➤ <span /> {ShopData.shop_time.Mon.open} AM TO {ShopData.shop_time.Mon.close} PM
                 </span>
               </h3>
             </div>
