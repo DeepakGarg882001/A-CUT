@@ -143,9 +143,10 @@ export const getAllCustomerAppointments = async (request, response) => {
 // Cancel The Customer Appointment
 export const cancelCustomerAppointment = async (request, response) => {
   const _id = request.body;
-
+  console.log(_id);
   try {
-    const del = await customerAppointment.findOneAndDelete(_id);
+    const del = await customerAppointment.deleteOne(_id);
+    // console.log(del);
     if (!del) {
       return response.status(401).json({ error: "process faild" });
 

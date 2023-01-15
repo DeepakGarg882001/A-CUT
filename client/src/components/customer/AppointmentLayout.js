@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/appointmentlayout.css";
-import { useSelector } from "react-redux";
-
+import { useDispatch,useSelector } from "react-redux";
+import {getMyAppointmentAction} from "../../redux/action/myAppointmentsAction";
 
 const AppointmentLayout = ({ data }) => {
+  const url = process.env.REACT_APP_SERVER_URL;
 
+
+  const dispatch = useDispatch();
+  const deleteEntry = async (id) => {
+    const makeReq = await fetch(`${url}/deleteCustomerAppointments`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ id:id }),
+    });
+
+    const response = await makeReq.json();
+    console.log("res", response);
+    if (response.message) {
+      console.log(response.message);
+      dispatch(getMyAppointmentAction(data));
+    }
+  };
+  
+  // useEffect(()=>{
+  //   dispatch(getMyAppointmentAction(data._id));
+  // },[])
 
   const Services = ({ services }) => {
-    return (
-      <p>
-        {services.service_name}
-      </p>
-    )
-  }
+    return <p>{services.service_name}</p>;
+  };
 
   console.log("cust data", data);
 
@@ -30,15 +50,13 @@ const AppointmentLayout = ({ data }) => {
         </div>
         <div>
           <h5>Services : </h5>
-          {
-            data.services.map((data, index) => {
-              return (
-                <React.Fragment key={index}>
-                  <Services services={data} />
-                </React.Fragment>
-              )
-            })
-          }
+          {data.services.map((data, index) => {
+            return (
+              <React.Fragment key={index}>
+                <Services services={data} />
+              </React.Fragment>
+            );
+          })}
         </div>
         <div>
           <h5>Total Price : </h5>
@@ -46,7 +64,9 @@ const AppointmentLayout = ({ data }) => {
         </div>
         <div>
           <h5>Timing : </h5>
-          <p>{data.starting_time} - {data.ending_time}</p>
+          <p>
+            {data.starting_time} - {data.ending_time}
+          </p>
         </div>
 
         <div>
@@ -54,10 +74,11 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.shop_address}</p>
         </div>
         <div>
-          <div><button>delete</button></div>
+          <div>
+            <button onClick={()=>deleteEntry(data._id)}>delete</button>
+          </div>
         </div>
       </div>
-
     </>
   );
 };
