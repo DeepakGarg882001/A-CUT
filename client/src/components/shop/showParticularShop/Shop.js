@@ -131,7 +131,7 @@ const Shop = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <span /> ➤ <span /> {openTime} AM TO  {closeTime} PM
+                  Shop Timing <span /> ➤ <span /> {openTime } AM To {closeTime }PM
                 </span>
               </h3>
             </div>

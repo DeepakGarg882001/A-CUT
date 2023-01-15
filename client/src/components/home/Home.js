@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../../styles/home.css";
-import video from "../../Assets/video.mp4";
 
 import Services from "../plateformServices/PlateformServices";
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
 import getAllShopAction from "../../redux/action/allShopsAction";
 import userLocationAction from "../../redux/action/userLocationAction";
-import imgg from "../../Assets/home.png";
+import imgg from "../../Assets/about1.png";
 
 const Home = () => {
 
@@ -37,13 +36,7 @@ const Home = () => {
   return (
     <>
       <div>
-        {/* <div className="Work-flow">
-          <h2>Total work flow of this app by seing below video</h2>
-          <video controls>
-            <source src={video} type="video/mp4" id="video" />
-            Your browser does not support the video tag.
-          </video>
-        </div> */}
+       
         <div className="home_page">
           <div className="home1">
             <img src={imgg} alt="loading"/>
