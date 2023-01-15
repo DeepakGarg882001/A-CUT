@@ -48,7 +48,7 @@ const Login = () => {
     }
     if (response.message) {
       Swal.fire("Welcome Back ", `${response.data.name}`, "success");
-      cookie.set("BHB_token", `${response.data.token}`);
+      cookie.set("Authentication_token", `${response.data.token}`);
       dispatch(userDataAction(response.data));
 
       if(response.data.userRole.role==="owner"){

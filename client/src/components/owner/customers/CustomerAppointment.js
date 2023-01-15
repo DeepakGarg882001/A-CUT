@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/customerAppointment.css";
+import "../../../styles/customerAppointment.css";
 import { useSelector } from "react-redux";
 
 const CustomerAppointment = () => {
@@ -14,12 +14,14 @@ const CustomerAppointment = () => {
           <table>
             <thead>
               <tr>
-                <th className="th">S. No</th>
+                <th className="th">Sr. No</th>
                 <th className="th">Name</th>
                 <th className="th">Services</th>
-                <th className="th">Time slot</th>
-                <th className="th">Total payment</th>
-                <th className="th">Status</th>
+                <th className="th">Time Slot</th>
+                <th className="th">Duration</th>
+                <th className="th">Total Price</th>
+                <th className="th">Payment Status</th>
+                <th className="th">CheckIn Status</th>
               </tr>
             </thead>
             <tbody>
@@ -32,8 +34,10 @@ const CustomerAppointment = () => {
                           <td className="td">{data.customer_name}</td>
                           <td className="td">{data.service}</td>
                           <td className="td">{data.slot} </td>
+                          <td className="td">{data.total_duration} mint </td>
                           <td className="td">Rs {data.total_price} </td>
-                          <td className="td">Incomplete</td>
+                          <td className="td" style={{color: data.payment_status==="Not Paid"? "red":"green"}} >{data.payment_status} </td>
+                          <td className="td" style={{color: data.checkIn_status==="none"? "gray":"green"}} >{data.checkIn_status} </td>
                         </tr>
                       </React.Fragment>
                     );
