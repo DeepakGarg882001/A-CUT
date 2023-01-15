@@ -58,7 +58,9 @@ const MyShop = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        
       },
+      credentials: "include",
       body: JSON.stringify({
         owner_name,
         shop_name,
@@ -86,6 +88,7 @@ const MyShop = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ _id: ShopData._id }),
     });
 
