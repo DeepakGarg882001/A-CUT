@@ -69,6 +69,7 @@ const CreateShop = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         owner_name,
         owner_id,

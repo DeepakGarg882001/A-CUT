@@ -25,14 +25,6 @@
     font-family: "Times New Roman", Times, serif;
 }
 
-.shops {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
 
 #labela-about {
     color: rgb(1, 3, 5);
@@ -43,14 +35,15 @@
 
 .individual {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 1rem;
-    position: relative;
+
+    /* position: relative;
     animation: mymove 5s infinite;
-    animation-timing-function: linear;
+    animation-timing-function: linear; */
 }
 
-@keyframes mymove {
+/* @keyframes mymove {
     from {
         left: -50rem;
     }
@@ -58,24 +51,13 @@
     to {
         left: 50rem;
     }
-}
+} */
 
-.individual:hover {
+/* .individual:hover {
     animation-play-state: paused;
-}
+} */
 
-.individual-shop {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    /* background-image: linear-gradient(#ea66d6, rgb(244, 244, 231), green); */
-border: 2px solid;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 2rem;
-    margin-left: 5rem;
 
-}
 
 .individual-shop img {
     width: 100%;
@@ -84,6 +66,10 @@ border: 2px solid;
 
 .individual-shop h3 {
     text-align: center;
+
+}
+.individual-shop  a{
+text-decoration: none;
 }
 
 .individual-shop .btn {
@@ -94,6 +80,7 @@ border: 2px solid;
     border: none;
     transition: all 1s;
     font-weight: bold;
+
 }
 
 .individual-shop .btn:hover {
@@ -106,13 +93,11 @@ border: 2px solid;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 1.4rem 2rem;
 }
 
 .servicesabc:hover {
-    transform: rotateY(10deg) scale(1.02);
-    z-index: 1;
-    box-shadow: 0 10px 20px rgba(177, 91, 91, 0.5);
+    transform: rotateY(360deg) scale(1.1);
+    border-radius: 2px black;
 }
 
 .services_home a {
@@ -125,12 +110,7 @@ border: 2px solid;
         text-align: center;
     }
 
-    video {
-        width: 94vw;
-        height: 57vh;
-        margin-top: -3.8rem;
-    }
-
+   
     .Work-flow {
         margin-top: 1rem;
 
