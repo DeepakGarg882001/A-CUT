@@ -40,13 +40,11 @@ const bookModel = new mongoose.Schema({
       }
     }
   ],
-  time:{
-    start:{
-      type:String
-    },
-    end:{
-      type:String
-    }
+  starting_time:{
+    type:String,
+  },
+  ending_time:{
+    type:String,
   },
   date: {
     type:String,

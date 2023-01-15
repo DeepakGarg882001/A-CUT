@@ -33,7 +33,7 @@ const CustomerAppointment = () => {
                           <td className="td">{index + 1}</td>
                           <td className="td">{data.customer_name}</td>
                           <td className="td">{data.service}</td>
-                          <td className="td">{data.slot} </td>
+                          <td className="td">{data.starting_time} - {data.ending_time} </td>
                           <td className="td">{data.total_duration} mint </td>
                           <td className="td">Rs {data.total_price} </td>
                           <td className="td" style={{color: data.payment_status==="Not Paid"? "red":"green"}} >{data.payment_status} </td>

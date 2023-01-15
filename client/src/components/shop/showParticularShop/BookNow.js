@@ -5,18 +5,17 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { toast } from "react-toastify";
-
+import { updateStartingTime,updateEndingTime } from "../../../redux/action/bookShopSlotAction";
 const BookNow = ({ shopData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
-  console.log("booking data",bookingData);
+  console.log("booking data", bookingData);
   const ShopData = useSelector((state) => state.particularShopReducer);
 
-
   const url = process.env.REACT_APP_SERVER_URL;
-  const none="none";
+  const none = "none";
 
   const postDataToServer = async () => {
     if (!userData.token || userData.userRole.role !== "customer") {
@@ -58,11 +57,12 @@ const BookNow = ({ shopData }) => {
         counter_number: bookingData.counter_number,
         time_slot: bookingData.time_slot,
         date: bookingData.date,
-        shop_address:ShopData.shop_address,
-
+        shop_address: ShopData.shop_address,
+        starting_time:bookingData.starting_time,
+        ending_time:bookingData.ending_time,
       };
 
-      console.log("values",values);
+      console.log("values", values);
 
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",
@@ -87,6 +87,7 @@ const BookNow = ({ shopData }) => {
       }
     }
   };
+  
 
   return (
     <>
@@ -98,9 +99,9 @@ const BookNow = ({ shopData }) => {
               <thead>
                 <tr>
                   <th className="th">Services</th>
-                  <th className="th">Time Duration</th>
+                  <th className="th">Total Duration</th>
                   <th className="th">Total Price</th>
-                  {/* <th className="th">Slot</th> */}
+                  <th className="th">Time Slot</th>
                   <th className="th">Date</th>
                 </tr>
               </thead>
@@ -110,18 +111,22 @@ const BookNow = ({ shopData }) => {
                     {bookingData.services !== []
                       ? bookingData.services.map((data, index) => {
                           return (
-                            
-                              <React.Fragment key={index}>
-                                <p>{data.service_name} {","}</p>
-                              </React.Fragment>
-                            
+                            <React.Fragment key={index}>
+                              <p>
+                                {data.service_name} {","}
+                              </p>
+                            </React.Fragment>
                           );
                         })
-                      : {none}}
+                      : { none }}
                   </td>
-                  <td className="td">{bookingData.total_duration}</td>
+                  <td className="td">{bookingData.total_duration} mint </td>
                   <td className="td">{bookingData.total_price} Rs</td>
-                  {/* <td className="td">{bookingData.time_slot} </td> */}
+                  <td className="td">
+                    {bookingData.starting_time} -
+                    {bookingData.ending_time}
+                   
+                  </td>
                   <td className="td">{bookingData.date}</td>
                 </tr>
               </tbody>
@@ -130,7 +135,7 @@ const BookNow = ({ shopData }) => {
         </div>
 
         <div className="service-btn">
-          <p onClick = {  ()=> postDataToServer()} >Submit</p>
+          <p onClick={() => postDataToServer()}>Submit</p>
         </div>
       </div>
     </>

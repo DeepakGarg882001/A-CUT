@@ -46,7 +46,7 @@ const AppointmentLayout = ({ data }) => {
         </div>
         <div>
           <h5>Timing : </h5>
-          <p>{Date}</p>
+          <p>{data.starting_time} - {data.ending_time}</p>
         </div>
 
         <div>

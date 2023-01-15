@@ -250,7 +250,6 @@ export const updateShopService = async (request, response) => {
       },
     }
   );
-  console.log("updated services",updateService);
 
   if (!updateService) {
     return response.status(401).json({ error: "Process Failed" });
