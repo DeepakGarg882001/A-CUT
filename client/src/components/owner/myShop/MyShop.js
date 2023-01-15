@@ -70,6 +70,7 @@ const MyShop = () => {
         _id,
 
       }),
+      credentials: "include",
     });
 
     const response = await makeReq.json();
@@ -90,6 +91,7 @@ const MyShop = () => {
       },
       credentials: "include",
       body: JSON.stringify({ _id: ShopData._id }),
+      credentials: "include",
     });
 
     const response = await makeReq.json();

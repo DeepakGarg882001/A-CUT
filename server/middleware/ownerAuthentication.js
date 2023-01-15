@@ -2,12 +2,13 @@ import UserCol from "../DB_Collections/users.js";
 import jwt from "jsonwebtoken";
 
 const ownerAuthenticate = async (request , response, next)=>{
-   
+    console.log(request.cookies)
     try {
          
         const token = request.cookies.Authentication_token;
         const Secure_Key = process.env.JWT_KEY_OWNER; 
-
+        console.log(token);
+        console.log(request.cookies)
         const isValidToken =  jwt.verify(token ,Secure_Key);
         
         let id = "";
