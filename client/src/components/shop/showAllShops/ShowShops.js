@@ -18,7 +18,6 @@ const ShowShops = () => {
         <div className='allShops-canvas'>
             <SearchBar />
             <div>
-                 {/* filters */}
             </div>
 
             <div className='allShops-list-sec'>
