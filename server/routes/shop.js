@@ -226,7 +226,7 @@ export const addShopService = async (request, response) => {
 export const updateShopService = async (request, response) => {
   const { service_name, price, offer, service_id, _id, duration } = request.body;
    
-  if(offer===0){
+  if(offer===0 || price === 0 ){
     if (!service_name | !price  | !service_id | !_id | !duration ){
       return response
         .status(400)
@@ -250,7 +250,6 @@ export const updateShopService = async (request, response) => {
       },
     }
   );
-  console.log("updated services",updateService);
 
   if (!updateService) {
     return response.status(401).json({ error: "Process Failed" });

@@ -104,6 +104,38 @@ const Shop = () => {
     dispatch(clearBookingData());
   }, []);
 
+  // Converting Hours into of 12 formate
+  const convertToHr = (value) => {
+    if (value > 12) {
+      return value - 12;
+    } else {
+      return value;
+    }
+  };
+
+  // Converting The Shop Time
+  const convertTime =(number)=>{
+    
+    const nonDecimal = Math.floor(number);
+    const decimalValue = number - nonDecimal;
+    let hour = convertToHr(nonDecimal);
+    
+    switch(decimalValue){
+      case 0:
+         return `${hour}:00 ${nonDecimal>=12? "PM":"AM"}`;
+
+      case 0.25:
+        return `${hour}:15 ${nonDecimal>=12? "PM":"AM"}`;
+      case 0.5:
+        return `${hour}:30 ${nonDecimal>=12? "PM":"AM"}`;
+      case 0.75:
+        return `${hour}:45 ${nonDecimal>=12? "PM":"AM"}`;
+
+      default: break;
+    }
+
+  }
+
   return (
     <>
       <header id="header">
@@ -130,7 +162,7 @@ const Shop = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <span /> ➤ <span /> {openTime } AM To {closeTime }PM
+                  Shop Timing <span /> ➤ <span /> {convertTime(openTime) } - {convertTime(closeTime) }
                 </span>
               </h3>
             </div>

@@ -3,6 +3,8 @@ import {
     CLEAR_BOOKING_DATA,
     ADD_TIME_SLOT,
     UPDATE_DATE,
+    UPDATE_ENDING_TIME,
+    UPDATE_STARTING_TIME
     } from "../reduxConstants";
 
 
@@ -32,4 +34,18 @@ export const updateDate = (data)=>{
       data
    })
 
+}
+
+export const updateStartingTime = (data)=>{
+   return({
+      type:UPDATE_STARTING_TIME,
+      data
+   })
+}
+
+export const updateEndingTime = (data)=>{
+   return({
+      type:UPDATE_ENDING_TIME,
+      data
+   })
 }
