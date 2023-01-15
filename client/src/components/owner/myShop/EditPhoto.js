@@ -48,6 +48,7 @@ function EditPhoto({ data }) {
     const makeRequest = await fetch(`${url}/uploadShopImage`, {
       method: "POST",
       body: shopImageData,
+      credentials: "include",
     });
 
     const response = await makeRequest.json();
