@@ -111,19 +111,19 @@ const Shop = () => {
       <header id="header">
         {/* <ToastContainer /> */}
         <div className="shop-details">
-          <h2>{ShopData.shop_name}</h2>
+          <h2> Shop Name :-{ShopData.shop_name}</h2>
           <div className="owner-detail">
             <div className="owner-name">
               <h3>
-                <span>{ShopData.owner_name}</span>
+                <span> Owner Name:-{ShopData.owner_name}</span>
               </h3>
               <h3>
-                <span>{ShopData.shop_address}</span>
+                <span> Address:-{ShopData.shop_address}</span>
               </h3>
             </div>
             <div className="rating">
               <h3>
-                <span>{ShopData.shop_mobile}</span>
+                <span> Mobile no:-{ShopData.shop_mobile}</span>
               </h3>
               <h3>
                 <span>Rating</span>

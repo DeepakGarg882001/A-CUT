@@ -32,7 +32,7 @@ const shopModel = new mongoose.Schema({
   },
   shop_rating: {
     type: Number,
-    default: 0,
+    default: 4-5,
   },
   shop_location: {
     latitude: {
