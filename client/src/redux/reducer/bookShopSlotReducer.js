@@ -86,7 +86,10 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
       } else {
           
         if(data.time_slot!==[]){
+          let sections = action.data.duration/15;
+          for(let i=0;i<sections;i++){
           data.time_slot.pop();
+          }
         }
 
         data.services = data.services.filter(

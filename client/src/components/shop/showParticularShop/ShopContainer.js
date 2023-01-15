@@ -3,7 +3,7 @@ import shopimage from "../../../Assets/home1.jpg";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getParticularShopData } from "../../../redux/action/particularShopAction";
-
+import "../../../styles/shopContainer.css"
 const ShopContainer = ({data}) => {
   
   const dispatch = useDispatch();

@@ -83,7 +83,7 @@ const SignUp = () => {
      Swal.fire(
        " Successfully Registered ! ","","success"
      );
-     navigate("/");
+     navigate("/login");
    }
 
   }
