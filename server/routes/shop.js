@@ -224,15 +224,22 @@ export const addShopService = async (request, response) => {
 
 // update a Particular Shop Services
 export const updateShopService = async (request, response) => {
-  console.log("updating shop service");
   const { service_name, price, offer, service_id, _id, duration } = request.body;
-
-  if (!service_name | !price | !offer | !service_id | !_id | !duration ){
-    return response
-      .status(400)
-      .status({ error: "Please Fill the form Correctly" });
+   
+  if(offer===0){
+    if (!service_name | !price  | !service_id | !_id | !duration ){
+      return response
+        .status(400)
+        .status({ error: "Please Fill the form Correctly" });
+    }
+  }else{
+    if (!service_name | !price | !offer | !service_id | !_id | !duration ){
+      return response
+        .status(400)
+        .status({ error: "Please Fill the form Correctly" });
+    }
   }
-
+  
   const updateService = await shop.updateMany(
     { _id, "shop_services._id": service_id },
     {
@@ -243,7 +250,7 @@ export const updateShopService = async (request, response) => {
       },
     }
   );
-  console.log(updateService);
+  console.log("updated services",updateService);
 
   if (!updateService) {
     return response.status(401).json({ error: "Process Failed" });

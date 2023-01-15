@@ -5,11 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(25, 228, 39); */
 }
 .platform-service {
     padding: 10px;
-    /* box-shadow: 5px 10px 18px #888888; */
   }
 .service-img{
     display: flex;
