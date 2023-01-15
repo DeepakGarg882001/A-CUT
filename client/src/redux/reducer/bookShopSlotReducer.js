@@ -3,6 +3,8 @@ import {
   CLEAR_BOOKING_DATA,
   ADD_TIME_SLOT,
   UPDATE_DATE,
+  UPDATE_ENDING_TIME,
+  UPDATE_STARTING_TIME
 } from "../reduxConstants";
 
 const initialData = {
@@ -13,6 +15,8 @@ const initialData = {
   time_slot: [],
   total_price: 0,
   error: "",
+  starting_time:"",
+  ending_time:"",
 };
 
 const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
@@ -152,6 +156,13 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
     case UPDATE_DATE :  data.date= action.data;
                         return {...data};
 
+    case UPDATE_ENDING_TIME:  
+                        data.ending_time= action.data;
+                        return {...data};
+
+    case UPDATE_STARTING_TIME :
+                       data.starting_time= action.data;
+                        return {...data};
     default:
       return data;
   }
