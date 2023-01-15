@@ -13,11 +13,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
   const dispatch = useDispatch();
-
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
-  console.log("shopdata:j---",ShopData.shop_time.Mon);
+  console.log("shopdata:j---",ShopData);
   // working with Date
   const todayDate = new Date();
   const minDate = todayDate.toJSON().substring(0, 10);
