@@ -19,6 +19,7 @@ const ShopLayout = ({ data }) => {
       longitude: data.shop_location.longitude,
     }
   );
+  console.log("data is",data);
   const [distanceFromUser, setDistanceFromUser] = useState(distance);
 
   const convertDistance = () => {
@@ -57,18 +58,24 @@ const ShopLayout = ({ data }) => {
           style={{ textDecoration: "none" }}
         >
           <div className="shoplayout">
-          <div>
-            <h2> Shop Name:-{data.shop_name}</h2>
+            <div className="shop1items">
+              <div>
+                <h2> Shop Name:-{data.shop_name}</h2>
+              </div>
+              <div>
+                <h2> Shop Address:-{data.shop_address}</h2>
+              </div>
+            </div>
+            <div className="shop2items">
+              <div>
+                <h2>Shop Mobile:-{data.shop_mobile}</h2>
+              </div>
+              
+              <div id ="dis">Distance:-{distanceFromUser}</div>
+            </div>
+
           </div>
-          <div>
-            <h2> Shop Address:-{data.shop_address}</h2>
-          </div>
-          <div>
-            <h2>Shop Mobile:-{data.shop_mobile}</h2>
-          </div>
-           <div>Distance:-{distanceFromUser}</div>
-          </div>
-          
+
         </Link>
       </div>
     </>

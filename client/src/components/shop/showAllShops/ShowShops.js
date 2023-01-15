@@ -15,10 +15,14 @@ const ShowShops = () => {
       },[]);
     return(
     <>
+
         <div className='allShops-canvas'>
+        <div className=" allshop_tittle">-:All Avalable Shops:-Book Your Slot Now</div>
+
             <SearchBar />
             <div>
             </div>
+
 
             <div className='allShops-list-sec'>
             {AllShops.length !==0? AllShops.map((data,index)=>{

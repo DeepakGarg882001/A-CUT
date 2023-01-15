@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/navbar.css";
 import Menu from "./Menu";
+import logo from "../../Assets/logo.png";
 
 import { MdOutlineMenu, MdClose } from "react-icons/md";
 import { useSelector } from "react-redux";
@@ -46,7 +47,7 @@ const NavBar = () => {
             <Link style={{ textDecoration: "none" }} to="/">
               <div className="canvs-navbar-cmp-sec">
                 <div className="under-navbar-cpm-sec">
-                  <img className="navbar-cpm-logo" alt="company_logo"/>
+                  <img src={logo} className="navbar-cpm-logo" alt="company_logo"/>
                 </div>
                 <div className="under-navbar-cpm-sec">
                   <h1 className="navbar-cpm-name"> A-CUT </h1>

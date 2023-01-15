@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "../../styles/home.css";
+import logo from "../../Assets/logo.png";
+
 
 import Services from "../plateformServices/PlateformServices";
 import { Link } from "react-router-dom";
@@ -36,18 +38,25 @@ const Home = () => {
   return (
     <>
       <div>
-       
+
         <div className="home_page">
           <div className="home1">
-            <img src={imgg} alt="loading"/>
+            <img src={imgg} alt="loading" />
 
-         
+
           </div>
           {/* //scrolling or alternate */}
           <div className="home2">
-         <h1>|| WELCOME ||</h1>   
-     
-            <h3>Start Journey With A CUT </h3>
+            <div className="home_logo">
+              <img src={logo} alt="loading" />
+
+            </div>
+            <div className="home_contain">
+              <h1>|| WELCOME ||</h1>
+
+              <h3>Start Journey With A CUT </h3>
+            </div>
+
           </div>
         </div>
         <div className="shops">
