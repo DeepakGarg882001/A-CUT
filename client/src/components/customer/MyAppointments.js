@@ -13,7 +13,7 @@ const MyAppointments = () => {
        <div>
        <h3>appointmeent details</h3>
 
-               {appointmentList!==[]? appointmentList.map((data,index)=>{
+               {appointmentList.length!==0? appointmentList.map((data,index)=>{
                   return(
                      <React.Fragment key={index}>
 

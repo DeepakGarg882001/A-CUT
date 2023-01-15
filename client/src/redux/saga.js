@@ -40,7 +40,7 @@ function* findMyAppointments(action) {
     data = response.data;
   }
   if (response.error) {
-    data = response;
+    data = [];
   }
   yield put({ type: SET_MY_APPOINTMENTS, data: data });
 }
