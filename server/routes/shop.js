@@ -223,9 +223,9 @@ const addShopService = async (request, response) => {
 // update a Particular Shop Services
 const updateShopService = async (request, response) => {
   console.log("updating shop service");
-  const { service_name, price, offer, service_id, _id } = request.body;
+  const { service_name, price, offer, service_id, _id, duration } = request.body;
 
-  if (!service_name | !price | !offer | !service_id | !_id) {
+  if (!service_name | !price | !offer | !service_id | !_id | !duration ){
     return response
       .status(400)
       .status({ error: "Please Fill the form Correctly" });
@@ -237,6 +237,7 @@ const updateShopService = async (request, response) => {
       $set: {
         "shop_services.$.price": price,
         "shop_services.$.offer": offer,
+        "shop_services.$.duration": duration,
       },
     }
   );

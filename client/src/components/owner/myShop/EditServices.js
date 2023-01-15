@@ -18,6 +18,7 @@ const EditServices = ({data,id}) => {
     offer:data.offer,
     service_id:data._id,
     _id:id,
+    duration:data.duration
   }
 
 
@@ -99,16 +100,16 @@ const EditServices = ({data,id}) => {
                 <div>
                     <div>
                         <label> Duration : </label>
-                        <Field name="duration" as="select" disabled={activeService} className="myshop-service-sec-field">
-                          <option value={15} > 15 </option>
-                          <option value={30} > 30 </option>
-                          <option value={45} > 45 </option>
-                          <option value={60} > 60 </option>
-                          <option value={75} > 75 </option>
-                          <option value={90} > 90 </option>
-                          <option value={105} > 105 </option>
-                          <option value={120} > 120 </option>
-                          <option value={135} > 135 </option>
+                        <Field name="duration" as="select" type="number" disabled={activeService} className="myshop-service-sec-field">
+                          <option value={Number(15)} > 15 </option>
+                          <option value={Number(30)}> 30 </option>
+                          <option value={Number(45)} > 45 </option>
+                          <option value={Number(60)} > 60 </option>
+                          <option value={Number(75)} > 75 </option>
+                          <option value={Number(90)} > 90 </option>
+                          <option value={Number(105)} > 105 </option>
+                          <option value={Number(120)} > 120 </option>
+                          <option value={Number(135)} > 135 </option>
 
                         </Field>
                         <span>mint</span>
