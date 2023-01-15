@@ -52,6 +52,9 @@ const bookModel = new mongoose.Schema({
     type:String,
    
   },
+  shop_address:{
+    type:String,
+  },
   
  
 },{timestamps:true});

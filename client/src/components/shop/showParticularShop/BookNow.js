@@ -11,9 +11,13 @@ const BookNow = ({ shopData }) => {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
-  console.log("time slot",bookingData.time_slot);
+  console.log("booking data",bookingData);
+  const ShopData = useSelector((state) => state.particularShopReducer);
+
+
   const url = process.env.REACT_APP_SERVER_URL;
   const none="none";
+
   const postDataToServer = async () => {
     if (!userData.token || userData.userRole.role !== "customer") {
       Swal.fire("", "Please Login First", "info");
@@ -54,9 +58,11 @@ const BookNow = ({ shopData }) => {
         counter_number: bookingData.counter_number,
         time_slot: bookingData.time_slot,
         date: bookingData.date,
+        shop_address:ShopData.shop_address,
+
       };
 
-      console.log(values);
+      console.log("values",values);
 
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",
@@ -104,11 +110,11 @@ const BookNow = ({ shopData }) => {
                     {bookingData.services !== []
                       ? bookingData.services.map((data, index) => {
                           return (
-                            <>
+                            
                               <React.Fragment key={index}>
                                 <p>{data.service_name} {","}</p>
                               </React.Fragment>
-                            </>
+                            
                           );
                         })
                       : {none}}
@@ -124,7 +130,7 @@ const BookNow = ({ shopData }) => {
         </div>
 
         <div className="service-btn">
-          <p onClick={() => postDataToServer()}>Submit</p>
+          <p onClick = {  ()=> postDataToServer()} >Submit</p>
         </div>
       </div>
     </>

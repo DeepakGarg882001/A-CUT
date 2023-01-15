@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
 import getAllShopAction from "../../redux/action/allShopsAction";
 import userLocationAction from "../../redux/action/userLocationAction";
+import imgg from "../../Assets/home.png";
 
 const Home = () => {
 
@@ -36,12 +37,25 @@ const Home = () => {
   return (
     <>
       <div>
-        <div className="Work-flow">
+        {/* <div className="Work-flow">
           <h2>Total work flow of this app by seing below video</h2>
           <video controls>
             <source src={video} type="video/mp4" id="video" />
             Your browser does not support the video tag.
           </video>
+        </div> */}
+        <div className="home_page">
+          <div className="home1">
+            <img src={imgg} alt="loading"/>
+
+         
+          </div>
+          {/* //scrolling or alternate */}
+          <div className="home2">
+         <h1>|| WELCOME ||</h1>   
+     
+            <h3>Start Journey With A CUT </h3>
+          </div>
         </div>
         <div className="shops">
           <h2 id="labela-about">Available Shops</h2>
@@ -65,19 +79,19 @@ const Home = () => {
         <div >
           <h2 id="labela-about">Our Service</h2>
         </div>
-        
-          <div className="services_home">
-            {AllServices.map((data, index) => {
-              return (
-                <React.Fragment key={index}  >
-                  <Link className="servicesabc" to="/all_shops" onClick={() => dispatch(getAllShopAction(data.service_name))}>
-                    <Services data={data} />
-                  </Link>
-                </React.Fragment>
-              );
-            })}
-          </div>
-      
+
+        <div className="services_home">
+          {AllServices.map((data, index) => {
+            return (
+              <React.Fragment key={index}  >
+                <Link className="servicesabc" to="/all_shops" onClick={() => dispatch(getAllShopAction(data.service_name))}>
+                  <Services data={data} />
+                </Link>
+              </React.Fragment>
+            );
+          })}
+        </div>
+
 
       </div>
     </>

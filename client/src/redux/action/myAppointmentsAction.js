@@ -1,9 +1,16 @@
-import { GET_MY_APPOINTMENTS } from "../reduxConstants";
+import { GET_MY_APPOINTMENTS,DELETE_MY_APPOINTMENTS } from "../reduxConstants";
+
 
 
 export const getMyAppointmentAction = (data)=>{
     return({
         type:GET_MY_APPOINTMENTS,
+        data
+    })
+}
+export const deleteMyAppointmentAction = (data)=>{
+    return({
+        type:DELETE_MY_APPOINTMENTS,
         data
     })
 }
