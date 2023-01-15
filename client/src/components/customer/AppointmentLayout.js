@@ -18,7 +18,6 @@ const AppointmentLayout = ({ data }) => {
 
   return (
     <>
-      <hr />
       <div className="appoint_main">
         <div>
           <h5>Shop Name : </h5>
@@ -42,7 +41,7 @@ const AppointmentLayout = ({ data }) => {
         </div>
         <div>
           <h5>Total Price : </h5>
-          <p>{data.total_price}</p>
+          <p>{data.total_price} RS</p>
         </div>
         <div>
           <h5>Timing : </h5>
@@ -54,7 +53,7 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.shop_address}</p>
         </div>
         <div>
-          <div><button>delete</button></div>
+          <div id="can_appointment"><button>Cancle</button></div>
         </div>
       </div>
 

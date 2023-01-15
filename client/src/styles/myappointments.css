@@ -1,0 +1,17 @@
+#appointment_search{
+      margin-left:1rem ;
+      margin-top: 1rem;
+      width: 80%;
+      height: 35px;
+}
+.appointment_tittle{
+      text-align: center;
+      font-size: 3rem;
+}
+.search_slot{
+   /* background-color: aquamarine; */
+text-align: center;
+text-justify: distribute-all-lines;
+margin: 1rem;
+cursor:pointer;
+}
