@@ -1,6 +1,6 @@
 import customerAppointment from "../DB_Collections/customerAppointmentModel.js";
 
-const bookAppointment = async (request, response) => {
+export const bookAppointment = async (request, response) => {
   try {
     console.log(request.body);
 
@@ -76,7 +76,7 @@ const bookAppointment = async (request, response) => {
 };
 
 // Get all The Appointments of a Shop with respect to Date
-const getAllAppointments = async (request, response) => {
+export const getAllAppointments = async (request, response) => {
   try {
     console.log("get data of booked slots");
     console.log(request.body);
@@ -107,7 +107,7 @@ const getAllAppointments = async (request, response) => {
 
 
 // Get All the Appointment of a customer with respect to customer id;
-const getMyAppointments = async (request, response) => {
+export const getMyAppointments = async (request, response) => {
 
   const customer_id = request.query.key;
 
@@ -128,7 +128,7 @@ const getMyAppointments = async (request, response) => {
 
 
 // Get the Appointment of all customers with respect to shop id;
-const getAllCustomerAppointments = async (request, response) => {
+export const getAllCustomerAppointments = async (request, response) => {
 
   const { shop_id, date, counter_number } = request.body;
 
@@ -140,7 +140,8 @@ const getAllCustomerAppointments = async (request, response) => {
 
 
 }
-const deleteCustomerAppointment = async (request, response) => {
+// Cancel The Customer Appointment
+export const cancelCustomerAppointment = async (request, response) => {
   const _id = request.body;
 
   try {
@@ -160,4 +161,16 @@ catch(error){
 
 };
 
-  export { bookAppointment, getAllAppointments, getMyAppointments, getAllCustomerAppointments, deleteCustomerAppointment};
+
+
+// Edit Payment Status of a Particular Appointment with respect to Customer
+export const editPaymentStatus = async(request,response)=>{
+
+}
+
+// Edit CheckIn Status of a Particular Customer with respect to Shop
+export const editCheckInStatus = async(request,response)=>{
+
+}
+
+

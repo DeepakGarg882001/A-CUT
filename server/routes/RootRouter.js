@@ -25,8 +25,9 @@ import {
   getAllAppointments,
   getMyAppointments,
   getAllCustomerAppointments,
-  deleteCustomerAppointment,
+  cancelCustomerAppointment,
 } from "./customerAppointment.js";
+import ownerAuthenticate from "../middleware/ownerAuthentication.js";
 
 
 //    ======= Authentication Routes =========  //
@@ -35,15 +36,15 @@ router.route("/signup").post(signup);
 router.route("/login").post(login);
 
 
-router.route("/createShop").post(createShop);
+router.route("/createShop").post(ownerAuthenticate,createShop);
 router.route("/getAllShops").get(getAllShops);
 router.route("/getShop").get(getShopById);
-router.route("/updateShopDetails").post(updateShopDetails);
-router.route("/addShopService").post(addShopService);
-router.route("/deletShop").post(deletShop);
-router.route("/updateShopService").post(updateShopService);
-router.route("/deletShopService").post(deletShopService);
-router.route("/uploadShopImage").post(uploadImages,uploadShopImage);
+router.route("/updateShopDetails").post(ownerAuthenticate,updateShopDetails);
+router.route("/addShopService").post(ownerAuthenticate,addShopService);
+router.route("/deletShop").post(ownerAuthenticate,deletShop);
+router.route("/updateShopService").post(ownerAuthenticate,updateShopService);
+router.route("/deletShopService").post(ownerAuthenticate,deletShopService);
+router.route("/uploadShopImage").post(ownerAuthenticate,uploadImages,uploadShopImage);
 
 
 router.route("/addService").post(add_services);
@@ -55,7 +56,7 @@ router.route("/bookAppointment").post(bookAppointment);
 router.route("/getAllAppointments").post(getAllAppointments);
 router.route("/getMyAppointments").get(getMyAppointments);
 router.route("/getAllCustomerAppointments").post(getAllCustomerAppointments);
-router.route("/deletCustomerAppointments").post(deleteCustomerAppointment);
+router.route("/deletCustomerAppointments").post(cancelCustomerAppointment);
 
 
 

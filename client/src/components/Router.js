@@ -28,7 +28,7 @@ import AddServices from "./admin/services/AddServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
 
 import OwnerDashBoard from "./owner/OwnerDashBoard";
-import CustomerAppointment from "./owner/CustomerAppointment";
+import CustomerAppointment from "./owner/customers/CustomerAppointment";
 import MyShop from "./owner/myShop/MyShop"
 import MyAppointments from "./customer/MyAppointments";
 

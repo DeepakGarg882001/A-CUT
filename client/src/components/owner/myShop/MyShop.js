@@ -17,6 +17,7 @@ import {
   MdOutlineStarHalf,
   MdOutlineStarOutline,
 } from "react-icons/md";
+import AddCounter from "./AddCounter";
 
 const MyShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -64,7 +65,8 @@ const MyShop = () => {
         shop_mobile,
         shop_address,
         shop_location: shopLocation,
-        _id
+        _id,
+
       }),
     });
 
@@ -250,6 +252,7 @@ const MyShop = () => {
             <AddService data={ShopData} />
           </div>
         <div>
+        <AddCounter data={ShopData}/>
           <button onClick={removeShop}>
             <MdOutlineDelete /> Delet Shop{" "}
           </button>

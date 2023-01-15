@@ -66,7 +66,7 @@ const login = async (request, response) => {
         if (addToken) {
           response
             .status(201)
-            .cookie("BHB_token", token)
+            .cookie("Authentication_token", token)
             .json({ message: "You have Successfully LogedIn !", data: user });
         } else {
           response.status(401).json({ error: " Login Process failed !" });
