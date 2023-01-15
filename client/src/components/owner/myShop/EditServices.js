@@ -28,6 +28,7 @@ const EditServices = ({ data, id }) => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(values),
     });
 
@@ -48,6 +49,7 @@ const EditServices = ({ data, id }) => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ service_id: data._id, _id: id }),
     });
 
