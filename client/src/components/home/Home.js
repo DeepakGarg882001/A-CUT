@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import ShopContainer from "../shop/showParticularShop/ShopContainer";
 import { useDispatch, useSelector } from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
-import {getAllShopAction} from "../../redux/action/allShopsAction";
+import { getAllShopAction } from "../../redux/action/allShopsAction";
 import userLocationAction from "../../redux/action/userLocationAction";
 import imgg from "../../Assets/home.png";
 
@@ -45,15 +45,16 @@ const Home = () => {
           </div>
           {/* //scrolling or alternate */}
           <div className="home2">
-            <div className="home_logo">
-              <img src={logo} alt="loading" />
-
-            </div>
             <div className="home_contain">
               <h1>|| WELCOME ||</h1>
 
               <h3>Start Journey With A CUT </h3>
             </div>
+            <div className="home_logo">
+              <img src={logo} alt="loading" />
+
+            </div>
+
 
           </div>
         </div>

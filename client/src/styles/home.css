@@ -1,24 +1,14 @@
-/* video{
-    width:70vw;
-    height: 80vh;
-}
-.Work-flow{
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.Work-flow h2{
-    color: rgb(2, 6, 9);
-} */
+
 .home_page {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .home2 {
+    /* margin-top: 2rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,9 +19,9 @@
 }
 .home_logo img{
     /* margin-left: 5rem;*/
-    margin-bottom: 3rem; 
-    width: 20vw;
-    height: 30vh;
+    margin-top: 3rem; 
+    width: 17vw;
+    height: 25vh;
     animation-name: rotate;
     animation-duration: 5s;
     animation-iteration-count: infinite;
@@ -54,7 +44,10 @@
 .individual {
     display: flex;
     justify-content: space-evenly;
-    margin: 1rem;
+    margin: 10px;
+    
+    flex-flow: row wrap;
+
 
     /* position: relative;
     animation: mymove 5s infinite;
@@ -109,6 +102,8 @@ text-decoration: none;
 
     display: flex;
     flex-direction: row;
+    flex-flow: row wrap;
+
     justify-content: space-between;
     align-items: center;
 }

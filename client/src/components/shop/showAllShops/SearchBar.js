@@ -7,12 +7,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   return (
     <div className="search_bar">
-        <span id="appointment_search" className="search_slot">
-        {" "}
-        <BsSearch />
-
-        Search Here{" "}
-      </span>
+        
       <input
         type="text"
         placeholder="Search shops"

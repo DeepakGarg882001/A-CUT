@@ -4,18 +4,14 @@
       justify-items: center;
       width: 40%;
       height: 60px;
-      margin-left:44rem ;
-      /* background-color: red; */
+      
 
 }
 #appointment_search{
       border-radius: 1rem;
       padding: 10px;
       font-size: larger;
-}
-
-.search_slot {
       cursor: pointer;
-      margin-top: 1rem;
+
 }
 

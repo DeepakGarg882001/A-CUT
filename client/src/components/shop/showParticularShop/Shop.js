@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../../styles/shop1.css";
-// import * as geolib from "geolib";
 import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
@@ -199,6 +198,7 @@ const Shop = () => {
 
         <div className="booking-details">
           <div className="schdule-time">
+            <h1>Choose Your Comfortable Time Slot</h1>
             <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
           </div>
           <div className="shop-services">
