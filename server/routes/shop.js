@@ -78,9 +78,16 @@ export const getAllShops = async (request, response) => {
   let shops;
   if (query != "undefined") {
     console.log("all shops");
-    shops = await shop.find({
-      shop_services:{$elemMatch:{service_name:{ $regex: query, $options: "i" }}}}
-    );
+
+    shops=await shop.find({
+      "$or":[
+        {shop_services:{$elemMatch:{service_name:{ $regex: query, $options: "i" }}}},
+          {"shop_name":{$regex:query,$options:"i"}},
+          {"shop_address":{$regex:query,$options:"i"}},
+      ]
+  })
+
+
   } else {
     console.log("service based shops");
     shops = await shop.find({});

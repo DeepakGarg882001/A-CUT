@@ -13,7 +13,7 @@ const ShopContainer = ({data}) => {
     <>
     <div className="individual-shop">
        <Link to="/showShopDetails" onClick={()=>dispatch(getParticularShopData(data._id))}>
-        <h3>{data.shop_name}</h3>
+        <h3 className="shop_na">{data.shop_name}</h3>
         <img src={shopimage} alt="img" />
         <button className="btn">Book Now</button>
         </Link>

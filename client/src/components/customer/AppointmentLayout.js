@@ -5,7 +5,7 @@ import {getMyAppointmentAction} from "../../redux/action/myAppointmentsAction";
 
 const AppointmentLayout = ({ data }) => {
   const url = process.env.REACT_APP_SERVER_URL;
-
+  const userData=useSelector((state)=>state.userReducer);
 
   const dispatch = useDispatch();
   const deleteEntry = async (id) => {
@@ -22,13 +22,10 @@ const AppointmentLayout = ({ data }) => {
     console.log("res", response);
     if (response.message) {
       console.log(response.message);
-      dispatch(getMyAppointmentAction(data));
+      dispatch(getMyAppointmentAction(userData._id));
     }
   };
-  
-  // useEffect(()=>{
-  //   dispatch(getMyAppointmentAction(data._id));
-  // },[])
+ 
 
   const Services = ({ services }) => {
     return <p>{services.service_name}</p>;
@@ -38,7 +35,6 @@ const AppointmentLayout = ({ data }) => {
 
   return (
     <>
-      <hr />
       <div className="appoint_main">
         <div>
           <h5>Shop Name : </h5>
@@ -60,7 +56,7 @@ const AppointmentLayout = ({ data }) => {
         </div>
         <div>
           <h5>Total Price : </h5>
-          <p>{data.total_price}</p>
+          <p>{data.total_price} RS</p>
         </div>
         <div>
           <h5>Timing : </h5>
@@ -74,9 +70,7 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.shop_address}</p>
         </div>
         <div>
-          <div>
-            <button onClick={()=>deleteEntry(data._id)}>delete</button>
-          </div>
+          <div id="can_appointment"><button onClick={()=>deleteEntry(data._id)}>Cancle</button></div>
         </div>
       </div>
     </>

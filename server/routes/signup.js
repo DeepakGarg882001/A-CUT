@@ -44,7 +44,7 @@ const signup = async (request, response) => {
       });
 
       const mailMessage = {
-        from: "birdsheartbeat.in@gmail.com",
+        from: "acut@official@hgmail.com",
         to: email,
         subject: " A-CUT Registration ",
         text: `Hi ${name}, You have successfuly Created an account at A-CUT Salon.

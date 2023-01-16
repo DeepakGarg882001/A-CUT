@@ -1,35 +1,16 @@
 
 .canvas-navbar{
   width: 100vw;
-  height: fit-content;
-   display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: sticky;
-  top: 0px;
-  position: -webkit-sticky;
-  justify-content: space-between;
-  z-index: 50;
-
 }
 .canvas-navbar-side-panel{
-  max-width: 400px;
-  min-width: 300px;
-  width: inherit;
-  background-color: whitesmoke;
+  max-width: 300px;
+ background-color: whitesmoke;
    position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 30;
-  padding-bottom: 30px;
-  height: fit-content;
-  min-height: 100vh;
+  top: 0px; 
+   left: 0px;
   
 }
-.under-side-panel-navbar{
-  display: flex;
-  flex-direction: column;
-}
+
 .side-panel-close-sec{
   position: absolute;
   top: 10px;
@@ -39,30 +20,17 @@
   cursor: pointer;
 }
 .side-panel-menu{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 60px;
+   padding-top: 60px;
 }
 .navbar-canvas-header{
-  width: 100vw;
   display: flex;
   padding: 0px 20px;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-image:linear-gradient(345deg, #16101a , #614f6a,#16101a);
-  /* background-image:linear-gradient(350deg, #0a0f14 , #8c3fb3,#ac8427); */
-
-
 }
 .navbar-header-left{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: fit-content;
   gap: 30px;
   align-items: center;
 }
@@ -73,45 +41,22 @@
 }
 .canvs-navbar-cmp-sec{
   height: auto;
-  padding: 15px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
-  flex-wrap: nowrap;
-}
-.under-navbar-cpm-sec{
-  flex-shrink: 1;
-  flex-basis:fit-content;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-}
+  }
 .navbar-cpm-logo{
-  width: auto;
-  height: 68px;
+  width: auto; 
+   height: 68px; 
 }
 .navbar-cpm-name{
   font-size: 1.8rem;
   color: white;
-  font-weight: bold;
   text-shadow: 0px 4px 0px #201323;
-}
-
-.navbar-cpm-status{
-  font-size: 1.0rem;
-  color: #04ec04;
-  font-weight: bold;
-  position: relative;
-  left: -18px;
-  text-shadow: 1px 1px 0px #000000;
 }
 .navbar-header-right-btn-sec{
   display: flex;
-  flex-direction: row;
   border-collapse: collapse;
-  border-spacing: 0px;
-  color: white;
   list-style-type: none;
 }
 .navbar-header-right-btn{

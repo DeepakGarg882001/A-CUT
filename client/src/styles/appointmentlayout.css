@@ -1,4 +1,18 @@
 .appoint_main{
       display: flex;
       justify-content:space-around ;
+      font-size: bold;
+      background-color: rgb(209, 205, 202);
+      margin: 1rem;
+      cursor:pointer;
 }
+#can_appointment button{
+     margin: 1rem;
+     padding: 5px;
+     border-radius: 5px;
+     cursor:pointer;
+}
+#can_appointment  :hover{
+      background-color: red;
+}
+
