@@ -4,7 +4,7 @@ import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 import { AiFillGithub } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import img1 from "../../Assets/home.png";
+import img1 from "../../Assets/about1.png";
 import "../../styles/about.css";
 import mem1img from "../../Assets/team_img1.jpg";
 import mem2img from "../../Assets/team_img2.jpg";

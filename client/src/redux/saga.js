@@ -15,6 +15,7 @@ import {
   SET_BOOKED_SLOTS,
   GET_MY_APPOINTMENTS,
   SET_MY_APPOINTMENTS,
+  SEARCH_ALL_SHOPS_DATA,
 } from "./reduxConstants";
 
 const url = process.env.REACT_APP_SERVER_URL;
@@ -147,7 +148,27 @@ function* getAllShopsList(action) {
   }
   yield put({ type: SET_ALL_SHOPS_DATA, data: data });
 }
+// call api for particular shop
+function* searchParticularShop(action){
+  const makeRequest = yield fetch(`${url}/getAllShops?key=${action.query}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
 
+  const response = yield makeRequest.json();
+  let data;
+  if (response.data) {
+    data = response.data;
+  }
+  if (response.error) {
+    data = response;
+  }
+  yield put({ type: SET_ALL_SHOPS_DATA, data: data });
+}
 // Call API to get the whole data of a Shop of a Particular Owner
 function* getOwnerShopData(action) {
   const makeRequest = yield fetch(`${url}/getShop?key=${action.data}`, {
@@ -197,6 +218,7 @@ function* Saga() {
   yield takeEvery(GET_SERVICES_LIST, fetchServiceList);
   yield takeEvery(GET_OWNER_SHOP_DATA, getOwnerShopData);
   yield takeEvery(GET_ALL_SHOPS_DATA, getAllShopsList);
+  yield takeEvery(SEARCH_ALL_SHOPS_DATA,searchParticularShop);
   yield takeEvery(GET_SHOP_DATA, getUniqueShopData);
   yield takeEvery(GET_OWNER_CUSTOMER_DATA, getOwnerCustomerData);
   yield takeEvery(GET_BOOKED_SLOTS, getBookedSlots);
