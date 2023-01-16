@@ -20,7 +20,6 @@ import { logoutUserDataAction } from "../../redux/action/userAction";
 import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
 
 const Menu = ({ setActivePanel }) => {
-
   const dispatch = useDispatch();
   const url = process.env.REACT_APP_SERVER_URL;
 
@@ -30,7 +29,6 @@ const Menu = ({ setActivePanel }) => {
   return (
     <>
       <div className="menu-canvas">
-
         {user.token ? (
           <div className="side-panel-profile">
             <Link
@@ -65,11 +63,20 @@ const Menu = ({ setActivePanel }) => {
             </Link>
             <Link
               style={{ textDecoration: "none" }}
-              to="/services"
+              to="/about"
               onClick={() => setActivePanel("none")}
             >
               <li className="menu-list-option">
-                <MdMiscellaneousServices /> Services
+                <MdOutlineInfo /> About Us
+              </li>
+            </Link>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/contact"
+              onClick={() => setActivePanel("none")}
+            >
+              <li className="menu-list-option">
+                <MdMiscellaneousServices /> ContactUs
               </li>
             </Link>
             <Link
@@ -84,29 +91,9 @@ const Menu = ({ setActivePanel }) => {
                 <BsShopWindow /> All Shops
               </li>
             </Link>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/about"
-              onClick={() => setActivePanel("none")}
-            >
-              <li className="menu-list-option">
-                <MdOutlineInfo /> About Us
-              </li>
-            </Link>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/contact"
-              onClick={() => setActivePanel("none")}
-            >
-              <li className="menu-list-option">
-                <MdOutlineContactSupport />
-                Contact Us
-              </li>
-            </Link>
             {userRole === "customer" ? (
               <Link
                 style={{ textDecoration: "none" }}
-
                 to="/myAppointment"
                 onClick={() => {
                   setActivePanel("none");
@@ -116,12 +103,12 @@ const Menu = ({ setActivePanel }) => {
                 <li className="menu-list-option">
                   <GrSchedules style={{ opacity: 0.5 }} /> Appointments
                 </li>
-              </Link>) : null}
+              </Link>
+            ) : null}
 
             {user.token ? (
               <Link
                 style={{ textDecoration: "none" }}
-
                 to="/"
                 onClick={() => {
                   dispatch(logoutUserDataAction());
