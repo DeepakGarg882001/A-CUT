@@ -17,7 +17,7 @@ const ShowShops = () => {
     <>
 
         <div className='allShops-canvas'>
-        <div className=" allshop_tittle">-:All Avalable Shops:-Book Your Slot Now</div>
+        <div className=" allshop_tittle">-:All Avalable Shops</div>
 
             <SearchBar />
             <div>

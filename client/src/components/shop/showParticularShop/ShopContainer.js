@@ -1,5 +1,6 @@
 import React from "react";
-import shopimage from "../../../Assets/home1.jpg";
+// import shopimage from "../../../Assets/home1.jpg";
+import shopimage from "../../../Assets/hair_cut.png";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getParticularShopData } from "../../../redux/action/particularShopAction";

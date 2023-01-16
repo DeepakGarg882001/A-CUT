@@ -1,3 +1,8 @@
+.appointment{
+      height: 60vh;
+      margin-top: 2rem;
+}
+
 #appointment_search{
       margin-left:1rem ;
       margin-top: 1rem;

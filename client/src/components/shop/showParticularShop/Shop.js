@@ -198,7 +198,7 @@ const Shop = () => {
 
         <div className="booking-details">
           <div className="schdule-time">
-            <h1>Choose Your Comfortable Time Slot</h1>
+            <h3>Choose Your Comfortable Time Slot</h3>
             <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
           </div>
           <div className="shop-services">

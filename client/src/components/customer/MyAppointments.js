@@ -14,7 +14,7 @@ const MyAppointments = () => {
 
    return (
       <>
-         <div>
+         <div className='appointment'>
             <div className="appointment_tittle">-: Appointment Details :-
             </div>
             {/* <SearchBar /> */}
