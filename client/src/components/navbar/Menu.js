@@ -65,11 +65,11 @@ const Menu = ({ setActivePanel }) => {
             </Link>
             <Link
               style={{ textDecoration: "none" }}
-              to="/services"
+              to="/contact"
               onClick={() => setActivePanel("none")}
             >
               <li className="menu-list-option">
-                <MdMiscellaneousServices /> Services
+                <MdMiscellaneousServices /> ContactUs
               </li>
             </Link>
             <Link

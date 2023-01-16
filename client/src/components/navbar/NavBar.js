@@ -2,24 +2,50 @@ import React, { useState } from "react";
 import "../../styles/navbar.css";
 import Menu from "./Menu";
 import logo from "../../Assets/logo.png";
-
+import AccountCircle from "@mui/icons-material/AccountCircle";
 import { MdOutlineMenu, MdClose } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import userAvtar from "../../Assets/shop3.jpg";
+import { useNavigate } from "react-router-dom";
 
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+// import AccountCircle from '@mui/icons-material/AccountCircle';
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import MenuItem from "@mui/material/MenuItem";
+// import Menu from '@mui/material/Menu';
 const NavBar = () => {
   const [activePanel, setActivePanel] = useState("none");
   const user = useSelector((state) => state.userReducer);
   const url = process.env.REACT_APP_SERVER_URL;
   const location = useLocation().pathname;
+  const navigate = useNavigate();
+  //dropdown
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <>
       <div className="canvas-navbar">
         <div
           className="canvas-navbar-side-panel"
-          style={{ display: activePanel }}>
+          style={{ display: activePanel }}
+        >
           <div className="under-side-panel-navbar">
             <div className="side-panel-close-sec">
               <MdClose onClick={() => setActivePanel("none")} />
@@ -47,7 +73,11 @@ const NavBar = () => {
             <Link style={{ textDecoration: "none" }} to="/">
               <div className="canvs-navbar-cmp-sec">
                 <div className="under-navbar-cpm-sec">
-                  <img src={logo} className="navbar-cpm-logo" alt="company_logo"/>
+                  <img
+                    src={logo}
+                    className="navbar-cpm-logo"
+                    alt="company_logo"
+                  />
                 </div>
                 <div className="under-navbar-cpm-sec">
                   <h1 className="navbar-cpm-name"> A-CUT </h1>
@@ -58,7 +88,7 @@ const NavBar = () => {
 
           <div className="navbar-header-right">
             {user.token ? (
-              <Link to="/dashboard" style={{ textDecoration: "none" }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="navbar-header-profile">
                   <img
                     className="navbar-header-profile-img"
