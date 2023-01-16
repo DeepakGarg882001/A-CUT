@@ -3,7 +3,9 @@
     margin-bottom: 2rem;
     background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
     padding: 60px 0 100px 0;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .contact img {
