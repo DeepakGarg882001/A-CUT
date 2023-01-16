@@ -13,16 +13,34 @@
     color: rgb(2, 6, 9);
 } */
 .home_page {
-    margin-top: 5vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .home2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
     font-size: 1.5rem;
     text-decoration-style: solid;
     font-family: "Times New Roman", Times, serif;
+}
+.home_logo img{
+    /* margin-left: 5rem;*/
+    margin-bottom: 3rem; 
+    width: 20vw;
+    height: 30vh;
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    
+}
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
 }
 
 

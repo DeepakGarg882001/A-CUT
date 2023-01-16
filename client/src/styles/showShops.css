@@ -7,6 +7,11 @@
     background-color: white;
     align-items: center;
 }
+.allshop_tittle{
+font-size: 2rem;
+font-family: 'Times New Roman', Times, serif;
+margin-top: 1rem;
+}
 
 .allShops-list-sec{
     display: flex;
