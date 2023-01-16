@@ -1,34 +1,69 @@
  .choose_accunt{
-  margin: 5rem;
+   width: 100vw;
+   height: auto;
+   min-height: 90vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
   
-  }
-  .create{
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-  }
 
   .choose{
-    margin-top: 3rem;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction:row;
-    justify-content: space-around;
+    justify-content: space-between;
+    min-width: 70vw;
+    min-height: 70vh;
+    width: auto;
+    height: auto;
+    padding: 5px 5px 40px 5px;
+
   }
   
-   .usersignup ,.shopsignup{
-    position: relative;
-    width: 20vw;
-    height: 20vh;
-    padding: 5px;
-    background-color: rgb(245, 244, 248);
-    border-radius: 20%;
-    border: 1px solid black;
+  .customer-signup{
+    width: 49vw;
+    height: auto;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 10px 10px 5px 12px lightblue;
-  } 
-  
+    justify-content: center;
+    align-items: center;
+  }
+  .customer-signup-img{
+   
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80%;
+  }
+  .customer-signup-text{
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 800;
+    color: #f07467;
+    
+  }
+  .owner-signup-text{
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 800;
+    color: #48a1a6;
+  }
+  .owner-signup{
+    width: 49vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .owner-signup-img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
  #signupimg{
     width:15vw;
     height: 10vh;

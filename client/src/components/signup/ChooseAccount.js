@@ -1,39 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/chooseaccunt.css";
-import customerimg from "../../Assets/userchoose.png";
-import shopimg from "../../Assets/shopchoose.png";
-
-
+import salon_customer from "../../Assets/salon_customer.png";
+import salon_owner from "../../Assets/salon_owner.png";
 
 const ChooseAccount = () => {
   return (
     <>
       <div className="choose_accunt">
-
-
-        <h1 className="create">Create Account As A</h1>
+       
 
         <div className="choose">
-          <div className="usersignup" >
-            <img src={customerimg} alt="as a customer" id="signupimg" />
-            <Link to="/signUpcustomer" id="do_regis">Customer</Link>
+          <div className="customer-signup">
+            <img src={salon_customer} alt="as a customer" className="customer-signup-img" />
+            <div>
+            <Link to="/signUpcustomer" className="customer-signup-text" ><p> New Customer</p></Link>
+            </div>
+           
           </div>
 
-
-
-          <div className="shopsignup">
-            <img src={shopimg} alt="as a shopkeeper" id="signupimg" />
-
-            <Link to="/signUpowner"  id="do_regis">Shop Owner</Link>
+          <div className="owner-signup">
+            <img src={salon_owner} alt="as a shopkeeper" className="owner-signup-img" />
+             <div>
+             <Link to="/signUpowner" className="owner-signup-text" > <p> Create a New Salon</p></Link>
+             </div>
+            
+            
           </div>
-
         </div>
-
-
       </div>
     </>
-  )
-}
+  );
+};
 
 export default ChooseAccount;

@@ -7,6 +7,8 @@
     min-height: 90vh;
     gap: 30px;
     background-color: white;
+    padding-top: 20px;
+    padding-bottom: 70px;
 }
 .forgotPass-left-sec{
     width: fit-content;
@@ -28,7 +30,7 @@
     padding: 0px 16px;
 }
 .forgotPass-right-top{
-   font-size: 4.5rem;
+   font-size: 3.5rem;
    font-weight: bolder;
    color: #ff418c;
 }
