@@ -34,6 +34,8 @@ import MyAppointments from "./customer/MyAppointments";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import VerifyOTP from "./forgotPassword/VerifyOTP";
+import ChangePassword from "./forgotPassword/ChangePassword";
 
 const Router = ()=>{
 
@@ -56,6 +58,8 @@ const Router = ()=>{
                     <Route path="/profile" element={ <UserDashBoard />} />
 
                     <Route path="/forgotPass" element={ <ForgotPass />} />
+                    <Route path="/user/forgot/enter/otp" element={ <VerifyOTP />} />
+                    <Route path="/user/change/pass" element={ <ChangePassword />} />
 
                        
                     <Route path="/owner" element={ <OwnerDashBoard />} >

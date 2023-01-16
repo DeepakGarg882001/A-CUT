@@ -28,24 +28,34 @@ import {
   cancelCustomerAppointment,
 } from "./customerAppointment.js";
 import ownerAuthenticate from "../middleware/ownerAuthentication.js";
-
+import {
+  setNewPassword,
+  sendFrgPassOTP,
+  verifyFrgPassOTP,
+  sendOTPtoEmail,
+  verifyOTPforEmail,
+} from "./password.js";
 
 //    ======= Authentication Routes =========  //
 
 router.route("/signup").post(signup);
 router.route("/login").post(login);
 
+router.route("/user/new/pass").post(setNewPassword);
+router.route("/user/forgot/pass").post(sendFrgPassOTP);
+router.route("/entered/otp/verify").post(verifyFrgPassOTP);
 
-router.route("/createShop").post(ownerAuthenticate,createShop);
+router.route("/createShop").post(ownerAuthenticate, createShop);
 router.route("/getAllShops").get(getAllShops);
 router.route("/getShop").get(getShopById);
-router.route("/updateShopDetails").post(ownerAuthenticate,updateShopDetails);
-router.route("/addShopService").post(ownerAuthenticate,addShopService);
-router.route("/deletShop").post(ownerAuthenticate,deletShop);
-router.route("/updateShopService").post(ownerAuthenticate,updateShopService);
-router.route("/deletShopService").post(ownerAuthenticate,deletShopService);
-router.route("/uploadShopImage").post(ownerAuthenticate,uploadImages,uploadShopImage);
-
+router.route("/updateShopDetails").post(ownerAuthenticate, updateShopDetails);
+router.route("/addShopService").post(ownerAuthenticate, addShopService);
+router.route("/deletShop").post(ownerAuthenticate, deletShop);
+router.route("/updateShopService").post(ownerAuthenticate, updateShopService);
+router.route("/deletShopService").post(ownerAuthenticate, deletShopService);
+router
+  .route("/uploadShopImage")
+  .post(ownerAuthenticate, uploadImages, uploadShopImage);
 
 router.route("/addService").post(add_services);
 router.route("/getServices").get(get_services);
@@ -57,7 +67,5 @@ router.route("/getAllAppointments").post(getAllAppointments);
 router.route("/getMyAppointments").get(getMyAppointments);
 router.route("/getAllCustomerAppointments").post(getAllCustomerAppointments);
 router.route("/deleteCustomerAppointments").delete(cancelCustomerAppointment);
-
-
 
 export default router;
