@@ -3,14 +3,23 @@
   width: 100vw;
 }
 .canvas-navbar-side-panel{
-  max-width: 300px;
- background-color: whitesmoke;
-   position: absolute;
-  top: 0px; 
-   left: 0px;
+  max-width: 400px;
+  min-width: 300px;
+  width: inherit;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 30;
+  padding-bottom: 30px;
+  height: fit-content;
+  min-height: 100vh;
   
 }
-
+.under-side-panel-navbar{
+  display: flex;
+  flex-direction: column;
+}
 .side-panel-close-sec{
   position: absolute;
   top: 10px;
@@ -20,7 +29,12 @@
   cursor: pointer;
 }
 .side-panel-menu{
-   padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
 }
 .navbar-canvas-header{
   display: flex;
