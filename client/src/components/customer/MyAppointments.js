@@ -2,7 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import AppointmentLayout from './AppointmentLayout';
 import "../../styles/myappointments.css";
-import { BsSearch } from "react-icons/bs";
+// import SearchBar from '../../components/shop/showAllShops/SearchBar.js';
+
 
 
 const MyAppointments = () => {
@@ -16,9 +17,7 @@ const MyAppointments = () => {
          <div>
             <div className="appointment_tittle">-: Appointment Details :-
             </div>
-            <input type="text" placeholder="Search Your Booking slot" id="appointment_search" />
-            
-            <span id="appointment_search" className="search_slot"> <BsSearch />Search Here </span>
+            {/* <SearchBar /> */}
 
             {appointmentList.length !== 0 ? appointmentList.map((data, index) => {
                return (
