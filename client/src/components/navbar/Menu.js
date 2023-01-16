@@ -3,7 +3,7 @@ import "../../styles/menu.css";
 import { Link } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
 import userImg from "../../Assets/shop3.jpg";
-import getAllShopAction from "../../redux/action/allShopsAction";
+import {getAllShopAction} from "../../redux/action/allShopsAction";
 
 import {
   MdHome,

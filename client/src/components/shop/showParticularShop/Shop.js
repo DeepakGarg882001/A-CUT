@@ -13,7 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Shop = () => {
   const dispatch = useDispatch();
-
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);

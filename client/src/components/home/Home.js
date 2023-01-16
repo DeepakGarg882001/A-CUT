@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import "../../styles/home.css";
 import logo from "../../Assets/logo.png";
-
-
 import Services from "../plateformServices/PlateformServices";
 import { Link } from "react-router-dom";
 import ShopContainer from "../shop/showParticularShop/ShopContainer";
 import { useDispatch, useSelector } from "react-redux";
 import getPlateformServiceListAction from "../../redux/action/getPlateformServicesAction";
-import getAllShopAction from "../../redux/action/allShopsAction";
+import {getAllShopAction} from "../../redux/action/allShopsAction";
 import userLocationAction from "../../redux/action/userLocationAction";
 import imgg from "../../Assets/home.png";
 

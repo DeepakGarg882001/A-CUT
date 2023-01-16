@@ -228,7 +228,6 @@ const MyShop = () => {
           <div className="myShop-map-loc-btn" onClick={() => changeLocation()}>
             Choose Current Location
           </div>
-
           <iframe
             width="100%"
             height="100%"

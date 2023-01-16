@@ -39,9 +39,9 @@ const EditServices = ({ data, id }) => {
       dispatch(getOwnerShopDataAction(id));
     }
   };
-  useEffect(() => {
-    dispatch(getOwnerShopDataAction(id));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getOwnerShopDataAction(id));
+  // }, []);
 
   const deletService = async () => {
     const makeReq = await fetch(`${url}/deletShopService`, {
