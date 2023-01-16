@@ -87,7 +87,8 @@ const SignUp = () => {
    }
 
   }
-
+  
+  
   return (
     <>
       <div className="loginInner">

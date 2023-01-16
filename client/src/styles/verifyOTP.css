@@ -1,0 +1,119 @@
+.verify-otp-canvas{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 86vh;
+    gap: 30px;
+    background-color: white;
+}
+.verify-otp-left-sec{
+    width: fit-content;
+    height: 70vh;
+
+}
+.verify-otp-img{
+    max-height: 100%;
+    max-width: 100%;
+    height: fit-content;
+    width: auto;
+}
+.verify-otp-right-sec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 20px;
+    padding: 20px 10px;
+}
+.verify-otp-right-top{
+   font-size: 4.5rem;
+   font-weight: bolder;
+   color: #ff4b3d;
+}
+.verify-otp-right-middle{
+    color: #3c2bd6;
+    font-size: 1.5rem;
+    
+}
+.verify-otp-form{
+    margin-top: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.verify-otp-field{
+    width: 80%;
+}
+.verify-otp-btn{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    width: fit-content;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width:1230px) {
+    .verify-otp-right-top{
+        font-size: 4rem;
+    }
+}
+
+
+@media only screen and (max-width:1150px) {
+    .verify-otp-right-top{
+        font-size: 3.5rem;
+    }
+    .verify-otp-left-sec{
+        height: fit-content;
+    }
+    .verify-otp-img{
+        width: 50vw;
+    }
+}
+
+
+@media only screen and (max-width:900px) {
+    .verify-otp-img{
+        width: 60vw;
+    }
+}
+
+
+@media only screen and (max-width:780px) {
+    .verify-otp-canvas{
+        flex-direction: column;
+        padding-bottom: 50px;
+        gap: 0px;
+    }
+    .verify-otp-right-sec{
+        gap: 8px;
+        padding: 0px 16px;
+    }
+
+}
+
+
+@media only screen and (max-width:600px) {
+    .verify-otp-img{
+        width: 70vw;
+    }
+}
+
+
+@media only screen and (max-width:500px) {
+    .verify-otp-img{
+        width: 80vw;
+    }
+    .verify-otp-right-top{
+        font-size: 2.5rem;
+    }
+    .verify-otp-right-middle{
+        font-size: 1.3rem;
+    }
+}
