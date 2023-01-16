@@ -7,6 +7,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-flow: row wrap;
+    margin: 1rem;
+
+    /* flex-wrap: wrap; */
 
 }
 

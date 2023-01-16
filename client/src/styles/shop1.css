@@ -213,13 +213,24 @@
 .service-table table tr:nth-child(even) {
   background-color: #dddddd;
 }
-.service-btn{
+/* .service-btn{
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   background-color: #497174;
-}
+} */
+.service-btn button{
+     width: 30rem;
+   height: 3rem;
+    font-size: 1.5rem;
+     text-align: center;
+     
+ }
+ .service-btn  :hover{
+background-color: #59c1bd;
+cursor: pointer;
+ }
 
 /* media queries */
 @media screen and (max-width: 400px) {

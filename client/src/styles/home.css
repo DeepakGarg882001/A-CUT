@@ -44,7 +44,10 @@
 .individual {
     display: flex;
     justify-content: space-evenly;
-    margin: 1rem;
+    margin: 10px;
+    
+    flex-flow: row wrap;
+
 
     /* position: relative;
     animation: mymove 5s infinite;
@@ -99,6 +102,8 @@ text-decoration: none;
 
     display: flex;
     flex-direction: row;
+    flex-flow: row wrap;
+
     justify-content: space-between;
     align-items: center;
 }
