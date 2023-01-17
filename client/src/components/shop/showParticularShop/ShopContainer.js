@@ -17,9 +17,16 @@ const ShopContainer = ({ data }) => {
       <div className="individual-shop">
         <Link to="/showShopDetails" onClick={() => dispatch(getParticularShopData(data._id))}>
           <h3 className="shop_na">{data.shop_name}</h3>
-          {crrAvtar!==""? <img src={crrAvtar} className="" alt="shop_img" /> :
+          <div 
+          className="shop_details" 
+          >
+          {crrAvtar!==""? <img src={crrAvtar} 
+          className="shop_details"
+           alt="shop_img" /> :
           <div  className="" >Does not have any Images</div>
           }
+          </div>
+         
           <button className="btn">Book Now</button>
         </Link>
       </div>
