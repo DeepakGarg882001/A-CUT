@@ -4,11 +4,13 @@ import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
-import { updateDate,updateCounterNumber } from "../../../redux/action/bookShopSlotAction";
+import { updateDate, updateCounterNumber } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Field } from "formik";
+
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -101,7 +103,7 @@ const Shop = () => {
         })
       );
     }
-  }, [showingDate,bookingData.counter_number]);
+  }, [showingDate, bookingData.counter_number]);
 
   useEffect(() => {
     dispatch(clearBookingData());
@@ -117,22 +119,22 @@ const Shop = () => {
   };
 
   // Converting The Shop Time
-  const convertTime =(number)=>{
-    
+  const convertTime = (number) => {
+
     const nonDecimal = Math.floor(number);
     const decimalValue = number - nonDecimal;
     let hour = convertToHr(nonDecimal);
-    
-    switch(decimalValue){
+
+    switch (decimalValue) {
       case 0:
-         return `${hour}:00 ${nonDecimal>=12? "PM":"AM"}`;
+        return `${hour}:00 ${nonDecimal >= 12 ? "PM" : "AM"}`;
 
       case 0.25:
-        return `${hour}:15 ${nonDecimal>=12? "PM":"AM"}`;
+        return `${hour}:15 ${nonDecimal >= 12 ? "PM" : "AM"}`;
       case 0.5:
-        return `${hour}:30 ${nonDecimal>=12? "PM":"AM"}`;
+        return `${hour}:30 ${nonDecimal >= 12 ? "PM" : "AM"}`;
       case 0.75:
-        return `${hour}:45 ${nonDecimal>=12? "PM":"AM"}`;
+        return `${hour}:45 ${nonDecimal >= 12 ? "PM" : "AM"}`;
 
       default: break;
     }
@@ -142,14 +144,14 @@ const Shop = () => {
   return (
     <>
       <header id="header">
-          <div>
+        <div>
 
-          {crrAvtar!==""? <img src={crrAvtar} 
-          className="shop_details"
-           alt="shop_img" /> :
-          <div  className="" >Add Linear Gradient</div>
+          {crrAvtar !== "" ? <img src={crrAvtar}
+            className="shop_details"
+            alt="shop_img" /> :
+            <div className="" >Add Linear Gradient</div>
           }
-          </div>
+        </div>
 
 
         <div className="shop-details">
@@ -174,7 +176,7 @@ const Shop = () => {
             <div className="shop-timing">
               <h3>
                 <span>
-                  Shop Timing <span /> ➤ <span /> {convertTime(openTime) } - {convertTime(closeTime) }
+                  Shop Timing <span /> ➤ <span /> {convertTime(openTime)} - {convertTime(closeTime)}
                 </span>
               </h3>
             </div>
@@ -183,6 +185,7 @@ const Shop = () => {
 
         <div>
           <div>
+            <h3>Choose Your Date:-</h3>
             <p>
               Date : <span>{showingDate}</span>{" "}
               <input
@@ -195,42 +198,51 @@ const Shop = () => {
               />
             </p>
           </div>
+          <h3>Select Counter For Booking:-</h3>
 
-          {shopCounters !== []
-            ? shopCounters.map((data, index) => {
+
+            {shopCounters !== []
+              ? shopCounters.map((data, index) => {
+               
                 return (
+
                   <React.Fragment key={index}>
-                    <div onClick={()=>dispatch(updateCounterNumber(data.counter_number))}>
-                      <p>Counter : {data.counter_number}</p>
+
+                    <div onClick={() => dispatch(updateCounterNumber(data.counter_number))}>
+                      <button className="counter_no">Counter : {data.counter_number} </button>
                     </div>
+
                   </React.Fragment>
+
                 );
               })
-            : null}
+              : null}
         </div>
 
         <div className="booking-details">
           <div className="schdule-time">
-            <h1>Choose Your Comfortable Time Slot</h1>
+            <h1>Choose Your Time Slot</h1>
             <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
           </div>
           <div className="shop-services">
             <div className="service-headline">
+              <h1>Select Services</h1>
               <h2>Services</h2>
             </div>
             <SelectServices data={ShopData} time={{ openTime, closeTime }} />
             <BookNow shopData={ShopData} />
           </div>
         </div>
-        
-        <div>
-        {ShopData.length!==0? (<iframe
+
+        <div className ="shop_location" >
+          Follow the path For Reach Our Shop
+          {ShopData.length !== 0 ? (<iframe 
             width="100%"
             height="100%"
             title="shop_location"
             src={`https://maps.google.com/maps?q=${ShopData.shop_location.latitude},${ShopData.shop_location.longitude}&z=14&output=embed`}
-          ></iframe>):null}
-        
+          ></iframe>) : null}
+
         </div>
 
       </header>
