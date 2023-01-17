@@ -7,8 +7,8 @@ import ContactUs from "./contact/Contact";
 
 import Login from "./login/Login";
 import SignUp from "./signup/SignUp";
-import EmailVerify from "./emailverify/EmailVerify";
-import OtpVerify from "./otpverify/OtpVerify";
+import EmailVerify from "./signup/EmailVerify";
+import OtpVerify from "./signup/OtpVerify";
 
 import ForgotPass from "./forgotPassword/ForgotPass";
 import Footer from './footer/Footer';
@@ -57,8 +57,8 @@ const Router = ()=>{
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />
-                    <Route path="/signUp:role" element={ <SignUp />} />
-                    <Route path="/emailverify" element={ <EmailVerify />} />
+                    <Route path="/signUp" element={ <SignUp />} />
+                    <Route path="/emailverify:role" element={ <EmailVerify />} />
                     <Route path="/otpverify" element={ <OtpVerify />} />
 
                     <Route path="/profile" element={ <UserDashBoard />} />

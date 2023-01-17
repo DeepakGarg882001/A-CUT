@@ -14,7 +14,7 @@ const ChooseAccount = () => {
           <div className="customer-signup">
             <img src={salon_customer} alt="as a customer" className="customer-signup-img" />
             <div>
-            <Link to="/signUpcustomer" className="customer-signup-text" ><p> New Customer</p></Link>
+            <Link to="/emailverifycustomer" className="customer-signup-text" ><p> New Customer</p></Link>
             </div>
            
           </div>
@@ -22,7 +22,7 @@ const ChooseAccount = () => {
           <div className="owner-signup">
             <img src={salon_owner} alt="as a shopkeeper" className="owner-signup-img" />
              <div>
-             <Link to="/signUpowner" className="owner-signup-text" > <p> Create a New Salon</p></Link>
+             <Link to="/emailverifyowner" className="owner-signup-text" > <p> Create a New Salon</p></Link>
              </div>
             
             

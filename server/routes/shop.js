@@ -1,8 +1,8 @@
-import { response } from "express";
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
-import uploadImages from "../middleware/uploadImages.js";
-
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 export const createShop = async (request, response) => {
   try {
     const {
@@ -149,8 +149,6 @@ export const updateShopDetails = async (request, response) => {
 
 // update Particular Shop Image
 export const uploadShopImage = async (request, response) => {
-  console.log(request);
-  console.log("uploadImage is here");
   const { _id } = request.body;
   let FileObject = {};
 
@@ -166,8 +164,17 @@ export const uploadShopImage = async (request, response) => {
   });
 
   console.log(FileObject);
+   
+  const getShopDetails  = await shop.findOne({_id});
+   
+  if(getShopDetails.image.filePath){
+     const __filename = fileURLToPath(import.meta.url);
+     const fileAddress = path.join(path.dirname(__filename),`../${getShopDetails.image.filePath}`);
+     console.log(fileAddress);
+     fs.unlinkSync(fileAddress);
+  }
 
-  const addImgPaths = await shop.findByIdAndUpdate(_id, { image: FileObject });
+  const addImgPaths = await shop.updateMany({_id},{image:FileObject });
 
   if (!addImgPaths) {
     return response.status(400).json({ error: "Process Failed" });
