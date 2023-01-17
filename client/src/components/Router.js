@@ -57,7 +57,7 @@ const Router = ()=>{
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />
-                    <Route path="/signUp" element={ <SignUp />} />
+                    <Route path="/signUp:email" element={ <SignUp />} />
                     <Route path="/emailverify:role" element={ <EmailVerify />} />
                     <Route path="/otpverify" element={ <OtpVerify />} />
 

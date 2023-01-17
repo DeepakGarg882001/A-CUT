@@ -16,15 +16,14 @@ const SignUp = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
   
-  let { role } = useParams();
+  let { email } = useParams();
 
   const initialFormData = {
     name:"",
-    email:"",
+    email:email,
     phone:"",
     password:"",
     confirmPassword:"",
-    role:role
   } 
  
   const formValidation = yup.object().shape({
@@ -123,7 +122,7 @@ const SignUp = () => {
               <div className="icon">
                 <SiGmail/>
               </div>
-              <Field type="email" name="email"  placeholder="abc@example.com" />
+              <Field type="email" name="email"  placeholder="abc@example.com" disabled={true} />
             </div>
             <div>
             <p id="error_msg_sign"><ErrorMessage name="email" /></p>
