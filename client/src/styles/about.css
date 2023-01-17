@@ -1,9 +1,7 @@
 .about-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* margin: 2rem 3rem; */
+  
 }
 .about {
   display: flex;
@@ -50,22 +48,26 @@
 
 .team_inner {
   display: flex;
-  flex-direction: row;
-  text-align: center;
+/* justify-items: space-between; */
+justify-content: space-evenly;
 }
 .team_member {
   width: 25vw;
+
   height: 42vh;
-  background-color: rgb(25, 103, 152);
+  background-color: rgb(204, 198, 205);
   color: white;
-  margin-top: 2rem;
-  margin-left: 5rem;
+  box-shadow: 20px 20px 50px grey;
+
   font-weight: bold;
-  border-radius: 3rem;
-  box-shadow: 10px 10px 5px lightblue inset;
+   border-radius: 1rem;  
+}
+#member_details{
+  cursor: pointer;
+
 }
 #team_img {
-  border-radius: .5rem;
+  border-radius: 1rem;
   width: 20vw;
   height: 25vh;
 }
@@ -77,6 +79,7 @@
   text-decoration: none;
   font-size: 2.5rem;
   color: white;
+  cursor: pointer;
 }
 
 
@@ -85,19 +88,10 @@
 }
 
 #about_icon:hover {
-	background: rgba(255,255,255,1);
 	color: #25d033;
-	box-shadow: 0 0 0 8px rgba(182, 58, 58, 0.3);
-  border-radius: 10rem;
  
-  /* font-size: 2rem; */
 }
 
-#about_icon:hover:before {
-	-webkit-animation: toRightFromLeft 0.3s forwards;
-	-moz-animation: toRightFromLeft .3s forwards;
-	animation: toRightFromLeft .3s forwards;
-}
 
 
 
