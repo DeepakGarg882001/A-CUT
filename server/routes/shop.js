@@ -1,8 +1,8 @@
-import { response } from "express";
 import shop from "../DB_Collections/shopModel.js";
 import UserCol from "../DB_Collections/users.js";
-import uploadImages from "../middleware/uploadImages.js";
-
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 export const createShop = async (request, response) => {
   try {
     const {
@@ -149,8 +149,6 @@ export const updateShopDetails = async (request, response) => {
 
 // update Particular Shop Image
 export const uploadShopImage = async (request, response) => {
-  console.log(request);
-  console.log("uploadImage is here");
   const { _id } = request.body;
   let FileObject = {};
 
@@ -166,8 +164,17 @@ export const uploadShopImage = async (request, response) => {
   });
 
   console.log(FileObject);
+   
+  const getShopDetails  = await shop.findOne({_id});
+   
+  if(getShopDetails.image.filePath){
+     const __filename = fileURLToPath(import.meta.url);
+     const fileAddress = path.join(path.dirname(__filename),`../${getShopDetails.image.filePath}`);
+     console.log(fileAddress);
+     fs.unlinkSync(fileAddress);
+  }
 
-  const addImgPaths = await shop.findByIdAndUpdate(_id, { image: FileObject });
+  const addImgPaths = await shop.updateMany({_id},{image:FileObject });
 
   if (!addImgPaths) {
     return response.status(400).json({ error: "Process Failed" });
@@ -289,6 +296,30 @@ export const deletShopService = async (request, response) => {
 
 // Add a New Counter to Particular Shop
 export const addNewCounter = async(request,response)=>{
+   
+    const { counter_number,counter_head,_id} = request.body;
+
+    if( !counter_number | !counter_head | !_id ){
+      return response.status(400).json({error:"Please Provides the Details Correctly"});
+    }
+
+    const addCounter = await shop.findByIdAndUpdate({_id},{
+      $push: {
+        shop_counters: {
+          counter_number,
+          counter_head,
+        },
+      },
+    })
+  
+     if(!addCounter){
+      return response.status(400).json({error:"Process Failed,Try again"});
+     }
+
+     return response.status(200).json({message:"Counter Added Successfully"});
+
+
+
 
 }
 

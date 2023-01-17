@@ -6,7 +6,7 @@ const login = async (request, response) => {
   console.log(request.body);
   const { email, password } = request.body;
 
-  try {
+  
 
     if (!email || !password) {
       return response
@@ -19,7 +19,6 @@ const login = async (request, response) => {
       console.log(isUserExists);
 
       const checkPassword = await bcrypt.compare(password, isUserExists.password);
-
       if (!checkPassword) {
         return response.status(401).json({ error: "Invalid Credential !" });
       } else {
@@ -74,9 +73,7 @@ const login = async (request, response) => {
     } else {
       return response.status(401).json({ error: "Invalid Credential !" });
     }
-  } catch (error) {
-    response.status(401).json({ error });
-  }
+  
 };
 
 export default login;

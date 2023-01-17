@@ -28,13 +28,17 @@ const SelectServices = ({ data, time }) => {
                     />
                     <p>{data.service_name}</p>
                   </div>
+                  <div>
+                    <p>{data.duration} mint</p>
+                  </div>
+
                   <div className="service-selected-price">
-                    {/* <del>
+                   
+                    
+                    <p>  <del>
                       <BiRupee />
                       {data.price}
-                    </del> */}
-                    <h3>Price :</h3>
-                    <p> {currentPrice(data)}</p>
+                     </del> <span> {currentPrice(data)} </span></p>
                   </div>
                 </div>
               </React.Fragment>
