@@ -187,6 +187,24 @@ text-decoration: none;
         flex-direction: column;
         align-items: center;
     }
+    .home_page{
+        flex-direction: column;
+    }
+    .home1{
+        margin-top: 2rem;
+    }
+    .home1 img{
+        width: 100%;
+    }
+    .home2{
+        align-items: center;
+    }
+    .home2 .home_logo img{
+        width: 100%;
+    }
+    .individual-shop img{
+        width: 40vw;
+    }
 }
 
 @media only screen and (max-height:599px) and (min-height:360px) {
