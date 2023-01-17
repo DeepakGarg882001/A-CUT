@@ -4,23 +4,21 @@ import UserCol from "../DB_Collections/users.js";
 
 const login = async (request, response) => {
   console.log(request.body);
+  const { email, password } = request.body;
 
   try {
-    const { email, password } = request.body;
 
     if (!email || !password) {
       return response
         .status(401)
         .json({ error: "Please Fill the form Completely" });
     }
-
     const isUserExists = await UserCol.findOne({ email });
 
     if (isUserExists) {
       console.log(isUserExists);
 
       const checkPassword = await bcrypt.compare(password, isUserExists.password);
-      console.log("password checked is :", checkPassword)
       if (!checkPassword) {
         return response.status(401).json({ error: "Invalid Credential !" });
       } else {

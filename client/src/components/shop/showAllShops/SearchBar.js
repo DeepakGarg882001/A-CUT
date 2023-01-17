@@ -1,23 +1,20 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
-import { useSelector,useDispatch } from "react-redux";
- import {searchAllShopAction} from "../../../redux/action/allShopsAction";
+import { useSelector, useDispatch } from "react-redux";
+import { searchAllShopAction } from "../../../redux/action/allShopsAction";
+import "../../../styles/searchbar.css";
 const SearchBar = () => {
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   return (
-    <div>
+    <div className="search_bar">
+        
       <input
         type="text"
         placeholder="Search shops"
         id="appointment_search"
-        onChange={(e)=>dispatch(searchAllShopAction(e.target.value))}
-      />
-
-      <span id="appointment_search" className="search_slot">
-        {" "}
-        <BsSearch />
-        Search Here{" "}
-      </span>
+        onChange={(e) => dispatch(searchAllShopAction(e.target.value))}
+      />      
+  
     </div>
   );
 };

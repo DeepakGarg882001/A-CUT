@@ -2,10 +2,10 @@
     width: 100%;
     height: auto;
     display: flex;
-    min-height: 90vh;
     flex-direction: column;
     align-items: center;
     padding: 20px 10px;
+    gap:30px;
 }
 .myShop-canvas-fn-btn{
     position: absolute;
@@ -215,15 +215,16 @@
     left: 81%;
     cursor: pointer;
 }
-.myShop-canvas-form-bottom{
+.myShop-component-body{
     width: 90%;
     height: auto;
     display: flex;
     flex-direction: row;
     flex: 1;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0px;
+    gap: 15px;
+    margin: 5px 0px;
+    padding: 0px 10px;
 
 }
 
@@ -251,4 +252,20 @@
     align-items: center;
     gap: 14px;
     margin-top: 5px;
+}
+.myShop-component-frame{
+    width: 90%;
+}
+.myShop-heading-box{
+    width: 92%;
+    height: auto;
+    text-align: left;
+    padding-left: 20px;
+    padding: 10px;
+}
+.myShop-heading-text{
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 2px solid orange;
+    width: fit-content;
 }

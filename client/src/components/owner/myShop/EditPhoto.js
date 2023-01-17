@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "../../../styles/myShop.css";
-
+import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
+import { useDispatch } from "react-redux";
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
-  const crrAvtar = data.image ? `${url}/${data.image.filePath}` : "";
+  console.log(data);
+  const dispatch = useDispatch();
+  const crrAvtar = data.image ? `http://localhost:4000/${data.image.filePath}` : "";
   const [showBtn,setShowBtn] = useState(true);
   const [fileObj, setFileObj] = useState("");
   const [fileArray, setFileArray] = useState("");
@@ -55,7 +58,7 @@ function EditPhoto({ data }) {
     console.log(response);
 
     if (response.message) {
-      // dispatch(GetCurrentUser(response.data));
+      dispatch(getOwnerShopDataAction(data._id));
     } else {
       if (response.error.name) {
       } else {

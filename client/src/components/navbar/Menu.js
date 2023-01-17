@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/menu.css";
 import { Link } from "react-router-dom";
-import { useSelector ,useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import userImg from "../../Assets/shop3.jpg";
-import {getAllShopAction} from "../../redux/action/allShopsAction";
+import { getAllShopAction } from "../../redux/action/allShopsAction";
 
 import {
   MdHome,
@@ -15,22 +15,20 @@ import {
 } from "react-icons/md";
 
 import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
-import {GrSchedules} from "react-icons/gr";
+import { GrSchedules } from "react-icons/gr";
 import { logoutUserDataAction } from "../../redux/action/userAction";
 import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
 
 const Menu = ({ setActivePanel }) => {
-
   const dispatch = useDispatch();
   const url = process.env.REACT_APP_SERVER_URL;
 
   const user = useSelector((state) => state.userReducer);
-  const userRole = user.token? user.userRole.role : "";
+  const userRole = user.token ? user.userRole.role : "";
 
   return (
     <>
       <div className="menu-canvas">
-      
         {user.token ? (
           <div className="side-panel-profile">
             <Link
@@ -65,32 +63,11 @@ const Menu = ({ setActivePanel }) => {
             </Link>
             <Link
               style={{ textDecoration: "none" }}
-              to="/services"
-              onClick={() => setActivePanel("none")}
-            >
-              <li className="menu-list-option">
-                <MdMiscellaneousServices /> Services
-              </li>
-            </Link>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/all_shops"
-              onClick={() =>{ 
-                dispatch(getAllShopAction());
-                setActivePanel("none");
-                }}
-            >
-              <li className="menu-list-option">
-                <BsShopWindow /> All Shops
-              </li>
-            </Link>
-            <Link
-              style={{ textDecoration: "none" }}
               to="/about"
               onClick={() => setActivePanel("none")}
             >
               <li className="menu-list-option">
-                <MdOutlineInfo /> About Us
+                <MdOutlineContactSupport /> About Us
               </li>
             </Link>
             <Link
@@ -99,12 +76,33 @@ const Menu = ({ setActivePanel }) => {
               onClick={() => setActivePanel("none")}
             >
               <li className="menu-list-option">
-                <MdOutlineContactSupport />
-                Contact Us
+                <MdMiscellaneousServices /> ContactUs
               </li>
             </Link>
-            {userRole === "customer"? ( 
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/all_shops"
+              onClick={() => {
+                dispatch(getAllShopAction());
+                setActivePanel("none");
+              }}
+            >
+              <li className="menu-list-option">
+                <BsShopWindow /> All Shops
+              </li>
+            </Link>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/services"
+              onClick={() => setActivePanel("none")}
+            >
+              <li className="menu-list-option">
+                <  MdOutlineInfo /> Our Services
+              </li>
+            </Link>
+            {userRole === "customer" ? (
               <Link
+                style={{ textDecoration: "none" }}
                 to="/myAppointment"
                 onClick={() => {
                   setActivePanel("none");
@@ -112,12 +110,14 @@ const Menu = ({ setActivePanel }) => {
                 }}
               >
                 <li className="menu-list-option">
-                  <GrSchedules style={{opacity:0.5}}/> Appointments
+                  <GrSchedules style={{ opacity: 0.5 }} /> Appointments
                 </li>
-              </Link>): null }
+              </Link>
+            ) : null}
 
             {user.token ? (
               <Link
+                style={{ textDecoration: "none" }}
                 to="/"
                 onClick={() => {
                   dispatch(logoutUserDataAction());

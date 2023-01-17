@@ -53,12 +53,11 @@ const MyShop = () => {
 
   // call a fn to update Shop Details
   const updateShopDetails = async (values) => {
-    const { owner_name, shop_name, shop_mobile, shop_address,_id } = values;
+    const { owner_name, shop_name, shop_mobile, shop_address, _id } = values;
     const makeReq = await fetch(`${url}/updateShopDetails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        
       },
       credentials: "include",
       body: JSON.stringify({
@@ -68,7 +67,6 @@ const MyShop = () => {
         shop_address,
         shop_location: shopLocation,
         _id,
-
       }),
       credentials: "include",
     });
@@ -83,7 +81,6 @@ const MyShop = () => {
 
   // call a fn to Delete the Shop Account Permanently
   const removeShop = async () => {
-    
     const makeReq = await fetch(`${url}/deletShop`, {
       method: "POST",
       headers: {
@@ -235,28 +232,46 @@ const MyShop = () => {
             src={`https://maps.google.com/maps?q=${shopLocation.latitude},${shopLocation.longitude}&z=14&output=embed`}
           ></iframe>
         </div>
-            <h2>Services</h2>
-        <div className="myShop-canvas-form-bottom">
-          {shopServices !== [] ? (
-            shopServices.map((data, index) => {
-              return (
-                <React.Fragment key={index}>
-                  <EditServices data={data} id={ShopData._id} />
-                </React.Fragment>
-              );
-            })
-          ) : (
-            <div>
-              <h3>you does not provide any Service</h3>
-            </div>
-          )}
-          
+
+        <div className="myShop-component-frame">
+          <div className="myShop-heading-box">
+            <h2 className="myShop-heading-text"> My Services </h2>
+          </div>
+          <div className="myShop-component-body">
+            {shopServices !== [] ? (
+              shopServices.map((data, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <EditServices data={data} id={ShopData._id} />
+                  </React.Fragment>
+                );
+              })
+            ) : (
+              <div>
+                <h3>you does not provide any Service</h3>
+              </div>
+            )}
+          </div>
         </div>
-        <div>
+
+        <div className="myShop-component-frame">
+          <div className="myShop-heading-box">
+            <h2 className="myShop-heading-text"> Add New Service </h2>
+          </div>
+          <div className="myShop-component-body">
             <AddService data={ShopData} />
           </div>
+        </div>
+
+        <div className="myShop-component-frame">
+          <div className="myShop-heading-box">
+            <h2 className="myShop-heading-text"> Add New Counter </h2>
+          </div>
+          <div className="myShop-component-body">
+            <AddCounter data={ShopData} />
+          </div>
+        </div>
         <div>
-        <AddCounter data={ShopData}/>
           <button onClick={removeShop}>
             <MdOutlineDelete /> Delet Shop{" "}
           </button>

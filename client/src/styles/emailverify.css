@@ -1,0 +1,42 @@
+.emailverify_main{
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      gap: 30px;
+      background-color: white;
+      padding-top: 10px;
+      padding-bottom: 30px;
+}
+.emailverify_main img{
+      width: 17vw;
+      height: 25vh;
+      animation-name: rotate4;
+      animation-duration: 5s;
+      animation-iteration-count: 1;
+      animation-delay: 2s;
+      position: relative;
+      border-radius: 1rem;
+}
+ 
+@keyframes rotate4 {
+      0%   {background-color:red; left:-400px; top:0px;}
+      25%  {background-color:yellow; left:0px; top:0px;}
+      50%  {background-color:blue; left:400px; top:0px;}
+      75%  {background-color:green; left:0px; top:0px;}
+
+    }
+.mail_butto{
+      font-size: 1rem;
+      text-align: center; 
+      border-radius: 1rem;
+      width: 20vw;
+}
+.email_otp{
+      width: 10vw;
+      height: 5vh;
+      border: none;
+      background-color: rgb(221, 207, 201);
+}

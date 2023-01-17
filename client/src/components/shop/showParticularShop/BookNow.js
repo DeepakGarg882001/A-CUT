@@ -135,7 +135,7 @@ const BookNow = ({ shopData }) => {
         </div>
 
         <div className="service-btn">
-          <p onClick={() => postDataToServer()}>Submit</p>
+          <button onClick={() => postDataToServer()}>Confirm Your Slot</button>
         </div>
       </div>
     </>

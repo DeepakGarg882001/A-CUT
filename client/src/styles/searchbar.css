@@ -1,0 +1,17 @@
+.search_bar {
+      display: flex;
+      justify-content: space-around;
+      justify-items: center;
+      width: 40%;
+      height: 60px;
+      
+
+}
+#appointment_search{
+      border-radius: 1rem;
+      padding: 10px;
+      font-size: larger;
+      cursor: pointer;
+
+}
+
