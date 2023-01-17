@@ -44,8 +44,8 @@ const AboutUs = () => {
 
           <div className="team_inner">
 
-            <div className="team_member" id="jitu_details">
-              Deepak Garg
+            <div className="team_member">
+          <p  id="member_details">Deepak Garg</p>
               <div className="imgabout">
                 <img src={mem1img} alt="loading" id="team_img" />
                 <div className="about_social_media">
@@ -62,8 +62,8 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="team_member" id="jitu_details">
-              Joginder Gautam
+            <div className="team_member" >
+             <p id="member_details">Joginder Gautam</p> 
               <div className="imgabout">
                 <img src={mem2img} alt="loading" id="team_img" />
                 <div className="about_social_media">
@@ -80,8 +80,8 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="team_member" id="jitu_details">
-              Jitendra Kumar
+            <div className="team_member" >
+             <p id="member_details">Jitendra Kumar</p> 
               <div className="imgabout">
                 <img src={mem3img} alt="loading" id="team_img" />
                 <div className="about_social_media">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../../styles/myShop.css";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import { useDispatch } from "react-redux";
+import "../../../styles/editphoto.css";
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
   const image_url = process.env.REACT_APP_IMAGE_URL;
