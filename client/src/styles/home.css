@@ -22,16 +22,38 @@
     margin-top: 3rem; 
     width: 17vw;
     height: 25vh;
-    animation-name: rotate;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-name: rotate1;
+    border-radius: 2rem;
+    animation-duration: 3s;
+    /* animation-iteration-count: 1; */
+
+    animation-iteration-count: 1;
     animation-timing-function: linear;
-    
+    box-shadow: 20px 20px 50px 10px pink inset;
+
 }
-@keyframes rotate{
+
+@keyframes rotate1{
     from{ transform: rotate(-360deg); }
     to{ transform: rotate(360deg); }
 }
+@keyframes rotate2{
+    0%   {background-image:  conic-gradient(red, yellow, green);}
+    25%  {background-color: rgb(187, 21, 187);}
+    50%  {background-color: rgb(20, 20, 208);}
+    100% {background-color: rgb(41, 154, 41);}
+  }
+  .home1 img{
+    animation-name: rotate2;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    border-radius: 2rem;
+
+
+    box-shadow: 20px 20px 50px 10px rgb(196, 174, 177) inset;
+
+  }
 
 
 #labela-about {
