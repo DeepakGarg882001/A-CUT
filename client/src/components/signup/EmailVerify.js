@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import "../../styles/emailverify.css";
 import logo from "../../Assets/logo.png";
-
+import { useParams } from 'react-router-dom';
 
 const EmailVerify = () => {
+      let { role } = useParams();
+      console.log(role);
       return (
             <>
                   <div className="emailverify_main">
