@@ -4,9 +4,10 @@ import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import { useDispatch } from "react-redux";
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
+  const image_url = process.env.REACT_APP_IMAGE_URL;
   console.log(data);
   const dispatch = useDispatch();
-  const crrAvtar = data.image ? `http://localhost:4000/${data.image.filePath}` : "";
+  const crrAvtar = data.image ? `${image_url}/${data.image.filePath}` : "";
   const [showBtn,setShowBtn] = useState(true);
   const [fileObj, setFileObj] = useState("");
   const [fileArray, setFileArray] = useState("");
