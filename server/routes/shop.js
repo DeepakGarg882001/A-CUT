@@ -296,6 +296,30 @@ export const deletShopService = async (request, response) => {
 
 // Add a New Counter to Particular Shop
 export const addNewCounter = async(request,response)=>{
+   
+    const { counter_number,counter_head,_id} = request.body;
+
+    if( !counter_number | !counter_head | !_id ){
+      return response.status(400).json({error:"Please Provides the Details Correctly"});
+    }
+
+    const addCounter = await shop.findByIdAndUpdate({_id},{
+      $push: {
+        shop_counters: {
+          counter_number,
+          counter_head,
+        },
+      },
+    })
+  
+     if(!addCounter){
+      return response.status(400).json({error:"Process Failed,Try again"});
+     }
+
+     return response.status(200).json({message:"Counter Added Successfully"});
+
+
+
 
 }
 

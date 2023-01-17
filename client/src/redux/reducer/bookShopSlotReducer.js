@@ -4,7 +4,8 @@ import {
   ADD_TIME_SLOT,
   UPDATE_DATE,
   UPDATE_ENDING_TIME,
-  UPDATE_STARTING_TIME
+  UPDATE_STARTING_TIME,
+  UPDATE_COUNTER_NUMBER
 } from "../reduxConstants";
 
 const initialData = {
@@ -163,6 +164,9 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
     case UPDATE_STARTING_TIME :
                        data.starting_time= action.data;
                         return {...data};
+    case UPDATE_COUNTER_NUMBER:
+                      data.counter_number = action.data;
+                      return {...data};
     default:
       return data;
   }
