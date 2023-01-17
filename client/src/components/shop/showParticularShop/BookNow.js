@@ -103,6 +103,7 @@ const BookNow = ({ shopData }) => {
                   <th className="th">Total Price</th>
                   <th className="th">Time Slot</th>
                   <th className="th">Date</th>
+                  <th className="th">Counter Number</th>
                 </tr>
               </thead>
               <tbody>
@@ -128,6 +129,7 @@ const BookNow = ({ shopData }) => {
                    
                   </td>
                   <td className="td">{bookingData.date}</td>
+                  <td className="td">{bookingData.counter_number}</td>
                 </tr>
               </tbody>
             </table>

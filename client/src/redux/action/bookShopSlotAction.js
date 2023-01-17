@@ -4,7 +4,8 @@ import {
     ADD_TIME_SLOT,
     UPDATE_DATE,
     UPDATE_ENDING_TIME,
-    UPDATE_STARTING_TIME
+    UPDATE_STARTING_TIME,
+    UPDATE_COUNTER_NUMBER,
     } from "../reduxConstants";
 
 
@@ -46,6 +47,13 @@ export const updateStartingTime = (data)=>{
 export const updateEndingTime = (data)=>{
    return({
       type:UPDATE_ENDING_TIME,
+      data
+   })
+}
+
+export const updateCounterNumber = (data)=>{
+   return({
+      type:UPDATE_COUNTER_NUMBER,
       data
    })
 }

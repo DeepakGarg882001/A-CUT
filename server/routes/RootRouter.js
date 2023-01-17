@@ -1,7 +1,8 @@
 import express from "express";
 const router = express.Router();
 import uploadImages from "../middleware/uploadImages.js";
-import signup from "./signup.js";
+import {signup,sendOTPtoEmail,
+  verifyOTPforEmail} from "./signup.js";
 import login from "./login.js";
 import {
   createShop,
@@ -13,6 +14,7 @@ import {
   updateShopService,
   deletShopService,
   uploadShopImage,
+  addNewCounter,
 } from "./shop.js";
 import {
   add_services,
@@ -32,19 +34,22 @@ import {
   setNewPassword,
   sendFrgPassOTP,
   verifyFrgPassOTP,
-  sendOTPtoEmail,
-  verifyOTPforEmail,
+ 
 } from "./password.js";
+
 
 //    ======= Authentication Routes =========  //
 
 router.route("/signup").post(signup);
+router.route("/verifyEmail").post(sendOTPtoEmail);
+router.route("/verifyOTP").post(verifyOTPforEmail);
 router.route("/login").post(login);
 
 router.route("/user/new/pass").post(setNewPassword);
 router.route("/user/forgot/pass").post(sendFrgPassOTP);
 router.route("/entered/otp/verify").post(verifyFrgPassOTP);
 
+router.route("/addShopCounter").post(ownerAuthenticate, addNewCounter);
 router.route("/createShop").post(ownerAuthenticate, createShop);
 router.route("/getAllShops").get(getAllShops);
 router.route("/getShop").get(getShopById);

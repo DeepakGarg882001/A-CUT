@@ -7,6 +7,8 @@ import ContactUs from "./contact/Contact";
 
 import Login from "./login/Login";
 import SignUp from "./signup/SignUp";
+import EmailVerify from "./signup/EmailVerify";
+import OtpVerify from "./signup/OtpVerify";
 
 import ForgotPass from "./forgotPassword/ForgotPass";
 import Footer from './footer/Footer';
@@ -23,6 +25,7 @@ import AdminHome from "./admin/home/AdminHome";
 import ReportPage from "./admin/report/ReportPage";
 import Accounts from "./admin/account/Accounts";
 import AddServices from "./admin/services/AddServices";
+import Services from "../components/shop/showParticularShop/SelectServices";
 
 // import OurServices from "./plateformServices/OurServices";
 import ShowShops from "./shop/showAllShops/ShowShops";
@@ -47,14 +50,17 @@ const Router = ()=>{
                     <Route path="/" element={ <Home />} />
 
                     <Route path="/about" element={ <AboutUs />} />
-                    {/* <Route path="/services" element={ <Shop />} /> */}
+                    <Route path="/services" element={ <Services />} />
                     <Route path="/contact" element={ <ContactUs />} />
                     <Route path="/all_shops" element={ <ShowShops />} />
                     <Route path="/showShopDetails" element={ <Shop />} />
 
                     <Route path="/login" element={ <Login />} /> 
                     <Route path="/selectAccount" element={ <ChooseAccount />} />
-                    <Route path="/signUp:role" element={ <SignUp />} />
+                    <Route path="/signUp:email" element={ <SignUp />} />
+                    <Route path="/emailverify:role" element={ <EmailVerify />} />
+                    <Route path="/otpverify" element={ <OtpVerify />} />
+
                     <Route path="/profile" element={ <UserDashBoard />} />
 
                     <Route path="/forgotPass" element={ <ForgotPass />} />
