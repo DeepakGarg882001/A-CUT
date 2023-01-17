@@ -4,7 +4,7 @@ import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
-import { updateDate } from "../../../redux/action/bookShopSlotAction";
+import { updateDate,updateCounterNumber } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,6 +15,10 @@ const Shop = () => {
   const ShopData = useSelector((state) => state.particularShopReducer);
   const userLocation = useSelector((state) => state.userLocationReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
+
+  const image_url = process.env.REACT_APP_IMAGE_URL;
+  const crrAvtar = ShopData.image ? `${image_url}/${ShopData.image.filePath}` : "";
+
   // working with Date
   const todayDate = new Date();
   const minDate = todayDate.toJSON().substring(0, 10);
@@ -97,7 +101,7 @@ const Shop = () => {
         })
       );
     }
-  }, [showingDate]);
+  }, [showingDate,bookingData.counter_number]);
 
   useEffect(() => {
     dispatch(clearBookingData());
@@ -138,7 +142,16 @@ const Shop = () => {
   return (
     <>
       <header id="header">
-        {/* <ToastContainer /> */}
+          <div>
+
+          {crrAvtar!==""? <img src={crrAvtar} 
+          className="shop_details"
+           alt="shop_img" /> :
+          <div  className="" >Add Linear Gradient</div>
+          }
+          </div>
+
+
         <div className="shop-details">
           <h2> Shop Name :-{ShopData.shop_name}</h2>
           <div className="owner-detail">
@@ -187,7 +200,7 @@ const Shop = () => {
             ? shopCounters.map((data, index) => {
                 return (
                   <React.Fragment key={index}>
-                    <div>
+                    <div onClick={()=>dispatch(updateCounterNumber(data.counter_number))}>
                       <p>Counter : {data.counter_number}</p>
                     </div>
                   </React.Fragment>
@@ -209,6 +222,17 @@ const Shop = () => {
             <BookNow shopData={ShopData} />
           </div>
         </div>
+        
+        <div>
+        {ShopData.length!==0? (<iframe
+            width="100%"
+            height="100%"
+            title="shop_location"
+            src={`https://maps.google.com/maps?q=${ShopData.shop_location.latitude},${ShopData.shop_location.longitude}&z=14&output=embed`}
+          ></iframe>):null}
+        
+        </div>
+
       </header>
     </>
   );
