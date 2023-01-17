@@ -67,7 +67,7 @@ const Menu = ({ setActivePanel }) => {
               onClick={() => setActivePanel("none")}
             >
               <li className="menu-list-option">
-                <MdOutlineInfo /> About Us
+                <MdOutlineContactSupport /> About Us
               </li>
             </Link>
             <Link
@@ -89,6 +89,15 @@ const Menu = ({ setActivePanel }) => {
             >
               <li className="menu-list-option">
                 <BsShopWindow /> All Shops
+              </li>
+            </Link>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/services"
+              onClick={() => setActivePanel("none")}
+            >
+              <li className="menu-list-option">
+                <  MdOutlineInfo /> Our Services
               </li>
             </Link>
             {userRole === "customer" ? (
