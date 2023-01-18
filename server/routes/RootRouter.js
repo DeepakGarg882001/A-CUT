@@ -15,6 +15,8 @@ import {
   deletShopService,
   uploadShopImage,
   addNewCounter,
+  editShopCounter,
+  deletShopCounter,
 } from "./shop.js";
 import {
   add_services,
@@ -50,6 +52,9 @@ router.route("/user/forgot/pass").post(sendFrgPassOTP);
 router.route("/entered/otp/verify").post(verifyFrgPassOTP);
 
 router.route("/addShopCounter").post(ownerAuthenticate, addNewCounter);
+router.route("/updateShopCounter").post(ownerAuthenticate, editShopCounter);
+router.route("/deletShopCounter").post(ownerAuthenticate, deletShopCounter);
+
 router.route("/createShop").post(ownerAuthenticate, createShop);
 router.route("/getAllShops").get(getAllShops);
 router.route("/getShop").get(getShopById);
