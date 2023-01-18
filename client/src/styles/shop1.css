@@ -70,7 +70,9 @@
 
   
 }
-
+.schdule-time h3{
+  text-align: center;
+}
 
 .schdule-form .check {
   display: flex;
