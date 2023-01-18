@@ -53,7 +53,7 @@ const EmailVerify = () => {
     const response = await makeRequest.json();
 
     if (response.token) {
-      cookie.set("A_CUT_Email", response.token);
+      cookie.set("CikUra_Email", response.token);
       Swal.fire("", "OTP has been send to your email", "success");
       navigate("/otpverify");
     } else {
