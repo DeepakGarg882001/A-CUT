@@ -59,6 +59,10 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.total_price} RS</p>
         </div>
         <div>
+          <h5>Counter No : </h5>
+          <p>{data.counter_number} </p>
+        </div>
+        <div>
           <h5>Timing : </h5>
           <p>
             {data.starting_time} - {data.ending_time}
