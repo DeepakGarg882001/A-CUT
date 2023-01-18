@@ -80,7 +80,7 @@ const NavBar = () => {
                   />
                 </div>
                 <div className="under-navbar-cpm-sec">
-                  <h1 className="navbar-cpm-name"> Salon App </h1>
+                  <h1 className="navbar-cpm-name"> CikUra </h1>
                 </div>
               </div>
             </Link>

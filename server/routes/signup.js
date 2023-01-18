@@ -105,7 +105,7 @@ export const sendOTPtoEmail = async(request,response)=>{
     });
 
     const mailMessage = {
-      from: "acut@official@hgmail.com",
+      from: "",
       to: email,
       subject: " Email Verification ",
       text: ` Hi, the secret OTP code is : ${otp} . Please never share with others.  `,
