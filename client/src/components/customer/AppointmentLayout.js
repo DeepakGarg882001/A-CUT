@@ -23,7 +23,7 @@ const AppointmentLayout = ({ data }) => {
       console.log(response.message);
       dispatch(getMyAppointmentAction(userData._id));
     }
-    Swal.fire("Successfully remove your entry");
+    // Swal.fire("Successfully remove your entry");
   };
  
 

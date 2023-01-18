@@ -1,0 +1,16 @@
+.update_profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
+}
+.update_profile h2{
+    text-align: center;
+    margin-bottom: 1.3rem;
+}
+.update_profile .form-group .form-control{
+    width: 140% !important;
+}
