@@ -20,6 +20,11 @@
     padding: 1rem;
     /* box-shadow: 0 0 20px #ccc; */
 }
+.counter_no:hover{
+  background-color: antiquewhite;
+  cursor: pointer;
+}
+
 .shop-details .owner-detail{
     width: 90%;
     display: flex;
@@ -57,10 +62,12 @@
     flex-direction: row;
     width: 100%;
     background-color: white;
+
 }
 .booking-details .schudle-time {
   /* width: ; */
   flex-shrink: 1;
+
   
 }
 .schdule-time h3{
@@ -172,7 +179,13 @@
   background-color: transparent;
   outline: none;
 }
+/* .  border: 0.8px solid gray; */
+.shop-services{
+  border: 0.8px solid gray;
+  padding:30px;
+  height: auto;
 
+}
 /* service */
 .service-table{
   margin-top: 2rem;
@@ -223,10 +236,12 @@
   background-color: #497174;
 } */
 .service-btn button{
-     width: 30rem;
+     width: 20rem;
    height: 3rem;
-    font-size: 1.5rem;
+   margin-left: 50px;
+    font-size: 1rem;
      text-align: center;
+     border: none;
      
  }
  .service-btn  :hover{
@@ -267,4 +282,15 @@ cursor: pointer;
   .schdule-time h2 {
     text-align: center;
   }
+}
+
+.shop_location{
+margin-top: 1rem;
+text-align: center;
+font-size: 3rem;
+width: 80%;
+height: 120%;
+margin-bottom: 2rem;
+border: 0.8px solid gray;
+
 }

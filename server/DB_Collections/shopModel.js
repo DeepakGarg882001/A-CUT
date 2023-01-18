@@ -55,8 +55,8 @@ const shopModel = new mongoose.Schema({
       }
      }
   ],
-  shop_time: {
-    Mon: {
+  shop_time: [
+     {
       open: {
         type: Number,
         default:8
@@ -65,68 +65,11 @@ const shopModel = new mongoose.Schema({
         type: Number,
         default:20
       },
-    },
-    Tue: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
+      day:{
+        type:String,
       },
     },
-    Wed: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
-      },
-    },
-    Thu: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
-      },
-    },
-    Fri: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
-      },
-    },
-    Sat: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
-      },
-    },
-    Sun: {
-      open: {
-        type: Number,
-        default:8
-      },
-      close: {
-        type: Number,
-        default:20
-      },
-    },
-  },
+  ],
   shop_services: [
     {
       service_name: {

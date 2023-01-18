@@ -39,7 +39,7 @@ const EmailVerify = () => {
           });
           b.textContent = min + ":" + sec;
         }, 1000);
-      },    
+      },
     });
 
     const makeRequest = await fetch(`${url}/verifyEmail`, {
@@ -68,7 +68,10 @@ const EmailVerify = () => {
   return (
     <>
       <div className="emailverify_main">
-        <img src={logo} alt="wait" />
+        <div>
+          <img src={logo} alt="wait" />
+
+        </div>
 
         <Formik
           initialValues={initialData}
@@ -78,20 +81,30 @@ const EmailVerify = () => {
             resetForm();
           }}
         >
-          <Form>
-            <div>
-              <label>Enter your email address</label>
-              <Field type="email" name="email" />
-              <p>
-                <ErrorMessage name="email" />
-              </p>
-            </div>
-            <div>
-              <button type="submit">Next</button>
-            </div>
-          </Form>
-        </Formik>
-      </div>
+       
+            <Form >
+              <div >
+                <div className="email_verfiy">
+                  <label className="mail_button1">Enter Your Email Address</label>
+
+                </div>
+                <div >
+                  <Field type="email" name="email" className="mail_button" placeholder="enter your valid mail" />
+                  <p>
+                    <ErrorMessage name="email" />
+                  </p>
+                </div>
+
+              </div>
+
+
+
+          <div>
+            <button type="submit" className="mail_otp">Next</button>
+          </div>
+        </Form>
+      </Formik>
+    </div>
     </>
   );
 };
