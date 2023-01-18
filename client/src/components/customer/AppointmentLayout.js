@@ -23,7 +23,7 @@ const AppointmentLayout = ({ data }) => {
       console.log(response.message);
       dispatch(getMyAppointmentAction(userData._id));
     }
-    Swal.fire("Successfully remove your entry");
+    // Swal.fire("Successfully remove your entry");
   };
  
 
@@ -57,6 +57,10 @@ const AppointmentLayout = ({ data }) => {
         <div>
           <h5>Total Price : </h5>
           <p>{data.total_price} RS</p>
+        </div>
+        <div>
+          <h5>Counter No : </h5>
+          <p>{data.counter_number} </p>
         </div>
         <div>
           <h5>Timing : </h5>

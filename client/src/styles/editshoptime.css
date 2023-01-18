@@ -1,0 +1,6 @@
+.editshop_time{
+      display: flex;
+      justify-content:space-evenly ;
+      flex-direction: column;
+      /* background-color: aqua; */
+}
