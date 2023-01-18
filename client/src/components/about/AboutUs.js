@@ -26,7 +26,7 @@ const AboutUs = () => {
           <div className="about-content">
             <p className="about_main">ABOUT OUR APP</p>
             <p >Our motivation for making this app is to save the time.
-              Whenever we are going in a saloon for the Hair Cut ,In most
+              Whenever we are going in a <b>Salon</b> for the Hair Cut ,In most
               of the time the crowd of peoples are sitting there and
               we have to wait for hours. So this kind of problem is solved
               by our app. With the help of this app we can see the waiting

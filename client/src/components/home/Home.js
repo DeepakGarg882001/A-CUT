@@ -48,7 +48,7 @@ const Home = () => {
             <div className="home_contain">
               <h1>|| WELCOME ||</h1>
 
-              <h3>Start Journey With A CUT </h3>
+              <h3>Start Journey With Salon App </h3>
             </div>
             <div className="home_logo">
               <img src={logo} alt="loading" />
