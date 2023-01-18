@@ -88,7 +88,7 @@ const NavBar = () => {
 
           <div className="navbar-header-right">
             {user.token ? (
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/profile" style={{ textDecoration: "none" }}>
                 <div className="navbar-header-profile">
                   <img
                     className="navbar-header-profile-img"
