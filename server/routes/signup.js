@@ -50,7 +50,7 @@ export const signup = async (request, response) => {
         from: "cikurra@gmail.com",
         to: email,
         subject: " CikUra Registration ",
-        text: `Hi ${name}, You have successfuly Created an account at CikUra Salon.
+        text: `Hi ${name}, You have successfuly Created an account at CikUra .
                   Thankyou   `,
       };
       transporter.sendMail(mailMessage, async (error, info) => {
@@ -99,8 +99,8 @@ export const sendOTPtoEmail = async(request,response)=>{
       secure: false,
       requireTLS: true,
       auth: {
-        user: "birdsheartbeat.in@gmail.com",
-        pass: "jsibsanmsicmjest",
+        user: "cikurra@gmail.com",
+        pass: "xlizhlqnzzznjxky",
       },
     });
 
