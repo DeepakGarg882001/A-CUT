@@ -1,26 +1,27 @@
 .shoplayout {
       display: flex;
       justify-content: space-around;
-      flex-direction: row;
       height: auto;
       font-size: 1rem;
-      background-image: linear-gradient(345deg, #bc9cd1, #8c898e, #e8e2ec);
       color: black;
-      box-shadow: 20px 20px 50px grey;
       
 }
 #dis {
       font-size: 1.5rem;
 }
+.shop_items{
+      max-width: 30vw;
+}
 .shop1items {
-      /* margin: 1rem; */
+      display: flex;
+      justify-content: center; 
+      justify-content: space-around;
+        
+} 
+ .shop2items { 
+      margin-left: 2rem;
       display: flex;
       justify-content: center;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-}
-.shop2items {
-      margin: 1rem;
-      display: flex;
-      justify-content: center;
-}
+      justify-content: space-between;
+
+} 

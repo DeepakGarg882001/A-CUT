@@ -201,7 +201,7 @@ const MyShop = () => {
               <div className="myShop-middle-bottom">
                 <div className="myShop-details-sec-name">
                   <a
-                    href={ shopLocation!==""? `https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}`: ""}
+                    href={shopLocation !== "" ? `https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}` : ""}
                   >
                     <SiGooglemaps
                       className="myShop-details-sec-label"

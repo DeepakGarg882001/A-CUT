@@ -1,6 +1,7 @@
 .appointment{
       height: auto;
-      margin-top: 2rem;
+      width: auto;
+      min-height: 530px;
 }
 
 #appointment_search{
@@ -19,4 +20,9 @@ text-align: center;
 text-justify: distribute-all-lines;
 margin: 1rem;
 cursor:pointer;
+}
+.no_slot{
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 10rem;
 }
