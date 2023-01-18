@@ -49,10 +49,6 @@ const AddCounter = ({ data }) => {
   return (
     <>
       <div>
-        <div>
-          <h2>Add New Counter</h2>
-        </div>
-        <div>
           <Formik
             initialValues={initialValues}
             validation={validation}
@@ -80,7 +76,6 @@ const AddCounter = ({ data }) => {
               <button type="submit">Create</button>
             </Form>
           </Formik>
-        </div>
       </div>
     </>
   );

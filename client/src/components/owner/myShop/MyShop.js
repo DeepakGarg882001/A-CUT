@@ -18,7 +18,8 @@ import {
   MdOutlineStarOutline,
 } from "react-icons/md";
 import AddCounter from "./AddCounter";
-
+import ShowCounters from "./ShowCounters";
+import ShopTime from "./ShopTime";
 const MyShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
@@ -200,7 +201,7 @@ const MyShop = () => {
               <div className="myShop-middle-bottom">
                 <div className="myShop-details-sec-name">
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}`}
+                    href={ shopLocation!==""? `https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}`: ""}
                   >
                     <SiGooglemaps
                       className="myShop-details-sec-label"
@@ -265,17 +266,37 @@ const MyShop = () => {
 
         <div className="myShop-component-frame">
           <div className="myShop-heading-box">
+            <h2 className="myShop-heading-text"> My Counters </h2>
+          </div>
+          <div className="myShop-component-body">
+            <ShowCounters data={ShopData} />
+          </div>
+        </div>
+
+        <div className="myShop-component-frame">
+          <div className="myShop-heading-box">
             <h2 className="myShop-heading-text"> Add New Counter </h2>
           </div>
           <div className="myShop-component-body">
             <AddCounter data={ShopData} />
           </div>
         </div>
+
+        <div className="myShop-component-frame">
+          <div className="myShop-heading-box">
+            <h2 className="myShop-heading-text"> Shop Timing </h2>
+          </div>
+          <div className="myShop-component-body">
+            <ShopTime data={ShopData} />
+          </div>
+        </div>
+
         <div>
           <button onClick={removeShop}>
             <MdOutlineDelete /> Delet Shop{" "}
           </button>
         </div>
+
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { GET_OWNER_SHOP_DATA } from "../reduxConstants";
+import { GET_OWNER_SHOP_DATA,REMOVE_OWNER_SHOP_DATA } from "../reduxConstants";
 
 
 
@@ -8,4 +8,10 @@ export const getOwnerShopDataAction = (id)=>{
         data:id
     })
 
+}
+
+export const removeOwnerShopDataAction = ()=>{
+    return({
+        type:REMOVE_OWNER_SHOP_DATA
+    })
 }

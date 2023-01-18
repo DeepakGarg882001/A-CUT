@@ -1,4 +1,4 @@
-import { SET_OWNER_SHOP_DATA } from "../reduxConstants";
+import { SET_OWNER_SHOP_DATA,REMOVE_OWNER_SHOP_DATA } from "../reduxConstants";
 
 const ownerShopReducer = (data = [], action) => {
     
@@ -7,6 +7,10 @@ const ownerShopReducer = (data = [], action) => {
     case SET_OWNER_SHOP_DATA:
       data = action.data;
       return data;
+
+    case REMOVE_OWNER_SHOP_DATA:
+       data=[];
+       return data;
 
     default:
       return data;

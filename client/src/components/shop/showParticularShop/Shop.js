@@ -44,49 +44,15 @@ const Shop = () => {
 
   let openTime;
   let closeTime;
-  const { Mon, Tue, Wed, Fri, Sat, Sun, Thu } = allDays != [] ? allDays : [];
+  
+   for(let k =0;k<allDays.length;k++){
+     if(allDays[k].day === day){
+       openTime= allDays[k].open;
+       closeTime= allDays[k].close
+     }
+   }
 
-  if (allDays.length != 0) {
-    // Getting the Shop Opentime and CloseTime of Today
-    switch (day) {
-      case "Mon":
-        openTime = Mon.open;
-        closeTime = Mon.close;
-        break;
-
-      case "Tue":
-        openTime = Tue.open;
-        closeTime = Tue.close;
-        break;
-
-      case "Wed":
-        openTime = Wed.open;
-        closeTime = Wed.close;
-        break;
-
-      case "Thu":
-        openTime = Thu.open;
-        closeTime = Thu.close;
-        break;
-
-      case "Fri":
-        openTime = Fri.open;
-        closeTime = Fri.close;
-        break;
-
-      case "Sat":
-        openTime = Sat.open;
-        closeTime = Sat.close;
-        break;
-
-      case "Sun":
-        openTime = Sun.open;
-        closeTime = Sun.close;
-        break;
-      default:
-        break;
-    }
-  }
+ 
 
   const shopCounters = ShopData.length === 0 ? [] : ShopData.shop_counters;
 
