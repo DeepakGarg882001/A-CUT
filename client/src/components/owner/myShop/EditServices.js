@@ -58,7 +58,7 @@ const EditServices = ({ data, id }) => {
       dispatch(getOwnerShopDataAction(id));
     }
   };
-
+console.log("data",data);
   return (
     <>
       <div className="myshop-service-sec">

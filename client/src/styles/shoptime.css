@@ -1,0 +1,27 @@
+.shop_time{
+      display: flex;
+      height: auto;
+      width: auto;
+      /* margin-top: 2rem; */
+}
+.shoptime_option{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      /* margin-left: 1rem; */
+
+
+}
+.edit_button{
+      display: flex;
+      margin-top: 1rem;
+      justify-content: space-around;
+}
+#button_abc{
+      width: auto;
+      height: 20px;
+}
+.main_time_class{
+      margin-left: 2rem;
+      
+}

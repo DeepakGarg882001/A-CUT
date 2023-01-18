@@ -1,7 +1,8 @@
 import React from "react";
+import "../../../styles/editshoptime.css"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AiOutlineEdit } from "react-icons/ai";
-import {  MdOutlineFileDownloadDone } from "react-icons/md";
+import { MdOutlineFileDownloadDone } from "react-icons/md";
 
 const EditShopTime = ({ data, ShopData }) => {
   const initialData = {
@@ -48,86 +49,99 @@ const EditShopTime = ({ data, ShopData }) => {
 
   return (
     <>
-      <div>
+      <div >
         <Formik initialValues={initialData}>
-          <Form>
-            <div>
-              <p>{data.day}</p>
-            </div>
-            <div>
-              <label>Open : </label>
+          <Form  className="main_time_class">
+            <div className="editshop_time" >
+              <div></div>
+              <div >
+                <p>{data.day}</p>
+              </div>
               <div>
-                <Field as="select" name="open_hour">
-                  {hours.length !== 0
-                    ? hours.map((data, index) => {
+                <label>Open Time : </label>
+                <div className="shoptime_option">
+                  <Field as="select" name="open_hour">
+                    {hours.length !== 0
+                      ? hours.map((data, index) => {
                         return (
                           <React.Fragment key={index}>
                             {giveHours(data)}
                           </React.Fragment>
                         );
                       })
-                    : null}
-                </Field>
+                      : null}
+                  </Field>
 
-                <Field as="select" name="open_mint">
-                  {hours.length !== 0
-                    ? hours.map((data, index) => {
+                  <Field as="select" name="open_mint">
+                    {hours.length !== 0
+                      ? hours.map((data, index) => {
                         return (
                           <React.Fragment key={index}>
                             {giveMinutes(data)}
                           </React.Fragment>
                         );
                       })
-                    : null}
-                </Field>
+                      : null}
+                  </Field>
 
-                <Field as="select" type="open_formate">
-                  <option value={"AM"}> AM </option>
-                  <option value={"PM"}> PM </option>
-                </Field>
-              </div>
-            </div>
-            <div>
-              <label>Close : </label>
-              <div>
-                <Field as="select" name="close_hour">
-                  {hours.length !== 0
-                    ? hours.map((data, index) => {
-                        return (
-                          <React.Fragment key={index}>
-                            {giveHours(data)}
-                          </React.Fragment>
-                        );
-                      })
-                    : null}
-                </Field>
-
-                <Field as="select" name="close_mint">
-                  {hours.length !== 0
-                    ? hours.map((data, index) => {
-                        return (
-                          <React.Fragment key={index}>
-                            {giveMinutes(data)}
-                          </React.Fragment>
-                        );
-                      })
-                    : null}
-                </Field>
-
-                <Field as="select" type="close_formate">
-                  <option value={"AM"}> AM </option>
-                  <option value={"PM"}> PM </option>
-                </Field>
-              </div>
-            </div>
-            <div>
-                 <div>
-                      <AiOutlineEdit />
-                 </div>
-                 <div>
-                   <button><MdOutlineFileDownloadDone/></button>
+                  <Field as="select" type="open_formate">
+                    <option value={"AM"}> AM </option>
+                    <option value={"PM"}> PM </option>
+                  </Field>
                 </div>
+              </div>
+              <div>
+                <label>Close Time: </label>
+                <div className="shoptime_option">
+                  <Field as="select" name="close_hour">
+                    {hours.length !== 0
+                      ? hours.map((data, index) => {
+                        return (
+                          <React.Fragment key={index}>
+                            {giveHours(data)}
+                          </React.Fragment>
+                        );
+                      })
+                      : null}
+                  </Field>
+
+                  <Field as="select" name="close_mint">
+                    {hours.length !== 0
+                      ? hours.map((data, index) => {
+                        return (
+                          <React.Fragment key={index}>
+                            {giveMinutes(data)}
+                          </React.Fragment>
+                        );
+                      })
+                      : null}
+                  </Field>
+
+                  <Field as="select" type="close_formate">
+                    <option value={"AM"}> AM </option>
+                    <option value={"PM"}> PM </option>
+                  </Field>
+                </div>
+              </div>
+              <div className="edit_button">
+                <div>
+                 <button id="button_abc">
+                  <AiOutlineEdit 
+                  />
+                 Edit
+                  
+                 </button> 
+                </div>
+                <div>
+                  <button id="button_abc">
+                                        <MdOutlineFileDownloadDone/>
+
+                    update
+                      </button>
+                </div>
+              </div>
             </div>
+
           </Form>
         </Formik>
       </div>
