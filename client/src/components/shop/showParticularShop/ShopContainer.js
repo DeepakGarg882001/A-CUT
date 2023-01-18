@@ -18,20 +18,19 @@ const ShopContainer = ({ data }) => {
       <div className="individual-shop">
         <Link to="/showShopDetails" onClick={() => dispatch(getParticularShopData(data._id))}>
           <h3 className="shop_na">{data.shop_name}</h3>
-          <div 
-          className="shop_details" 
-          >
+          <div className="shop_details">
             <div className="xyz">
-            {crrAvtar!==""? <img src={crrAvtar} 
-          className="shop_img"
-           alt="shop_img" /> :
-          <div  className="shop_details1" >Does not have any Images</div>
-          }
+              {crrAvtar !== "" ? <img src={crrAvtar}
+                className="shop_img"
+                alt="shop_img" /> :
+                <div className="shop_details1" >Does not have any Images</div>
+              }
             </div>
-          
+
           </div>
-         
-          <button className="btn">Book Now</button>
+          <div className="btn_home" >
+            <p >Book Now</p>
+            </div>
         </Link>
       </div>
 

@@ -36,6 +36,8 @@ const CustomerAppointment = () => {
                           <td className="td">{data.starting_time} - {data.ending_time} </td>
                           <td className="td">{data.total_duration} mint </td>
                           <td className="td">Rs {data.total_price} </td>
+                          {/* <td className="td" style={{color: data.payment_status==="Not Paid"? "red":"green"}} >{data.payment_status} </td>
+                          <td className="td" style={{color: data.checkIn_status==="none"? "gray":"green"}} >{data.checkIn_status} </td> */}
                           <td className="td" style={{color: data.payment_status==="Not Paid"? "red":"green"}} >{data.payment_status} </td>
                           <td className="td" style={{color: data.checkIn_status==="none"? "gray":"green"}} >{data.checkIn_status} </td>
                         </tr>
