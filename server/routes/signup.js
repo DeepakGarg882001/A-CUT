@@ -41,16 +41,16 @@ export const signup = async (request, response) => {
         secure: false,
         requireTLS: true,
         auth: {
-          user: "birdsheartbeat.in@gmail.com",
-          pass: "jsibsanmsicmjest",
+          user: "cikurra@gmail.com",
+          pass: "xlizhlqnzzznjxky",
         },
       });
 
       const mailMessage = {
-        from: "acut@official@hgmail.com",
+        from: "cikurra@gmail.com",
         to: email,
-        subject: " A-CUT Registration ",
-        text: `Hi ${name}, You have successfuly Created an account at A-CUT Salon.
+        subject: " CikUra Registration ",
+        text: `Hi ${name}, You have successfuly Created an account at CikUra .
                   Thankyou   `,
       };
       transporter.sendMail(mailMessage, async (error, info) => {
@@ -99,13 +99,13 @@ export const sendOTPtoEmail = async(request,response)=>{
       secure: false,
       requireTLS: true,
       auth: {
-        user: "birdsheartbeat.in@gmail.com",
-        pass: "jsibsanmsicmjest",
+        user: "cikurra@gmail.com",
+        pass: "xlizhlqnzzznjxky",
       },
     });
 
     const mailMessage = {
-      from: "acut@official@hgmail.com",
+      from: "",
       to: email,
       subject: " Email Verification ",
       text: ` Hi, the secret OTP code is : ${otp} . Please never share with others.  `,

@@ -14,6 +14,10 @@ export const createShop = async (request, response) => {
       shop_services,
     } = request.body;
 
+
+
+
+    
     if (
       !owner_name |
       !owner_id |

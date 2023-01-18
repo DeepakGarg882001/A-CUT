@@ -19,7 +19,7 @@ const Footer = () => {
     
         <div className="footer-canvas-middle">
           <div className="footer-middle-ngo">
-            <h1 className="footer-middle-ngo-name">A CUT</h1>
+            <h1 className="footer-middle-ngo-name">CikUra</h1>
             <p>
               The moto of this application is to save time </p>
           </div>
