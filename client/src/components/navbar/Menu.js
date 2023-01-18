@@ -18,7 +18,7 @@ import { BsBoxArrowUpRight, BsShopWindow } from "react-icons/bs";
 import { GrSchedules } from "react-icons/gr";
 import { logoutUserDataAction } from "../../redux/action/userAction";
 import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
-
+import { removeOwnerShopDataAction } from "../../redux/action/ownerShopAction";
 const Menu = ({ setActivePanel }) => {
   const dispatch = useDispatch();
   const url = process.env.REACT_APP_SERVER_URL;
@@ -113,6 +113,7 @@ const Menu = ({ setActivePanel }) => {
                 to="/"
                 onClick={() => {
                   dispatch(logoutUserDataAction());
+                  dispatch(removeOwnerShopDataAction());
                   setActivePanel("none");
                 }}
               >

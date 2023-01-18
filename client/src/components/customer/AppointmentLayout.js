@@ -70,7 +70,7 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.shop_address}</p>
         </div>
         <div>
-          <div id="can_appointment"><button onClick={()=>deleteEntry(data._id)}>Cancle</button></div>
+          <div id="can_appointment"><button onClick={()=>deleteEntry(data._id)}>Cancel</button></div>
         </div>
       </div>
     </>

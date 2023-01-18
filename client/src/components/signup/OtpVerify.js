@@ -41,7 +41,7 @@ const OtpVerify = () => {
       <div className="otpverify_main">
         <img src={logo} alt="" />
         <div className="otpverify">
-          <h2>Hurry Up !! verifing account</h2>
+          <h2>Hurry Up !! Verify Account</h2>
         </div>
         <Formik
           initialValues={initialData}
@@ -53,14 +53,14 @@ const OtpVerify = () => {
         >
           <Form>
             <div>
-              <label>Enter the OTP </label>
-              <Field type="text" name="userOtp" />
+              <label  id="text_label">Enter the OTP </label>
+              <Field type="text" name="userOtp" className="mail_button12" placeholder="code"/>
               <p>
                 <ErrorMessage name="userOtp" />
               </p>
             </div>
             <div>
-              <button type="submit">Verify</button>
+              <button type="submit" className="submitotp">Verify</button>
             </div>
           </Form>
         </Formik>

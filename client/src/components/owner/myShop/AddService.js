@@ -58,7 +58,7 @@ const AddService = ({ data }) => {
         <Form>
           <div>
             <div>
-              <label>Add New Service :</label>
+              <label>Service Name : </label>
               <Field as="select" name="service_name">
                 <option value="">Select</option>
                 {notSelectedServices.map((data, index) => {

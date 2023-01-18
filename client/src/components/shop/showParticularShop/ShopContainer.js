@@ -20,11 +20,14 @@ const ShopContainer = ({ data }) => {
           <div 
           className="shop_details" 
           >
-          {crrAvtar!==""? <img src={crrAvtar} 
-          className="shop_details"
+            <div className="xyz">
+            {crrAvtar!==""? <img src={crrAvtar} 
+          className="shop_img"
            alt="shop_img" /> :
-          <div  className="" >Does not have any Images</div>
+          <div  className="shop_details1" >Does not have any Images</div>
           }
+            </div>
+          
           </div>
          
           <button className="btn">Book Now</button>
