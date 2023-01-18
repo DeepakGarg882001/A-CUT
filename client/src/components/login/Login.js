@@ -27,7 +27,7 @@ const Login = () => {
   });
 
   const postDataToServer = async (values) => {
-    console.log(values);
+    console.log("values",values);
     const makeRequest = await fetch(`${url}/login`, {
       method: "POST",
       headers: {
@@ -37,7 +37,7 @@ const Login = () => {
     });
     
     const response = await makeRequest.json();
-    console.log(response);
+    console.log("response",response);
     if (response.error) {
       console.log(response.error);
       if (response.error.name) {
