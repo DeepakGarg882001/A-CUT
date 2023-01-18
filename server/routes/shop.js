@@ -32,6 +32,44 @@ export const createShop = async (request, response) => {
         .status(402)
         .json({ error: "You have Already Created a Shop" });
     }
+    
+    const shop_time = [  
+      {
+      open: 8,
+      close: 20,
+      day:"Mon",
+    },
+    {
+      open: 8,
+      close: 20,
+      day:"Tue",
+    },
+   {
+      open: 8,
+      close: 20,
+      day:"Wed",
+    },
+     {
+      open: 8,
+      close: 20,
+      day:"Thu",
+    },
+     {
+      open: 8,
+      close: 20,
+      day:"Fri",
+    },
+    {
+      open:8,
+      close:20,
+      day:"Sat",
+    },
+     {
+      open: 8,
+      close: 20,
+      day:"Sun",
+    }
+    ]
 
     const newShop = await shop.create({
       owner_name,
@@ -40,6 +78,13 @@ export const createShop = async (request, response) => {
       shop_mobile,
       shop_address,
       shop_services,
+      shop_time:shop_time,
+      shop_counters:[
+        {
+          counter_number:1,
+          counter_head:""
+        }
+      ]
     });
 
     console.log(newShop);
@@ -327,8 +372,52 @@ export const addNewCounter = async(request,response)=>{
 
 // Edit the Counter of a Particular Shop
 export const editShopCounter = async(request,response)=>{
+    
+  const { counter_number,counter_head,_id ,counter_id} = request.body;
+
+  if( !counter_number | !counter_head | !_id | !counter_id){
+    return response.status(400).json({error:"Please Provides the Details Correctly"});
+  }
+
+  const updateCounter = await shop.updateMany({
+     _id, "shop_counters._id": counter_id },
+  {
+    $set: {
+      "shop_counters.$.counter_number": counter_number,
+      "shop_counters.$.counter_head": counter_head,
+    },
+  })
+
+   if(!updateCounter){
+    return response.status(400).json({error:"Process Failed,Try again"});
+   }
+
+   return response.status(200).json({message:"Counter Updated Successfully"});
+
    
 }
+
+
+// Delete the Counter of a Particular Shop
+export const deletShopCounter = async(request,response)=>{
+  const { _id, counter_id } = request.body;
+
+  if (!_id | !counter_id) {
+    return response
+      .status(400)
+      .json({ error: "Please Provide Proper Details" });
+  }
+
+  const removeCounter = await shop.findByIdAndUpdate({_id}, {
+    $pull: { shop_counters: { _id: counter_id } },
+  });
+  if (!removeCounter) {
+    return response.status(401).json({ error: "Process Failed" });
+  }
+
+  return response.status(200).json({ message: "Counter Deleted Successfully" });
+}
+
 
 
 // Edit Shop Timing of a Particular Shop
