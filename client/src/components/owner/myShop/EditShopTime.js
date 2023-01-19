@@ -125,7 +125,7 @@ const EditShopTime = ({ data, ShopData }) => {
                       <AiOutlineEdit />
                  </div>
                  <div>
-                   <button><MdOutlineFileDownloadDone/></button>
+                   <button><MdOutlineFileDownloadDone/> </button>
                 </div>
             </div>
           </Form>
