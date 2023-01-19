@@ -7,10 +7,8 @@ import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
 import { updateDate, updateCounterNumber } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Field } from "formik";
-
+import {AiFillStar} from "react-icons/ai";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -135,9 +133,10 @@ const Shop = () => {
               <h3>
                 <span> Mobile no:-{ShopData.shop_mobile}</span>
               </h3>
-              <h3>
-                <span>Rating</span>
-              </h3>
+              <div>
+                <span>Rating </span>
+                <span> <AiFillStar style={{color:"green"}} /> {ShopData.shop_rating}</span>
+              </div>
             </div>
             <div className="shop-timing">
               <h3>

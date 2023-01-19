@@ -55,7 +55,7 @@ export const signup = async (request, response) => {
       };
       transporter.sendMail(mailMessage, async (error, info) => {
         if (error) {
-          return response.status(500).json({ error });
+          return response.status(500).json({ message: "You have Successfully Registered !" });
         } else {
           response
             .status(201)
@@ -112,7 +112,7 @@ export const sendOTPtoEmail = async(request,response)=>{
     };
     transporter.sendMail(mailMessage, async (error, info) => {
       if (error) {
-        return response.status(500).json({ error });
+        return response.status(500).json({ error:"OTP Sending Process failed Due to Very Poor Internet Connection,Try Again" });
       } else {
         response
           .status(201)

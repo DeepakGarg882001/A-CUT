@@ -151,7 +151,7 @@ export const cancelCustomerAppointment = async (request, response) => {
       return response.status(401).json({ error: "process faild" });
 
     }
-    return response.status(201).json({message:"delete successfully"});
+    return response.status(201).json({message:"Appointment Canceled Successfully"});
   }
 
 catch(error){
