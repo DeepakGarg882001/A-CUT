@@ -38,10 +38,12 @@ const MyShop = () => {
 
   const [shopLocation, changeLocation] = useReducer(
     reducer,
-    ShopData.shop_location
+    ShopData.shop_location? ShopData.shop_location:userLocation
   );
-  console.log(shopLocation);
-  console.log(userLocation);
+  
+ 
+  const latitude = ShopData !== []? shopLocation.latitude:0;
+  const longitude = ShopData!== []? shopLocation.longitude:0;
 
   // initial Shop Data from server
   const initialData = {
@@ -200,14 +202,17 @@ const MyShop = () => {
               </div>
               <div className="myShop-middle-bottom">
                 <div className="myShop-details-sec-name">
+                { shopLocation !== []? (
                   <a
-                    href={ shopLocation!==""? `https://www.google.com/maps/search/?api=1&query=${shopLocation.latitude}%2C${shopLocation.longitude}`: ""}
+                    href={`https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`}
                   >
                     <SiGooglemaps
                       className="myShop-details-sec-label"
                       title="Address"
                     />
                   </a>
+                ):null }
+                  
                   <Field
                     name="shop_address"
                     type="text"
@@ -260,7 +265,7 @@ const MyShop = () => {
             <h2 className="myShop-heading-text"> Add New Service </h2>
           </div>
           <div className="myShop-component-body">
-            <AddService data={ShopData} />
+            <AddService data={ShopData!==[]? ShopData:[]} />
           </div>
         </div>
 
@@ -269,7 +274,7 @@ const MyShop = () => {
             <h2 className="myShop-heading-text"> My Counters </h2>
           </div>
           <div className="myShop-component-body">
-            <ShowCounters data={ShopData} />
+            <ShowCounters data={ShopData!==[]? ShopData:[]} />
           </div>
         </div>
 
@@ -278,7 +283,7 @@ const MyShop = () => {
             <h2 className="myShop-heading-text"> Add New Counter </h2>
           </div>
           <div className="myShop-component-body">
-            <AddCounter data={ShopData} />
+            <AddCounter data={ShopData!==[]? ShopData:[]} />
           </div>
         </div>
 
@@ -287,7 +292,7 @@ const MyShop = () => {
             <h2 className="myShop-heading-text"> Shop Timing </h2>
           </div>
           <div className="myShop-component-body">
-            <ShopTime data={ShopData} />
+            <ShopTime data={ShopData!==[]? ShopData:[]} />
           </div>
         </div>
 

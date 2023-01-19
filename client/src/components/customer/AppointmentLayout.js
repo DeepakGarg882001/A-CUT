@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import "../../styles/appointmentlayout.css";
 import { useDispatch,useSelector } from "react-redux";
 import {getMyAppointmentAction} from "../../redux/action/myAppointmentsAction";
-
+import Swal from "sweetalert2";
 const AppointmentLayout = ({ data }) => {
   const url = process.env.REACT_APP_SERVER_URL;
   const userData=useSelector((state)=>state.userReducer);
-
   const dispatch = useDispatch();
   const deleteEntry = async (id) => {
     const makeReq = await fetch(`${url}/deleteCustomerAppointments`, {
@@ -24,6 +23,7 @@ const AppointmentLayout = ({ data }) => {
       console.log(response.message);
       dispatch(getMyAppointmentAction(userData._id));
     }
+    // Swal.fire("Successfully remove your entry");
   };
  
 
@@ -59,6 +59,10 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.total_price} RS</p>
         </div>
         <div>
+          <h5>Counter No : </h5>
+          <p>{data.counter_number} </p>
+        </div>
+        <div>
           <h5>Timing : </h5>
           <p>
             {data.starting_time} - {data.ending_time}
@@ -70,7 +74,7 @@ const AppointmentLayout = ({ data }) => {
           <p>{data.shop_address}</p>
         </div>
         <div>
-          <div id="can_appointment"><button onClick={()=>deleteEntry(data._id)}>Cancle</button></div>
+          <div id="can_appointment"><button onClick={()=>deleteEntry(data._id)}>Cancel</button></div>
         </div>
       </div>
     </>

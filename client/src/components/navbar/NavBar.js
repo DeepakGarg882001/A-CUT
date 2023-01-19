@@ -80,7 +80,7 @@ const NavBar = () => {
                   />
                 </div>
                 <div className="under-navbar-cpm-sec">
-                  <h1 className="navbar-cpm-name"> A-CUT </h1>
+                  <h1 className="navbar-cpm-name"> <i>CikUra</i> </h1>
                 </div>
               </div>
             </Link>
@@ -88,7 +88,7 @@ const NavBar = () => {
 
           <div className="navbar-header-right">
             {user.token ? (
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/profile" style={{ textDecoration: "none" }}>
                 <div className="navbar-header-profile">
                   <img
                     className="navbar-header-profile-img"

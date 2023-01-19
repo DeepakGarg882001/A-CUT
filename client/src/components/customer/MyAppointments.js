@@ -14,7 +14,7 @@ const MyAppointments = () => {
 
    return (
       <>
-         <div>
+         <div className='appointment'>
             <div className="appointment_tittle">-: Appointment Details :-
             </div>
             {/* <SearchBar /> */}
@@ -27,8 +27,8 @@ const MyAppointments = () => {
 
                   </React.Fragment>
                )
-            }) : (<div>
-               <p>Does Not Booked Any Services Yet</p>
+            }) : (<div className="no_slot">
+               <p>Does Not Booked Any Services Yet !!Hurry up</p>
             </div>)}
 
 

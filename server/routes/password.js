@@ -95,13 +95,13 @@ export const sendFrgPassOTP = async (request, response) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "birdsheartbeat.in@gmail.com",
-        pass: "jsibsanmsicmjest",
+        user: "cikurra@gmail.com",
+        pass: "xlizhlqnzzznjxky",
       },
     });
 
     const mailMessage = {
-      from: "birdsheartbeat.in@gmail.com",
+      from: "cikurra@gmail.com",
       to: email,
       subject: " Change Password ",
       text: `Hi, the secret OTP code is : ${otp} . Please never share with others. `,

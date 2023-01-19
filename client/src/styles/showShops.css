@@ -1,7 +1,7 @@
 .allShops-canvas{
-    width: 100vw;
+    width: auto;
     height: auto;
-    min-height: 90vh;
+    min-height: 530px;
     display: flex;
     flex-direction: column;
     background-color: white;

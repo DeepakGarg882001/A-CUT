@@ -1,0 +1,22 @@
+.edit_counter{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+}
+
+/* #button_abc1{
+      width: 43px;
+      margin-left: 1.5rem;
+      height: auto;
+      text-align: center;
+      padding: 0px;
+} */
+/* .text_area{
+      height:30px ;
+      text-align: center;
+      margin-top: 1.3rem;
+} */
+/* .button_abc1_1{
+      display: flex;
+      flex-direction: column;
+} */

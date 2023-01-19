@@ -19,19 +19,17 @@ const Footer = () => {
     
         <div className="footer-canvas-middle">
           <div className="footer-middle-ngo">
-            <h1 className="footer-middle-ngo-name">A CUT</h1>
+            <h1 className="footer-middle-ngo-name">CikUra</h1>
             <p>
-              The moto of this application is to save time during the saloon
-              activities.
-            </p>
+              The moto of this application is to save time </p>
           </div>
 
           <div className="footer-middle-info-sec">
             <h1 className="footer-middle-info-name">Information</h1>
             <div className="footer-middle-info-details">
-              <Link to="/services" className="info_items">
+              <Link to="/" className="info_items">
                 {" "}
-                <p> Services </p>
+                <p> Home </p>
               </Link>
               <Link to="/about" className="info_items">
                 {" "}
@@ -41,9 +39,9 @@ const Footer = () => {
                 {" "}
                 <p> Contact </p>
               </Link>
-              <Link to="/suggestions" className="info_items">
+              <Link to="/all_shops" className="info_items">
                 {" "}
-                <p> Any Query </p>
+                <p> All Shops </p>
               </Link>
             </div>
           </div>

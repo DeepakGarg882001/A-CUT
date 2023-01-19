@@ -59,19 +59,22 @@ const ShopLayout = ({ data }) => {
         >
           <div className="shoplayout">
             <div className="shop1items">
-              <div>
-                <h2> Shop Name:-{data.shop_name}</h2>
+              <div >
+                <h2 className="shop_items"> Shop Name:-{data.shop_name}</h2>
               </div>
               <div>
-                <h2> Shop Address:-{data.shop_address}</h2>
+                <h2 className="shop_items"> Shop Address:-{data.shop_address}</h2>
+              </div>
+              <div>
+                <h2> Services:-{data.services_name}</h2>
               </div>
             </div>
             <div className="shop2items">
               <div>
-                <h2>Shop Mobile:-{data.shop_mobile}</h2>
+                <h2 className="shop_items">Shop Mobile:-{data.shop_mobile}</h2>
               </div>
               
-              <div id ="dis">Distance:-{distanceFromUser}</div>
+              <div id ="dis" className="shop_items">Distance:-{distanceFromUser}</div>
             </div>
 
           </div>

@@ -21,7 +21,6 @@ const EditServices = ({ data, id }) => {
   };
 
   const updateService = async (values) => {
-    console.log(values);
 
     const makeReq = await fetch(`${url}/updateShopService`, {
       method: "POST",
@@ -33,7 +32,6 @@ const EditServices = ({ data, id }) => {
     });
 
     const response = await makeReq.json();
-    console.log(response);
     if (response.message) {
       console.log(response.message);
       dispatch(getOwnerShopDataAction(id));
@@ -54,11 +52,9 @@ const EditServices = ({ data, id }) => {
     const response = await makeReq.json();
 
     if (response.message) {
-      console.log(response.message);
       dispatch(getOwnerShopDataAction(id));
     }
   };
-
   return (
     <>
       <div className="myshop-service-sec">

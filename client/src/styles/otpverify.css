@@ -4,11 +4,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 69vh;
     gap: 30px;
     background-color: white;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    /* padding-top: 10px; */
+    /* padding-bottom: 30px; */
 }
 .otpverify{
       font-size: 2rem;
@@ -21,15 +21,27 @@
       text-align: center;
 }
 .submitotp{
-      width: 10vw;
+      width: 5vw;
       height: 5vh;
+      margin-top: 2rem;
       border: none;
+      margin-left: 8rem;
+
       background-color: aqua;
+}
+.mail_button12{
+      font-size: 1.3rem;
+      text-align: center; 
+      border-radius: .5rem;
+      width: 10vw;
+      /* margin-top: 2rem; */
+}
+#text_label{
+      font-size: 1rem;
 }
 
 .otpverify_main img{
-      /* margin-left: 5rem;*/
-      /* margin-top: 3rem;  */
+     
       width: 17vw;
       height: 25vh;
       animation-name: rotate;
@@ -38,7 +50,7 @@
       animation-timing-function: linear;
       border-radius: 1rem;
       animation-iteration-count: 2;
-      box-shadow: 20px 20px 50px 10px pink inset;
+      /* box-shadow: 20px 20px 50px 10px pink inset; */
       
   }
   

@@ -105,7 +105,11 @@ const Menu = ({ setActivePanel }) => {
                   <GrSchedules style={{ opacity: 0.5 }} /> Appointments
                 </li>
               </Link>
+              
             ) : null}
+            {/* {userRole === "customer" ?(
+              <Link><Link/>
+            ):null } */}
 
             {user.token ? (
               <Link

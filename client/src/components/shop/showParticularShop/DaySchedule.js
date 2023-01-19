@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTimeSlot } from "../../../redux/action/bookShopSlotAction";
 import { toast } from "react-toastify";
 import { updateStartingTime,updateEndingTime } from "../../../redux/action/bookShopSlotAction";
-
 const DaySchedule = ({ data, time }) => {
   const dispatch = useDispatch();
 
