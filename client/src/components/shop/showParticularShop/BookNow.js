@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BiRupee } from "react-icons/bi";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { toast } from "react-toastify";
 import { updateStartingTime,updateEndingTime } from "../../../redux/action/bookShopSlotAction";
+
 const BookNow = ({ shopData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const BookNow = ({ shopData }) => {
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
   console.log("booking data", bookingData);
   const ShopData = useSelector((state) => state.particularShopReducer);
-
+  const [activeBtn,setActiveBtn] =useState(false);
   const url = process.env.REACT_APP_SERVER_URL;
   const none = "none";
 
@@ -45,7 +46,8 @@ const BookNow = ({ shopData }) => {
           "warning"
         );
       }
-
+  
+      setActiveBtn(true);
       const values = {
         customer_id: userData._id,
         customer_name: userData.name,
@@ -85,6 +87,8 @@ const BookNow = ({ shopData }) => {
         );
         toast.success(response.message);
       }
+      setActiveBtn(false);
+
     }
   };
   
@@ -137,7 +141,7 @@ const BookNow = ({ shopData }) => {
         </div>
 
         <div className="service-btn">
-          <button onClick={() => postDataToServer()}>Confirm Your Slot</button>
+          <button onClick={() => postDataToServer()} disabled={activeBtn}>Confirm Your Slot</button>
         </div>
       </div>
     </>

@@ -60,13 +60,21 @@ const ShopLayout = ({ data }) => {
           <div className="shoplayout">
             <div className="shop1items">
               <div >
-                <h2 className="shop_items"> Shop Name:-{data.shop_name}</h2>
+                <p className="shop_items"> {data.shop_name}</p>
               </div>
               <div>
                 <h2 className="shop_items"> Shop Address:-{data.shop_address}</h2>
               </div>
               <div>
-                <h2> Services:-{data.services_name}</h2>
+                <h2> Services:-{data.shop_services.length!==0? data.shop_services.map((data,index)=>{
+                  return(
+                    <React.Fragment key={index}>
+                    <span>{data.service_name} ,</span>
+
+                    </React.Fragment>
+                  )
+
+                }) : (<span>Does Not Provide any Services yet</span>)}</h2>
               </div>
             </div>
             <div className="shop2items">
