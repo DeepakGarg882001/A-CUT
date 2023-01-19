@@ -6,7 +6,6 @@ import "../../../styles/editphoto.css";
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
   const image_url = process.env.REACT_APP_IMAGE_URL;
-  console.log(data);
   const dispatch = useDispatch();
   const crrAvtar = data.image ? `${image_url}/${data.image.filePath}` : "";
   const [showBtn,setShowBtn] = useState(true);
@@ -57,7 +56,6 @@ function EditPhoto({ data }) {
     });
 
     const response = await makeRequest.json();
-    console.log(response);
 
     if (response.message) {
       dispatch(getOwnerShopDataAction(data._id));
