@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "../../styles/appointmentlayout.css";
 import { useDispatch,useSelector } from "react-redux";
 import {getMyAppointmentAction} from "../../redux/action/myAppointmentsAction";
 import Swal from "sweetalert2";
 const AppointmentLayout = ({ data }) => {
+
+ const [activeBtn, setActiveBtn] = useState(false);
   const url = process.env.REACT_APP_SERVER_URL;
   const userData=useSelector((state)=>state.userReducer);
   const dispatch = useDispatch();
   const deleteEntry = async (id) => {
+    setActiveBtn(true);
     const makeReq = await fetch(`${url}/deleteCustomerAppointments`, {
       method: "delete",
       headers: {
@@ -22,8 +25,11 @@ const AppointmentLayout = ({ data }) => {
     if (response.message) {
       console.log(response.message);
       dispatch(getMyAppointmentAction(userData._id));
+     Swal.fire(response.message);
+  
     }
-    // Swal.fire("Successfully remove your entry");
+
+    setActiveBtn(false);
   };
  
 

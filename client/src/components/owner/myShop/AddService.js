@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import { MdOutlinePlaylistAddCheck } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const AddService = ({ data }) => {
   const url = process.env.REACT_APP_SERVER_URL;
@@ -41,6 +42,7 @@ const AddService = ({ data }) => {
     const response = await makeReq.json();
 
     if (response.message) {
+      toast.success(response.message);
       dispatch(getOwnerShopDataAction(data._id));
     }
   };

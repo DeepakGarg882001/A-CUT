@@ -3,6 +3,9 @@ import "../../../styles/myShop.css";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import { useDispatch } from "react-redux";
 import "../../../styles/editphoto.css";
+import { toast } from "react-toastify";
+
+
 function EditPhoto({ data }) {
   const url = process.env.REACT_APP_SERVER_URL;
   const image_url = process.env.REACT_APP_IMAGE_URL;
@@ -58,6 +61,7 @@ function EditPhoto({ data }) {
     const response = await makeRequest.json();
 
     if (response.message) {
+      toast.success(response.message);
       dispatch(getOwnerShopDataAction(data._id));
     } else {
       if (response.error.name) {
