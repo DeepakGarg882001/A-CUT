@@ -37,7 +37,7 @@ const shopModel = new mongoose.Schema({
   shop_location: {
     latitude: {
       type: Number,
-      default: 0,
+      default: 0  ,
     },
     longitude: {
       type: Number,

@@ -17,7 +17,6 @@ const AddCounter = ({ data }) => {
   const validation = "";
 
   const addNewCounter = async (values) => {
-    console.log(values);
 
     const { counter_number } = values;
 
@@ -41,7 +40,6 @@ const AddCounter = ({ data }) => {
     const response = await makeReq.json();
 
     if (response.message) {
-      console.log(response.message);
       toast.success(response.message);
       dispatch(getOwnerShopDataAction(data._id));
     }
