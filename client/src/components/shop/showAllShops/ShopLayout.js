@@ -19,7 +19,7 @@ const ShopLayout = ({ data }) => {
       longitude: data.shop_location.longitude,
     }
   );
-  console.log("data is",data);
+  console.log("data is", data);
   const [distanceFromUser, setDistanceFromUser] = useState(distance);
 
   const convertDistance = () => {
@@ -39,7 +39,28 @@ const ShopLayout = ({ data }) => {
 
   return (
     <>
-      <div className="allShop-one-list">
+
+
+      <div className="showshopcontainer">
+        <div className="showshop_section1">
+          <div className="showshop_name">
+          <h2 className="shop_items"> Shop Name:-{data.shop_name}</h2>
+
+          </div>
+          <div className="showshop_contact"></div>
+
+        </div>
+        <div className="showshop_section1">
+          <div className="showshop_details">
+
+          </div>
+        </div>
+        <div className="showshop_section1">
+<div className="location"></div>
+        </div>
+      </div>
+      {/*
+       <div className="allShop-one-list">
         <Link
           to="/showShopDetails"
           onClick={() => {
@@ -57,6 +78,7 @@ const ShopLayout = ({ data }) => {
           }}
           style={{ textDecoration: "none" }}
         >
+        
           <div className="shoplayout">
             <div className="shop1items">
               <div >
@@ -80,7 +102,7 @@ const ShopLayout = ({ data }) => {
           </div>
 
         </Link>
-      </div>
+      </div> */}
     </>
   );
 };

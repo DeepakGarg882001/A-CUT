@@ -1,8 +1,8 @@
-.shoplayout {
+/* .shoplayout {
       display: flex;
       justify-content: space-around;
       height: auto;
-      font-size: 1rem;
+      font-size: .5rem;
       color: black;
       
 }
@@ -24,4 +24,9 @@
       justify-content: center;
       justify-content: space-between;
 
-} 
+}  */
+/* .show_shops{
+      height:400%;
+      width: 100%;
+      border: 3px solid black;
+} */
