@@ -22,7 +22,6 @@ const EditCounter = ({ data, _id, ShopData }) => {
   const validation = "";
 
   const addNewCounter = async (values) => {
-    console.log(values);
 
     const { counter_number } = values;
 
@@ -70,7 +69,6 @@ const EditCounter = ({ data, _id, ShopData }) => {
     const response = await makeReq.json();
 
     if (response.message) {
-      console.log(response.message);
       toast.success(response.message);
       dispatch(getOwnerShopDataAction(_id));
     }
