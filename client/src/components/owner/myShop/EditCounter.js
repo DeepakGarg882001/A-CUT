@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { toast } from "react-toastify";
-import "../../../styles/editcounter.css"
+import "../../../styles/editcounter.css";
 import { AiOutlineEdit } from "react-icons/ai";
 import { MdOutlineDelete, MdOutlineFileDownloadDone } from "react-icons/md";
 
