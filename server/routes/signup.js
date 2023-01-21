@@ -50,7 +50,10 @@ export const signup = async (request, response) => {
         from: "salondekhoo@gmail.com",
         to: email,
         subject: " Salon Dekho Registration ",
-        text: `Hi ${name}, "Welcome to our website! Thank you for registered at Salon Dekho. Your account is now active and you can start enjoying our services. Please save your login details for future reference. If you have any queries or issues, please contact our customer support. Thanks for choosing us."  `,
+        text: `Hi ${name}, Welcome to our website! Thank you for registered at Salon Dekho. 
+        Your account is now active and you can start enjoying our services.
+         Please save your login details for future reference. If you have any queries or issues, please contact our customer support.
+          Thanks for choosing us.  `,
       };
       transporter.sendMail(mailMessage, async (error, info) => {
         if (error) {
