@@ -1,19 +1,87 @@
-.appoint_main{
+.appointment-layout-sec{
+      width: 70%;
       display: flex;
-      justify-content:space-around ;
-      font-size: bold;
-      background-color: rgb(209, 205, 202);
-      margin: 1rem;
-      cursor:pointer;
+      height: fit-content;
+      flex-direction: column;
+      border-radius: 8px;
+      padding-top: 10px;
+      
      
 }
-#can_appointment button{
-     margin: 1rem;
-     padding: 5px;
-     border-radius: 5px;
-     cursor:pointer;
+.appointment-layout-row{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      flex-wrap: wrap;
+      padding: 0 10px;
 }
-#can_appointment  :hover{
-      background-color: red;
+.under-appointment-layout-row{
+     width: fit-content;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
 }
+.appointment-layout-shop-name{
+      font-size: 1.5rem;
+      color: black;
+      font-weight: 800;
+}
+.appointment-layout-date{
+      color: #0000008c;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.appointment-layout-heading{
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0000008c;
+}
+.appointment-layout-services {
+      display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.appointment-layout-address-sec{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: left;
+      align-items:flex-start;
+      height: fit-content;
+      gap: 6px;
+      padding: 0 10px;
+}
+.appointment-layout-address-icon{
+      color: #0000008c;
+}
+.appointment-layout-row-bottom{
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      display: flex;
+      flex-direction:row;
+
+}
+.appointment_layout_btn-sec{
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.appointment_layout_btn{
+      outline: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #0000008c;
+      background-color: transparent;
+      font-weight: 900;
+      padding: 10px;
+      cursor: pointer;
+}
+
+
 

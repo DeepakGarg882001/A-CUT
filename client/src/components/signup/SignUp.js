@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {FaUserAlt} from "react-icons/fa";
 import {SiGmail} from "react-icons/si";
 import {BsFillTelephoneFill} from "react-icons/bs";
@@ -87,10 +87,13 @@ const SignUp = () => {
 
   }
   
-  
+  useEffect(()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+  },[]);
+
   return (
     <>
-      <div className="loginInner">
+      <div className="signup-canvas">
         <Formik
         initialValues={initialFormData}
         validationSchema={formValidation}

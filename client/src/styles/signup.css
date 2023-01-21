@@ -1,3 +1,13 @@
+.signup-canvas{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 100vw;
+    min-height: 90vh;
+}
+
+
 #grid{
    
    
@@ -12,10 +22,7 @@
     text-align: center;
     margin-bottom: 30px;
 }
-::placeholder{
-    color: rgb(14, 1, 1);
-    opacity: 1;
-}
+
 .inputWrapper{
     width: 300px;
 }
