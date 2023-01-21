@@ -25,7 +25,7 @@ const AppointmentLayout = ({ data }) => {
     if (response.message) {
       console.log(response.message);
       dispatch(getMyAppointmentAction(userData._id));
-     Swal.fire(response.message);
+    //  Swal.fire(response.message);
   
     }
 
