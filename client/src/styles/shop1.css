@@ -8,51 +8,78 @@
     /* background-color: rgb(165, 97, 148); */
     /* background-image: linear-gradient(yellow, white, green); */
 }
-::placeholder{
-    color: black;
+
+.shop-top{
+  display: flex;
+  /* flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row; */
+  width: 100vw;
+  height: auto;
 }
 .shop-details{
-    width: 100%;
+    width:50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    /* box-shadow: 0 0 20px #ccc; */
+
+}
+.shop-image-sec{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .counter_no:hover{
   background-color: antiquewhite;
   cursor: pointer;
 }
 
-.shop-details .owner-detail{
+.shop-details {
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.shop-details .owner-detail .owner-name{
+.owner-detail{
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction:row ;
+}
+.owner-detail-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  width: 50%;
+}
+.shop-details .owner-name{
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
-.shop-details .owner-detail .rating{
+.shop-details .rating{
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     /* background-color: rgb(167, 167, 47); */
     margin-top: 1rem;
 }
-.owner-detail .shop-timing{
+.shop-timing{
     display: flex;
     justify-content: center;
     align-items: center;   
-    margin-top: 1.2rem;
+    margin-top: 1.8rem;
 }
 .booking-details{
     margin-top: 1.5rem;
@@ -206,6 +233,9 @@
   display: flex;
   align-items: center;
 }
+.service-selected .service-selected-shop input{
+  margin-bottom: 1rem;
+}
 .service-selected .service-selected-price{
   display: flex;
   align-items: center;
@@ -248,7 +278,39 @@
 background-color: #59c1bd;
 cursor: pointer;
  }
-
+.shop-date{
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-around;
+}
+.shop-date p{
+  display: flex;
+}
+.shop-date p input{
+  font-size: 2rem;
+}
+.shop-counn{
+  width: 80%;
+}
+.shop-counn h3{
+text-align: center;
+}
+.shop-coun{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid grey;
+  padding: 1rem;
+  width: 100%;
+}
+.counter_no{
+  outline: none;
+  padding: .6rem;
+  border-radius: 1.4rem;
+}
+.counter_no :hover{
+  background-color: gray;
+} 
 /* media queries */
 @media screen and (max-width: 400px) {
   #header {

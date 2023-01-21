@@ -4,7 +4,10 @@ import DaySchedule from "./DaySchedule";
 import SelectServices from "./SelectServices";
 import BookNow from "./BookNow";
 import { clearBookingData } from "../../../redux/action/bookShopSlotAction";
-import { updateDate, updateCounterNumber } from "../../../redux/action/bookShopSlotAction";
+import {
+  updateDate,
+  updateCounterNumber,
+} from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,7 +20,9 @@ const Shop = () => {
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
 
   const image_url = process.env.REACT_APP_IMAGE_URL;
-  const crrAvtar = ShopData.image ? `${image_url}/${ShopData.image.filePath}` : "";
+  const crrAvtar = ShopData.image
+    ? `${image_url}/${ShopData.image.filePath}`
+    : "";
 
   // working with Date
   const todayDate = new Date();
@@ -42,15 +47,13 @@ const Shop = () => {
 
   let openTime;
   let closeTime;
-  
-   for(let k =0;k<allDays.length;k++){
-     if(allDays[k].day === day){
-       openTime= allDays[k].open;
-       closeTime= allDays[k].close
-     }
-   }
 
- 
+  for (let k = 0; k < allDays.length; k++) {
+    if (allDays[k].day === day) {
+      openTime = allDays[k].open;
+      closeTime = allDays[k].close;
+    }
+  }
 
   const shopCounters = ShopData.length === 0 ? [] : ShopData.shop_counters;
 
@@ -84,7 +87,6 @@ const Shop = () => {
 
   // Converting The Shop Time
   const convertTime = (number) => {
-
     const nonDecimal = Math.floor(number);
     const decimalValue = number - nonDecimal;
     let hour = convertToHr(nonDecimal);
@@ -100,23 +102,23 @@ const Shop = () => {
       case 0.75:
         return `${hour}:45 ${nonDecimal >= 12 ? "PM" : "AM"}`;
 
-      default: break;
+      default:
+        break;
     }
-
-  }
+  };
 
   return (
     <>
       <header id="header">
-        <div>
-
-          {crrAvtar !== "" ? <img src={crrAvtar}
-            className="shop_details"
-            alt="shop_img" /> :
-            <div className="" >Add Linear Gradient</div>
-          }
-        </div>
-
+        <div className="shop-top">
+          <div className="shop-image-sec">
+            {crrAvtar !== "" ? (
+              <img src={crrAvtar} className="shop_details" alt="shop_img" />
+            ) : (
+              <div className="">Add Linear Gradient</div>
+            )}
+          </div>
+          </div>
 
         <div className="shop-details">
           <h2> Shop Name :-{ShopData.shop_name}</h2>
@@ -138,19 +140,69 @@ const Shop = () => {
                 <span> <AiFillStar style={{color:"green"}} /> {ShopData.shop_rating}</span>
               </div>
             </div>
-            <div className="shop-timing">
-              <h3>
+            <div className="owner-detail">
+              <div className="owner-detail-box">
                 <span>
-                  Shop Timing <span /> ➤ <span /> {convertTime(openTime)} - {convertTime(closeTime)}
+                  {" "}
+                  <BiUser />
                 </span>
-              </h3>
+                <span>{ShopData.owner_name}</span>
+              </div>
+              <div>
+                <span>
+                  <SiGooglemaps />
+                </span>
+                <span>{ShopData.shop_address}</span>
+              </div>
+              <div className="rating">
+                <span>
+                  {" "}
+                  <IoCallOutline />
+                </span>
+                <span>{ShopData.shop_mobile}</span>
+              </div>
+
+              <div>
+                <span>
+                  <AiFillStar />
+                </span>
+                <span>{ShopData.shop_rating}</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <div>
-            <h3>Choose Your Date:-</h3>
+        <div className="shop-timing">
+          <p>
+            Shop Timing : <span>{convertTime(openTime)}</span> -{" "}
+            <span>{convertTime(closeTime)}</span>
+          </p>
+        </div>
+
+        <div className="shop-counn">
+          <h3>Select Counter For Booking:-</h3>
+
+          <div className="shop-coun">
+            {shopCounters !== []
+              ? shopCounters.map((data, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <div
+                        onClick={() =>
+                          dispatch(updateCounterNumber(data.counter_number))
+                        }
+                      >
+                        <button className="counter_no">
+                          Counter : {data.counter_number}{" "}
+                        </button>
+                      </div>
+                    </React.Fragment>
+                  );
+                })
+              : null}
+          </div>
+          <div className="shop-date">
+            <h3>Choose Date:</h3>
             <p>
               Date : <span>{showingDate}</span>{" "}
               <input
@@ -163,25 +215,6 @@ const Shop = () => {
               />
             </p>
           </div>
-          <h3>Select Counter For Booking:-</h3>
-
-
-            {shopCounters !== []
-              ? shopCounters.map((data, index) => {
-               
-                return (
-
-                  <React.Fragment key={index}>
-
-                    <div onClick={() => dispatch(updateCounterNumber(data.counter_number))}>
-                      <button className="counter_no">Counter : {data.counter_number} </button>
-                    </div>
-
-                  </React.Fragment>
-
-                );
-              })
-              : null}
         </div>
 
         <div className="booking-details">
@@ -199,17 +232,17 @@ const Shop = () => {
           </div>
         </div>
 
-        <div className ="shop_location" >
+        <div className="shop_location">
           Follow the path For Reach Our Shop
-          {ShopData.length !== 0 ? (<iframe 
-            width="100%"
-            height="100%"
-            title="shop_location"
-            src={`https://maps.google.com/maps?q=${ShopData.shop_location.latitude},${ShopData.shop_location.longitude}&z=14&output=embed`}
-          ></iframe>) : null}
-
+          {ShopData.length !== 0 ? (
+            <iframe
+              width="100%"
+              height="100%"
+              title="shop_location"
+              src={`https://maps.google.com/maps?q=${ShopData.shop_location.latitude},${ShopData.shop_location.longitude}&z=14&output=embed`}
+            ></iframe>
+          ) : null}
         </div>
-
       </header>
     </>
   );
