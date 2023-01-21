@@ -144,20 +144,20 @@ const Shop = () => {
               <div className="owner-detail-box">
                 <span>
                   {" "}
-                  <BiUser />
+                  {/* <BiUser /> */}
                 </span>
                 <span>{ShopData.owner_name}</span>
               </div>
               <div>
                 <span>
-                  <SiGooglemaps />
+                  {/* <SiGooglemaps /> */}
                 </span>
                 <span>{ShopData.shop_address}</span>
               </div>
               <div className="rating">
                 <span>
                   {" "}
-                  <IoCallOutline />
+                  {/* <IoCallOutline /> */}
                 </span>
                 <span>{ShopData.shop_mobile}</span>
               </div>
