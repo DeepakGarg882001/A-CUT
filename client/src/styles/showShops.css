@@ -4,7 +4,7 @@
     min-height: 530px;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    /* background-color: white; */
     align-items: center;
 }
 .allshop_tittle{
