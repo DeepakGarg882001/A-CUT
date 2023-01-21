@@ -12,6 +12,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import "react-toastify/dist/ReactToastify.css";
 import {AiFillStar} from "react-icons/ai";
+import { BiUser} from "react-icons/bs";
+import { SiGooglemaps} from "react-icons/sl";
+// import { IoCallOutline} from "react-icons/Io";
+
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -144,20 +148,20 @@ const Shop = () => {
               <div className="owner-detail-box">
                 <span>
                   {" "}
-                  <BiUser />
+                  {/* <BiUser /> */}
                 </span>
                 <span>{ShopData.owner_name}</span>
               </div>
               <div>
                 <span>
-                  <SiGooglemaps />
+                  {/* <SiGooglemaps /> */}
                 </span>
                 <span>{ShopData.shop_address}</span>
               </div>
               <div className="rating">
                 <span>
                   {" "}
-                  <IoCallOutline />
+                  {/* <IoCallOutline /> */}
                 </span>
                 <span>{ShopData.shop_mobile}</span>
               </div>
