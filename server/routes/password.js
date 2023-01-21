@@ -109,7 +109,7 @@ export const sendFrgPassOTP = async (request, response) => {
 
     transporter.sendMail(mailMessage, async (error, info) => {
       if (error) {
-        return response.status(500).json({ error });
+        return response.status(500).json({ error :"OTP Sending Process failed Due to Very Poor Internet Connection,Try Again"});
       } else {
         response
           .status(201)

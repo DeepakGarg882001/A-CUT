@@ -20,6 +20,9 @@ import {
 import AddCounter from "./AddCounter";
 import ShowCounters from "./ShowCounters";
 import ShopTime from "./ShopTime";
+import { toast } from "react-toastify";
+
+
 const MyShop = () => {
   const url = process.env.REACT_APP_SERVER_URL;
   const dispatch = useDispatch();
@@ -78,6 +81,7 @@ const MyShop = () => {
     console.log(response);
     if (response.message) {
       console.log(response.message);
+      toast.success(response.message);
       dispatch(getOwnerShopDataAction(ShopData._id));
     }
   };
@@ -98,6 +102,7 @@ const MyShop = () => {
 
     if (response.message) {
       console.log(response.message);
+      toast.success(response.message)
       dispatch(getOwnerShopDataAction(ShopData._id));
       navigate("/owner/createShop");
     }

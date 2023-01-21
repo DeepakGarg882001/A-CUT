@@ -5,6 +5,7 @@ import { getOwnerShopDataAction } from "../../../redux/action/ownerShopAction";
 import "../../../styles/myShop.css";
 import { AiOutlineEdit } from "react-icons/ai";
 import { MdOutlineDelete, MdOutlineFileDownloadDone } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const EditServices = ({ data, id }) => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const EditServices = ({ data, id }) => {
     const response = await makeReq.json();
     if (response.message) {
       console.log(response.message);
+      toast.success(response.message);
       dispatch(getOwnerShopDataAction(id));
     }
   };
@@ -52,6 +54,7 @@ const EditServices = ({ data, id }) => {
     const response = await makeReq.json();
 
     if (response.message) {
+      toast.success(response.message);
       dispatch(getOwnerShopDataAction(id));
     }
   };

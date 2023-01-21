@@ -10,12 +10,8 @@ import {
 } from "../../../redux/action/bookShopSlotAction";
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BiUser } from "react-icons/bi";
-import { SiGooglemaps } from "react-icons/si";
-import { IoCallOutline } from "react-icons/io5";
-import { AiFillStar } from "react-icons/ai";
+import {AiFillStar} from "react-icons/ai";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -122,10 +118,27 @@ const Shop = () => {
               <div className="">Add Linear Gradient</div>
             )}
           </div>
+          </div>
 
-          <div className="shop-details">
-            <div>
-              <h2> {ShopData.shop_name} </h2>
+        <div className="shop-details">
+          <h2> Shop Name :-{ShopData.shop_name}</h2>
+          <div className="owner-detail">
+            <div className="owner-name">
+              <h3>
+                <span> Owner Name:-{ShopData.owner_name}</span>
+              </h3>
+              <h3>
+                <span> Address:-{ShopData.shop_address}</span>
+              </h3>
+            </div>
+            <div className="rating">
+              <h3>
+                <span> Mobile no:-{ShopData.shop_mobile}</span>
+              </h3>
+              <div>
+                <span>Rating </span>
+                <span> <AiFillStar style={{color:"green"}} /> {ShopData.shop_rating}</span>
+              </div>
             </div>
             <div className="owner-detail">
               <div className="owner-detail-box">
