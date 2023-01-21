@@ -1,32 +1,61 @@
-/* .shoplayout {
-      display: flex;
-      justify-content: space-around;
-      height: auto;
-      font-size: .5rem;
-      color: black;
-      
-}
-#dis {
-      font-size: 1.5rem;
-}
-.shop_items{
-      max-width: 30vw;
-}
-.shop1items {
-      display: flex;
-      justify-content: center; 
-      justify-content: space-around;
-        
-} 
- .shop2items { 
-      margin-left: 2rem;
-      display: flex;
-      justify-content: center;
-      justify-content: space-between;
 
-}  */
-/* .show_shops{
-      height:400%;
+.showshopcontainer{
+      height: fit-content;
+      margin-bottom: 10px;
+
+      background-color: rgb(235, 236, 237);
+}
+.showshop_section1{
+      display: flex;
       width: 100%;
-      border: 3px solid black;
-} */
+      height: auto;
+}
+.showshop_name{
+      height:fit-content;
+      width: fit-content;
+      padding: 10px;
+     
+}
+.showshop_contact{
+      height:fit-content;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:flex-end;
+      padding: 10px;
+}
+.showshop_section2{
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap:10px;
+      height: auto;
+      width: 100%;
+      margin: 15px 0px;
+}
+.show-shop-services{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+}
+.showshop_details{
+      width:fit-content;
+      height: fit-content;
+
+}
+.showshop_section3{
+      border: 20px black;
+      display: flex;
+      justify-content: space-evenly;
+}
+.booknow button{
+      background-color: rgb(219, 196, 255);
+      border: none;
+      height: 4rem;
+      width: 14rem;
+      border-radius: 2rem; 
+}
+
