@@ -50,11 +50,11 @@ const MyShop = () => {
 
   // initial Shop Data from server
   const initialData = {
-    owner_name: ShopData.owner_name,
-    shop_name: ShopData.shop_name,
-    shop_mobile: ShopData.shop_mobile,
-    shop_address: ShopData.shop_address,
-    _id: ShopData._id,
+    owner_name: ShopData!==[]? ShopData.owner_name:"",
+    shop_name: ShopData!==[]? ShopData.shop_name:"",
+    shop_mobile: ShopData!==[]? ShopData.shop_mobile:"",
+    shop_address: ShopData!==[]? ShopData.shop_address:"",
+    _id: ShopData!==[]? ShopData._id:"",
   };
 
   // call a fn to update Shop Details
@@ -112,6 +112,8 @@ const MyShop = () => {
   return (
     <>
       <div className="myShop-canvas">
+      {
+        ShopData.length!==0? (
         <Formik
           initialValues={initialData}
           onSubmit={(values) => {
@@ -231,7 +233,8 @@ const MyShop = () => {
               </div>
             </div>
           </Form>
-        </Formik>
+        </Formik>):null
+        }
         <div className="myShop-map-sec">
           <div className="myShop-map-loc-btn" onClick={() => changeLocation()}>
             Choose Current Location

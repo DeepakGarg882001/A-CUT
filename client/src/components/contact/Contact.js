@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../../Assets/contact-img.svg";
-// import 'animate.css';
 import "../../styles/contact.css";
 import TrackVisibility from 'react-on-screen';
 
@@ -45,7 +43,7 @@ import TrackVisibility from 'react-on-screen';
   };
 
   return (
-    <section className="contact" id="connect">
+    <section className="contact-canvas" >
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>

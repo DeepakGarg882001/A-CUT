@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../../styles/emailverify.css";
 import logo from "../../Assets/logo.png";
 import { useParams, useNavigate } from "react-router-dom";
@@ -65,9 +65,13 @@ const EmailVerify = () => {
     }
   };
 
+  useEffect(()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+  },[]);
+
   return (
     <>
-      <div className="emailverify_main">
+      <div className="email-verify-canvas">
         <div>
           <img src={logo} alt="wait" />
 

@@ -9,8 +9,10 @@ const ShowShops = () => {
 
     const dispatch = useDispatch();
     const AllShops = useSelector((state) => state.allShopDataReducer);
-
+ 
+    
     useEffect(() => {
+        window.scrollTo({top:0,behavior:"smooth"});
         dispatch(clearBookingData());
     }, []);
     return (

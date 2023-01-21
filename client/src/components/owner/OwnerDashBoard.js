@@ -8,8 +8,10 @@ const OwnerDashBoard = () => {
   const dispatch = useDispatch();
 
   const ownerData = useSelector((state) => state.userReducer);
+ 
 
   useEffect(() => {
+    window.scrollTo({top:0,behavior:"smooth"});
     // dispatch(getOwnerShopDataAction(ownerData.shop_id));
   }, []);
 
