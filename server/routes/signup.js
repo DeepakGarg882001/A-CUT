@@ -85,7 +85,7 @@ export const sendOTPtoEmail = async(request,response)=>{
       return response.status(200).json({error:"Account Already Exist. Please Login !"});
     }
     const otp = Math.floor(1000 + Math.random() * 9000);
-
+    console.log(otp);
     const data = {
       OTP: otp + 1,
       role:role,
@@ -112,6 +112,7 @@ export const sendOTPtoEmail = async(request,response)=>{
     };
     transporter.sendMail(mailMessage, async (error, info) => {
       if (error) {
+        console.log(error);
         return response.status(500).json({ error:"OTP Sending Process failed Due to Very Poor Internet Connection,Try Again" });
       } else {
         response

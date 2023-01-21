@@ -1,21 +1,38 @@
-.appointment{
-      height: auto;
-      width: auto;
-      min-height: 530px;
+.appointment-canvas {
+      width: 100vw;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content:flex-start;
+      align-items: center;
 }
 
-#appointment_search{
-      margin-left:1rem ;
-      margin-top: 1rem;
-      width: 80%;
-      height: 35px;
-}
-.appointment_tittle{
+.appointment-canvas-tittle{
+      width: 100%;
+      padding-top: 15px;
       text-align: center;
-      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.appointment-canvas-tittle-text{
+      color: gray;
+      border-bottom: 2px solid orange;
+      padding: 4px;
+      font-size: 2rem;
+      width: fit-content;
+}
+.appointment-canvas-body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding-bottom: 50px;
 }
 .search_slot{
-   /* background-color: aquamarine; */
 text-align: center;
 text-justify: distribute-all-lines;
 margin: 1rem;

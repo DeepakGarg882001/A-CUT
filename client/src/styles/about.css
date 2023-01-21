@@ -1,6 +1,9 @@
-.about-page {
+.aboutUS-canvas{
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  min-height: 90vh;
+
   
 }
 .about {

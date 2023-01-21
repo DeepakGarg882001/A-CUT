@@ -17,7 +17,7 @@ import mem3img from "../../Assets/team_img3.jpg";
 const AboutUs = () => {
   return (
     <>
-      <div className="about-page">
+      <div className="aboutUS-canvas">
 
         <div className="about">
           <div className="about-img">

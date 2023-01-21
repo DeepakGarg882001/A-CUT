@@ -68,7 +68,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="loginInner">
+      <div className="login-canvas">
         <Formik
           initialValues={initialFormData}
           validationSchema={formValidation}

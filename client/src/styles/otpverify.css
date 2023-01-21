@@ -1,14 +1,13 @@
-.otpverify_main{
-      width: 100vw;
+.otpverify-canvas{
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 69vh;
+    min-height: 90vh;
     gap: 30px;
     background-color: white;
-    /* padding-top: 10px; */
-    /* padding-bottom: 30px; */
+   
 }
 .otpverify{
       font-size: 2rem;

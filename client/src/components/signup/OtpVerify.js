@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/otpverify.css";
 import logo from "../../Assets/logo.png";
@@ -36,9 +36,14 @@ const OtpVerify = () => {
       Swal.fire("Sorry", response.error, "error");
     }
   };
+  
+  useEffect(()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
+  },[]);
+
   return (
     <>
-      <div className="otpverify_main">
+      <div className="otpverify-canvas">
         <img src={logo} alt="" />
         <div className="otpverify">
           <h2>Hurry Up !! Verify Account</h2>

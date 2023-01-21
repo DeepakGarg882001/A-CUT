@@ -1,10 +1,11 @@
- .emailverify_main{
-       width: 100vw; 
+ .email-verify-canvas{
+      width: 100vw; 
       display: flex; 
       flex-direction: column; 
       align-items: center;
-       min-height: 70vh;
+      min-height: 90vh;
       background-color: white;
+      justify-content: center;
     
 }  
 .email_verfiy{
@@ -12,7 +13,7 @@
       flex-direction: column;
 
 }
-.emailverify_main img{
+.email-verify-canvas img{
       animation-name: rotate4;
       animation-duration: 5s;
       animation-iteration-count: 1;

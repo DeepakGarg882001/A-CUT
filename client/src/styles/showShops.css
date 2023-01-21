@@ -1,11 +1,12 @@
 .allShops-canvas{
-    width: auto;
+    width: 100vw;
     height: auto;
-    min-height: 530px;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     /* background-color: white; */
     align-items: center;
+    justify-content: center;
 }
 .allshop_tittle{
 font-size: 2rem;
