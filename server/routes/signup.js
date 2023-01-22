@@ -41,16 +41,16 @@ export const signup = async (request, response) => {
         secure: false,
         requireTLS: true,
         auth: {
-          user: "cikurra@gmail.com",
-          pass: "xlizhlqnzzznjxky",
+          user: "salondekhoo@gmail.com",
+          pass: "vbgjcawbzbithelw",
         },
       });
 
       const mailMessage = {
-        from: "cikurra@gmail.com",
+        from: "salondekhoo@gmail.com",
         to: email,
-        subject: " CikUra Registration ",
-        text: `Hi ${name}, You have successfuly Created an account at CikUra .
+        subject: " Salon Dekho Registration ",
+        text: `Hi ${name}, You have successfuly Created an account at Salon Dekho .
                   Thankyou   `,
       };
       transporter.sendMail(mailMessage, async (error, info) => {
@@ -85,7 +85,7 @@ export const sendOTPtoEmail = async(request,response)=>{
       return response.status(200).json({error:"Account Already Exist. Please Login !"});
     }
     const otp = Math.floor(1000 + Math.random() * 9000);
-
+    console.log(otp);
     const data = {
       OTP: otp + 1,
       role:role,
@@ -99,19 +99,20 @@ export const sendOTPtoEmail = async(request,response)=>{
       secure: false,
       requireTLS: true,
       auth: {
-        user: "cikurra@gmail.com",
-        pass: "xlizhlqnzzznjxky",
+        user: "salondekhoo@gmail.com",
+        pass: "vbgjcawbzbithelw",
       },
     });
 
     const mailMessage = {
-      from: "",
+      from: "salondekhoo@gmail.com",
       to: email,
       subject: " Email Verification ",
       text: ` Hi, the secret OTP code is : ${otp} . Please never share with others.  `,
     };
     transporter.sendMail(mailMessage, async (error, info) => {
       if (error) {
+        console.log(error);
         return response.status(500).json({ error:"OTP Sending Process failed Due to Very Poor Internet Connection,Try Again" });
       } else {
         response

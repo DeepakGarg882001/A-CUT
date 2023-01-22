@@ -1,7 +1,6 @@
 import React from "react";
 import "../../styles/userProfile.css";
-import MyAppointments from "../customer/MyAppointments";
-import { useDispatch,useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 const UserDashBoard = () => {
   const userData=useSelector((state)=>state.userReducer);
   // userData=userData;
@@ -58,9 +57,6 @@ const UserDashBoard = () => {
             Submit
           </button>
         </form>
-      </div>
-      <div className="appoint-page">
-      <MyAppointments/>
       </div>
     </>
   );

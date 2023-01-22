@@ -1,10 +1,13 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/chooseaccunt.css";
 import salon_customer from "../../Assets/salon_customer.png";
 import salon_owner from "../../Assets/salon_owner.png";
 
 const ChooseAccount = () => {
+  useEffect(()=>{
+    window.scrollTo({top:130,behavior:"smooth"});
+  },[]);
   return (
     <>
       <div className="choose_accunt">

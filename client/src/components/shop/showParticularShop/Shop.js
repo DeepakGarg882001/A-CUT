@@ -12,9 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import "react-toastify/dist/ReactToastify.css";
 import {AiFillStar} from "react-icons/ai";
-import { BiUser} from "react-icons/bs";
-import { SiGooglemaps} from "react-icons/sl";
-// import { IoCallOutline} from "react-icons/Io";
+import { BiUser } from "react-icons/bi";
+import {SiGooglemaps} from "react-icons/si";
+import {IoCallOutline} from "react-icons/io5";
 
 
 const Shop = () => {
@@ -77,6 +77,9 @@ const Shop = () => {
   }, [showingDate, bookingData.counter_number]);
 
   useEffect(() => {
+     
+    window.scrollTo({top:0,behavior:"smooth"});
+
     dispatch(clearBookingData());
   }, []);
 
