@@ -68,6 +68,31 @@
   color: white;
   text-shadow: 0px 4px 0px #201323;
 }
+.navbar-header-right{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar-header-right ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 3rem;
+}
+.navbar-header-right ul  li{
+  text-decoration: none;
+  list-style: none;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  padding-right: .8rem;
+}
+.navbar-header-right ul a{
+  text-decoration: none;
+}
+.navbar-header-right ul li:hover{
+  color: blue;
+}
 .navbar-header-right-btn-sec{
   display: flex;
   border-collapse: collapse;

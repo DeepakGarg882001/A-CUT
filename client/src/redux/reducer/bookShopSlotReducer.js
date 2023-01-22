@@ -29,7 +29,11 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
         if (length === 0) {
           data.services = [
             ...data.services,
-            { service_name: action.data.service_name },
+            { service_name: action.data.service_name,
+              original_price:action.data.original_price,
+              offer:action.data.offer,
+              price: action.data.price,
+            },
           ];
           data.total_price = data.total_price + action.data.price;
           data.total_duration = data.total_duration + action.data.duration;
@@ -81,7 +85,12 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
 
           data.services = [
             ...data.services,
-            { service_name: action.data.service_name },
+            { 
+              service_name: action.data.service_name,
+              original_price:action.data.original_price,
+              offer:action.data.offer
+            
+            },
           ];
           data.total_price = data.total_price + action.data.price;
           data.total_duration = data.total_duration + action.data.duration;

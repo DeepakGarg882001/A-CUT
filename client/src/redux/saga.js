@@ -16,10 +16,33 @@ import {
   GET_MY_APPOINTMENTS,
   SET_MY_APPOINTMENTS,
   SEARCH_ALL_SHOPS_DATA,
+  GET_APPOINTMENTED_SHOP_DATA,
+  SET_APPOINTMENTED_SHOP_DATA,
 } from "./reduxConstants";
 
 const url = process.env.REACT_APP_SERVER_URL;
 
+// Call API to get the List of Whole Details of a particular Shop
+function* getAppointmentedShopData(action) {
+  const makeRequest = yield fetch(`${url}/getShop?key=${action.data}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  const response = yield makeRequest.json();
+  let data;
+  if (response.data) {
+    data = response.data;
+  }
+  if (response.error) {
+    data = response;
+  }
+  yield put({ type: SET_APPOINTMENTED_SHOP_DATA, data: data });
+}
 
 // Call API to get the List of all booked Appointments with respect to Unique User
 function* findMyAppointments(action) {
@@ -223,6 +246,8 @@ function* Saga() {
   yield takeEvery(GET_OWNER_CUSTOMER_DATA, getOwnerCustomerData);
   yield takeEvery(GET_BOOKED_SLOTS, getBookedSlots);
   yield takeEvery(GET_MY_APPOINTMENTS, findMyAppointments);
+  yield takeEvery(GET_APPOINTMENTED_SHOP_DATA, getAppointmentedShopData);
+  
 }
 
 export default Saga;

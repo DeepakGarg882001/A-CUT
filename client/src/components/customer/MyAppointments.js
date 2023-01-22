@@ -1,13 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React ,{useEffect} from "react";
+import { useSelector,useDispatch } from "react-redux";
 import AppointmentLayout from "./AppointmentLayout";
 import "../../styles/myappointments.css";
+import { clearAppointmentedShopData } from "../../redux/action/myAppointmentShopAction";
+import { removeUniqueAppointmentData } from "../../redux/action/uniqueAppointmentDataAction";
 // import SearchBar from '../../components/shop/showAllShops/SearchBar.js';
 
 const MyAppointments = () => {
+  const dispatch = useDispatch();
   const appointmentList = useSelector((state) => state.myAppointmentReducer);
 
   console.log("appointmentList", appointmentList);
+   
+  useEffect(()=>{
+    dispatch(clearAppointmentedShopData());
+    dispatch(removeUniqueAppointmentData());
+  },[]);
 
   return (
     <>

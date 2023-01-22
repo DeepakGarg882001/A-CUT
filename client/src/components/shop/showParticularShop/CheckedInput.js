@@ -36,6 +36,8 @@ const CheckedInput = ({ bookedSlots, closeTime, data }) => {
               active: e.target.checked,
               service_name: data.service_name,
               price: currentPrice(data),
+              original_price:data.price,
+              offer:data.offer,
               duration: data.duration,
               bookedSlots,
               closeTime,

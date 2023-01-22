@@ -40,7 +40,7 @@ const Shop = () => {
   // changing Date value
   const changeDate = (value) => {
     let changedValue = new Date(value);
-    if (changedValue > todayDate) {
+    if (changedValue > todayDate) { 
       setDate(value);
     } else if (changedValue <= todayDate) {
       setDate(todayDate);
