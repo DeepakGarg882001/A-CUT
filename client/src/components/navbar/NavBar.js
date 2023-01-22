@@ -80,13 +80,29 @@ const NavBar = () => {
                   />
                 </div>
                 <div className="under-navbar-cpm-sec">
-                  <h1 className="navbar-cpm-name"> <i>Salon Dekho</i> </h1>
+                  <h1 className="navbar-cpm-name">
+                    {" "}
+                    <i>Salon Dekho</i>{" "}
+                  </h1>
                 </div>
               </div>
             </Link>
           </div>
-
           <div className="navbar-header-right">
+            <ul>
+              <Link to="/">
+                <li>Home</li>
+              </Link>
+              <Link to="/about">
+                <li>About</li>
+              </Link>
+              <Link to="/contact">
+                <li>Contact</li>
+              </Link>
+              <Link to="all_shops">
+                <li>Shops</li>
+              </Link>
+            </ul>
             {user.token ? (
               <Link to="/profile" style={{ textDecoration: "none" }}>
                 <div className="navbar-header-profile">
@@ -101,21 +117,16 @@ const NavBar = () => {
               </Link>
             ) : (
               <div>
-                {location === "/" || location === "/login" ? (
-                  <ul className="navbar-header-right-btn-sec">
-                    <Link to="/login" style={{ textDecoration: "none" }}>
-                      <li className="navbar-header-right-btn navbar-signup">
-                        Login
-                      </li>
-                    </Link>
-                    <Link
-                      to="/selectAccount"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <li className="navbar-header-right-btn "> Sign-Up</li>
-                    </Link>
-                  </ul>
-                ) : null}
+                <ul className="navbar-header-right-btn-sec">
+                  <Link to="/login" style={{ textDecoration: "none" }}>
+                    <li className="navbar-header-right-btn navbar-signup">
+                      Login
+                    </li>
+                  </Link>
+                  <Link to="/selectAccount" style={{ textDecoration: "none" }}>
+                    <li className="navbar-header-right-btn "> Sign-Up</li>
+                  </Link>
+                </ul>
               </div>
             )}
             <div></div>
