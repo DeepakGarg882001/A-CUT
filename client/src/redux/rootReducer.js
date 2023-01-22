@@ -10,6 +10,8 @@ import ownerCustomerReducer from "./reducer/ownerCustomerReducer";
 import userLocationReducer from "./reducer/userLocationReducer";
 import bookedSlotsReducer from "./reducer/bookedSlotsReducer";
 import myAppointmentReducer from "./reducer/myAppointmentReducer";
+import myAppointmentShopReducer from "./reducer/myAppointmentShopReducer";
+import uniqueAppointmentReducer from "./reducer/uniqueAppointmentReducer";
 
 const RootReducer = combineReducers({
     userReducer,
@@ -22,6 +24,8 @@ const RootReducer = combineReducers({
     userLocationReducer,
     bookedSlotsReducer,
     myAppointmentReducer,
+    myAppointmentShopReducer,
+    uniqueAppointmentReducer,
     
 })
 

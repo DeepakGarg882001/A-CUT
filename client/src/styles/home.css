@@ -1,4 +1,8 @@
-
+*:focus{
+    outline: none;
+    border: none;
+    outline-style: none;
+}
 .home_page {
     display: flex;
     flex-direction: row-reverse;

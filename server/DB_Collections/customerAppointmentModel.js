@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 let a = new Array(18);
+
 const bookModel = new mongoose.Schema({
   customer_id:{
     type:String
@@ -14,7 +15,14 @@ const bookModel = new mongoose.Schema({
       },
       price:{
         type:Number
+      },
+      original_price:{
+        type:Number
+      },
+      offer:{
+        type:Number
       }
+
     }
   ],
   total_price:{
