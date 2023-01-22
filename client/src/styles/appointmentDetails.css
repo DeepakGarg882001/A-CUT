@@ -1,0 +1,60 @@
+.apnt-details-canvas{
+    width: 100vw;
+    height: auto;
+    min-height: 90vh;
+    background-color:aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.apnt-details-canvas-body{
+    width: auto;
+    height: auto;
+    min-width: 70%;
+    min-height: 70vh;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 1px 0px #c3c3c3;
+    display: flex;
+    flex-direction: column;
+
+}
+.apnt-details-last-row{
+    width: 100%;
+    height: fit-content;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.under-apnt-details-last-row{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.apnt-details-btn{
+    outline: none;
+    border: none;
+    padding: 7px;
+    border-radius: 4px;
+    font-weight: 800;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#apnt-details-cancel-btn {
+   background-color: red;
+   color: white;
+}
+#apnt-details-direction-btn{
+    color: blue;
+    background-color: aliceblue;
+}

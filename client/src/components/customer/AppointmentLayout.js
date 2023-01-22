@@ -4,9 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMyAppointmentAction } from "../../redux/action/myAppointmentsAction";
 import { SiGooglemaps } from "react-icons/si";
 import { BiRupee } from "react-icons/bi";
-
-
+import { useNavigate } from "react-router-dom";
+import { getAppointmentedShopData } from "../../redux/action/myAppointmentShopAction";
+import { setUniqueAppointmentData } from "../../redux/action/uniqueAppointmentDataAction";
 const AppointmentLayout = ({ data, number }) => {
+  
+  const navigate = useNavigate();
+  console.log(data);
   const [activeBtn, setActiveBtn] = useState(false);
   const url = process.env.REACT_APP_SERVER_URL;
   const userData = useSelector((state) => state.userReducer);
@@ -34,7 +38,7 @@ const AppointmentLayout = ({ data, number }) => {
   };
 
   const Services = ({ services }) => {
-    return <p>{services.service_name}</p>;
+    return <p className="appointment-layout-data-text">{services.service_name}</p>;
   };
   
   const todayDate = new Date().getTime();
@@ -67,7 +71,7 @@ const AppointmentLayout = ({ data, number }) => {
         <div className="appointment-layout-row">
           <div className="under-appointment-layout-row">
             <p className="appointment-layout-heading">Counter No </p>
-            <p>{data.counter_number} </p>
+            <p className="appointment-layout-data-text">{data.counter_number} </p>
           </div>
           <div className="under-appointment-layout-row">
             <p className="appointment-layout-heading">Services </p>
@@ -83,13 +87,13 @@ const AppointmentLayout = ({ data, number }) => {
           </div>
           <div className="under-appointment-layout-row">
             <p className="appointment-layout-heading">Total Price </p>
-            <p>
+            <p className="appointment-layout-data-text">
               <BiRupee /> {data.total_price}
             </p>
           </div>
           <div className="under-appointment-layout-row">
             <p className="appointment-layout-heading">Timing </p>
-            <p>
+            <p className="appointment-layout-data-text">
               {data.starting_time} - {data.ending_time}
             </p>
           </div>
@@ -115,7 +119,11 @@ const AppointmentLayout = ({ data, number }) => {
             </button>
           </div>
           <div className="appointment_layout_btn-sec">
-            <button className="appointment_layout_btn"> Show More </button>
+            <button onClick={()=> {
+              navigate("/appointment/detail");
+              dispatch(getAppointmentedShopData(data.shop_id));
+              dispatch(setUniqueAppointmentData(data));
+              }} className="appointment_layout_btn"> Show More </button>
           </div>
         </div>
       </div>

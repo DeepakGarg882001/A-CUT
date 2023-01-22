@@ -39,7 +39,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import VerifyOTP from "./forgotPassword/VerifyOTP";
 import ChangePassword from "./forgotPassword/ChangePassword";
-
+import AppointmentDetails from "./customer/AppointmentDetails";
 const Router = ()=>{
 
     return(<>
@@ -84,6 +84,7 @@ const Router = ()=>{
                     </Route>
                    
                    <Route path="/myAppointment" element={<MyAppointments/>} />
+                   <Route path="/appointment/detail" element={<AppointmentDetails/>} />
 
 
                 </Routes>
