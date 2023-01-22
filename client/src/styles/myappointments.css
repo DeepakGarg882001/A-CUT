@@ -32,14 +32,19 @@
   gap: 10px;
   padding-bottom: 50px;
 }
-.search_slot{
-text-align: center;
-text-justify: distribute-all-lines;
-margin: 1rem;
-cursor:pointer;
+
+
+@media screen and (max-width:1000px) {
+      .appointment-canvas-tittle-text{
+            font-size: 1.7rem;
+      }
+      
 }
-.no_slot{
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 10rem;
+
+
+@media screen and (max-width:700px) {
+      .appointment-canvas-tittle-text{
+            font-size: 1.5rem;
+      }
+      
 }

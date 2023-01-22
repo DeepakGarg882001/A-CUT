@@ -85,3 +85,46 @@
 
 
 
+@media screen and (max-width:1300px) {
+      .appointment-layout-sec{
+            width: 80%;
+      }
+}
+
+@media screen and (max-width:1000px) {
+      .appointment-layout-sec{
+            width: 90%;
+      }
+      
+}
+
+
+@media screen and (max-width:750px) {
+      .appointment-layout-sec{
+            width: 95%;
+      }
+}
+
+@media screen and (max-width:600px) {
+      .appointment-layout-sec{
+            width: 99%;
+      }
+      .appointment-layout-heading{
+            font-size: 0.9rem;
+      }
+      .appointment-layout-data-text{
+            font-size: 0.8rem;
+      }
+      .appointment-layout-date{
+            font-size: 1rem;
+      }
+      .appointment_layout_btn{
+            font-size: 1rem;
+      }
+}
+
+@media screen and (max-width:410px) {
+      .under-appointment-layout-row{
+            min-width: 33%;
+      }
+}
