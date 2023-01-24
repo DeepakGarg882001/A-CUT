@@ -3,7 +3,7 @@
     height: 320px;
     border: 1px solid;
     border-radius: 1rem;
-    box-shadow: 20px 20px 20px 15px grey;
+    /* box-shadow: 20px 20px 20px 15px grey; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@
     height: auto;
     max-width: 100%;
     max-height: 100%;
-    background-image: linear-gradient(rgb(85 203 255), rgb(138 255 223), rgb(153 251 255));
+    /* background-image: linear-gradient(rgb(85 203 255), rgb(138 255 223), rgb(153 251 255)); */
 }
 .individual-shop .shop_na {
     text-align: center;
