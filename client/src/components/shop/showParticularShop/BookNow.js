@@ -1,18 +1,16 @@
 import React,{useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { BiRupee } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import { toast } from "react-toastify";
-import { updateStartingTime,updateEndingTime } from "../../../redux/action/bookShopSlotAction";
+import { getMyAppointmentAction } from "../../../redux/action/myAppointmentsAction";
 
 const BookNow = ({ shopData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userReducer);
   const bookingData = useSelector((state) => state.bookShopSlotDataReducer);
-  console.log("booking data", bookingData);
   const ShopData = useSelector((state) => state.particularShopReducer);
   const [activeBtn,setActiveBtn] =useState(false);
   const url = process.env.REACT_APP_SERVER_URL;
@@ -64,7 +62,6 @@ const BookNow = ({ shopData }) => {
         ending_time:bookingData.ending_time,
       };
 
-      console.log("values", values);
 
       const makeRequest = await fetch(`${url}/bookAppointment`, {
         method: "POST",
@@ -75,7 +72,6 @@ const BookNow = ({ shopData }) => {
       });
 
       const response = await makeRequest.json();
-      console.log(response);
 
       if (response.message) {
         dispatch(
@@ -86,6 +82,9 @@ const BookNow = ({ shopData }) => {
           })
         );
         toast.success(response.message);
+        dispatch(getMyAppointmentAction(userData._id));
+        navigate("/myAppointment");
+
       }
       setActiveBtn(false);
 
