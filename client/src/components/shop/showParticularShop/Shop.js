@@ -11,10 +11,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { bookedSlotsAction } from "../../../redux/action/bookedSlotsAction";
 import "react-toastify/dist/ReactToastify.css";
-import {AiFillStar} from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
-import {SiGooglemaps} from "react-icons/si";
+import { SiGooglemaps } from "react-icons/si";
 import {IoCallOutline} from "react-icons/io5";
+import {AiFillStar} from "react-icons/ai";
+import {HiOutlineUser} from "react-icons/hi";
 
 
 const Shop = () => {
@@ -40,7 +41,7 @@ const Shop = () => {
   // changing Date value
   const changeDate = (value) => {
     let changedValue = new Date(value);
-    if (changedValue > todayDate) { 
+    if (changedValue > todayDate) {
       setDate(value);
     } else if (changedValue <= todayDate) {
       setDate(todayDate);
@@ -77,8 +78,8 @@ const Shop = () => {
   }, [showingDate, bookingData.counter_number]);
 
   useEffect(() => {
-     
-    window.scrollTo({top:0,behavior:"smooth"});
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     dispatch(clearBookingData());
   }, []);
@@ -116,100 +117,32 @@ const Shop = () => {
 
   return (
     <>
-      <header id="header">
-        <div className="shop-top">
-          <div className="shop-image-sec">
+      <div className="shopinfo">
+        <div className="shopinfo1">
+          <div className="shopinfo1_shopdetials">
+            <h2> {ShopData.shop_name}</h2>
+            <p><span> <AiFillStar style={{ color: "green" }} /> {ShopData.shop_rating}</span></p>
+
+            <p>  <HiOutlineUser/>{ShopData.owner_name}</p>
+            <p><IoCallOutline/>{ShopData.shop_mobile}</p>
+            <p><SiGooglemaps/>{ShopData.shop_address}</p>
+
+          </div>
+          <div className="shopinfo_shopimg">
             {crrAvtar !== "" ? (
               <img src={crrAvtar} className="shop_details" alt="shop_img" />
             ) : (
               <div className="">Add Linear Gradient</div>
             )}
           </div>
-          </div>
-
-        <div className="shop-details">
-          <h2> Shop Name :-{ShopData.shop_name}</h2>
-          <div className="owner-detail">
-            <div className="owner-name">
-              <h3>
-                <span> Owner Name:-{ShopData.owner_name}</span>
-              </h3>
-              <h3>
-                <span> Address:-{ShopData.shop_address}</span>
-              </h3>
-            </div>
-            <div className="rating">
-              <h3>
-                <span> Mobile no:-{ShopData.shop_mobile}</span>
-              </h3>
-              <div>
-                <span>Rating </span>
-                <span> <AiFillStar style={{color:"green"}} /> {ShopData.shop_rating}</span>
-              </div>
-            </div>
-            <div className="owner-detail">
-              <div className="owner-detail-box">
-                <span>
-                  {" "}
-                  {/* <BiUser /> */}
-                </span>
-                <span>{ShopData.owner_name}</span>
-              </div>
-              <div>
-                <span>
-                  {/* <SiGooglemaps /> */}
-                </span>
-                <span>{ShopData.shop_address}</span>
-              </div>
-              <div className="rating">
-                <span>
-                  {" "}
-                  {/* <IoCallOutline /> */}
-                </span>
-                <span>{ShopData.shop_mobile}</span>
-              </div>
-
-              <div>
-                <span>
-                  <AiFillStar />
-                </span>
-                <span>{ShopData.shop_rating}</span>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div className="shop-timing">
+        <div className="shopinfo2">
           <p>
             Shop Timing : <span>{convertTime(openTime)}</span> -{" "}
             <span>{convertTime(closeTime)}</span>
           </p>
-        </div>
-
-        <div className="shop-counn">
-          <h3>Select Counter For Booking:-</h3>
-
-          <div className="shop-coun">
-            {shopCounters !== []
-              ? shopCounters.map((data, index) => {
-                  return (
-                    <React.Fragment key={index}>
-                      <div
-                        onClick={() =>
-                          dispatch(updateCounterNumber(data.counter_number))
-                        }
-                      >
-                        <button className="counter_no">
-                          Counter : {data.counter_number}{" "}
-                        </button>
-                      </div>
-                    </React.Fragment>
-                  );
-                })
-              : null}
-          </div>
-          <div className="shop-date">
-            <h3>Choose Date:</h3>
+     <div className="date">
+     <h3>Choose Date:</h3>
             <p>
               Date : <span>{showingDate}</span>{" "}
               <input
@@ -221,36 +154,65 @@ const Shop = () => {
                 onChange={(e) => changeDate(e.target.value)}
               />
             </p>
-          </div>
-        </div>
+     </div>
+           
+            <h3>Choose Counter:</h3>
 
-        <div className="booking-details">
-          <div className="schdule-time">
-            <h1>Choose Your Time Slot</h1>
-            <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
-          </div>
-          <div className="shop-services">
-            <div className="service-headline">
-              <h1>Select Services</h1>
-              <h2>Services</h2>
+          
+        </div>
+        <div className="shopinfo3">
+
+          {shopCounters !== []
+            ? shopCounters.map((data, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <div
+                    onClick={() =>
+                      dispatch(updateCounterNumber(data.counter_number))
+                    }
+                  >
+                    <button className="counter_no">
+                      Counter : {data.counter_number}{" "}
+                    </button>
+                  </div>
+                </React.Fragment>
+              );
+            })
+            : null}
+        </div>
+        <div className="shopinfo4">
+          <div className="shopinfo4_services">
+            <div className="shopinfo4_services1">
+              <h3>Select Services</h3>
+              <SelectServices data={ShopData} time={{ openTime, closeTime }} />
             </div>
-            <SelectServices data={ShopData} time={{ openTime, closeTime }} />
-            <BookNow shopData={ShopData} />
+            <div className="shopinfo4_services2">
+              <BookNow shopData={ShopData} />
+            </div>
+          </div>
+          <div className="shopinfo4_timeslot">
+            <h3>Select Time Slot</h3>
+
+            <DaySchedule data={ShopData} time={{ openTime, closeTime }} />
+
+
+
           </div>
         </div>
+        <div className="shopinfo5">
 
-        <div className="shop_location">
-          Follow the path For Reach Our Shop
           {ShopData.length !== 0 ? (
             <iframe
-              width="100%"
-              height="100%"
+              width="90%"
+              height="1000%"
               title="shop_location"
               src={`https://maps.google.com/maps?q=${ShopData.shop_location.latitude},${ShopData.shop_location.longitude}&z=14&output=embed`}
             ></iframe>
           ) : null}
+
         </div>
-      </header>
+      </div>
+
     </>
   );
 };
