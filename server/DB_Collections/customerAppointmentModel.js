@@ -21,6 +21,9 @@ const bookModel = new mongoose.Schema({
       },
       offer:{
         type:Number
+      },
+      duration:{
+        type:Number
       }
 
     }
@@ -66,6 +69,10 @@ const bookModel = new mongoose.Schema({
     default: "Not Paid"
   },
   checkIn_status:{
+    type:String,
+    default:"none"
+  },
+  checkOut_status:{
     type:String,
     default:"none"
   }

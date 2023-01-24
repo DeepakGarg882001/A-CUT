@@ -4,7 +4,6 @@ import AppointmentLayout from "./AppointmentLayout";
 import "../../styles/myappointments.css";
 import { clearAppointmentedShopData } from "../../redux/action/myAppointmentShopAction";
 import { removeUniqueAppointmentData } from "../../redux/action/uniqueAppointmentDataAction";
-// import SearchBar from '../../components/shop/showAllShops/SearchBar.js';
 
 const MyAppointments = () => {
   const dispatch = useDispatch();
@@ -13,6 +12,7 @@ const MyAppointments = () => {
   console.log("appointmentList", appointmentList);
    
   useEffect(()=>{
+    window.scrollTo({top:0,behavior:"smooth"});
     dispatch(clearAppointmentedShopData());
     dispatch(removeUniqueAppointmentData());
   },[]);

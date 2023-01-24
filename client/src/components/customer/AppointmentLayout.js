@@ -18,7 +18,7 @@ const AppointmentLayout = ({ data, number }) => {
   const deleteEntry = async (id) => {
     setActiveBtn(true);
     const makeReq = await fetch(`${url}/deleteCustomerAppointments`, {
-      method: "delete",
+      method:"DELETE",
       headers: {
         "Content-Type": "application/json",
       },
@@ -44,15 +44,7 @@ const AppointmentLayout = ({ data, number }) => {
   const todayDate = new Date().getTime();
   const appointmentDate = Date.parse(data.date);
 
-  // useEffect(()=>{
-  //   console.log(todayDate);
-  //   console.log(appointmentDate);
-  //   if(todayDate>appointmentDate && data!==[]){
-  //     console.log(todayDate>appointmentDate);
-  //     setActiveBtn(true);
-  //   }
-  // },[appointmentDate]);
-   
+
   return (
     <>
       <div

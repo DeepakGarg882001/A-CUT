@@ -111,7 +111,7 @@ export const getMyAppointments = async (request, response) => {
 
   const customer_id = request.query.key;
 
-  const findAppointment = await customerAppointment.find({ customer_id });
+  const findAppointment = await customerAppointment.find({ customer_id }).sort({_id:-1});
 
   if (findAppointment.length !== 0) {
     response.status(200).json({
