@@ -15,9 +15,8 @@ const Services = ({data}) => {
          <div className='platform-service-name' >
             <p>{data.service_name}</p>
          </div>
-         <div className=' platform-service-price'>
-            <p><span>20Rs</span><span> - </span><span>60Rs</span></p>
-         </div>
+          <div className=' platform-service-price'>
+         </div> 
       </div>
     </>
   )

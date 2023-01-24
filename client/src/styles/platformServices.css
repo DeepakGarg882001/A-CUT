@@ -1,31 +1,21 @@
 .platform-service{
     width: 100%;
-    margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: black;
 }
-.platform-service {
-    padding: 10px;
-  }
+
 .service-img{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.platform-service-name{
-    padding: .5rem 0;
-}
-.platform-service-name p{
-    color: black;
-    font-weight: bolder;
-}
-.platform-service-price{
-    color: black;
-    font-weight: bolder;
-}
+
+
+
 .service-img img{
     width: 15vw;
 }
