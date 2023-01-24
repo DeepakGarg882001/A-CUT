@@ -16,7 +16,6 @@ const Services = ({data}) => {
             <p>{data.service_name}</p>
          </div>
           <div className=' platform-service-price'>
-          <p><span></span><span>  </span><span></span></p> 
          </div> 
       </div>
     </>
