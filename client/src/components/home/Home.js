@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <div className="home_main">
 
         <div className="home_page">
           <div className="home1">
@@ -58,42 +58,47 @@ const Home = () => {
 
           </div>
         </div>
-        <div className="shops">
-          <h2 id="labela-about">Available Shops</h2>
-          <div className="individual">
-            {AllShops.length !== 0 ? AllShops.map((data, index) => {
-              return (
-                <React.Fragment key={index}>
-                  <ShopContainer
-                    data={data}
-                  />
-                </React.Fragment>
-              )
-            }) : (<div><h3>No Shop is Available</h3></div>)}
+        <div className="home_avaliable_shop">
+          <div className="shops">
+            <h2 id="labela-about">Available Shops</h2>
+            </div>
+            <div className="individual">
+              {AllShops.length !== 0 ? AllShops.map((data, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <ShopContainer
+                      data={data}
+                    />
+                  </React.Fragment>
+                )
+              }) : (<div><h3>No Shop is Available</h3></div>)}
 
 
-          </div>
+            </div>
+         
+
         </div>
-      </div>
 
-      <div>
+
         <div >
-          <h2 id="labela-about">Our Services</h2>
+          <div >
+            <h2 id="labela-about">Our Services</h2>
+          </div>
+
+          <div className="services_home">
+            {AllServices.map((data, index) => {
+              return (
+                <React.Fragment key={index}  >
+                  <Link className="servicesabc" to="/all_shops" onClick={() => dispatch(getAllShopAction(data.service_name))}>
+                    <Services data={data} />
+                  </Link>
+                </React.Fragment>
+              );
+            })}
+          </div>
+
+
         </div>
-
-        <div className="services_home">
-          {AllServices.map((data, index) => {
-            return (
-              <React.Fragment key={index}  >
-                <Link className="servicesabc" to="/all_shops" onClick={() => dispatch(getAllShopAction(data.service_name))}>
-                  <Services data={data} />
-                </Link>
-              </React.Fragment>
-            );
-          })}
-        </div>
-
-
       </div>
     </>
   );

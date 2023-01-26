@@ -15,9 +15,12 @@ const ShopContainer = ({ data }) => {
 
   return (
     <>
+
       <div className="individual-shop">
+
         <Link to="/showShopDetails" onClick={() => dispatch(getParticularShopData(data._id))}>
-          <h3 className="shop_na">{data.shop_name}</h3>
+        <h3 className="shop_na">{data.shop_name}</h3>
+
           <div className="shop_details">
             <div className="xyz">
               {crrAvtar !== "" ? <img src={crrAvtar}
@@ -30,7 +33,7 @@ const ShopContainer = ({ data }) => {
           </div>
           <div className="btn_home" >
             <p >Book Now</p>
-            </div>
+          </div>
         </Link>
       </div>
 
