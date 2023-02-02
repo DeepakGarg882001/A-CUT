@@ -57,8 +57,8 @@ const ShopLayout = ({ data }) => {
               <h4 className="showshop_section1_shop_items"> Shop Name:-{data.shop_name}</h4>
             </div>
             <div className="showshop_contact">
-              <h4 className="showshop_section1_shop_items">< GrLocation />{data.shop_address}</h4>
-              <h4 className="showshop_section1_shop_items"><MdOutlineContactPhone />{data.shop_mobile}</h4>
+              <h4 className="showshop_section1_shop_items">< GrLocation /> {" "}{data.shop_address}</h4>
+              <h4 className="showshop_section1_shop_items"><MdOutlineContactPhone />{" "}{data.shop_mobile}</h4>
 
             </div>
 
@@ -93,6 +93,9 @@ const ShopLayout = ({ data }) => {
             <div className="location">
               <div id="dis" className="showshop_section3_shop_items">{distanceFromUser} Away  </div>
             </div>
+           
+
+          
             <Link
               to="/showShopDetails"
               onClick={() => {
@@ -111,10 +114,11 @@ const ShopLayout = ({ data }) => {
               style={{ textDecoration: "none" }}
             >
               <div className="booknow">
-                <button>Book Appointmemt</button>
+                <button id="book_button">Book Appointmemt</button>
 
               </div>
             </Link>
+           
           </div>
         </div>
       </div>

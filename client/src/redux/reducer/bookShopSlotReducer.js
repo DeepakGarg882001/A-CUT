@@ -33,6 +33,7 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
               original_price:action.data.original_price,
               offer:action.data.offer,
               price: action.data.price,
+              duration:action.data.duration
             },
           ];
           data.total_price = data.total_price + action.data.price;
@@ -88,7 +89,9 @@ const bookShopSlotDataReducer = (data = { ...initialData }, action) => {
             { 
               service_name: action.data.service_name,
               original_price:action.data.original_price,
-              offer:action.data.offer
+              offer:action.data.offer,
+              price: action.data.price,
+              duration:action.data.duration
             
             },
           ];

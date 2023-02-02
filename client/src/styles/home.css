@@ -12,28 +12,24 @@
 }
 
 .home2 {
-    /* margin-top: 2rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     justify-items: center;
     font-size: 1.5rem;
     text-decoration-style: solid;
+    text-align: center;
     font-family: "Times New Roman", Times, serif;
 }
 .home_logo img{
-    /* margin-left: 5rem;*/
     margin-top: 3rem; 
     width: 17vw;
     height: 25vh;
     animation-name: rotate1;
     border-radius: 2rem;
     animation-duration: 3s;
-    animation-iteration-count: 1;
-
-     animation-iteration-count: 1; 
+    animation-iteration-count: 2;
     animation-timing-function: linear;
-    /* box-shadow: 20px 20px 50px 10px pink inset;  */
 
 }
 
@@ -41,22 +37,10 @@
     from{ transform: rotate(-360deg); }
     to{ transform: rotate(360deg); }
 }
-/* @keyframes rotate2{
-    0%   {background-image:  yellow;}
-    25%  {background-color: rgb(187, 21, 187);}
-    50%  {background-color: rgb(20, 20, 208);}
-    100% {background-color: rgb(41, 154, 41);}
-  } */
+
   .home1 img{
-    /* animation-name: rotate2;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 2s; */
+
     border-radius: 2rem;
-
-
-    /* box-shadow: 20px 20px 50px 10px rgb(196, 174, 177) inset; */
-
   }
 
 
@@ -71,66 +55,24 @@
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
-    
-    flex-flow: row wrap;
-
-
-    /* position: relative;
-    animation: mymove 5s infinite;
-    animation-timing-function: linear; */
-}
-
-/* @keyframes mymove {
-    from {
-        left: -50rem;
-    }
-
-    to {
-        left: 50rem;
-    }
-} */
-
-/* .individual:hover {
-    animation-play-state: paused;
-} */
+} 
 
 
 
-.individual-shop img {
-    width: 100%;
-    height: 60%;
-}
 
-.individual-shop h3 {
-    text-align: center;
 
-}
 .individual-shop  a{
 text-decoration: none;
-}
+} 
 
-.individual-shop .btn {
-    margin-top: .5rem;
-    width: 100%;
-    padding: .5rem;
-    border-radius: .4rem;
-    border: none;
-    transition: all 1s;
-    font-weight: bold;
 
-}
 
-.individual-shop .btn:hover {
-    background-color: rgb(180, 138, 220);
-}
 
 .services_home {
 
     display: flex;
     flex-direction: row;
-    flex-flow: row wrap;
-
-    justify-content: space-between;
+     justify-content: space-between;
     align-items: center;
 }
 
