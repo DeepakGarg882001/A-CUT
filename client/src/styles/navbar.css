@@ -1,6 +1,7 @@
 
 .canvas-navbar{
   width: 100vw;
+  /* display: flex; */
 }
 .canvas-navbar-side-panel{
   max-width: 400px;
