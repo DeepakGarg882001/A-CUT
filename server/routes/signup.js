@@ -42,7 +42,7 @@ export const signup = async (request, response) => {
         requireTLS: true,
         auth: {
           user: "salondekhoo@gmail.com",
-          pass: "vbgjcawbzbithelw",
+          pass: "zjbzuwytnrldrwmf",
         },
       });
 
@@ -108,7 +108,7 @@ export const sendOTPtoEmail = async (request, response) => {
     requireTLS: true,
     auth: {
       user: "salondekhoo@gmail.com",
-      pass: "vbgjcawbzbithelw",
+      pass: "zjbzuwytnrldrwmf",
     },
   });
 
