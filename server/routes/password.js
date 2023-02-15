@@ -96,7 +96,7 @@ export const sendFrgPassOTP = async (request, response) => {
       requireTLS: true,
       auth: {
         user: "salondekhoo@gmail.com",
-        pass: "vbgjcawbzbithelw",
+        pass: "zjbzuwytnrldrwmf",
       },
     });
 
