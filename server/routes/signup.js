@@ -18,7 +18,7 @@ export const signup = async (request, response) => {
     }
 
     const isUserAccountExist = await UserCol.findOne({ email });
-
+console.log("exist or not",isUserAccountExist);
     if (!isUserAccountExist) {
       return response
         .status(401)
@@ -26,6 +26,7 @@ export const signup = async (request, response) => {
     }
 
     const salt = bcrypt.genSaltSync();
+    
     const secure = await bcrypt.hash(password, salt);
 
     const userDetails = { name, email, phone, password: secure };
