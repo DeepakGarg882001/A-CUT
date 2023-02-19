@@ -127,4 +127,14 @@
       .under-appointment-layout-row{
             min-width: 33%;
       }
+      .appointment-layout-row{
+            flex-direction: column;
+      }
+      .under-appointment-layout-row{
+            flex-direction: row;
+            justify-content: space-between;
+      }
+      .appointment-layout-address-sec{
+            justify-content: center;
+      }
 }

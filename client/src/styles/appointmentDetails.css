@@ -179,3 +179,8 @@
     background-color: aliceblue;
     text-decoration-style: none;
 }
+@media only screen and (max-width:599px){
+    .under-apnt-details-second-row{
+        display: none;
+    }
+}

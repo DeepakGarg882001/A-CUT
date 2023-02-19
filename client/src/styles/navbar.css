@@ -203,6 +203,9 @@
   .navbar-cpm-status {
       font-size: 0.7rem;
   }
+  .navbar-header-right{
+    display: none;
+  }
  
 
 }

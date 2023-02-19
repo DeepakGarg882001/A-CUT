@@ -1,140 +1,126 @@
- .choose_accunt{
-   width: 100vw;
-   height: auto;
-   min-height: 90vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-  }
-  
+.choose_accunt {
+  width: 100vw;
+  height: auto;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .choose{
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    min-width: 70vw;
-    min-height: 70vh;
-    width: auto;
-    height: auto;
-    padding: 5px 5px 40px 5px;
+.choose {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 70vw;
+  min-height: 70vh;
+  width: auto;
+  height: auto;
+  padding: 5px 5px 40px 5px;
+}
 
-  }
-  
-  .customer-signup{
-    width: 49vw;
-    height: auto;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .customer-signup-img{
-   
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 80%;
-  }
-  .customer-signup-text{
-    font-size: 2rem;
-    text-decoration: none;
-    font-weight: 800;
-    color: #f07467;
-    
-  }
-  .owner-signup-text{
-    font-size: 2rem;
-    text-decoration: none;
-    font-weight: 800;
-    color: #48a1a6;
-  }
-  .owner-signup{
-    width: 49vw;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .owner-signup-img{
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-  }
- #signupimg{
-    width:15vw;
-    height: 10vh;
-    border-radius: 10%;
-    margin-left: 2rem;
-
-  }   
-#do_regis{
+.customer-signup {
+  width: 49vw;
+  height: auto;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.customer-signup-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 80%;
+}
+.customer-signup-text {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: #f07467;
+}
+.owner-signup-text {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: #48a1a6;
+}
+.owner-signup {
+  width: 49vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.owner-signup-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+#signupimg {
+  width: 15vw;
+  height: 10vh;
+  border-radius: 10%;
+  margin-left: 2rem;
+}
+#do_regis {
   margin-top: 1.2rem;
   font-size: 1.5rem;
   text-decoration: none;
 }
-  @media only screen and (max-width:1100px){
-   
-       .usersignup ,.shopsignup{
-       
-        width: 25vw;
-        height: 20vh;
-      
-      } 
-      
-     #signupimg{
-        width:20vw;
-     margin-left: 1rem;
-    
-      }   
-    #do_regis{
-  
-      font-size: 1.2rem;
-    
-    }
+@media only screen and (max-width: 1100px) {
+  .usersignup,
+  .shopsignup {
+    width: 25vw;
+    height: 20vh;
   }
-  @media only screen and (max-width:700px){
-   
-    .usersignup ,.shopsignup{
-    
-     width: 28vw;
-   
-   } 
+
+  #signupimg {
+    width: 20vw;
+    margin-left: 1rem;
+  }
+  #do_regis {
+    font-size: 1.2rem;
+  }
 }
-@media only screen and (max-width:500px){
-  
-    .create{
-     font-size: 1.1rem;
-    }
-  
-    .choose{
-      margin-top: 1rem;
-      flex-direction:column;
-      margin-left: 1.4rem;
-      }
-    
-     .usersignup ,.shopsignup{
-    
-      width: 50vw;
-      height: 25vh;
-      margin-top: 2rem;
-    } 
-    
-   #signupimg{
-      width:38vw;
-      height: 25vh;
-       margin-left: 1.2rem;
-  
-    }   
-  #do_regis{
+@media only screen and (max-width: 700px) {
+  .usersignup,
+  .shopsignup {
+    width: 28vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .create {
+    font-size: 1.1rem;
+  }
+
+  .choose {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .usersignup,
+  .shopsignup {
+    width: 50vw;
+    height: 25vh;
+    margin-top: 2rem;
+  }
+
+  #signupimg {
+    width: 38vw;
+    height: 25vh;
+    margin-left: 1.2rem;
+  }
+  #do_regis {
     margin-top: 1.3rem;
     font-size: 1.2rem;
-   
   }
-} 
- 
-  
- 
+  .customer-signup-text p,.owner-signup-text p{
+    font-size: 1.2rem;
+    padding-top: .6rem;
+  }
+}

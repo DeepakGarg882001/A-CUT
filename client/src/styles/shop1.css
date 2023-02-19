@@ -1,16 +1,15 @@
-
-.shop-image-sec{
+.shop-image-sec {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.counter_no:hover{
+.counter_no:hover {
   background-color: antiquewhite;
   cursor: pointer;
 }
 
-.schedule-show-sec{
+.schedule-show-sec {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -22,11 +21,11 @@
   padding: 10px;
   gap: 8px;
 }
-.shop_details{
+.shop_details {
   height: 25vh;
   width: 30vw;
 }
-.schedule-sec-element{
+.schedule-sec-element {
   flex-shrink: 1;
   width: 160px;
   display: flex;
@@ -40,26 +39,26 @@
   color: #00000085;
   cursor: pointer;
 }
-.element-booked{
+.element-booked {
   opacity: 0.5;
   border: 0.8px solid red;
   color: red;
 }
-.element-selected{
+.element-selected {
   color: green;
   border: 0.8px solid green;
 }
-.schedule-element-text{
+.schedule-element-text {
   font-size: 0.88rem;
   font-weight: 600;
 }
-.shop-canvas-choose-date{
+.shop-canvas-choose-date {
   width: 17px;
   border: none;
   background-color: transparent;
   outline: none;
 }
-.service-selected{
+.service-selected {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,27 +66,28 @@
 .service-table table tr:nth-child(even) {
   background-color: #dddddd;
 }
-.service-selected .service-selected-shop{
+.service-selected .service-selected-shop {
   display: flex;
   align-items: center;
 }
-.service-selected .service-selected-shop input{
+.service-selected .service-selected-shop input {
   margin-bottom: 1rem;
 }
- .service-selected .service-selected-price{
+.service-selected .service-selected-price {
   display: flex;
   align-items: center;
-} 
-.service-table h3{
+}
+.service-table h3 {
   text-align: center;
-} 
+}
 .service-table table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-.service-table table tr .td, .th {
+.service-table table tr .td,
+.th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -96,39 +96,38 @@
 .service-table table tr:nth-child(even) {
   background-color: #dddddd;
 }
-.date{
+.date {
   background-color: white;
 }
-.service-btn button{
-     width: 20rem;
-   height: 3rem;
-    font-size: 1.2rem;
-     text-align: center;
-     border: none;
-     
- }
-.service-btn  :hover{
-background-color: #cfefef;
-cursor: pointer;
- } 
-.shop-date{
+.service-btn button {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border: none;
+}
+.service-btn :hover {
+  background-color: #cfefef;
+  cursor: pointer;
+}
+.shop-date {
   margin-top: 1.4rem;
   display: flex;
   justify-content: space-around;
 }
-.shop-date p{
+.shop-date p {
   display: flex;
 }
-.shop-date p input{
+.shop-date p input {
   font-size: 2rem;
 }
-.shop-counn{
+.shop-counn {
   width: 80%;
 }
-.shop-counn h3{
-text-align: center;
+.shop-counn h3 {
+  text-align: center;
 }
-.shop-coun{
+.shop-coun {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -136,68 +135,84 @@ text-align: center;
   padding: 1rem;
   width: 100%;
 }
-.counter_no{
+.counter_no {
   outline: none;
-  padding: .6rem;
+  padding: 0.6rem;
   border-radius: 1.4rem;
 }
 
-.shopinfo{
+.shopinfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   padding: 10px;
-
 }
-.shopinfo1{
+.shopinfo1 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.shopinfo1_shopdetials{
+.shopinfo1_shopdetials {
   text-align: center;
 }
-.shopinfo2{
+.shopinfo2 {
   text-align: center;
-  
 }
-.shopinfo3{
+.shopinfo3 {
   display: flex;
   justify-content: space-evenly;
-
 }
-.shopinfo4{
+.shopinfo4 {
   display: flex;
   justify-content: center;
   text-align: center;
-      background-color: white;
-      margin: 10px;
-
+  background-color: white;
+  /* margin: 10px; */
 }
-.shopinfo4_timeslot{
+.shopinfo4_timeslot {
   display: flex;
   flex-direction: column;
 }
-.shopinfo4_services{
+.shopinfo4_services {
   display: flex;
   flex-direction: column;
-    justify-content: space-evenly;
-    width: fit-content;
-    /* background-color: white; */
-
+  justify-content: space-evenly;
+  width: fit-content;
+  /* background-color: white; */
 }
- .shopinfo5{
+.shopinfo5 {
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
- }     
- .shopinfo4_services1{
+}
+.shopinfo4_services1 {
   width: 40rem;
   padding: 2rem;
- } 
- .shopinfo4_services2{
+}
+.shopinfo4_services2 {
   width: 40rem;
   padding: 2rem;
- } 
-
+}
+@media only screen and (max-width: 599px) {
+  .shopinfo1 .shopinfo_shopimg {
+    display: none;
+  }
+  .shopinfo4 {
+    flex-direction: column;
+  }
+  .shopinfo4_services1 {
+    width: 20rem;
+    padding: 1rem;
+  }
+  .shopinfo4_services2 {
+    width: 20rem;
+    padding: 1rem;
+  }
+  .shopinfo4_services1 h3{
+    font-size: 1.5rem;
+  }
+  .service-table h3{
+    font-size: 1.5rem;
+  }
+}

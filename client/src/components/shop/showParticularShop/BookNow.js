@@ -101,12 +101,12 @@ const BookNow = ({ shopData }) => {
             <table>
               <thead>
                 <tr>
-                  <th className="th">Services</th>
-                  <th className="th">Total Duration</th>
-                  <th className="th">Total Price</th>
-                  <th className="th">Time Slot</th>
-                  <th className="th">Date</th>
-                  <th className="th">Counter Number</th>
+                  <th style={{padding:'0px' }} className="th">Services</th>
+                  <th style={{padding:'0px' }} className="th">Total Duration</th>
+                  <th style={{padding:'0px' }} className="th">Total Price</th>
+                  <th style={{padding:'0px' }} className="th">Time Slot</th>
+                  <th style={{padding:'0px' }} className="th">Date</th>
+                  <th style={{padding:'0px' }} className="th">Counter Number</th>
                 </tr>
               </thead>
               <tbody>
