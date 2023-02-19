@@ -66,7 +66,7 @@ const AppointmentLayout = ({ data, number }) => {
             <p className="appointment-layout-data-text">{data.counter_number} </p>
           </div>
           <div className="under-appointment-layout-row">
-            <p className="appointment-layout-heading">Services </p>
+            <p className="appointment-layout-heading">Services{"->"} </p>
             <span className="appointment-layout-services">
             {data.services.map((data, index) => {
               return (

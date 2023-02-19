@@ -1,57 +1,80 @@
- .email-verify-canvas{
-      width: 100vw; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center;
-      min-height: 90vh;
-      background-color: white;
-      justify-content: center;
-    
-}  
-.email_verfiy{
-      display: flex;
-      flex-direction: column;
+.email-verify-canvas {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 90vh;
+  background-color: white;
+  justify-content: center;
+}
+.email-vfy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.email_verfiy {
+  display: flex;
+  flex-direction: column;
+}
+.email-verify-canvas img {
+  animation-name: rotate4;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  position: relative;
+  border-radius: 1rem;
+}
 
-}
-.email-verify-canvas img{
-      animation-name: rotate4;
-      animation-duration: 5s;
-      animation-iteration-count: 1;
-      animation-delay: 2s;
-      position: relative;
-      border-radius: 1rem;
-}
- 
 @keyframes rotate4 {
-      0%   { left:-400px; top:0px;}
-      25%  { left:0px; top:0px;}
-      50%  { left:400px; top:0px;}
-      75%  { left:0px; top:0px;}
+  0% {
+    left: -400px;
+    top: 0px;
+  }
+  25% {
+    left: 0px;
+    top: 0px;
+  }
+  50% {
+    left: 400px;
+    top: 0px;
+  }
+  75% {
+    left: 0px;
+    top: 0px;
+  }
+}
+.mail_button {
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  width: 36vw;
+  height: 5vh;
+  border: 3px solid gray;
+}
 
-    }
-.mail_button{
-      font-size: 1rem;
-      text-align: center; 
-      border-radius: .5rem;
-      margin-left: 2rem;
-    width: 42vw;
-    height: 5vh;
+.mail_button1 {
+  font-size: 3rem;
+  text-align: center;
 }
-.mail_button1{
-      font-size: 3rem;
-      text-align: center; 
-     
+.mail_otp {
+  width: 10vw;
+  height: 5vh;
+  margin: 1rem;
+  /* margin-left: 15rem; */
+  border: none;
+  text-align: center;
+  background-color: rgb(221, 207, 201);
 }
-.mail_otp{
-      width: 10vw;
-      height: 5vh;
-      margin: 1rem;
-      margin-left: 15rem;
-      border: none;
-      text-align: center;
-      background-color: rgb(221, 207, 201);
+.mail_otp:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
-.mail_otp:hover{
-      background-color: aqua;
-      cursor: pointer;
+@media only screen and (max-width: 500px) {
+  .mail_button1 span {
+    font-size: 1.6rem;
+  }
+  .mail_button {
+    width: 85vw;
+  }
 }

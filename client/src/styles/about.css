@@ -1,16 +1,13 @@
-.aboutUS-canvas{
+.aboutUS-canvas {
   display: flex;
   flex-direction: column;
   width: 100vw;
   min-height: 90vh;
-
-  
 }
 .about {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
 }
 .about_main {
   text-align: center;
@@ -37,22 +34,20 @@
   font-size: 1.2rem;
   color: black;
   font-family: fantasy;
-
 }
-
 
 .team_main {
   text-align: center;
   color: black;
   font-size: 2rem;
- font-weight: bolder;
- margin-bottom: 1rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
 }
 
 .team_inner {
   display: flex;
-/* justify-items: space-between; */
-justify-content: space-evenly;
+  /* justify-items: space-between; */
+  justify-content: space-evenly;
 }
 .team_member {
   width: 25vw;
@@ -63,11 +58,10 @@ justify-content: space-evenly;
   box-shadow: 20px 20px 50px grey;
 
   font-weight: bold;
-   border-radius: 1rem;  
+  border-radius: 1rem;
 }
-#member_details{
+#member_details {
   cursor: pointer;
-
 }
 #team_img {
   border-radius: 1rem;
@@ -75,9 +69,7 @@ justify-content: space-evenly;
   height: 36vh;
 }
 
-
-
-#about_icon{
+#about_icon {
   margin-left: 1rem;
   text-decoration: none;
   font-size: 1.8rem;
@@ -85,19 +77,13 @@ justify-content: space-evenly;
   cursor: pointer;
 }
 
-
 #about_icon:after {
-	display: none;
+  display: none;
 }
 
 #about_icon:hover {
-	color: #25d033;
- 
+  color: #25d033;
 }
-
-
-
-
 
 @media only screen and (max-width: 600px) {
   .about {
@@ -114,60 +100,55 @@ justify-content: space-evenly;
   .about .about-content {
     width: 90%;
     margin-top: 20px;
-    padding: 1rem .2rem;
+    padding: 1rem 0.2rem;
   }
-  .about-content p{
+  .about-content p {
     font-size: 1rem;
     font-size: 1rem;
     margin: -6px -4.5rem;
     width: 100%;
   }
-  .about_main{
+  .about_main {
     font-size: 1.5rem;
   }
-  
- 
-  .team_main{
+
+  .team_main {
     margin-top: 1rem;
   }
-   #team_heading{
+  #team_heading {
     font-size: 1.5rem;
   }
-  .team_inner{
+  .team_inner {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 3rem;
-    width: 80%;
-  
+    /* margin-right: 3rem;
+    width: 80%; */
   }
-  .team_member{
+  .team_member {
     width: 90%;
     height: auto;
     font-size: 1.5rem;
-      box-shadow: 5px 5px 2.5px lightblue inset;
+    box-shadow: 5px 5px 2.5px lightblue inset;
+    margin-bottom: 1rem;
+  }
 
-  }
- 
   #team_img {
-    border-radius: .5rem;
-    width: 50vw;
-    height: 25vh;
+    border-radius: 0.5rem;
+    width: 80vw;
+    height: 40vh;
   }
-  
-  #about_icon{
+
+  #about_icon {
     margin-left: 1rem;
     text-decoration: none;
     font-size: 1.8rem;
     color: white;
     padding: 1px;
   }
-  #about_icon:hover{
+  #about_icon:hover {
     color: blue;
-   
   }
-
-  
 }
 @media only screen and (max-height: 600px) {
   .about {
@@ -184,58 +165,51 @@ justify-content: space-evenly;
   .about .about-content {
     width: 90%;
     margin-top: 20px;
-    padding: 1rem .2rem;
+    padding: 1rem 0.2rem;
   }
-  .about-content p{
+  .about-content p {
     font-size: 1rem;
     font-size: 1rem;
     margin: -6px -4.5rem;
     width: 100%;
   }
-  .about_main{
+  .about_main {
     font-size: 1.5rem;
   }
-  .team_main{
+  .team_main {
     margin-top: 1rem;
   }
-   #team_heading{
+  #team_heading {
     font-size: 1.3rem;
   }
-  .team_inner{
+  .team_inner {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-right: 3rem;
     width: 80%;
-  
   }
-  .team_member{
+  .team_member {
     width: 90%;
     height: auto;
     font-size: 1.5rem;
-      box-shadow: 5px 5px 2.5px lightblue inset;
-
+    box-shadow: 5px 5px 2.5px lightblue inset;
   }
- 
+
   #team_img {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     width: 50vw;
     height: 50vh;
   }
-  
-  #about_icon{
+
+  #about_icon {
     margin-left: 1rem;
     text-decoration: none;
     font-size: 1.8rem;
     color: white;
     padding: 1px;
   }
-  #about_icon:hover{
+  #about_icon:hover {
     color: blue;
-   
   }
-
-  
 }
-
-

@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import "../../styles/emailverify.css";
 import logo from "../../Assets/logo.png";
 import { useParams, useNavigate } from "react-router-dom";
@@ -65,16 +65,15 @@ const EmailVerify = () => {
     }
   };
 
-  useEffect(()=>{
-    window.scrollTo({top:0,behavior:"smooth"});
-  },[]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
       <div className="email-verify-canvas">
         <div>
           <img src={logo} alt="wait" />
-
         </div>
 
         <Formik
@@ -85,30 +84,31 @@ const EmailVerify = () => {
             resetForm();
           }}
         >
-       
-            <Form >
-              <div >
-                <div className="email_verfiy">
-                  <label className="mail_button1">Enter Your Email Address</label>
-
-                </div>
-                <div >
-                  <Field type="email" name="email" className="mail_button" placeholder="enter your valid mail" />
-                  <p>
-                    <ErrorMessage name="email" />
-                  </p>
-                </div>
-
+          <Form>
+            <div className="email-vfy">
+              <div className="email_verfiy">
+                <label className="mail_button1">
+                  <span>Enter Your Email Address</span>
+                </label>
               </div>
-
-
-
-          <div>
-            <button type="submit" className="mail_otp">Next</button>
-          </div>
-        </Form>
-      </Formik>
-    </div>
+              <div>
+                <Field
+                  type="email"
+                  name="email"
+                  className="mail_button"
+                  placeholder="enter your valid mail"
+                />
+                <p>
+                  <ErrorMessage name="email" />
+                </p>
+              </div>
+              <button type="submit" className="mail_otp">
+                Next
+              </button>
+            </div>
+          </Form>
+        </Formik>
+      </div>
     </>
   );
 };

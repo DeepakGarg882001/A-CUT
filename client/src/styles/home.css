@@ -52,9 +52,12 @@
 }
 
 .individual {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin: 10px; */
 } 
 
 
@@ -84,9 +87,11 @@ text-decoration: none;
 .services_home a {
     text-decoration: none;
 }
+.home_avaliable_shop{
+    margin: 2rem 0;
+}
 
-
-@media only screen and (max-width:599px) and (min-width:360px) {
+@media only screen and (max-width:599px) {
     .Work-flow h2 {
         text-align: center;
     }
@@ -105,16 +110,15 @@ text-decoration: none;
     }
 
     .individual {
-        width: 100%;
         flex-direction: column;
         align-items: center;
-
+    
     }
 
     .individual-shop {
-        width: 80%;
+        width: 90%;
         height: 50vh;
-        margin: 1rem 0;
+        /* margin: 1rem 0; */
 
     }
 
@@ -140,13 +144,18 @@ text-decoration: none;
         margin-top: 2rem;
     }
     .home1 img{
-        width: 100%;
+        width: 90%;
     }
     .home2{
         align-items: center;
     }
+    .home2 .home_contain{
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
     .home2 .home_logo img{
-        width: 100%;
+        /* width: 100%; */
+        display: none;
     }
     .individual-shop img{
         width: 40vw;
